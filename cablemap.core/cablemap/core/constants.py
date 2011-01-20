@@ -38,15 +38,6 @@ This module provides some global constants.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
-
-PSI_BASE = u'http://psi.metaleaks.org/'
-
-PSI_WP = u'http://en.wikipedia.org/wiki/'
-
-PSI_CABLE_BASE = PSI_BASE + u'cable/'
-TYPE_CABLE = PSI_BASE + u'diplomatic-cable'
-PSI_TAG_BASE = PSI_BASE + u'tag/'
-
 MIN_ORIGIN_LENGTH = len(u'ROME')
 MAX_ORIGIN_LENGTH = len(u'BANDARSERIBEGAWAN')
 

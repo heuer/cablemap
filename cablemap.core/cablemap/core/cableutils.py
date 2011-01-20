@@ -40,7 +40,9 @@ Utility functions for cables.
 """
 import re
 from functools import partial
-from urllib import FancyURLopener
+from StringIO import StringIO
+import gzip
+import urllib2
 try:
     import simplejson as json
 except ImportError:
@@ -54,10 +56,19 @@ except ImportError:
             pass #TODO: Exception?
 
 
-class URLOpener(FancyURLopener):
-    version = 'CablemapBot/1.0'
+class _Request(urllib2.Request):
+    def __init__(self, url):
+        urllib2.Request.__init__(self, url, headers={'User-Agent': 'CablemapBot/1.0', 'Accept-Encoding': 'gzip, identity'})
 
-urlopen = URLOpener().open
+def _fetch_url(url):
+    """\
+    Returns the content of the provided URL.
+    """
+    resp = urllib2.urlopen(_Request(url))
+    if resp.info().get('Content-Encoding') == 'gzip':
+        return gzip.GzipFile(fileobj=StringIO(resp.read())).read().decode('utf-8')
+    return resp.read().decode('utf-8')
+    
 
 _BASE = 'http://wikileaks.ch/'
 _INDEX = _BASE + 'cablegate.html'
@@ -67,6 +78,8 @@ _CABLE_ID_PATTERN = re.compile('([0-9]{2})([A-Z]+)([0-9]+)')
 _LINKS_PATTERN = re.compile(r"<a href='(.+?)'\s*>")
 _PAGINATOR_PATTERN = re.compile('''<div\s+class=(?:"|')paginator(?:"|')\s*>(.+?)</div>''')
 _PAGE_PATTERN = re.compile(r'''<a[ ]+href=(?:"|')([^"']+)(?:"|')>[2-9]+</a>''')
+_BY_DATE_PATTERN = re.compile(r'''<div\s+class=(?:"|')sort(?:"|')\s+id=(?:"|')year_1966(?:"|')>(.+?)<h3>Browse\s+by\s+<a\s+href=(?:"|')#by_A''', re.DOTALL)
+
 
 def cable_page_by_id(reference_id):
     """\
@@ -92,18 +105,22 @@ def cable_page_by_id(reference_id):
             year = 1900 + y
         return year
     def get_html_page(link, link_finder):
-        pg = urlopen(_BASE + link).read()
+        pg = _fetch_url(_BASE + link)
         pg = pg[pg.rindex('pane big'):pg.rindex('</table>')]
         m = link_finder(pg)
         if m:
-            return True, urlopen(_BASE + m.group(1)).read().decode('utf-8')
+            return True, _fetch_url(_BASE + m.group(1))
         return False, pg
     m = _CABLE_ID_PATTERN.match(reference_id)
     if not m:
         return None
     year = normalize_year(m.group(1))
-    index = urlopen(_INDEX).read()
-    index = index[index.rindex('''<div class='sort' id='year_1966'>'''):index.rindex('''<h3>Browse by <a href='#by_A''')]
+    index = _fetch_url(_INDEX)
+    by_date_m = _BY_DATE_PATTERN.search(index)
+    if by_date_m:
+        index = by_date_m.group(1)
+    else:
+        return None
     p = re.compile(r"<div.+?id='year_%s'.*?>(.+?)</div>" % year, re.DOTALL)
     m = p.search(index)
     if not m:

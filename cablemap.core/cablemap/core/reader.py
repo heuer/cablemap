@@ -32,7 +32,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 """\
-This module provides models to keep data about cables.
+This module extracts information from cables.
 
 :author:       Lars Heuer (heuer[at]semagia.com)
 :organization: Semagia - <http://www.semagia.com/>

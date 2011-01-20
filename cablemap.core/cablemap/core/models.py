@@ -64,7 +64,6 @@ class Cable(object):
         self.created = None
         self.released = None
         self.tags = []
-        self._attrs = {}
         self._wl_links = []
         self.partial = False
         self.nondisclosure_deadline = None
@@ -113,4 +112,4 @@ class Cable(object):
                     classification='//'.join(self.classification)
                     )
 
-    wl_uris = property(_get_wl_links)
+    wl_uris = property(_get_wl_links, doc='Returns IRIs to the cable at Wikileaks (mirrors)')

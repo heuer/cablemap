@@ -52,8 +52,21 @@ _WL_CABLE_BASE_URIS = (
 class Cable(object):
     """\
     Holds data about a cable.
+
+    >>> cable = Cable('something')
+    >>> cable.reference_id
+    'something'
+    >>> cable.wl_uris
+    Traceback (most recent call last):
+    ...
+    Exception: The "created" property must be provided
+    >>> cable.created = '2011-07-12 12:12:00'
+    >>> cable.wl_uris
+    ['http://wikileaks.ch/cable/2011/07/something', 'http://wikileaks.ch/cable/2011/07/something.html', 'http://cablegate.wikileaks.org/cable/2011/07/something', 'http://cablegate.wikileaks.org/cable/2011/07/something.html', 'http://213.251.145.96/cable/2011/07/something', 'http://213.251.145.96/cable/2011/07/something.html']
     """
     def __init__(self, reference_id):
+        if not reference_id:
+            raise TypeError('The reference id must be provided')
         self.reference_id = reference_id
         self.transmission_id = None
         self.origin = None
@@ -77,6 +90,8 @@ class Cable(object):
             date, time = d.split()
             return date.split('-')[:2]
         if not self._wl_links:
+            if not self.created:
+                raise Exception('The "created" property must be provided')
             year, month = year_month(self.created)
             l = '%s/%s/%s' % (year, month, self.reference_id)
             html = l + '.html'
@@ -113,3 +128,8 @@ class Cable(object):
                     )
 
     wl_uris = property(_get_wl_links, doc='Returns IRIs to the cable at Wikileaks (mirrors)')
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()

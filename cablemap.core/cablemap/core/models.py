@@ -59,7 +59,7 @@ class Cable(object):
     >>> cable.wl_uris
     Traceback (most recent call last):
     ...
-    Exception: The "created" property must be provided
+    ValueError: The "created" property must be provided
     >>> cable.created = '2011-07-12 12:12:00'
     >>> cable.wl_uris
     ['http://wikileaks.ch/cable/2011/07/something', 'http://wikileaks.ch/cable/2011/07/something.html', 'http://cablegate.wikileaks.org/cable/2011/07/something', 'http://cablegate.wikileaks.org/cable/2011/07/something.html', 'http://213.251.145.96/cable/2011/07/something', 'http://213.251.145.96/cable/2011/07/something.html']
@@ -91,7 +91,7 @@ class Cable(object):
             return date.split('-')[:2]
         if not self._wl_links:
             if not self.created:
-                raise Exception('The "created" property must be provided')
+                raise ValueError('The "created" property must be provided')
             year, month = year_month(self.created)
             l = '%s/%s/%s' % (year, month, self.reference_id)
             html = l + '.html'

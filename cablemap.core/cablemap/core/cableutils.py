@@ -142,7 +142,7 @@ def cable_page_by_id(reference_id):
 
 def _json_or_yaml(fn, cable, metaonly=False, include_summary=True):
     dct = {}
-    dct.update((k, v) for k, v in cable.to_dict().iteritems() if v is not None)
+    dct.update((k, v) for k, v in cable.to_dict().iteritems() if v or v in (False, True))
     if metaonly:
         dct.pop('header', None)
         dct.pop('body', None)

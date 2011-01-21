@@ -49,6 +49,7 @@ setup(
       description = 'Cablemap - Cablegate Utilities',
       long_description = '\n\n'.join([open('README.txt').read()]),
       author = 'Lars Heuer',
+      url = 'https://github.com/heuer/cablemap',
       license = 'BSD',
       packages = find_packages(),
       namespace_packages = ['cablemap'],

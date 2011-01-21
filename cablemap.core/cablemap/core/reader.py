@@ -122,7 +122,6 @@ def cable_from_file(filename):
         reference_id = filename[slash_idx:]
     return cable_from_html(html, reference_id)
 
-
 def cable_from_html(html, reference_id):
     """\
     Returns a cable from the provided HTML page.
@@ -162,7 +161,6 @@ def cable_from_html(html, reference_id):
     cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
     cable.summary = parse_summary(content_body or content, reference_id)
     return cable
-
 
 def fix_html_content(content, reference_id):
     """\
@@ -223,6 +221,7 @@ def _clean_html(html):
     content = _LINK_PATTERN.sub(u'', content)
     content = _HTML_TAG_PATTERN.sub(u'', content)
     return content
+
 
 _CLASSIFIED_BY_PATTERN = re.compile(r'Classified[ ]+by[^\n]+', re.IGNORECASE)
 _FIRST_PARAGRAPH_PATTERN = re.compile(r'\n1. ')
@@ -408,7 +407,9 @@ def _route_for_name(name):
         res = NAME2ROUTE.get(name.replace('WASHDC', 'WASHINGTON DC'), None)
     return res
 
+
 _REC_PATTERN = re.compile(r'([A-Z]+/)?([A-Z -]{2,})(?:.*$)', re.MULTILINE|re.UNICODE)
+
 def _route_recipient_from_header(header, reference_id):
     res = []
     for route, recipient in _REC_PATTERN.findall(header):
@@ -434,7 +435,9 @@ def _route_recipient_from_header(header, reference_id):
             res.append((route, recipient))
     return res
 
+
 _TO_PATTERN = re.compile(r'(?:\nTO\s+)(.+?)(?=INFO|\Z)', re.DOTALL|re.UNICODE)
+
 def parse_recipients(header, reference_id):
     """\
     Returns the recipients of the cable as (maybe empty) list.
@@ -444,6 +447,7 @@ def parse_recipients(header, reference_id):
         raise Exception('No TO header found in "%s"' % header)
     to_header = m.group(1)
     return _route_recipient_from_header(to_header, reference_id)
+
 
 _INFO_PATTERN = re.compile(r'(?:\nTO\s+.+?\nINFO\s+)(.+?)(?=\Z)', re.DOTALL|re.UNICODE)
 
@@ -615,7 +619,6 @@ def parse_nondisclosure_deadline(content):
     else:
         year, month, day = p2.split('/')
     return u'%s-%s-%s' % (year, month, day)
-
 
 
 _MONTHS = (

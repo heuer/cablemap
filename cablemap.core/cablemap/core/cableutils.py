@@ -195,6 +195,35 @@ def cable_to_json(cable, metaonly=False, include_summary=True):
     """
     return _json_or_yaml(json.dumps, cable, metaonly, include_summary)
 
+def cable_from_json(src):
+    """\
+    Returns a cable from a JSON string.
+    
+    `src`
+        Either a string or a file-like object.
+
+    >>> from models import Cable
+    >>> cable = Cable('something')
+    >>> s = cable_to_json(cable)
+    >>> cable2 = cable_from_json(s)
+    >>> cable2.reference_id == cable.reference_id
+    True
+    >>> cable.subject = 'Subject'
+    >>> s = cable_to_json(cable)
+    >>> cable2 = cable_from_json(s)
+    >>> cable2.subject == cable.subject
+    True
+    >>> from StringIO import StringIO
+    >>> cable3 = cable_from_json(StringIO(s))
+    >>> cable3.subject == cable.subject
+    True
+    >>> cable3.reference_id == cable.reference_id
+    True
+    """
+    import models
+    dct = hasattr(src, 'read') and json.load(src) or json.loads(src)
+    return models.Cable.from_dict(dct)
+
 def cable_to_yaml(cable, metaonly=False, include_summary=True):
     """\
     Returns a YAML representation of the provided `cable`.

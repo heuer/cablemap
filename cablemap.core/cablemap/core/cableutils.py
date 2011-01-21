@@ -156,6 +156,9 @@ def cable_to_json(cable, metaonly=False, include_summary=True):
     `metaonly`
         Indicates if the header, body and other content-related information
         should be omitted (``False`` by default)
+    `include_summary`
+        Indicates if the summary belongs to the metadata (``True`` by default)
+        This parameter has only an effect if `metaonly` is set to ``True``
 
     >>> from models import Cable
     >>> cable = Cable('something')
@@ -196,6 +199,9 @@ def cable_to_yaml(cable, metaonly=False, include_summary=True):
     `metaonly`
         Indicates if the header, body and other content-related information
         should be omitted (``False`` by default)
+    `include_summary`
+        Indicates if the summary belongs to the metadata (``True`` by default)
+        This parameter has only an effect if `metaonly` is set to ``True``
 
     >>> from models import Cable
     >>> cable = Cable('something')

@@ -63,6 +63,25 @@ class Cable(object):
     >>> cable.created = '2011-07-12 12:12:00'
     >>> cable.wl_uris
     ['http://wikileaks.ch/cable/2011/07/something', 'http://wikileaks.ch/cable/2011/07/something.html', 'http://cablegate.wikileaks.org/cable/2011/07/something', 'http://cablegate.wikileaks.org/cable/2011/07/something.html', 'http://213.251.145.96/cable/2011/07/something', 'http://213.251.145.96/cable/2011/07/something.html']
+    >>> cable.summary is None
+    True
+    >>> d = cable.to_dict()
+    >>> d['summary']
+    Traceback (most recent call last):
+    ...
+    KeyError: 'summary'
+    >>> cable.summary = 'Summary'
+    >>> d = cable.to_dict()
+    >>> d['summary']
+    'Summary'
+    >>> d = cable.to_dict(omit_summary=True)
+    >>> d.get('summary') is None
+    True
+    >>> cable.summary = None
+    >>> d['summary']
+    Traceback (most recent call last):
+    ...
+    KeyError: 'summary'
     """
     def __init__(self, reference_id):
         if not reference_id:
@@ -76,6 +95,8 @@ class Cable(object):
         self.subject = None
         self.created = None
         self.released = None
+        self.header=None
+        self.content=None
         self.tags = []
         self._wl_links = []
         self.partial = False
@@ -103,22 +124,19 @@ class Cable(object):
     def __unicode__(self):
         return self.reference_id
 
-    def to_dict(self):
+    def to_dict(self, omit_header=False, omit_body=False, omit_summary=False):
         """\
         Returns a dict representation.
 
         The returned dict should be compatible to the
         key/value structure of the JSON format of <http://www.leakfeed.com/>
         """
-        return dict(
+        dct = dict(
                     identifier=self.reference_id,
                     tags=self.tags,
                     created=self.created,
                     released=self.released,
                     subject=self.subject,
-                    summary=self.summary,
-                    header=self.header,
-                    body=self.content,
                     origin=self.origin,
                     references=self.references,
                     recipients=self.recipients,
@@ -126,6 +144,13 @@ class Cable(object):
                     partial=self.partial,
                     classification='//'.join(self.classification)
                     )
+        if not omit_summary and self.summary:
+            dct.update({'summary': self.summary})
+        if not omit_header and self.header:
+            dct.update({'header': self.header})
+        if not omit_body and self.content:
+            dct.update({'body': self.content})
+        return dct
 
     wl_uris = property(_get_wl_links, doc='Returns IRIs to the cable at Wikileaks (mirrors)')
 

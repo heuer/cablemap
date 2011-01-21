@@ -75,13 +75,12 @@ class Cable(object):
     >>> d['summary']
     'Summary'
     >>> d = cable.to_dict(omit_summary=True)
-    >>> d.get('summary') is None
-    True
+    >>> 'summary' in d
+    False
     >>> cable.summary = None
-    >>> d['summary']
-    Traceback (most recent call last):
-    ...
-    KeyError: 'summary'
+    >>> d = cable.to_dict()
+    >>> 'summary' in d
+    False
     """
     def __init__(self, reference_id):
         if not reference_id:
@@ -130,6 +129,18 @@ class Cable(object):
 
         The returned dict should be compatible to the
         key/value structure of the JSON format of <http://www.leakfeed.com/>
+
+        >>> cable = Cable('something')
+        >>> dct = cable.to_dict()
+        >>> 'body' in dct
+        False
+        >>> cable.content = 'Content'
+        >>> dct = cable.to_dict()
+        >>> dct['body'] == 'Content'
+        True
+        >>> dct = cable.to_dict(omit_body=True)
+        >>> 'body' in dct
+        False
         """
         dct = dict(
                     identifier=self.reference_id,

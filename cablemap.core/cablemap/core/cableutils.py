@@ -141,8 +141,10 @@ def cable_page_by_id(reference_id):
     return None
 
 def _json_or_yaml(fn, cable, metaonly=False, include_summary=True):
-    if metaonly or include_summary:
-        return fn(cable.to_dict(cable.to_dict(omit_header=metaonly, omit_body=metaonly, omit_summary=not include_summary)))
+    if metaonly:
+        return fn(cable.to_dict(omit_header=metaonly,
+                                omit_body=metaonly,
+                                omit_summary=not include_summary))
     return fn(cable.to_dict())
 
 def cable_to_json(cable, metaonly=False, include_summary=True):
@@ -161,8 +163,29 @@ def cable_to_json(cable, metaonly=False, include_summary=True):
     >>> dct = json.loads(js)
     >>> dct['identifier'] == 'something'
     True
-    >>> dct.get('summary') is None
+    >>> 'summary' in dct
+    False
+    >>> cable.summary = 'Summary'
+    >>> js = cable_to_json(cable)
+    >>> dct = json.loads(js)
+    >>> 'summary' in dct
     True
+    >>> dct['summary'] == 'Summary'
+    True
+    >>> cable.content = 'Content'
+    >>> dct = json.loads(cable_to_json(cable))
+    >>> 'body' in dct
+    True
+    >>> dct = json.loads(cable_to_json(cable, metaonly=True))
+    >>> 'body' in dct
+    False
+    >>> 'summary' in dct
+    True
+    >>> dct = json.loads(cable_to_json(cable, metaonly=True, include_summary=False))
+    >>> 'body' in dct
+    False
+    >>> 'summary' in dct
+    False
     """
     return _json_or_yaml(json.dumps, cable, metaonly, include_summary)
 
@@ -181,7 +204,14 @@ def cable_to_yaml(cable, metaonly=False, include_summary=True):
     >>> dct = yaml.load(yml)
     >>> dct['identifier'] == 'something'
     True
-    >>> dct.get('summary') is None
+    >>> 'summary' in dct
+    False
+    >>> cable.summary = 'Summary'
+    >>> yml = cable_to_yaml(cable)
+    >>> dct = yaml.load(yml)
+    >>> 'summary' in dct
+    True
+    >>> dct['summary'] == 'Summary'
     True
     """
     import yaml

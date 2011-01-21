@@ -32,8 +32,6 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 import os
-import sys
-import re
 try:
     from setuptools import setup, find_packages
 except ImportError:
@@ -51,6 +49,7 @@ setup(
       description = 'Cablemap - Cablegate Utilities',
       long_description = '\n\n'.join([open('README.txt').read()]),
       author = 'Lars Heuer',
+      url = 'https://github.com/heuer/cablemap',
       license = 'BSD',
       packages = find_packages(),
       namespace_packages = ['cablemap'],

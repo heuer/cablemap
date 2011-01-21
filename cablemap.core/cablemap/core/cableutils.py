@@ -141,11 +141,14 @@ def cable_page_by_id(reference_id):
     return None
 
 def _json_or_yaml(fn, cable, metaonly=False, include_summary=True):
+    dct = {}
+    dct.update((k, v) for k, v in cable.to_dict().iteritems() if v is not None)
     if metaonly:
-        return fn(cable.to_dict(omit_header=metaonly,
-                                omit_body=metaonly,
-                                omit_summary=not include_summary))
-    return fn(cable.to_dict())
+        dct.pop('header', None)
+        dct.pop('body', None)
+        if not include_summary:
+            dct.pop('summary', None)
+    return fn(dct)
 
 def cable_to_json(cable, metaonly=False, include_summary=True):
     """\

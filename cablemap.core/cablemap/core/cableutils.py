@@ -140,24 +140,57 @@ def cable_page_by_id(reference_id):
                 return page
     return None
 
-def cable_to_json(cable):
+def _json_or_yaml(fn, cable, metaonly=False, include_summary=True):
+    if metaonly or include_summary:
+        return fn(cable.to_dict(cable.to_dict(omit_header=metaonly, omit_body=metaonly, omit_summary=not include_summary)))
+    return fn(cable.to_dict())
+
+def cable_to_json(cable, metaonly=False, include_summary=True):
     """\
     Returns a JSON representation of the provided `cable`.
 
     It uses the format of <http://www.leakfeed.com/>_ plus some extensions.
-    """
-    return json.dumps(cable.to_dict())
 
-def cable_to_yaml(cable):
+    `metaonly`
+        Indicates if the header, body and other content-related information
+        should be omitted (``False`` by default)
+
+    >>> from models import Cable
+    >>> cable = Cable('something')
+    >>> js = cable_to_json(cable)
+    >>> dct = json.loads(js)
+    >>> dct['identifier'] == 'something'
+    True
+    >>> dct.get('summary') is None
+    True
+    """
+    return _json_or_yaml(json.dumps, cable, metaonly, include_summary)
+
+def cable_to_yaml(cable, metaonly=False, include_summary=True):
     """\
     Returns a YAML representation of the provided `cable`.
+
+    `metaonly`
+        Indicates if the header, body and other content-related information
+        should be omitted (``False`` by default)
+
+    >>> from models import Cable
+    >>> cable = Cable('something')
+    >>> yml = cable_to_yaml(cable)
+    >>> import yaml
+    >>> dct = yaml.load(yml)
+    >>> dct['identifier'] == 'something'
+    True
+    >>> dct.get('summary') is None
+    True
     """
     import yaml
     try:
         from yaml import CDumper as Dumper
     except ImportError:
         from yaml import Dumper
-    return yaml.dump(cable.to_dict(), Dumper=Dumper)
+    to_yaml = partial(yaml.dump, Dumper=Dumper)
+    return _json_or_yaml(to_yaml, cable, metaonly, include_summary)
 
 
 if __name__ == '__main__':

@@ -66,21 +66,12 @@ class Cable(object):
     >>> cable.summary is None
     True
     >>> d = cable.to_dict()
-    >>> d['summary']
-    Traceback (most recent call last):
-    ...
-    KeyError: 'summary'
+    >>> d['summary'] is None
+    True
     >>> cable.summary = 'Summary'
     >>> d = cable.to_dict()
     >>> d['summary']
     'Summary'
-    >>> d = cable.to_dict(omit_summary=True)
-    >>> 'summary' in d
-    False
-    >>> cable.summary = None
-    >>> d = cable.to_dict()
-    >>> 'summary' in d
-    False
     """
     def __init__(self, reference_id):
         if not reference_id:
@@ -123,26 +114,14 @@ class Cable(object):
     def __unicode__(self):
         return self.reference_id
 
-    def to_dict(self, omit_header=False, omit_body=False, omit_summary=False):
+    def to_dict(self):
         """\
         Returns a dict representation.
 
         The returned dict should be compatible to the
         key/value structure of the JSON format of <http://www.leakfeed.com/>
-
-        >>> cable = Cable('something')
-        >>> dct = cable.to_dict()
-        >>> 'body' in dct
-        False
-        >>> cable.content = 'Content'
-        >>> dct = cable.to_dict()
-        >>> dct['body'] == 'Content'
-        True
-        >>> dct = cable.to_dict(omit_body=True)
-        >>> 'body' in dct
-        False
         """
-        dct = dict(
+        return dict(
                     identifier=self.reference_id,
                     tags=self.tags,
                     created=self.created,
@@ -153,15 +132,11 @@ class Cable(object):
                     recipients=self.recipients,
                     info=self.info_recipients,
                     partial=self.partial,
-                    classification='//'.join(self.classification)
+                    classification='//'.join(self.classification),
+                    summary=self.summary,
+                    header=self.header,
+                    body=self.content,
                     )
-        if not omit_summary and self.summary:
-            dct.update({'summary': self.summary})
-        if not omit_header and self.header:
-            dct.update({'header': self.header})
-        if not omit_body and self.content:
-            dct.update({'body': self.content})
-        return dct
 
     wl_uris = property(_get_wl_links, doc='Returns IRIs to the cable at Wikileaks (mirrors)')
 

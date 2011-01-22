@@ -39,13 +39,9 @@ except ImportError:
     use_setuptools()
     from setuptools import setup, find_packages
 
-f = open(os.path.join(os.path.dirname(__file__), 'VERSION.txt'))
-VERSION = f.readline()
-f.close()
-
 setup(
       name = 'cablemap.core',
-      version = VERSION,
+      version = '0.1.0',
       description = 'Cablemap - Cablegate Utilities',
       long_description = '\n\n'.join([open('README.txt').read()]),
       author = 'Lars Heuer',

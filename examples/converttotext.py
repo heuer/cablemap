@@ -11,7 +11,7 @@ def cable_to_text(cable, include_header):
     Returns the header/content of the cable as text.
     """
     if include_header:
-        return '\n\n'.join(cable.header, cable.content)
+        return u'\n\n'.join(cable.header, cable.content)
     return cable.content
 
 def generate_text_files(in_dir, out_dir, include_header=False):

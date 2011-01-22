@@ -12,8 +12,8 @@ from cablemap.core.cableutils import cable_to_json
 
 def generate_json_files(in_dir, out_dir):
     """\
-    Walks through the `in_dir` and generates text versions of
-    the cables in the `out_dir`.
+    Walks through the `in_dir` and translates cables to JSON
+    in the `out_dir`.
     """
     for root, dirs, files in os.walk(in_dir):
         for name in [n for n in files if '.html' in n]:

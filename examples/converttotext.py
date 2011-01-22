@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """\
-This module provides utility functions to convert cable(s)
-to text.
+This module converts cable(s) to text.
+
+It expects a cable directory ./cable/ with the cables
+and saves the cables as text (the filename is the reference
+id of the cable).
 """
 import codecs
 from cablemap.core.reader import cable_from_file
@@ -20,9 +23,7 @@ def generate_text_files(in_dir, out_dir, include_header=False):
     the cables in the `out_dir`.
     """
     for root, dirs, files in os.walk(in_dir):
-        for name in files:
-            if not name.rfind('.htm'):
-                continue
+        for name in [n for n in files if '.html' in n]:
             cable = cable_from_file(root + '/' + name)
             out = codecs.open(out_dir + '/' + cable.reference_id + '.txt', 'wb', encoding='utf-8')
             out.write(cable_to_text(cable, include_header))

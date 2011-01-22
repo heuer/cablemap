@@ -39,6 +39,7 @@ This module extracts information from cables.
 :license:      BSD license
 """
 import re
+import logging
 import codecs
 from constants import MIN_ORIGIN_LENGTH, MAX_ORIGIN_LENGTH
 from models import Cable
@@ -114,7 +115,7 @@ _CABLES_WITHOUT_TID = (
 
 _CABLES_WITHOUT_TO = ('09STATE15113',)
 
-def cable_from_file(filename):
+def cable_from_file(filename, ignore_errors=False):
     """\
     Returns a cable from the provided file.
     """
@@ -130,7 +131,7 @@ def cable_from_file(filename):
         reference_id = filename[slash_idx:]
     return cable_from_html(html, reference_id)
 
-def cable_from_html(html, reference_id):
+def cable_from_html(html, reference_id, ignore_errors=False):
     """\
     Returns a cable from the provided HTML page.
     """
@@ -151,13 +152,13 @@ def cable_from_html(html, reference_id):
     else:
         content_header = content
     if not reference_id in _CABLES_WITHOUT_SUBJECT:
-        cable.subject = parse_subject(content_header)
+        cable.subject = parse_subject(content_header, ignore_errors=ignore_errors)
     if not reference_id in _CABLES_WITHOUT_TAGS:
-        cable.tags = parse_tags(content_header)
+        cable.tags = parse_tags(content_header, ignore_errors=ignore_errors)
     cable.references = parse_references(content_header, year(cable.created)[0], reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
     if not cable.partial and reference_id not in _CABLES_WITHOUT_TID:
-        cable.transmission_id = parse_tranmission_id(header, reference_id)
+        cable.transmission_id = parse_tranmission_id(header, reference_id, ignore_errors=ignore_errors)
     if not cable.partial and reference_id not in _CABLES_WITHOUT_TO:
         cable.recipients = parse_recipients(header, reference_id)
     cable.info_recipients = parse_info_recipients(header, reference_id)
@@ -299,7 +300,7 @@ def parse_meta(file_content, cable):
 
 _TID_PATTERN = re.compile(r'^([A-Z]+[0-9]+)', re.UNICODE)
 
-def parse_tranmission_id(header, reference_id):
+def parse_tranmission_id(header, reference_id, ignore_errors=False):
     # malformed cable header
     if reference_id == '09STATE119085': # It has a TID, but the header starts with "S E C R E T   STATE   00119085 \nVZCZCXRO1706\nPP RUEHAG"
         return u'VZCZCXRO1706' 
@@ -307,7 +308,12 @@ def parse_tranmission_id(header, reference_id):
         return u'VZCZCLOI278'
     m = _TID_PATTERN.match(header.replace('Cable Text:', ''))
     if not m:
-        raise Exception('No transmission ID found in "%s"' % header)
+        msg = 'No transmission ID found in "%s", header: "%s"' % (reference_id, header)
+        if ignore_errors:
+            logging.info(msg)
+            return None
+        else:
+            raise Exception(msg)
     return m.group(0)
 
 
@@ -505,7 +511,7 @@ _NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$', re.IGNORECASE)
 
-def parse_subject(content, reference_id=None, clean=True):
+def parse_subject(content, reference_id=None, clean=True, ignore_errors=False):
     """\
     Parses and returns the subject of a cable.
 
@@ -568,7 +574,12 @@ def parse_subject(content, reference_id=None, clean=True):
     """
     m = _SUBJECT_PATTERN.search(content, 0, 1200)
     if not m or len(m.groups()) != 1:
-        raise Exception('No subject found in "%s"' % content)
+        msg = 'No subject found in cable "%s", content: "%s"' % (reference_id, content)
+        if ignore_errors:
+            logging.warn(msg)
+            return None
+        else:
+            raise Exception(msg)
     res = _NL_PATTERN.sub(' ', m.groups()[0]).strip()
     res = _WS_PATTERN.sub(' ', res)
     res = res.replace(u'&#8217;', u'’') \
@@ -768,7 +779,7 @@ _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICOD
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,')
 _TAG_PATTERN = re.compile(r'(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
 
-def parse_tags(content):
+def parse_tags(content, reference_id=None, ignore_errors=False):
     """\
     Returns the TAGS of a cable.
     
@@ -856,7 +867,12 @@ def parse_tags(content):
     """
     m = _TAGS_PATTERN.search(content)
     if not m:
-        raise Exception('No TAGS found in "%s"' % content)
+        msg = 'No TAGS found in cable ID "%r", content: "%s"' % (reference_id, content)
+        if ignore_errors:
+            logging.warn(msg)
+            return []
+        else:
+            raise Exception(msg)
     tags = m.group(1)
     m2 = None
     if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, m.end(), 1200):

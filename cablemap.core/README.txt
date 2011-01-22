@@ -25,3 +25,5 @@ from diplomatic cables::
 
 The core package has no Topic Maps related code and can be used independently 
 of the other packages.
+
+For other examples see: <https://github.com/heuer/cablemap/tree/master/examples>_

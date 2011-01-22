@@ -99,8 +99,6 @@ _CABLES_WITHOUT_TID = (
     '09ULAANBAATAR234', '09ISLAMABAD2185', '09ISLAMABAD2295', '09JEDDAH343',
     '09STATE100153', '09ISLAMABAD2523', '09ISLAMABAD2523', '09MEXICO2882',
     '09MANAMA642', '09SAOPAULO653',
-    '09STATE119085', # It has a TID, but the header starts with "S E C R E T   STATE   00119085 \nVZCZCXRO1706\nPP RUEHAG", handled in "cable_from_html"
-    '07LONDON4045', # It has a TID, but the header starts with "Cable Text: ", handled in "cable_from_html"
     '09ASMARA429', '10ABUDHABI9', '10SANAA4', '10STATE17263',
     '09VATICAN28', '09VATICAN59', '09STATE63860', '04TASHKENT3180',
     '05TASHKENT284', '05TASHKENT2473', '06LIMA622', '08STOCKHOLM781',
@@ -159,15 +157,10 @@ def cable_from_html(html, reference_id):
     cable.references = parse_references(content_header, year(cable.created)[0], reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
     if not cable.partial and reference_id not in _CABLES_WITHOUT_TID:
-        cable.transmission_id = parse_tranmission_id(header)
+        cable.transmission_id = parse_tranmission_id(header, reference_id)
     if not cable.partial and reference_id not in _CABLES_WITHOUT_TO:
         cable.recipients = parse_recipients(header, reference_id)
     cable.info_recipients = parse_info_recipients(header, reference_id)
-    # malformed cable header
-    if reference_id == '09STATE119085':
-        cable.transmission_id = u'VZCZCXRO1706'
-    elif reference_id == '07LONDON4045':
-        cable.transmission_id = u'VZCZCLOI278'
     cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
     cable.summary = parse_summary(content_body or content, reference_id)
     return cable
@@ -306,7 +299,12 @@ def parse_meta(file_content, cable):
 
 _TID_PATTERN = re.compile(r'^([A-Z]+[0-9]+)', re.UNICODE)
 
-def parse_tranmission_id(header):
+def parse_tranmission_id(header, reference_id):
+    # malformed cable header
+    if reference_id == '09STATE119085': # It has a TID, but the header starts with "S E C R E T   STATE   00119085 \nVZCZCXRO1706\nPP RUEHAG"
+        return u'VZCZCXRO1706' 
+    elif reference_id == '07LONDON4045': # It has a TID, but the header starts with "Cable Text: "
+        return u'VZCZCLOI278'
     m = _TID_PATTERN.match(header.replace('Cable Text:', ''))
     if not m:
         raise Exception('No transmission ID found in "%s"' % header)

@@ -156,8 +156,8 @@ def cable_from_html(html, reference_id, ignore_errors=False):
     cable.tags = parse_tags(content_header, reference_id, ignore_errors=ignore_errors)
     cable.references = parse_references(content_header, year(cable.created)[0], reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
-    if not cable.partial:
-        cable.transmission_id = parse_tranmission_id(header, reference_id, ignore_errors=ignore_errors)
+    if not cable.partial: # Partial cables have no header
+        cable.transmission_id = parse_tranmission_id(header, reference_id)
         cable.recipients = parse_recipients(header, reference_id)
     cable.info_recipients = parse_info_recipients(header, reference_id)
     cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
@@ -296,25 +296,19 @@ def parse_meta(file_content, cable):
     return cable
 
 
-_TID_PATTERN = re.compile(r'^([A-Z]+[0-9]+)', re.UNICODE)
+_TID_PATTERN = re.compile(r'^(?:Cable Text:\s*)?([A-Z]+[0-9]+)', re.UNICODE)
 
-def parse_tranmission_id(header, reference_id, ignore_errors=False):
+def parse_tranmission_id(header, reference_id):
     # malformed cable header
     if reference_id == '09STATE119085': # It has a TID, but the header starts with "S E C R E T   STATE   00119085 \nVZCZCXRO1706\nPP RUEHAG"
         return u'VZCZCXRO1706' 
-    elif reference_id == '07LONDON4045': # It has a TID, but the header starts with "Cable Text: "
-        return u'VZCZCLOI278'
-    m = _TID_PATTERN.match(header.replace('Cable Text:', ''))
+    m = _TID_PATTERN.match(header)
     if not m:
-        if reference_id in _CABLES_WITHOUT_TID:
-            return None
-        msg = 'No transmission ID found in "%s", header: "%s"' % (reference_id, header)
-        if ignore_errors:
-            logging.info(msg)
-            return None
-        else:
-            raise Exception(msg)
-    return m.group(0)
+        if reference_id not in _CABLES_WITHOUT_TID:
+            msg = 'No transmission ID found in "%s", header: "%s"' % (reference_id, header)
+            logging.debug(msg)
+        return None
+    return m.group(1)
 
 
 _NAME2ROUTE = None

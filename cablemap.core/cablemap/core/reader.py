@@ -151,15 +151,12 @@ def cable_from_html(html, reference_id, ignore_errors=False):
         cable.content_body = content_body
     else:
         content_header = content
-    if not reference_id in _CABLES_WITHOUT_SUBJECT:
-        cable.subject = parse_subject(content_header, ignore_errors=ignore_errors)
-    if not reference_id in _CABLES_WITHOUT_TAGS:
-        cable.tags = parse_tags(content_header, ignore_errors=ignore_errors)
+    cable.subject = parse_subject(content_header, reference_id, ignore_errors=ignore_errors)
+    cable.tags = parse_tags(content_header, reference_id, ignore_errors=ignore_errors)
     cable.references = parse_references(content_header, year(cable.created)[0], reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
-    if not cable.partial and reference_id not in _CABLES_WITHOUT_TID:
+    if not cable.partial:
         cable.transmission_id = parse_tranmission_id(header, reference_id, ignore_errors=ignore_errors)
-    if not cable.partial and reference_id not in _CABLES_WITHOUT_TO:
         cable.recipients = parse_recipients(header, reference_id)
     cable.info_recipients = parse_info_recipients(header, reference_id)
     cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
@@ -308,6 +305,8 @@ def parse_tranmission_id(header, reference_id, ignore_errors=False):
         return u'VZCZCLOI278'
     m = _TID_PATTERN.match(header.replace('Cable Text:', ''))
     if not m:
+        if reference_id in _CABLES_WITHOUT_TID:
+            return None
         msg = 'No transmission ID found in "%s", header: "%s"' % (reference_id, header)
         if ignore_errors:
             logging.info(msg)
@@ -458,6 +457,8 @@ def parse_recipients(header, reference_id):
     """
     m = _TO_PATTERN.search(header)
     if not m:
+        if reference_id in _CABLES_WITHOUT_TO:
+            return []
         raise Exception('No TO header found in "%s"' % header)
     to_header = m.group(1)
     return _route_recipient_from_header(to_header, reference_id)
@@ -573,7 +574,9 @@ def parse_subject(content, reference_id=None, clean=True, ignore_errors=False):
     u'CARDINAL HUMMES DISCUSSES LULA GOVERNMENT, THE OPPOSITION, AND FTAA'
     """
     m = _SUBJECT_PATTERN.search(content, 0, 1200)
-    if not m or len(m.groups()) != 1:
+    if not m:
+        if reference_id in _CABLES_WITHOUT_SUBJECT:
+            return None
         msg = 'No subject found in cable "%s", content: "%s"' % (reference_id, content)
         if ignore_errors:
             logging.warn(msg)
@@ -867,6 +870,8 @@ def parse_tags(content, reference_id=None, ignore_errors=False):
     """
     m = _TAGS_PATTERN.search(content)
     if not m:
+        if reference_id in _CABLES_WITHOUT_TAGS:
+            return []
         msg = 'No TAGS found in cable ID "%r", content: "%s"' % (reference_id, content)
         if ignore_errors:
             logging.warn(msg)

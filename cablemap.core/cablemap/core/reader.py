@@ -116,6 +116,8 @@ _CABLES_WITHOUT_TID = (
 
 _CABLES_WITHOUT_TO = ('09STATE15113',)
 
+logger = logging.getLogger('cablemap_reader')
+
 def cable_from_file(filename, ignore_errors=False):
     """\
     Returns a cable from the provided file.
@@ -306,7 +308,7 @@ def parse_tranmission_id(header, reference_id):
     if not m:
         if reference_id not in _CABLES_WITHOUT_TID:
             msg = 'No transmission ID found in "%s", header: "%s"' % (reference_id, header)
-            logging.debug(msg)
+            logger.debug(msg)
         return None
     return m.group(1)
 
@@ -574,7 +576,7 @@ def parse_subject(content, reference_id=None, clean=True, ignore_errors=False):
             return None
         msg = 'No subject found in cable "%s", content: "%s"' % (reference_id, content)
         if ignore_errors:
-            logging.warn(msg)
+            logger.warn(msg)
             return None
         else:
             raise Exception(msg)
@@ -869,7 +871,7 @@ def parse_tags(content, reference_id=None, ignore_errors=False):
             return []
         msg = 'No TAGS found in cable ID "%r", content: "%s"' % (reference_id, content)
         if ignore_errors:
-            logging.warn(msg)
+            logger.warn(msg)
             return []
         else:
             raise Exception(msg)

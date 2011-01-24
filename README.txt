@@ -24,6 +24,6 @@ translation of cables into JSON.
 
 Disclaimer
 ----------
-Cablemap is not a mirror and has no ties to Wikileaks. 
+Cablemap is not a Wikileaks mirror and has no ties to Wikileaks. 
 It provides just a parser to read published cables which are already widely 
 available on the web.

@@ -54,7 +54,7 @@ except ImportError:
             from django.utils import simplejson as json
         except ImportError:
             pass #TODO: Exception?
-
+from cablemap.core.models import Cable
 
 class _Request(urllib2.Request):
     def __init__(self, url):
@@ -220,9 +220,8 @@ def cable_from_json(src):
     >>> cable3.reference_id == cable.reference_id
     True
     """
-    import models
     dct = hasattr(src, 'read') and json.load(src) or json.loads(src)
-    return models.Cable.from_dict(dct)
+    return Cable.from_dict(dct)
 
 def cable_to_yaml(cable, metaonly=False, include_summary=True):
     """\

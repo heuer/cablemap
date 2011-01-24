@@ -134,13 +134,21 @@ def cable_from_file(filename):
         reference_id = filename[slash_idx:]
     return cable_from_html(html, reference_id)
 
-def cable_from_html(html, reference_id):
+
+_REFERENCE_ID_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', re.UNICODE)
+
+def cable_from_html(html, reference_id=None):
     """\
     Returns a cable from the provided HTML page.
     """
     def year(y):
         date, time = y.split()
         return date.split('-')[:2]
+    if not reference_id:
+        m = _REFERENCE_ID_PATTERN.search(html)
+        if not m:
+            raise Exception("Cannot extract the cable's reference id")
+        reference_id = m.group(1)
     file_content = fix_html_content(html, reference_id)
     cable = Cable(reference_id)
     parse_meta(file_content, cable)

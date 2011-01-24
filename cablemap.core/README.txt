@@ -15,9 +15,9 @@ from diplomatic cables::
     >>> # Fetches the cable with the reference id '09BERLIN1167' from the Internet
     >>> page = cable_page_by_id(rid)
     >>> # Converts the HTML page into a cable object
-    >>> cable = cable_from_html(page, rid)
+    >>> cable = cable_from_html(page)
     >>> cable.reference_id
-    '09BERLIN1167'
+    u'09BERLIN1167'
     >>> cable.subject
     u'DATA PRIVACY TRUMPS SECURITY: IMPLICATIONS OF A FDP VICTORY ON COUNTERTERRORISM COOPERATION'
     >>> json = cable_to_json(cable)

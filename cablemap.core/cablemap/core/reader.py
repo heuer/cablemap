@@ -116,9 +116,9 @@ _CABLES_WITHOUT_TID = (
 
 _CABLES_WITHOUT_TO = ('09STATE15113',)
 
-logger = logging.getLogger('cablemap_reader')
+logger = logging.getLogger('cablemap-reader')
 
-def cable_from_file(filename, ignore_errors=False):
+def cable_from_file(filename):
     """\
     Returns a cable from the provided file.
     """
@@ -134,7 +134,7 @@ def cable_from_file(filename, ignore_errors=False):
         reference_id = filename[slash_idx:]
     return cable_from_html(html, reference_id)
 
-def cable_from_html(html, reference_id, ignore_errors=False):
+def cable_from_html(html, reference_id):
     """\
     Returns a cable from the provided HTML page.
     """
@@ -154,8 +154,8 @@ def cable_from_html(html, reference_id, ignore_errors=False):
         cable.content_body = content_body
     else:
         content_header = content
-    cable.subject = parse_subject(content_header, reference_id, ignore_errors=ignore_errors)
-    cable.tags = parse_tags(content_header, reference_id, ignore_errors=ignore_errors)
+    cable.subject = parse_subject(content_header, reference_id)
+    cable.tags = parse_tags(content_header, reference_id)
     cable.references = parse_references(content_header, year(cable.created)[0], reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
     if not cable.partial: # Partial cables have no header
@@ -509,7 +509,7 @@ _NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$', re.IGNORECASE)
 
-def parse_subject(content, reference_id=None, clean=True, ignore_errors=False):
+def parse_subject(content, reference_id=None, clean=True):
     """\
     Parses and returns the subject of a cable.
 
@@ -572,14 +572,9 @@ def parse_subject(content, reference_id=None, clean=True, ignore_errors=False):
     """
     m = _SUBJECT_PATTERN.search(content, 0, 1200)
     if not m:
-        if reference_id in _CABLES_WITHOUT_SUBJECT:
-            return None
-        msg = 'No subject found in cable "%s", content: "%s"' % (reference_id, content)
-        if ignore_errors:
-            logger.warn(msg)
-            return None
-        else:
-            raise Exception(msg)
+        if reference_id not in _CABLES_WITHOUT_SUBJECT:
+            logger.debug('No subject found in cable "%s", content: "%s"' % (reference_id, content))
+        return None
     res = _NL_PATTERN.sub(' ', m.groups()[0]).strip()
     res = _WS_PATTERN.sub(' ', res)
     res = res.replace(u'&#8217;', u'’') \
@@ -779,7 +774,7 @@ _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICOD
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,')
 _TAG_PATTERN = re.compile(r'(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
 
-def parse_tags(content, reference_id=None, ignore_errors=False):
+def parse_tags(content, reference_id=None):
     """\
     Returns the TAGS of a cable.
     
@@ -867,14 +862,9 @@ def parse_tags(content, reference_id=None, ignore_errors=False):
     """
     m = _TAGS_PATTERN.search(content)
     if not m:
-        if reference_id in _CABLES_WITHOUT_TAGS:
-            return []
-        msg = 'No TAGS found in cable ID "%r", content: "%s"' % (reference_id, content)
-        if ignore_errors:
-            logger.warn(msg)
-            return []
-        else:
-            raise Exception(msg)
+        if reference_id not in _CABLES_WITHOUT_TAGS:
+            logger.debug('No TAGS found in cable ID "%r", content: "%s"' % (reference_id, content))
+        return []
     tags = m.group(1)
     m2 = None
     if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, m.end(), 1200):

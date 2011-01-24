@@ -55,7 +55,8 @@ Constant for a subject locator reference.
 
 class CableHandler(object):
     """\
-    An instance of this class is capable to process one or more cables.
+    Defines an interface for classes which are capable to process one or more 
+    cables.
 
     The first event is `start` and the last event must be `end`.
     Between these events one or more `start_cable`/`end_cable` events
@@ -241,6 +242,7 @@ class CableHandler(object):
         `datetime`
             ISO 8601 formatted datetime
         """
+        pass
 
     def handle_release(self, datetime):
         """\
@@ -249,6 +251,7 @@ class CableHandler(object):
         `datetime`
             ISO 8601 formatted datetime
         """
+        pass
 
     def handle_partial(self, partial):
         """\
@@ -257,3 +260,4 @@ class CableHandler(object):
         `partial`
             A boolean value.
         """
+        pass

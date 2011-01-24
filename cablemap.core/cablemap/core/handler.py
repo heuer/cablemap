@@ -257,7 +257,12 @@ class CableHandler(object):
         """\
         Indicates that the whole cable text is (not) available.
         
+        Implementations of this interface should assume that this method 
+        is not called if the cable is *not* partial and therfore assume that
+        the current cable is complete.
+        
         `partial`
-            A boolean value.
+            A boolean value, ``True`` indicates that the current cable is
+            only partially available.
         """
         pass

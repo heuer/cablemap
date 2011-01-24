@@ -121,6 +121,9 @@ logger = logging.getLogger('cablemap-reader')
 def cable_from_file(filename):
     """\
     Returns a cable from the provided file.
+    
+    `filename`
+        An absolute path to the cable file.
     """
     html = codecs.open(filename, 'rb', 'utf-8').read()
     reference_id = None
@@ -140,6 +143,12 @@ _REFERENCE_ID_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', 
 def cable_from_html(html, reference_id=None):
     """\
     Returns a cable from the provided HTML page.
+    
+    `html`
+        The HTML page of the cable
+    `reference_id`
+        The reference identifier of the cable. If the reference_id is ``None``
+        this function tries to detect it.
     """
     def year(y):
         date, time = y.split()
@@ -520,6 +529,14 @@ _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$', re.IGNORECASE)
 def parse_subject(content, reference_id=None, clean=True):
     """\
     Parses and returns the subject of a cable.
+    
+    `content`
+        The cable's content.
+    `reference_id`
+        The (optional) reference id of the cable. Used for error msgs
+    `clean`
+        Indicates if prefixes like ``(S)`` should be removed from the subject
+        (default: ``True``)
 
     >>> parse_subject("TAGS: TAG TAG2\\nSUBJECT:  SINGLE LINE SUBJECT \\n\\nREF: REF 1")
     u'SINGLE LINE SUBJECT'
@@ -588,10 +605,10 @@ def parse_subject(content, reference_id=None, clean=True):
     res = res.replace(u'&#8217;', u'’') \
                 .replace(u'&#8220;', u'“') \
                 .replace(u'&#8221;', u'”')
-    if clean:
-        res = _BRACES_PATTERN.sub('', res)
     if '&#' in res:
         raise Exception('Unreplaced HTML entities in "%s", "%s"' % (res, content))
+    if clean:
+        res = _BRACES_PATTERN.sub(u'', res)
     return res
 
 
@@ -601,7 +618,6 @@ _DEADLINE_PATTERN = re.compile(r'(?:E.?O.?\s*12958:?\s*DECL\s*:?\s*)([0-9]{1,2}/
 def parse_nondisclosure_deadline(content):
     """\
     Returns the non-disclosure deadline if provided.
-
 
     >>> parse_nondisclosure_deadline('DEPT FOR WHA/BSC E.O. 12958: DECL: 11/22/2012 ')
     u'2012-11-22'

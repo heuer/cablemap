@@ -67,7 +67,8 @@ class CableHandler(object):
     the subject), the event must not be issued.
     
     ``identity`` is a tuple which consists of the "kind" of identity (subject
-    identifier, subject locator, item identifier) and an IRI.
+    identifier, subject locator, item identifier) and an absolute IRI, i.e. 
+    ``(SUBJECT_IDENTIFIER, u'http://psi.example.org/cable/123')``
     """
 
     def start(self):

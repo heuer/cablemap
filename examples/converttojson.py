@@ -8,7 +8,7 @@ id of the cable).
 """
 import codecs
 from cablemap.core import cable_from_file
-from cablemap.core.cableutils import cable_to_json
+from cablemap.core.utils import cable_to_json
 
 def generate_json_files(in_dir, out_dir):
     """\

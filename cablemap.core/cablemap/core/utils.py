@@ -54,7 +54,7 @@ except ImportError:
             from django.utils import simplejson as json
         except ImportError:
             pass #TODO: Exception?
-from cablemap.core.models import Cable
+from models import Cable
 
 class _Request(urllib2.Request):
     def __init__(self, url):
@@ -163,7 +163,6 @@ def cable_to_json(cable, metaonly=False, include_summary=True):
         Indicates if the summary belongs to the metadata (``True`` by default)
         This parameter has only an effect if `metaonly` is set to ``True``
 
-    >>> from models import Cable
     >>> cable = Cable('something')
     >>> js = cable_to_json(cable)
     >>> dct = json.loads(js)
@@ -202,7 +201,6 @@ def cable_from_json(src):
     `src`
         Either a string or a file-like object.
 
-    >>> from models import Cable
     >>> cable = Cable('something')
     >>> s = cable_to_json(cable)
     >>> cable2 = cable_from_json(s)

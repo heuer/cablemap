@@ -41,8 +41,8 @@ This module extracts information from cables.
 import re
 import logging
 import codecs
-from cablemap.core.constants import MIN_ORIGIN_LENGTH, MAX_ORIGIN_LENGTH
-from cablemap.core.models import Cable
+from constants import MIN_ORIGIN_LENGTH, MAX_ORIGIN_LENGTH
+from models import Cable
 
 #
 # Cables w/o a subject

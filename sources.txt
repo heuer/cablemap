@@ -1,0 +1,35 @@
+Information about the cable format:
+* <http://www.bbc.co.uk/news/world-11865752>
+* <http://www.cableleaks.com/data/uploads/cable-wikileaks.jpg>
+* <http://www.spiegel.de/politik/ausland/bild-731177-155729.html>
+
+Guardian data:
+<http://www.guardian.co.uk/news/datablog/2010/nov/29/wikileaks-cables-data>
+
+Spiegel - How to read cables:
+<http://www.spiegel.de/politik/ausland/0,1518,731177,00.html>
+
+Repost: How to Decipher a State Department Cable (FOIA Tip #2)
+<https://nsarchive.wordpress.com/2010/11/29/foia-tip-no-2-%E2%80%94-decipher-a-state-department-cable/>
+
+Other sources:
+* <http://www.dazzlepod.com/cable/>
+* <http://cablegate.onebigarchives.net/>
+* <http://statelogs.owni.fr/>
+* <http://cablesearch.org/>
+* <http://www.leakfeed.com/>
+* <https://cabletags.wordpress.com/>
+* <http://cablewiki.net>
+* <http://crowdleak.net/>
+* <http://cablegate.heroku.com/>
+* <http://cablegategame.com/>
+* <http://www.ceinquiry.us/2010-11-28-wikileaks-glossary.php>
+
+Software for Cablegate:
+* <https://github.com/hamstar/CableBot>
+* <https://github.com/csquared/cablegator>
+* <https://github.com/anarchivist/cablegate-social-graph>
+* <https://github.com/davesag/cablegate>
+* <https://github.com/alx/cablegate>
+* <https://github.com/typecode/wikileaks>
+* <https://github.com/elishowk/cablegate_semnet>

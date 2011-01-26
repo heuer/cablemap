@@ -790,7 +790,6 @@ def parse_references(content, year, reference_id=None):
                     break
             if origin \
                 and not 'MAIL' in origin \
-                and not 'CONFIDENTIAL' in origin \
                 and not 'DAILYREPORT' in origin \
                 and not 'REASON' in origin \
                 and not origin.startswith('OSC') \

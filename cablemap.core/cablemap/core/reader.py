@@ -153,6 +153,8 @@ def cable_from_html(html, reference_id=None):
     def year(y):
         date, time = y.split()
         return date.split('-')[:2]
+    if not html:
+        raise ValueError('The HTML page of the cable must be provided, got: "%r"' % html)
     if not reference_id:
         m = _REFERENCE_ID_PATTERN.search(html)
         if not m:

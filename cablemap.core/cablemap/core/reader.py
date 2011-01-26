@@ -795,8 +795,21 @@ def parse_references(content, year, reference_id=None):
 
 _TAGS_PATTERN = re.compile(r'(?:TAGS?:?\s*)(.+)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
-_TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,')
+_TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
 _TAG_PATTERN = re.compile(r'(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
+
+# Used to normalize the TAG (corrects typos etc.)
+_TAG_FIXES = {
+    u'CLINTON HILLARY': u'CLINTON, HILLARY',
+    u'STEINBERG JAMES': u'STEINBERG, JAMES B.',
+    u'BIDEN JOSEPH': u'BIDEN, JOSEPH',
+    u'RICE CONDOLEEZZA': u'RICE, CONDOLEEZZA',
+    u'COUNTER TERRORISM': u'COUNTERTERRORISM',
+    u'MOPPS': u'MOPS', # 09BEIRUT818
+    u'POGOV': u'PGOV', # 09LONDON2222
+    u'RU': u'RS', # 09BERLIN1433, 09RIYADH181 etc.
+    u'SYR': u'SY',
+}
 
 def parse_tags(content, reference_id=None):
     """\
@@ -894,31 +907,14 @@ def parse_tags(content, reference_id=None):
     if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, m.end(), 1200):
         m2 = _TAGS_CONT_PATTERN.match(content, m.end())
     if m2:
-        tags = ' '.join([tags, m2.group(1)])
+        tags = u' '.join([tags, m2.group(1)])
     res = []
     for t in _TAG_PATTERN.findall(tags):
-        tag = ''.join(t).upper().replace(u')', u'').replace(u'(', u'')
-        if tag == 'CLINTON HILLARY':
-            tag = u'CLINTON, HILLARY'
-        elif tag == 'STEINBERG JAMES':
-            tag = u'STEINBERG, JAMES B.'
-        elif tag == 'BIDEN JOSEPH':
-            tag = u'BIDEN, JOSEPH'
-        elif tag == 'RICE CONDOLEEZZA':
-            tag = u'RICE, CONDOLEEZZA'
-        elif tag == 'COUNTER TERRORISM':
-            tag = u'COUNTERTERRORISM'
-        elif tag == 'PTER MARR': # 07BAKU855
+        tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
+        if tag == 'PTER MARR': # 07BAKU855
             res.extend(tag.split())
             continue
-        elif tag == 'MOPPS': # 09BEIRUT818
-            tag = u'MOPS'
-        elif tag == 'POGOV': # 09LONDON2222
-            tag = u'PGOV'
-        elif tag == u'RU': # 09BERLIN1433, 09RIYADH181 etc.
-            tag = u'RS'
-        elif tag == u'SYR':
-            tag = u'SY'
+        tag = _TAG_FIXES.get(tag, tag)
         if tag not in res:
             res.append(tag)
     return res

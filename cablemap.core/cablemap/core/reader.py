@@ -674,9 +674,11 @@ _MONTHS = (
 )
 
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
-_REF_LAST_REF_PATTERN = re.compile(r'(\n[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
+_REF_LAST_REF_PATTERN = re.compile(r'(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 _REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z]+)(?:\s*)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _CLASSIFIED_BY_PATTERN = re.compile(r'\n[ ]*Classified\s+By:\s+', re.IGNORECASE|re.UNICODE)
+#TODO: The following works for all references which contain something like 02ROME1196, check with other cables
+_CLEAN_REFS_PATTERN = re.compile(r'PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+', re.UNICODE)
 
 def parse_references(content, year, reference_id=None):
     """\
@@ -741,6 +743,9 @@ def parse_references(content, year, reference_id=None):
     >>> #09NAIROBI1938
     >>> parse_references('\\nREF: A. 08 STATE 81854\\n\\n\\nS e c r e t nairobi 001938', 2009)
     [u'08STATE81854']
+    >>> # 02ROME1196
+    >>> parse_references('\\nREF: A. STATE 40721\\n CONFIDENTIAL\\nPAGE 02 ROME 01196 01 OF 02 082030Z  B. ROME 1098  C. ROME 894  D. MYRIAD POST-DEPARTMENT E-MAILS FROM 10/01-02/02  E. ROME 348\\nCLASSIFIED BY: POL', 2002)
+    [u'02STATE40721', u'02ROME1098', u'02ROME894', u'02ROME348']
     """
     def format_year(y):
         y = str(y)
@@ -764,6 +769,7 @@ def parse_references(content, year, reference_id=None):
         start = m_start.start(1)
         end = last_end or m_start.end()
         refs = content[start:end].replace('\n', ' ')
+        refs = _CLEAN_REFS_PATTERN.sub('', refs)
         for y, origin, sn in _REF_PATTERN.findall(refs):
             y = format_year(y)
             origin = origin.replace(' ', '').upper()
@@ -784,6 +790,7 @@ def parse_references(content, year, reference_id=None):
                     break
             if origin \
                 and not 'MAIL' in origin \
+                and not 'CONFIDENTIAL' in origin \
                 and not 'DAILYREPORT' in origin \
                 and not 'REASON' in origin \
                 and not origin.startswith('OSC') \

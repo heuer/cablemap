@@ -537,8 +537,18 @@ def parse_subject(content, reference_id=None, clean=True):
     `reference_id`
         The (optional) reference id of the cable. Used for error msgs
     `clean`
-        Indicates if prefixes like ``(S)`` should be removed from the subject
-        (default: ``True``)
+        Indicates if classification prefixes like ``(S)`` should be removed from
+        the subject (default: ``True``)
+        * (TS) for Top Secret
+        * (S) for Secret
+        * (C) for Confidential
+        * (U) for Unclassified
+        * (SBU/N) for Sensitive But Unclassified/Noforn, and
+        * (SBU) for Sensitive But Unclassified
+        Source: 
+        U.S. Department of State Foreign Affairs Handbook Volume 5 Handbook 1 — Correspondence Handbook
+        5 FAH-1 H-210 -- HOW TO USE TELEGRAMS; page 2
+        <http://www.state.gov/documents/organization/89319.pdf>
 
     >>> parse_subject("TAGS: TAG TAG2\\nSUBJECT:  SINGLE LINE SUBJECT \\n\\nREF: REF 1")
     u'SINGLE LINE SUBJECT'

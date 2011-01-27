@@ -436,8 +436,10 @@ def _route_for_name(name):
         import os
         root_dir = os.path.dirname(os.path.abspath(__file__))
         f = open(root_dir + '/routes.txt')
-        route_pattern = re.compile('^(R[A-Z]+)(?:[ ]+)(.+)$')
+        route_pattern = re.compile('^(R[A-Z]+)[ \t]+(.+)$')
         for l in f:
+            if l.startswith('#'):
+                continue
             m = route_pattern.match(l)
             NAME2ROUTE[m.group(2)] = m.group(1)
         NAME2ROUTE.update(_ADDITIONAL_ROUTES)

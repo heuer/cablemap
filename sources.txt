@@ -2,6 +2,7 @@ Information about the cable format:
 * <http://www.bbc.co.uk/news/world-11865752>
 * <http://www.cableleaks.com/data/uploads/cable-wikileaks.jpg>
 * <http://www.spiegel.de/politik/ausland/bild-731177-155729.html>
+* <http://www.gwu.edu/~nsarchiv/IMG/StateDeptCable.pdf>
 
 Guardian data:
 <http://www.guardian.co.uk/news/datablog/2010/nov/29/wikileaks-cables-data>
@@ -14,6 +15,9 @@ Repost: How to Decipher a State Department Cable (FOIA Tip #2)
 
 WL Central: Advanced Cablegate Resource Sites
 <http://wlcentral.org/node/958>
+
+Foreign Policy: Why Do Diplomats Still Send Cables?
+<http://www.foreignpolicy.com/articles/2010/11/29/why_do_diplomats_still_send_cables>
 
 Other sources:
 * <http://www.dazzlepod.com/cable/>

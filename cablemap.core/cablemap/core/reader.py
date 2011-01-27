@@ -816,13 +816,14 @@ def parse_references(content, year, reference_id=None):
 _TAGS_PATTERN = re.compile(r'(?:TAGS?:?\s*)(.+)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
-_TAG_PATTERN = re.compile(r'(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
+_TAG_PATTERN = re.compile(r'(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
 
 # Used to normalize the TAG (corrects typos etc.)
 _TAG_FIXES = {
     u'CLINTON HILLARY': u'CLINTON, HILLARY',
     u'STEINBERG JAMES': u'STEINBERG, JAMES B.',
     u'BIDEN JOSEPH': u'BIDEN, JOSEPH',
+    u'ZOELLICK ROBERT': u'ZOELLICK, ROBERT',
     u'RICE CONDOLEEZZA': u'RICE, CONDOLEEZZA',
     u'COUNTER TERRORISM': u'COUNTERTERRORISM',
     u'MOPPS': u'MOPS', # 09BEIRUT818
@@ -920,6 +921,10 @@ def parse_tags(content, reference_id=None):
     [u'IS', u'ISRAELI PALESTINIAN AFFAIRS', u'GOI', u'EXTERNAL']
     >>> parse_tags('TAGS: IS GAZA DISENGAGEMENT ISRAELI PALESTINIAN AFFAIRS')
     [u'IS', u'GAZA DISENGAGEMENT', u'ISRAELI PALESTINIAN AFFAIRS']
+    >>> # 05BRASILIA2675
+    >>> parse_tags('TAGS: PREL PGOV BR OVIP ZOELLICK ROBERT US')
+    [u'PREL', u'PGOV', u'BR', u'OVIP', u'ZOELLICK, ROBERT', u'US']
+    
     """
     m = _TAGS_PATTERN.search(content)
     if not m:

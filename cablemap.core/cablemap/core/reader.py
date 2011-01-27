@@ -67,7 +67,7 @@ _CABLES_WITHOUT_SUBJECT = ('06KABUL3934',
     '06ANKARA331', '06SANTODOMINGO409', '06BRASILIA476',
     '06ANKARA3352', '07BRASILIA572', '08MOSCOW3394',
     '09UNVIEVIENNA192', '09MOSCOW2353', '10ATHENS57',
-    '10BERLIN81',
+    '10BERLIN81', '05TELAVIV4403', '06TELAVIV687',
     )
 
 #
@@ -111,7 +111,7 @@ _CABLES_WITHOUT_TID = (
     '08REYKJAVIK110', '08STATE83144', '08STATE99666', '08REYKJAVIK258',
     '08REYKJAVIK291', '09STATE3943', '09REYKJAVIK41', '09STATE17176',
     '09GENEVA203', '09BERLIN485', '09BERLIN1054', '10STATE9584', 
-    '01STATE176819',
+    '01STATE176819', '08CURACAO82', '09MEXICO1020'
     ) # was meant for debugging purposes. Who would expected that long list for the bloody, unimporant transmission ID? :)
 
 _CABLES_WITHOUT_TO = ('09STATE15113',)
@@ -192,7 +192,7 @@ def fix_html_content(content, reference_id):
     content = content.replace(ur'&#x000A;', u'\n')
     # malformed cables
     if reference_id == '10MADRID87':
-        content = content.replace(u' \n <\nREF', u' \n\nREF') #10MADRID87
+        content = content.replace(u' \n <\nREF', u' \n\nREF')
     elif reference_id == '04ANKARA348':
         content = content.replace(u'Subject: turkish p.m. Erdogan goes', u'\nSubject: turkish p.m. Erdogan goes') #04ANKARA348
     elif reference_id == '09STATE30049':
@@ -323,6 +323,8 @@ def parse_tranmission_id(header, reference_id):
     # malformed cable header
     if reference_id == '09STATE119085': # It has a TID, but the header starts with "S E C R E T   STATE   00119085 \nVZCZCXRO1706\nPP RUEHAG"
         return u'VZCZCXRO1706' 
+    elif reference_id == '06TELAVIV4032': # Header starts with "Carol X Weakley "
+        return u'VZCZCTVI681'
     m = _TID_PATTERN.match(header)
     if not m:
         if reference_id not in _CABLES_WITHOUT_TID:

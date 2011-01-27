@@ -923,7 +923,6 @@ def parse_tags(content, reference_id=None):
     >>> # 05BRASILIA2675
     >>> parse_tags('TAGS: PREL PGOV BR OVIP ZOELLICK ROBERT US')
     [u'PREL', u'PGOV', u'BR', u'OVIP', u'ZOELLICK, ROBERT', u'US']
-    
     """
     m = _TAGS_PATTERN.search(content)
     if not m:

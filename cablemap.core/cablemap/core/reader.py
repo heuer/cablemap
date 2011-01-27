@@ -816,7 +816,7 @@ def parse_references(content, year, reference_id=None):
 _TAGS_PATTERN = re.compile(r'(?:TAGS?:?\s*)(.+)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
-_TAG_PATTERN = re.compile(r'(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
+_TAG_PATTERN = re.compile(r'(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
 
 # Used to normalize the TAG (corrects typos etc.)
 _TAG_FIXES = {
@@ -916,6 +916,10 @@ def parse_tags(content, reference_id=None):
     [u'PGOV', u'PREL', u'KWBG', u'IR', u'IS', u'COUNTERTERRORISM', u'GOI EXTERNAL']
     >>> parse_tags('TAGS PTER MARR, MOPPS')
     [u'PTER', u'MARR', u'MOPS']
+    >>> parse_tags('TAGS: IS ISRAELI PALESTINIAN AFFAIRS GOI EXTERNAL')
+    [u'IS', u'ISRAELI PALESTINIAN AFFAIRS', u'GOI', u'EXTERNAL']
+    >>> parse_tags('TAGS: IS GAZA DISENGAGEMENT ISRAELI PALESTINIAN AFFAIRS')
+    [u'IS', u'GAZA DISENGAGEMENT', u'ISRAELI PALESTINIAN AFFAIRS']
     """
     m = _TAGS_PATTERN.search(content)
     if not m:

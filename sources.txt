@@ -4,6 +4,13 @@ Information about the cable format:
 * <http://www.spiegel.de/politik/ausland/bild-731177-155729.html>
 * <http://www.gwu.edu/~nsarchiv/IMG/StateDeptCable.pdf>
 
+Associates of the American Foreign Service Worldwide (AAFSW): Glossary of Government Acronyms
+<http://www.aafsw.org/state/glossary1.htm>
+<http://www.aafsw.org/state/glossary2.htm>
+
+Glossary of Abbreviations Used in Docs (via The Guardian, Google Docs)
+<https://spreadsheets.google.com/pub?key=0Auo8KSVAc9r8dHdnMGhjOXhhNzY0LTE0M0NqNmNTRHc&hl=en&output=html>
+
 Guardian data:
 <http://www.guardian.co.uk/news/datablog/2010/nov/29/wikileaks-cables-data>
 

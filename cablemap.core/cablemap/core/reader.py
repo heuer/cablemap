@@ -68,6 +68,19 @@ _CABLES_WITHOUT_SUBJECT = ('06KABUL3934',
     '06ANKARA3352', '07BRASILIA572', '08MOSCOW3394',
     '09UNVIEVIENNA192', '09MOSCOW2353', '10ATHENS57',
     '10BERLIN81', '05TELAVIV4403', '06TELAVIV687',
+    #'09CAIRO79', # TODO: Acc. to <http://cablesearch.org/cable/view.php?id=09CAIRO79>
+                 # the header is:
+                 # E.O. 12958: DECL: 01/15/2029
+                 # TAGS: PGOV PHUM KDEM EG
+                 # SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
+                 # 
+                 # REF: A. 08 CAIRO 2431
+                 # ¶B. 08 CAIRO 2430
+                 # ¶C. 08 CAIRO 2260
+                 # ¶D. 08 CAIRO 783
+                 # ¶E. 07 CAIRO 3214
+                 # ¶F. 07 CAIRO 2845
+
     )
 
 #
@@ -114,12 +127,7 @@ _CABLES_WITHOUT_TID = (
     '09CAIRO549',
     ) # was meant for debugging purposes. Who would expected that long list for the bloody, unimporant transmission ID? :)
 
-_CABLES_WITHOUT_TO = (
-    '09STATE15113', # TODO: Actually, it has a TO header, but:
-                    # TO PAGE 02 STATE 015113 182333Z
-                    # ALL DIPLOMATIC POSTS COLLECTIVE PRIORITY
-                    # AMEMBASSY TRIPOLI PRIORITY
-    )
+_CABLES_WITHOUT_TO = ()
 
 logger = logging.getLogger('cablemap-reader')
 
@@ -204,6 +212,8 @@ def fix_html_content(content, reference_id):
         content = content.replace(u'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n') #09STATE30049
     elif reference_id == '06BRASILIA882': #TODO: The subject parser should detect that
         content = content.replace(u'ENERGY INSTALLATIONS REF: BRASILIA 861', u'ENERGY INSTALLATIONS \n\nREF: BRASILIA 861')
+    elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
+        content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')
     return content
 
 
@@ -479,7 +489,8 @@ def _route_recipient_from_header(header, reference_id):
     return res
 
 
-_TO_PATTERN = re.compile(r'(?:\nTO\s+)(.+?)(?=INFO|\Z)', re.DOTALL|re.UNICODE)
+# (?:PAGE [0-9]+ ...) was added because 09STATE15113 contains this pattern
+_TO_PATTERN = re.compile(r'(?:\nTO\s+)(?:PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+Z)?(.+?)(?=INFO|\Z)', re.DOTALL|re.UNICODE)
 
 def parse_recipients(header, reference_id):
     """\

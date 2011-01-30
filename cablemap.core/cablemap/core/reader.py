@@ -216,10 +216,9 @@ def fix_content(content, reference_id):
         content = content.replace(u'ENERGY INSTALLATIONS REF: BRASILIA 861', u'ENERGY INSTALLATIONS \n\nREF: BRASILIA 861')
     elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
         content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')
-    elif reference_id == '09CAIRO79': # This cable contains sometimes the complete header and sometimes not
-                                      # See <http://cablesearch.org/cable/view.php?id=09CAIRO79>
-        if 'EG\n\nClassified' in content: # No subject, no references
-            restored_header = u"""
+    elif reference_id == '09CAIRO79' and 'EG\n\nClassified' in content: # This cable contains sometimes the complete header and sometimes not
+                                                                        # See <http://cablesearch.org/cable/view.php?id=09CAIRO79>
+        restored_header = u"""
 SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
 
 REF: A. 08 CAIRO 2431
@@ -229,8 +228,7 @@ D. 08 CAIRO 783
 E. 07 CAIRO 3214
 F. 07 CAIRO 2845
 """
-            # If there are more cables with similar problems, this should be done by a dedicated function
-            content = content.replace('EG\n\nClassified', u'EG\n%s\nClassified' % restored_header)
+        content = content.replace('EG\n\nClassified', u'EG\n%s\nClassified' % restored_header)
     return content
 
 _CONTENT_PATTERN = re.compile(ur'(?:<code><pre>)(.+?)(?:</pre></code>)', re.DOTALL|re.UNICODE)

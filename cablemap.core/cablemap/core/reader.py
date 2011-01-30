@@ -188,7 +188,7 @@ def fix_content(content, reference_id):
     """\
     Fixes some oddities of cables.
 
-    Some cables contain malfomed content which is normalized here.
+    Some cables contain malformed content which is normalized here.
 
     This function assumes that &#x000A; has been replaced by ``\n``,
     and pilcrows, HTML links etc. have been removed (see `_clean_html`)

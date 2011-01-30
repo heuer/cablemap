@@ -160,11 +160,10 @@ def cable_from_html(html, reference_id=None):
         if not m:
             raise Exception("Cannot extract the cable's reference id")
         reference_id = m.group(1)
-    file_content = fix_html_content(html, reference_id)
     cable = Cable(reference_id)
-    parse_meta(file_content, cable)
-    header = get_header_as_text(file_content)
-    content =  get_content_as_text(file_content)
+    parse_meta(html, cable)
+    header = get_header_as_text(html)
+    content =  get_content_as_text(html, reference_id)
     cable.header = header
     cable.content = content
     content_header, content_body = header_body_from_content(content)
@@ -185,12 +184,28 @@ def cable_from_html(html, reference_id=None):
     cable.summary = parse_summary(content_body or content, reference_id)
     return cable
 
-def fix_html_content(content, reference_id):
+def fix_content(content, reference_id):
     """\
-    Converts ``&#x000A;`` to ``\n`` and fixes the content of some cables.
+    Fixes some oddities of cables.
+
+    Some cables contain malfomed content which is normalized here.
+
+    This function assumes that &#x000A; has been replaced by ``\n``,
+    and pilcrows, HTML links etc. have been removed (see `_clean_html`)
+
+    The (un)changed content is returned.
+
+    `content`
+        The text content of the cable
+    `reference_id`
+        The reference identifier of the cable.
+
+
+    >>> fix_content('bla  \\n <\\nREF', '10MADRID87')
+    u'bla  \\n\\nREF'
+    >>> fix_content('bla  \\n <\\nREF', '10MADRID97')
+    'bla  \\n <\\nREF'
     """
-    content = content.replace(ur'&#x000A;', u'\n')
-    # malformed cables
     if reference_id == '10MADRID87':
         content = content.replace(u' \n <\nREF', u' \n\nREF')
     elif reference_id == '04ANKARA348':
@@ -203,8 +218,8 @@ def fix_html_content(content, reference_id):
         content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')
     elif reference_id == '09CAIRO79': # This cable contains sometimes the complete header and sometimes not
                                       # See <http://cablesearch.org/cable/view.php?id=09CAIRO79>
-        if 'EG</a>\n\nClassified' in content: # No subject, no references
-            restored_header = """
+        if 'EG\n\nClassified' in content: # No subject, no references
+            restored_header = u"""
 SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
 
 REF: A. 08 CAIRO 2431
@@ -215,21 +230,24 @@ E. 07 CAIRO 3214
 F. 07 CAIRO 2845
 """
             # If there are more cables with similar problems, this should be done by a dedicated function
-            content = content.replace('EG</a>\n\nClassified', u'EG</a>\n%s\nClassified' % restored_header)
+            content = content.replace('EG\n\nClassified', u'EG\n%s\nClassified' % restored_header)
     return content
-
 
 _CONTENT_PATTERN = re.compile(ur'(?:<code><pre>)(.+?)(?:</pre></code>)', re.DOTALL|re.UNICODE)
 
-def get_content_as_text(file_content):
+def get_content_as_text(file_content, reference_id):
     """\
     Returns the cable content as text.
+
+    This function removes HTML links etc. (c.f. `_clean_html`) and repairs
+    the content of the cable if necessary (c.f. `fix_content`).
     
     `file_content`
         The HTML file content, c.f. `get_file_content`.
+    `reference_id`
+        The reference identifier of the cable.
     """
-    content = _clean_html(_CONTENT_PATTERN.findall(file_content)[-1])
-    return content
+    return fix_content(_clean_html(_CONTENT_PATTERN.findall(file_content)[-1]), reference_id)
 
 def get_header_as_text(file_content):
     """\
@@ -255,9 +273,10 @@ _HTML_TAG_PATTERN = re.compile(r'</?[a-zA-Z]+>')
 def _clean_html(html):
     """\
     Removes links (``<a href="...">...</a>``) from the provided HTML input.
-    Further, it removes "¶" from the texts.
+    Further, it replaces "&#x000A;" with ``\n`` and removes "¶" from the texts.
     """
-    content = _PILCROW_PATTERN.sub(u'', html)
+    content = html.replace(u'&#x000A;', u'\n')
+    content = _PILCROW_PATTERN.sub(u'', content)
     content = _LINK_PATTERN.sub(u'', content)
     content = _HTML_TAG_PATTERN.sub(u'', content)
     return content

@@ -111,7 +111,7 @@ _CABLES_WITHOUT_TID = (
     '09STATE100153', '09ISLAMABAD2523', '09MEXICO2882', '09MANAMA642', 
     '09SAOPAULO653', '09ASMARA429', '10ABUDHABI9', '10SANAA4', 
     '10STATE9584', '10LONDON268', '10STATE17263', '09CAIRO326',
-    '09CAIRO549',
+    '09CAIRO549', '04CAIRO8456',
     ) # was meant for debugging purposes. Who would expected that long list for the bloody, unimporant transmission ID? :)
 
 _CABLES_WITHOUT_TO = ()

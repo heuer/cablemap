@@ -90,7 +90,7 @@ def cable_page_by_id(reference_id):
     >>> cable_page_by_id('22BERLIN1167') is None
     True
     >>> # Test pagination
-    >>> cable_page_by_id('10PRISTINA84') is not None
+    >>> cable_page_by_id('09MOSCOW3010') is not None
     True
     """
     def normalize_year(y):

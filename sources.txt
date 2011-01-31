@@ -47,3 +47,4 @@ Software for Cablegate:
 * <https://github.com/alx/cablegate>
 * <https://github.com/typecode/wikileaks>
 * <https://github.com/elishowk/cablegate_semnet>
+* <https://github.com/gorhill/cablegatesearch.net>

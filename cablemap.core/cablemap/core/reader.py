@@ -347,7 +347,7 @@ def parse_meta(file_content, cable):
     cable.released = released
     cable.origin = origin
     # classifications are usually written in upper case, but you never know.. 
-    cable.classification = [cls.upper() for cls in classification.split('//')]
+    cable.classification = classification.upper()
     return cable
 
 

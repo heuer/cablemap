@@ -132,7 +132,7 @@ class Cable(object):
                     recipients=self.recipients,
                     info=self.info_recipients,
                     partial=self.partial,
-                    classification='//'.join(self.classification),
+                    classification=self.classification,
                     summary=self.summary,
                     header=self.header,
                     body=self.content,
@@ -156,10 +156,7 @@ class Cable(object):
         cable.recipients = dct.get('recipients', [])
         cable.info_recipients = dct.get('info', [])
         cable.partial = dct.get('partial', False)
-        classification = dct.get('classification')
-        if classification:
-            classification = classification.split('//')
-        cable.classification = classification
+        cable.classification = dct.get('classification')
         cable.summary = dct.get('summary')
         cable.header = dct.get('header')
         cable.content = dct.get('body')

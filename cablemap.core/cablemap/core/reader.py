@@ -929,6 +929,11 @@ def parse_tags(content, reference_id=None):
     Returns the TAGS of a cable.
     
     Acc. to the U.S. SD every cable needs at least one tag.
+
+    `content`
+        The content of the cable.
+    `reference_id`
+        The reference identifier of the cable.
     
     >>> parse_tags('TAGS: something')
     [u'SOMETHING']
@@ -1049,6 +1054,13 @@ _CLEAN_SUMMARY_PATTERN = re.compile(r'(---+)|(((^[1-9])|(\n[1-9]))\.[ ]+\([^\)]+
 def parse_summary(content, reference_id=None):
     """\
     Extracts the summary from the `content` of the cable.
+    
+    If no summary can be found, ``None`` is returned.
+    
+    `content`
+        The content of the cable.
+    `reference_id`
+        The reference identifier of the cable.
     
     >>> # 72TEHRAN5055
     >>> parse_summary('REF: TEHRAN 4887\\n\\nSUMMARY: FOLLOWING ASSASSINATION [...].\\nEND SUMMARY\\n\\n1. IN WAKE ')

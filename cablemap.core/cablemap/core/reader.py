@@ -174,7 +174,7 @@ def cable_from_html(html, reference_id=None):
     """
     def year(y):
         date, time = y.split()
-        return date.split('-')[:2]
+        return date.split('-')[0]
     if not html:
         raise ValueError('The HTML page of the cable must be provided, got: "%r"' % html)
     if not reference_id:
@@ -196,7 +196,7 @@ def cable_from_html(html, reference_id=None):
         content_header = content
     cable.subject = parse_subject(content_header, reference_id)
     cable.tags = parse_tags(content_header, reference_id)
-    cable.references = parse_references(content_header, year(cable.created)[0], reference_id)
+    cable.references = parse_references(content_header, year(cable.created), reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
     if not cable.partial: # Partial cables have no header
         cable.transmission_id = parse_transmission_id(header, reference_id)

@@ -839,6 +839,12 @@ def parse_references(content, year, reference_id=None):
     >>> # 10TRIPOLI167
     >>> parse_references('\\nREF: TRIPOLI 115\\n\\n1.(SBU) This is an action request; please see para 4.\\n\\n', 2010)
     [u'10TRIPOLI115']
+    >>> # 06BRASILIA882
+    >>> parse_references('SUBJECT: ENERGY INSTALLATIONS REF: BRASILIA 861', 2006)
+    [u'06BRASILIA861']
+    >>> # 08MOSCOW864
+    >>> parse_references("TAGS: EPET ENRG ECON PREL PGOV RS\\nSUBJECT: WHAT'S BEHIND THE RAIDS ON TNK-BP AND BP REF: A. MOSCOW 816 B. MOSCOW 768 C. 07 MOSCOW 3054 Classified By: Ambassador William J. Burns for Reasons 1.4 (b/d)\\n", 2008)
+    [u'08MOSCOW816', u'08MOSCOW768', u'07MOSCOW3054']
     """
     def format_year(y):
         y = str(y)

@@ -199,7 +199,7 @@ def cable_from_html(html, reference_id=None):
     cable.references = parse_references(content_header, year(cable.created)[0], reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
     if not cable.partial: # Partial cables have no header
-        cable.transmission_id = parse_tranmission_id(header, reference_id)
+        cable.transmission_id = parse_transmission_id(header, reference_id)
         cable.recipients = parse_recipients(header, reference_id)
     cable.info_recipients = parse_info_recipients(header, reference_id)
     cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
@@ -371,9 +371,14 @@ def parse_meta(file_content, cable):
     return cable
 
 
+def parse_tranmission_id(header, reference_id):
+    import warnings
+    warnings.warn('Use "parse_transmission_id"', DeprecationWarning)
+    return parse_transmission_id(header, reference_id)
+
 _TID_PATTERN = re.compile(r'(VZCZ[A-Z]+[0-9]+)', re.UNICODE)
 
-def parse_tranmission_id(header, reference_id):
+def parse_transmission_id(header, reference_id):
     """\
     Returns the transmission ID of the cable. If no transmission identifier was
     found, ``None`` is returned.

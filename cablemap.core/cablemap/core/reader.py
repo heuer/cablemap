@@ -68,7 +68,24 @@ _CABLES_WITHOUT_SUBJECT = ('06KABUL3934',
     '06ANKARA3352', '07BRASILIA572', '08MOSCOW3394',
     '09UNVIEVIENNA192', '09MOSCOW2353', '10ATHENS57',
     '10BERLIN81', '05TELAVIV4403', '06TELAVIV687',
-    '08USNATO275',
+    '08USNATO275', '05TELAVIV4405', '07MOSCOW5835',
+    '08MOSCOW499', '08TRIPOLI113', '08TRIPOLI220',
+    '08TRIPOLI229', '08TRIPOLI298', '08MOSCOW1964',
+    '08MOSCOW2137', '08MOSCOW2153', '08MOSCOW2273',
+    '08MOSCOW2452', '08MOSCOW2671', '08MOSCOW3297',
+    '09TRIPOLI221', '09TRIPOLI223', '09TRIPOLI242',
+    '09TRIPOLI258', '09TRIPOLI293', '07HARARE1073',
+    '09TRIPOLI157', '09TRIPOLI222', '09TRIPOLI274',
+    '09TRIPOLI306', '09NEWDELHI1036', '09TRIPOLI386',
+    '09TRIPOLI413', '09TRIPOLI438', '09TRIPOLI485',
+    '09TRIPOLI517', '09TRIPOLI599', '09TRIPOLI618',
+    '09TRIPOLI619', '09TRIPOLI620', '09TRIPOLI658',
+    '09TRIPOLI678', '09TRIPOLI694', '09TRIPOLI812',
+    '09TRIPOLI817', '09TRIPOLI874', '09TRIPOLI887',
+    '09TRIPOLI900', '09TRIPOLI925', '09TRIPOLI1021',
+    '10STATE284', '10TRIPOLI39', '10TRIPOLI46',
+    '10TRIPOLI112', '10TRIPOLI167', '09TRIPOLI365',
+    '09TRIPOLI741',
     )
 
 #
@@ -112,7 +129,11 @@ _CABLES_WITHOUT_TID = (
     '09STATE100153', '09ISLAMABAD2523', '09MEXICO2882', '09MANAMA642', 
     '09SAOPAULO653', '09ASMARA429', '10ABUDHABI9', '10SANAA4', 
     '10STATE9584', '10LONDON268', '10STATE17263', '09CAIRO326',
-    '09CAIRO549', '04CAIRO8456',
+    '09CAIRO549', '04CAIRO8456', '08STATE3728', '08TRIPOLI340',
+    '08TRIPOLI368', '09STATE3691', '09TRIPOLI222', '09TRIPOLI260',
+    '09TRIPOLI190', '09TRIPOLI192', '09TRIPOLI366', '09TRIPOLI409',
+    '09TRIPOLI482', '09TRIPOLI483', '09TRIPOLI487', '09TRIPOLI490',
+    '09TRIPOLI394',
     ) # was meant for debugging purposes. Who would expected that long list for the bloody, unimporant transmission ID? :)
 
 _CABLES_WITHOUT_TO = ()
@@ -213,8 +234,6 @@ def fix_content(content, reference_id):
         content = content.replace(u'Subject: turkish p.m. Erdogan goes', u'\nSubject: turkish p.m. Erdogan goes') #04ANKARA348
     elif reference_id == '09STATE30049':
         content = content.replace(u'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n') #09STATE30049
-    elif reference_id == '06BRASILIA882': #TODO: The subject parser should detect that
-        content = content.replace(u'ENERGY INSTALLATIONS REF: BRASILIA 861', u'ENERGY INSTALLATIONS \n\nREF: BRASILIA 861')
     elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
         content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')
     elif reference_id == '09CAIRO79' and 'EG\n\nClassified' in content: # This cable contains sometimes the complete header and sometimes not
@@ -568,7 +587,7 @@ def parse_info_recipients(header, reference_id):
     return res
 
 
-_SUBJECT_PATTERN = re.compile(ur'(?:SUBJ(?:ECT)?:?\s+(?!LINE[/]+))(.+?)(?:\Z|\n[ ]*\n|[\s]*[\n][\s]*[\s]*REF:?\s|REF\(S\):?|[\r\n ]+Classified By:?\s|[1-9]\.?[ ]+Classified By|[1-9]\.?[ ]+\(SBU\)|1\.?[ ]Summary|[A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF|\-\-\-\-\-*\s+|Friday|PAGE [0-9]+|This is an Action Req|REF:[ ]+\(A\))', re.DOTALL|re.IGNORECASE|re.UNICODE)
+_SUBJECT_PATTERN = re.compile(ur'(?:SUBJ(?:ECT)?:?\s+(?!LINE[/]+))(.+?)(?:\Z|[ ]+REF:[ ]+|\n[ ]*\n|[\s]*[\n][\s]*[\s]*REF:?\s|REF\(S\):?|[\r\n ]+Classified By:?\s|[1-9]\.?[ ]+Classified By|[1-9]\.?[ ]+\(SBU\)|1\.?[ ]Summary|[A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF|\-\-\-\-\-*\s+|Friday|PAGE [0-9]+|This is an Action Req|REF:[ ]+\(A\))', re.DOTALL|re.IGNORECASE|re.UNICODE)
 _NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$', re.IGNORECASE)
@@ -651,6 +670,15 @@ def parse_subject(content, reference_id=None, clean=True):
     u'EU JHA INFORMAL MINISTERIAL'
     >>> parse_subject('\\nSUBJECT: CARDINAL HUMMES DISCUSSES LULA GOVERNMENT, THE OPPOSITION, AND FTAA REF: (A) 05 SAO PAULO 405; (B) 05 SAO PAULO 402 (C) 02 BRASILIA 2670')
     u'CARDINAL HUMMES DISCUSSES LULA GOVERNMENT, THE OPPOSITION, AND FTAA'
+    >>> # 06BRASILIA882
+    >>> parse_subject('SUBJECT: ENERGY INSTALLATIONS REF: BRASILIA 861')
+    u'ENERGY INSTALLATIONS'
+    >>> # 08MOSCOW864
+    >>> parse_subject("TAGS: EPET ENRG ECON PREL PGOV RS\\nSUBJECT: WHAT'S BEHIND THE RAIDS ON TNK-BP AND BP REF: A. MOSCOW 816 B. MOSCOW 768 C. 07 MOSCOW 3054 Classified By: Ambassador William J. Burns for Reasons 1.4 (b/d)\\n")
+    u"WHAT'S BEHIND THE RAIDS ON TNK-BP AND BP"
+    >>> # 08TRIPOLI266
+    >>> parse_subject('SUBJECT: GOL DELAYS RELEASING DETAINED HUMAN RIGHTS ACTIVIST FATHI EL-JAHMI REF: A) TRIPOLI 223, B) TRIPOLI 229 \\n')
+    u'GOL DELAYS RELEASING DETAINED HUMAN RIGHTS ACTIVIST FATHI EL-JAHMI'
     """
     m = _SUBJECT_PATTERN.search(content, 0, 1200)
     if not m:
@@ -701,6 +729,8 @@ def parse_nondisclosure_deadline(content):
     u'2008-06-03'
     >>> parse_nondisclosure_deadline(u'EO 12958: decl: 06/30/08')
     u'2008-06-30'
+    >>> parse_nondisclosure_deadline(u'E.O. 12958: N/A') is None
+    True
     """
     m = _DEADLINE_PATTERN.search(content)
     if not m:
@@ -736,7 +766,7 @@ _MONTHS = (
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 _REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z]+)(?:\s*)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
-_CLASSIFIED_BY_PATTERN = re.compile(r'\n[ ]*Classified\s+By:\s+', re.IGNORECASE|re.UNICODE)
+_NOT_REFERENCE_PATTERN = re.compile(r'(\n[0-9]\.\([A-Z]+\)[ ]+)|(\n[ ]*Classified\s+By:\s+)', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+', re.UNICODE)
 
@@ -744,37 +774,37 @@ def parse_references(content, year, reference_id=None):
     """\
     Returns the references to other cables as (maybe empty) list.
     
-    >>> # <http://wikileaks.ch/cable/2007/07/07TBILISI1732.html>
+    >>> # 07TBILISI1732
     >>> parse_references('\\nREF: A. TBILISI 1605  B. TBILISI 1352  C. TBILISI 1100  D. 06 TBILISI 2601  E. 06 TBILISI 2590  F. 06 TBILISI 2425  G. 06 TBILISI 2390  H. 06 TBILISI 1532  I. 06 STATE 80908  J. 06 TBILISI 1064  K. 06 TBILISI 0619  L. 06 TBILISI 0397  M. 06 MOSCOW 0546  N. 06 TBILISI 0140  O. 05 TBILISI 3171', 2007)
     [u'07TBILISI1605', u'07TBILISI1352', u'07TBILISI1100', u'06TBILISI2601', u'06TBILISI2590', u'06TBILISI2425', u'06TBILISI2390', u'06TBILISI1532', u'06STATE80908', u'06TBILISI1064', u'06TBILISI619', u'06TBILISI397', u'06MOSCOW546', u'06TBILISI140', u'05TBILISI3171']
-    >>> # <http://213.251.145.96/cable/2008/09/08PARIS1698.html>
+    >>> # 08PARIS1698
     >>> parse_references('\\nREF: A. PARIS 1501 \\nB. PARIS 1568 \\nC. HOTR WASHINGTON DC//USDAO PARIS (SUBJ: IIR 6 832 \\n0617 08)\\nD. HOTR WASHINGTON DC//USDAO PARIS (SUBJ: IIR 6 832 \\n0626 08) ', 2008)
     [u'08PARIS1501', u'08PARIS1568']
-    >>> # <http://wikileaks.ch/cable/2008/08/08PARIS1501.html>
+    >>> # 08PARIS1501
     >>> parse_references('\\nREF: A. 05 PARIS 5459 \\nB. 06 PARIS 5733', 2008)
     [u'05PARIS5459', u'06PARIS5733']
-    >>> # <http://wikileaks.ch/cable/2007/06/07TALLINN375.html>
+    >>> # 07TALLINN375
     >>> parse_references('\\nREF: A) TALLINN 366 B) LEE-GOLDSTEIN EMAIL 05/11/07 \\nB) TALLINN 347 ', 2007)
     [u'07TALLINN366', u'07TALLINN347']
-    >>> # <http://wikileaks.ch/cable/2007/11/07TRIPOLI943.html>
+    >>> # 07TRIPOLI943
     >>> parse_references('\\nREF: A) STATE 135205; B) STATE 127608; C) JOHNSON-STEVENS/GODFREY E-MAIL 10/15/07; D) TRIPOLI 797; E) TRIPOLI 723 AND PREVIOUS', 2007)
     [u'07STATE135205', u'07STATE127608', u'07TRIPOLI797', u'07TRIPOLI723']
-    >>> # <http://wikileaks.ch/cable/2007/11/07STATE156011.html>
+    >>> # 07STATE156011
     >>> parse_references('\\nREF: LA PAZ 2974', 2007)
     [u'07LAPAZ2974']
-    >>> # <http://213.251.145.96/cable/2005/11/05PARIS7835.html>
+    >>> # 05PARIS7835
     >>> parse_references('\\nREF: A. (A) PARIS 7682 AND PREVIOUS ', 2005)
     [u'05PARIS7682']
-    >>> # <http://213.251.145.96/cable/2005/11/05PARIS7835.html>
+    >>> # 05PARIS7835
     >>> parse_references('\\nREF: A. (A) PARIS 7682 AND PREVIOUS \\n\\nB. (B) EMBASSY PARIS DAILY REPORT FOR OCTOBER 28 - \\nNOVEMBER 16 (PARIS SIPRNET SITE) \\nC. (C) PARIS 7527 ', 2005)
     [u'05PARIS7682', u'05PARIS7527']
-    >>> # <http://213.251.145.96/cable/2009/08/09MADRID869.html>
+    >>> # 09MADRID869
     >>> parse_references('\\nSUBJECT: UPDATES IN SPAIN’S INVESTIGATIONS OF RUSSIAN MAFIA \\nREF: A. OSC EUP20080707950031  B. OSC EUP20081019950022  C. OSC EUP20090608178005  D. MADRID 286  E. OSC EUP20050620950076  F. OSC EUP20080708950049  G. OSC EUP20081029950032  H. OSC EUP 20061127123001\\nMADRID 00000869 001.2 OF 004\\n', 2009)
     [u'09MADRID286']
-    >>> # <http://wikileaks.ch/cable/2007/11/07STATE152317.html>
+    >>> # 07STATE152317
     >>> parse_references('\\nREF: (A)STATE 071143, (B)STATE 073601, (C)STATE 72896, (D)BEIJING \\n5361, (E) STATE 148514', 2007)
     [u'07STATE71143', u'07STATE73601', u'07STATE72896', u'07BEIJING5361', u'07STATE148514']
-    >>> # <http://213.251.145.96/cable/2008/05/08MANAGUA573.html>
+    >>> # 08MANAGUA573
     >>> parse_references('\\nREF: A. MANAGUA 520 \\nB. MANAGUA 500 \\nC. MANAGUA 443 \\nD. MANAGUA 340 \\nE. MANAGUA 325 \\nF. MANAGUA 289 \\nG. MANAGUA 263 \\nH. MANAGUA 130 \\nI. 2007 MANAGUA 2135 \\nJ. 2007 MANAGUA 1730 \\nK. 2007 MANAGUA 964 \\nL. 2006 MANAGUA 2611 ', 2008)
     [u'08MANAGUA520', u'08MANAGUA500', u'08MANAGUA443', u'08MANAGUA340', u'08MANAGUA325', u'08MANAGUA289', u'08MANAGUA263', u'08MANAGUA130', u'07MANAGUA2135', u'07MANAGUA1730', u'07MANAGUA964', u'06MANAGUA2611']
     >>> # 66BUENOSAIRES2481
@@ -806,6 +836,9 @@ def parse_references(content, year, reference_id=None):
     >>> # 02ROME1196
     >>> parse_references('\\nREF: A. STATE 40721\\n CONFIDENTIAL\\nPAGE 02 ROME 01196 01 OF 02 082030Z  B. ROME 1098  C. ROME 894  D. MYRIAD POST-DEPARTMENT E-MAILS FROM 10/01-02/02  E. ROME 348\\nCLASSIFIED BY: POL', 2002)
     [u'02STATE40721', u'02ROME1098', u'02ROME894', u'02ROME348']
+    >>> # 10TRIPOLI167
+    >>> parse_references('\\nREF: TRIPOLI 115\\n\\n1.(SBU) This is an action request; please see para 4.\\n\\n', 2010)
+    [u'10TRIPOLI115']
     """
     def format_year(y):
         y = str(y)
@@ -815,9 +848,9 @@ def parse_references(content, year, reference_id=None):
             return y[2:]
         return y
     m_start = _REF_START_PATTERN.search(content)
-    m_classified = _CLASSIFIED_BY_PATTERN.search(content, m_start and m_start.end() or 0, 1200)
+    m_stop = _NOT_REFERENCE_PATTERN.search(content, m_start and m_start.end() or 0, 1200)
     last_end = m_start and m_start.end() or 0
-    max_idx = m_classified and m_classified.start() or 1200
+    max_idx = m_stop and m_stop.start() or 1200
     m_end = _REF_LAST_REF_PATTERN.search(content, last_end, max_idx)
     while m_end:
         last_end = m_end.end()

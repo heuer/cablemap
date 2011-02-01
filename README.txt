@@ -5,7 +5,7 @@ Cablemap - A Cablegate to Topic Maps converter
 
 What is Cablemap?
 -----------------
-Cablemap converts the Wikileaks Cablegate dataset into Topic Maps. Further, 
+Cablemap converts the WikiLeaks Cablegate dataset into Topic Maps. Further, 
 it provides utilities to extract information from the Cablegate dataset 
 independently of Topic Maps.
 
@@ -24,6 +24,6 @@ translation of cables into JSON.
 
 Disclaimer
 ----------
-Cablemap is not a Wikileaks mirror and has no ties to Wikileaks. 
+Cablemap is not a WikiLeaks mirror and has no ties to WikiLeaks. 
 It provides just a parser to read published cables which are already widely 
 available on the web.

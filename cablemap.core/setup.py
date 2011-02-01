@@ -53,7 +53,7 @@ setup(
       zip_safe = False,
       include_package_data = True,
       package_data = {'': ['*.txt']},
-      keywords = ['Wikileaks', 'Cablegate'],
+      keywords = ['WikiLeaks', 'Cablegate'],
       classifiers = [
                     'Intended Audience :: Developers',
                     'Intended Audience :: Information Technology',

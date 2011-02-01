@@ -230,8 +230,6 @@ def fix_content(content, reference_id):
     """
     if reference_id == '10MADRID87':
         content = content.replace(u' \n <\nREF', u' \n\nREF')
-    elif reference_id == '04ANKARA348':
-        content = content.replace(u'Subject: turkish p.m. Erdogan goes', u'\nSubject: turkish p.m. Erdogan goes') #04ANKARA348
     elif reference_id == '09STATE30049':
         content = content.replace(u'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n') #09STATE30049
     elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.

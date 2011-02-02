@@ -85,7 +85,11 @@ _CABLES_WITHOUT_SUBJECT = ('06KABUL3934',
     '09TRIPOLI900', '09TRIPOLI925', '09TRIPOLI1021',
     '10STATE284', '10TRIPOLI39', '10TRIPOLI46',
     '10TRIPOLI112', '10TRIPOLI167', '09TRIPOLI365',
-    '09TRIPOLI741',
+    '09TRIPOLI741', '05LIMA3571', '05LIMA3609',
+    '07KAMPALA1752', '08ASTANA54', '05LIMA3571',
+    '05LIMA3609', '07KAMPALA1752', '07TOKYO5492',
+    '08ASTANA54', '08BEIJING1263', '08TRIPOLI642',
+    '08TRIPOLI827', '09TRIPOLI63', '09TRIPOLI151',
     )
 
 #
@@ -133,7 +137,11 @@ _CABLES_WITHOUT_TID = (
     '08TRIPOLI368', '09STATE3691', '09TRIPOLI222', '09TRIPOLI260',
     '09TRIPOLI190', '09TRIPOLI192', '09TRIPOLI366', '09TRIPOLI409',
     '09TRIPOLI482', '09TRIPOLI483', '09TRIPOLI487', '09TRIPOLI490',
-    '09TRIPOLI394',
+    '09TRIPOLI394', '08BEIJING1263', '08BEIJING1373', '08BEIJING1373',
+    '08TRIPOLI470', '08TRIPOLI474', '08TRIPOLI498', '08STATE77144',
+    '08TRIPOLI530', '08TRIPOLI554', '08TRIPOLI566', '08TRIPOLI567',
+    '08TRIPOLI764', '08TRIPOLI912', '09SANTIAGO167', '09TRIPOLI117',
+    
     ) # was meant for debugging purposes. Who would expected that long list for the bloody, unimporant transmission ID? :)
 
 _CABLES_WITHOUT_TO = ()
@@ -1101,6 +1109,8 @@ def parse_summary(content, reference_id=None):
     u'During separate [...].'
     """
     summary = None
+    if reference_id == '08UNVIEVIENNA215': # It mentions Summary/End Summary but it is malformed
+        return summary
     m = _END_SUMMARY_PATTERN.search(content)
     if m:
         end_of_summary = m.start()

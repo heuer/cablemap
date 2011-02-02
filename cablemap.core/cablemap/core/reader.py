@@ -1116,8 +1116,8 @@ def parse_summary(content, reference_id=None):
     >>> parse_summary('''CLASSIFIED BY: Thomas A. Shannon, Ambassador, State, Embassy Brasilia; REASON: 1.4(B), (D)\\n1. (C) Summary. During separate [...]. End summary.''')
     u'During separate [...].'
     >>> # 09TRIPOLI715
-    >>> parse_summary('''CLASSIFIED BY: Gene A. Cretz, Ambassador, US Embassy Tripoli, Department of State. REASON: 1.4 (b), (d)\\n\\n1.(C) Bla bla. End Summary.''')
-    u'Bla bla.'
+    >>> parse_summary('''CLASSIFIED BY: Gene A. Cretz, Ambassador, US Embassy Tripoli, Department of State. REASON: 1.4 (b), (d)\\n\\n1.(C) The August 31 African [...]. End Summary.''')
+    u'The August 31 African [...].'
     """
     summary = None
     m = _END_SUMMARY_PATTERN.search(content)

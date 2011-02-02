@@ -146,6 +146,8 @@ _CABLES_WITHOUT_TID = (
 
 _CABLES_WITHOUT_TO = ()
 
+_CABLES_WITH_MALFORMED_SUMMARY = ()
+
 logger = logging.getLogger('cablemap-reader')
 
 def cable_from_file(filename):
@@ -208,7 +210,7 @@ def cable_from_html(html, reference_id=None):
         cable.recipients = parse_recipients(header, reference_id)
     cable.info_recipients = parse_info_recipients(header, reference_id)
     cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
-    cable.summary = parse_summary(content_body or content, reference_id)
+    cable.summary = parse_summary(content, reference_id)
     return cable
 
 def fix_content(content, reference_id):
@@ -1054,7 +1056,11 @@ def parse_tags(content, reference_id=None):
 
 
 _END_SUMMARY_PATTERN = re.compile(r'END[ ]+SUMMARY', re.IGNORECASE)
-_START_SUMMARY_PATTERN = re.compile(r'(SUMMARY( AND COMMENT)?[ \-\n:\.]*)|(\n1\.[ ]+(\([^\)]+\))?([ ]+summary( and comment)?(:|\.))?)', re.IGNORECASE)
+# 09OSLO146 contains "Summay" instead of "SummaRy"
+_START_SUMMARY_PATTERN = re.compile(r'(SUMMAR?Y( AND COMMENT)?[ \-\n:\.]*)|(\n1\.[ ]+(\([^\)]+\))?([ ]+summary( and comment)?(:|\.))?)', re.IGNORECASE)
+# Some cables like 07BAGHDAD3895, 07TRIPOLI1066 contain "End Summary" but no "Summary:" start
+# Since End Summary occurs in the first paragraph, we interpret the first paragraph as summary
+_ALTERNATIVE_START_SUMMARY_PATTERN = re.compile(r'\n1\.\([^\)]+\) ')
 _SUMMARY_PATTERN = re.compile(r'(?:SUMMARY[ \-\n]*)(?::|\.|\s)(.+?)(?=(\n[ ]*\n)|(END[ ]+SUMMARY))', re.DOTALL|re.IGNORECASE|re.UNICODE)
 _CLEAN_SUMMARY_WS_PATTERN = re.compile('[ \n]+')
 _CLEAN_SUMMARY_PATTERN = re.compile(r'(---+)|(((^[1-9])|(\n[1-9]))\.[ ]+\([^\)]+\)[ ]+)|(^[1-2]. Summary:)|(^[1-2]\.[ ]+)|(^and action request. )|(^and comment. )|(2. (C) Summary, continued:)', re.UNICODE|re.IGNORECASE)
@@ -1109,18 +1115,19 @@ def parse_summary(content, reference_id=None):
     >>> # 10BRASILIA61
     >>> parse_summary('''CLASSIFIED BY: Thomas A. Shannon, Ambassador, State, Embassy Brasilia; REASON: 1.4(B), (D)\\n1. (C) Summary. During separate [...]. End summary.''')
     u'During separate [...].'
+    >>> # 09TRIPOLI715
+    >>> parse_summary('''CLASSIFIED BY: Gene A. Cretz, Ambassador, US Embassy Tripoli, Department of State. REASON: 1.4 (b), (d)\\n\\n1.(C) Bla bla. End Summary.''')
+    u'Bla bla.'
     """
     summary = None
-    if reference_id == '08UNVIEVIENNA215': # It mentions Summary/End Summary but it is malformed
-        return summary
     m = _END_SUMMARY_PATTERN.search(content)
     if m:
         end_of_summary = m.start()
-        m = _START_SUMMARY_PATTERN.search(content, 0, end_of_summary)
+        m = _START_SUMMARY_PATTERN.search(content, 0, end_of_summary) or _ALTERNATIVE_START_SUMMARY_PATTERN.search(content, 0, end_of_summary)
         if m:
             summary = content[m.end():end_of_summary]
-        else:
-            raise Exception('Found "end of summary" but no start in "%s", content: "%s"' % (reference_id, content[:end_of_summary]))
+        elif reference_id not in _CABLES_WITH_MALFORMED_SUMMARY:
+            logger.debug('Found "end of summary" but no start in "%s", content: "%s"' % (reference_id, content[:end_of_summary]))
     else:
         m = _SUMMARY_PATTERN.search(content)
         if m:

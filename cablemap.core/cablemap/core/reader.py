@@ -233,7 +233,9 @@ def fix_content(content, reference_id):
     >>> fix_content('\\nBLOGGERS MOVING', '09UNKNOWNID3122')
     '\\nBLOGGERS MOVING'
     """
-    if reference_id == '09STATE30049':
+    if reference_id == '08TRIPOLI402':
+        content = content.replace(u'JAMAHIRIYA-STYLE Q: A) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI')
+    elif reference_id == '09STATE30049':
         content = content.replace(u'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n') #09STATE30049
     elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
         content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')

@@ -7,20 +7,17 @@ and saves the cables as JSON (the filename is the reference
 id of the cable).
 """
 import codecs
-from cablemap.core import cable_from_file
-from cablemap.core.utils import cable_to_json
+from cablemap.core.utils import cable_to_json, cables_from_directory
 
 def generate_json_files(in_dir, out_dir):
     """\
     Walks through the `in_dir` and translates cables to JSON
     in the `out_dir`.
     """
-    for root, dirs, files in os.walk(in_dir):
-        for name in [n for n in files if '.html' in n]:
-            cable = cable_from_file(root + '/' + name)
-            out = codecs.open(out_dir + '/' + cable.reference_id + '.json', 'wb', encoding='utf-8')
-            out.write(cable_to_json(cable))
-            out.close()
+    for cable in cables_from_directory(in_dir):
+        out = codecs.open(out_dir + '/' + cable.reference_id + '.json', 'wb', encoding='utf-8')
+        out.write(cable_to_json(cable))
+        out.close()
 
 
 if __name__ == '__main__':

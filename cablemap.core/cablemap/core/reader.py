@@ -914,8 +914,9 @@ def parse_references(content, year, reference_id=None):
                 and not origin.startswith('POLITICAL') \
                 and not origin.startswith('PARISPOINTS'):
                 res.append(u'%s%s%s' % (y, origin, int(sn)))
-    # Remove self references
-    res.remove(reference_id)
+    if reference_id in res:
+        # Remove self references
+        res.remove(reference_id)
     return res
 
 

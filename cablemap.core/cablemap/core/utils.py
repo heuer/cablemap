@@ -38,11 +38,14 @@ Utility functions for cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+import os
 import re
 from functools import partial
 from StringIO import StringIO
 import gzip
 import urllib2
+from models import Cable
+from reader import cable_from_file
 try:
     import simplejson as json
 except ImportError:
@@ -54,7 +57,6 @@ except ImportError:
             from django.utils import simplejson as json
         except ImportError:
             pass #TODO: Exception?
-from models import Cable
 
 class _Request(urllib2.Request):
     def __init__(self, url):
@@ -260,6 +262,20 @@ def cable_to_yaml(cable, metaonly=False, include_summary=True):
     to_yaml = partial(yaml.dump, Dumper=Dumper)
     return _json_or_yaml(to_yaml, cable, metaonly, include_summary)
 
+
+def cables_from_directory(directory):
+    """\
+    Returns a generator with ``models.Cable`` instances.
+    
+    Walks through the provided directory and returns cables from
+    the ``.html`` files.
+
+    `directory`
+        The directory to read the cables from.
+    """
+    for root, dirs, files in os.walk(directory):
+        for name in (n for n in files if '.html' in n):
+            yield cable_from_file(root + '/' + name)
 
 if __name__ == '__main__':
     import doctest

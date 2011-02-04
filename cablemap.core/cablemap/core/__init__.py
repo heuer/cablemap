@@ -38,6 +38,6 @@ Provides access to common functions of the reader module.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
-from reader import cable_from_file, cable_from_html
+from cablemap.core.reader import cable_from_file, cable_from_html
 
 __all__ = ['cable_from_file', 'cable_from_html']

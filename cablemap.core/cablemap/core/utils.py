@@ -44,7 +44,7 @@ from functools import partial
 from StringIO import StringIO
 import gzip
 import urllib2
-from cablemap.core import cable_from_file
+from cablemap.core import cable_from_file, cable_from_html
 from cablemap.core.models import Cable
 try:
     import simplejson as json
@@ -276,6 +276,17 @@ def cables_from_directory(directory):
     for root, dirs, files in os.walk(directory):
         for name in (n for n in files if '.html' in n):
             yield cable_from_file(os.path.join(os.path.abspath(root), name))
+
+def cable_by_id(reference_id):
+    """\
+    Returns a cable by its reference identifier.
+
+    The cable is fetched from the Internet.
+
+    `reference_id`
+        The reference identifier of the cable.
+    """
+    return cable_from_html(cable_page_by_id(reference_id))
 
 
 if __name__ == '__main__':

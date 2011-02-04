@@ -7,7 +7,7 @@ and saves the cables as text (the filename is the reference
 id of the cable).
 """
 import codecs
-from cablemap.core.utils import cables_from_directory
+from cablemap.core import cables_from_directory
 
 def cable_to_text(cable, include_header):
     """\

@@ -7,7 +7,8 @@ and saves the cables as JSON (the filename is the reference
 id of the cable).
 """
 import codecs
-from cablemap.core.utils import cable_to_json, cables_from_directory
+from cablemap.core import cables_from_directory
+from cablemap.core.utils import cable_to_json
 
 def generate_json_files(in_dir, out_dir):
     """\

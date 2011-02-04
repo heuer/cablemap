@@ -39,5 +39,8 @@ Provides access to common functions of the reader module.
 :license:      BSD license
 """
 from cablemap.core.reader import cable_from_file, cable_from_html
+from cablemap.core.utils import cables_from_directory, cable_by_id
 
-__all__ = ['cable_from_file', 'cable_from_html']
+__all__ = ['cable_from_file', 'cable_from_html',
+           'cables_from_directory', 'cable_from_id',
+           ]

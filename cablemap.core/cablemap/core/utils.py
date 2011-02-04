@@ -44,8 +44,8 @@ from functools import partial
 from StringIO import StringIO
 import gzip
 import urllib2
-from models import Cable
-from reader import cable_from_file
+from cablemap.core.models import Cable
+from cablemap.core.reader import cable_from_file
 try:
     import simplejson as json
 except ImportError:
@@ -276,6 +276,7 @@ def cables_from_directory(directory):
     for root, dirs, files in os.walk(directory):
         for name in (n for n in files if '.html' in n):
             yield cable_from_file(root + '/' + name)
+
 
 if __name__ == '__main__':
     import doctest

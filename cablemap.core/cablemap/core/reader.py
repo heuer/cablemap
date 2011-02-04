@@ -41,8 +41,8 @@ This module extracts information from cables.
 import re
 import logging
 import codecs
-from constants import MIN_ORIGIN_LENGTH, MAX_ORIGIN_LENGTH
-from models import Cable
+from cablemap.core.constants import MIN_ORIGIN_LENGTH, MAX_ORIGIN_LENGTH
+from cablemap.core.models import Cable
 
 #
 # Cables w/o a subject
@@ -1062,7 +1062,7 @@ def parse_tags(content, reference_id=None):
 
 _END_SUMMARY_PATTERN = re.compile(r'END[ ]+SUMMARY', re.IGNORECASE)
 # 09OSLO146 contains "Summay" instead of "SummaRy"
-_START_SUMMARY_PATTERN = re.compile(r'(SUMMAR?Y( AND COMMENT)?[ \-\n:\.]*)|(\n1\.[ ]+(\([^\)]+\))?([ ]+summary( and comment)?(:|\.))?)', re.IGNORECASE)
+_START_SUMMARY_PATTERN = re.compile(r'(SUMMAR?Y( AND COMMENT)?[ \-\n:\.]*)|(\n1\.[ ]+(\([^\)]+\))?([ ]*summary( and comment)?(:|\.))?)', re.IGNORECASE)
 # Some cables like 07BAGHDAD3895, 07TRIPOLI1066 contain "End Summary" but no "Summary:" start
 # Since End Summary occurs in the first paragraph, we interpret the first paragraph as summary
 _ALTERNATIVE_START_SUMMARY_PATTERN = re.compile(r'\n1\.\([^\)]+\) ')
@@ -1123,6 +1123,9 @@ def parse_summary(content, reference_id=None):
     >>> # 09TRIPOLI715
     >>> parse_summary('''CLASSIFIED BY: Gene A. Cretz, Ambassador, US Embassy Tripoli, Department of State. REASON: 1.4 (b), (d)\\n\\n1.(C) The August 31 African [...]. End Summary.''')
     u'The August 31 African [...].'
+    >>> # 06TOKYO3567
+    >>> parse_summary('''OF 002   \\n\\n1.  Summary: (SBU) Japanese [...]. End Summary \\n\\n2. ''')
+    u'(SBU) Japanese [...].'
     """
     summary = None
     m = _END_SUMMARY_PATTERN.search(content)

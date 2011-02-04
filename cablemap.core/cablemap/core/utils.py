@@ -96,6 +96,8 @@ def cable_page_by_id(reference_id):
     True
     >>> cable_page_by_id('10MADRID87') is not None
     True
+    >>> cable_page_by_id('10MUSCAT103') is not None
+    True
     """
     def normalize_year(y):
         year = y

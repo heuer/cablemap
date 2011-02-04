@@ -44,8 +44,8 @@ from functools import partial
 from StringIO import StringIO
 import gzip
 import urllib2
+from cablemap.core import cable_from_file
 from cablemap.core.models import Cable
-from cablemap.core.reader import cable_from_file
 try:
     import simplejson as json
 except ImportError:

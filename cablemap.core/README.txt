@@ -8,14 +8,12 @@ Cablemap - The core package
 The core package provides utilities which can be used to extract information
 from diplomatic cables::
 
-    >>> from cablemap.core import cable_from_html
-    >>> from cablemap.core.utils import cable_page_by_id, cable_to_json
+    >>> from cablemap.core import cable_by_id
+    >>> from cablemap.core.utils import cable_to_json
     >>> 
-    >>> rid = '09BERLIN1167'
     >>> # Fetches the cable with the reference id '09BERLIN1167' from the Internet
-    >>> page = cable_page_by_id(rid)
-    >>> # Converts the HTML page into a cable object
-    >>> cable = cable_from_html(page)
+    >>> # and converts it into a Cable object
+    >>> cable = cable_by_id('09BERLIN1167')
     >>> cable.reference_id
     u'09BERLIN1167'
     >>> cable.subject

@@ -1067,6 +1067,7 @@ _START_SUMMARY_PATTERN = re.compile(r'(SUMMAR?Y( AND COMMENT)?[ \-\n:\.]*)|(\n1\
 # Since End Summary occurs in the first paragraph, we interpret the first paragraph as summary
 _ALTERNATIVE_START_SUMMARY_PATTERN = re.compile(r'\n1\.\([^\)]+\) ')
 _SUMMARY_PATTERN = re.compile(r'(?:SUMMARY[ \-\n]*)(?::|\.|\s)(.+?)(?=(\n[ ]*\n)|(END[ ]+SUMMARY))', re.DOTALL|re.IGNORECASE|re.UNICODE)
+_CLEAN_SUMMARY_CLS_PATTERN = re.compile(r'^[ ]*\([SBU/NTSC]+\)[ ]*')
 _CLEAN_SUMMARY_WS_PATTERN = re.compile('[ \n]+')
 _CLEAN_SUMMARY_PATTERN = re.compile(r'(---+)|(((^[1-9])|(\n[1-9]))\.[ ]+\([^\)]+\)[ ]+)|(^[1-2]. Summary:)|(^[1-2]\.[ ]+)|(^and action request. )|(^and comment. )|(2. (C) Summary, continued:)', re.UNICODE|re.IGNORECASE)
 
@@ -1125,7 +1126,7 @@ def parse_summary(content, reference_id=None):
     u'The August 31 African [...].'
     >>> # 06TOKYO3567
     >>> parse_summary('''OF 002   \\n\\n1.  Summary: (SBU) Japanese [...]. End Summary \\n\\n2. ''')
-    u'(SBU) Japanese [...].'
+    u'Japanese [...].'
     """
     summary = None
     m = _END_SUMMARY_PATTERN.search(content)
@@ -1141,6 +1142,7 @@ def parse_summary(content, reference_id=None):
         if m:
             summary = content[m.start(1):m.end(1)]
     if summary:
+        summary = _CLEAN_SUMMARY_CLS_PATTERN.sub(u'', summary)
         summary = _CLEAN_SUMMARY_PATTERN.sub(u' ', summary)
         summary = _CLEAN_SUMMARY_WS_PATTERN.sub(u' ', summary)
         summary = summary.strip()

@@ -38,6 +38,7 @@ This module extracts information from cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+import os
 import re
 import logging
 import codecs
@@ -160,15 +161,9 @@ def cable_from_file(filename):
         An absolute path to the cable file.
     """
     html = codecs.open(filename, 'rb', 'utf-8').read()
-    reference_id = None
-    slash_idx = filename.rfind('/')
-    if not slash_idx > 0:
-        raise Exception('Cannot find directory slash in ' + filename)
-    slash_idx+=1
-    if filename.rfind('.htm') > 0:
-        reference_id = filename[slash_idx:filename.rfind('.')]
-    else:
-        reference_id = filename[slash_idx:]
+    reference_id = os.path.basename(filename)
+    if reference_id.rfind('.htm') > 0:
+        reference_id = reference_id[:reference_id.rfind('.')]
     return cable_from_html(html, reference_id)
 
 

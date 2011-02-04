@@ -275,7 +275,7 @@ def cables_from_directory(directory):
     """
     for root, dirs, files in os.walk(directory):
         for name in (n for n in files if '.html' in n):
-            yield cable_from_file(root + '/' + name)
+            yield cable_from_file(os.path.join(os.path.abspath(root), name))
 
 
 if __name__ == '__main__':

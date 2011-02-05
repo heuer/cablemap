@@ -118,6 +118,42 @@ def test_parse_references():
     [u'08TRIPOLI199', u'08TRIPOLI227']
     """
 
+_TRIPOLI_TESTS = {
+'08TRIPOLI564': (
+"""
+RESIGN SOON 
+ 
+REF: TRIPOLI 227  TRIPOLI 00000564  001.2 OF 002   CLASSIFIED BY: Chris Stevens, CDA, U.S. Embassy - Tripoli, Dept of State. REASON: 1.4 (b), (d) 1. (S/NF)
+""", 2008, [u'08TRIPOLI227']),
+'08TRIPOLI494': (
+"""
+E.O. 12958: DECL:  6/18/2018 
+TAGS: PGOV PREL PHUM PINR LY
+SUBJECT: JOURNALIST JAILED FOR CRITICIZING GOVERNMENT'S 
+POORLY-COORDINATED DEVELOPMENT PROJECTS  CLASSIFIED BY: Chris Stevens, CDA, U.S. Embassy Tripoli, Dept of State. REASON: 1.4 (b), (d) 1. (C) Summary:  A respected [...]"""
+, 2008, []),
+'08TRIPOLI574': (
+"""
+SUBJECT: U.K. VISIT TO RABTA CHEMICAL WEAPONS PRODUCTION FACILITY 
+ 
+REF: TRIPOLI 466  CLASSIFIED BY: John T. Godfrey, CDA, U.S. Embassy - Tripoli, Dept of State. REASON: 1.4 (b), (d) 1. (C) Summary: T [...]
+""", 2008, [u'08TRIPOLI466']),
+'08TRIPOLI466': (
+"""
+TAGS: PARM PREL CWC OPCW CBW CH JA IT LY
+SUBJECT: CHEMICAL WEAPONS CONVENTION (CWC): CONVERSION OF THE RABTA CHEMICAL WEAPONS PRODUCTION FACILITY  REF: A) STATE 58476, B) THE HAGUE 482, C) TRIPOLI 119  CLASSIFIED BY: Chris Stevens, CDA, U.S. Embassy Tripoli, Dept of State. REASON: 1.4 (b), (d) 1. (C) Summary:  The"""
+, 2008, [u'08STATE58476', u'08THEHAGUE482', u'08TRIPOLI119'])
+}
+
+
+def test_malformed_tripoli_cables():
+    def check_reference_extraction(content, year, reference_id, expected_result):
+        assert parse_references(content, year, reference_id) == expected_result
+    for ref_id, params in _TRIPOLI_TESTS.iteritems():
+        content, year, result = params
+        yield check_reference_extraction, content, year, ref_id, result
+
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

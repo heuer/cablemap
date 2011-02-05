@@ -680,7 +680,8 @@ _MONTHS = (
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 _REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z]+)(?:\s*)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
-_NOT_REFERENCE_PATTERN = re.compile(r'(\n[0-9]\.\([A-Z]+\)[ ]+)|(\n[ ]*Classified\s+By:\s+)', re.IGNORECASE|re.UNICODE)
+_REF_PARAGRAPH_PATTERN = re.compile(r'\n[0-9]\.\([A-Z]+\)[ ]+', re.IGNORECASE|re.UNICODE)
+_REF_STOP_PATTERN = re.compile('classified by', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+', re.UNICODE)
 
@@ -702,10 +703,17 @@ def parse_references(content, year, reference_id=None):
         if len(y) > 2:
             return y[2:]
         return y
-    m_start = _REF_START_PATTERN.search(content)
-    m_stop = _NOT_REFERENCE_PATTERN.search(content, m_start and m_start.end() or 0, 1200)
-    last_end = m_start and m_start.end() or 0
+    # 1. Try to find "Classified By:"
+    m_stop = _REF_STOP_PATTERN.search(content)
+    # If found, use it as maximum index to search for references, otherwise use a constant
     max_idx = m_stop and m_stop.start() or 1200
+    # 2. Find references
+    m_start = _REF_START_PATTERN.search(content, 0, max_idx)
+    # 3. Check if we have a paragraph in the references
+    m_stop = _REF_PARAGRAPH_PATTERN .search(content, m_start and m_start.end() or 0, max_idx)
+    last_end = m_start and m_start.end() or 0
+    # 4. Find the next max_idx
+    max_idx = min(m_stop and m_stop.start() or 1200, max_idx)
     m_end = _REF_LAST_REF_PATTERN.search(content, last_end, max_idx)
     while m_end:
         last_end = m_end.end()

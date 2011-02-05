@@ -859,6 +859,9 @@ def parse_references(content, year, reference_id=None):
     >>> # 08MOSCOW864
     >>> parse_references("TAGS: EPET ENRG ECON PREL PGOV RS\\nSUBJECT: WHAT'S BEHIND THE RAIDS ON TNK-BP AND BP REF: A. MOSCOW 816 B. MOSCOW 768 C. 07 MOSCOW 3054 Classified By: Ambassador William J. Burns for Reasons 1.4 (b/d)\\n", 2008)
     [u'08MOSCOW816', u'08MOSCOW768', u'07MOSCOW3054']
+    >>> # 08TRIPOLI402
+    >>> parse_references('REF: A) TRIPOLI 199, B) TRIPOLI 227 TRIPOLI 00000402 \\n\\n001.2 OF 003 ', 2008, '08TRIPOLI402')
+    [u'08TRIPOLI199', u'08TRIPOLI227']
     """
     def format_year(y):
         y = str(y)
@@ -908,10 +911,9 @@ def parse_references(content, year, reference_id=None):
                 and not origin.startswith('OSC') \
                 and not origin.startswith('POLITICAL') \
                 and not origin.startswith('PARISPOINTS'):
-                res.append(u'%s%s%s' % (y, origin, int(sn)))
-    if reference_id in res:
-        # Remove self references
-        res.remove(reference_id)
+                reference = u'%s%s%d' % (y, origin, int(sn))
+                if reference != reference_id:
+                    res.append(reference)
     return res
 
 

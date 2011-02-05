@@ -38,6 +38,7 @@ Tests references parsing.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from nose.tools import eq_
 from cablemap.core.reader import parse_references
 
 _TEST_DATA = (
@@ -114,11 +115,45 @@ D. HOTR WASHINGTON DC//USDAO PARIS (SUBJ: IIR 6 832
     # 08TRIPOLI402
     ('REF: A) TRIPOLI 199, B) TRIPOLI 227 TRIPOLI 00000402 \n\n001.2 OF 003 ', 2008, '08TRIPOLI402',
       [u'08TRIPOLI199', u'08TRIPOLI227']),
+    # 08LONDON2627
+    ('''
+E.O. 12958: N/A TAGS: AMGT
+
+SUBJECT: UK COUNTRY CLEARANCE IS GRANTED TO STAMILIO, LTC DODSON AND LTCOL HAVRANEK REF: SECDEF R162245Z OCT 08
+
+1.Embassy London is pleased to grant country clearance to Mr. Mark Stamilio, LTCOL John Havranek, and LTC James Dodson to visit London October 19-20 to attend working level meetings on ISAF detention policies and practices.
+
+2. ---------------- Visit Officer ---------------- 
+
+XXXXXXXXXXXX If calling from within the UK replace 44 with 0, if calling from landline to landline within London, dial only the last eight digits.
+
+3. Confirmed reservations are held for Stamilio, Havranek and Dodson at Marriott Grosvernor Square.The rate is within per diem. The confirmation number are: Stamilio - 84274267, Havranek, 84274449, and Dodson, 84274523. London Marriott Grosvenor Square, Grosvenor Square, London W1A 4AW. Telephone number is (44)(0)20 7493-1232 Fax number is (44)(0)20 7491-3201. If calling from within the UK replace 44 with 0; if calling from landline within London, dial only the last eight digits.
+
+4.Carry
+''', 2008, []),
+    # 08BRASILIA429
+    ('''
+SUBJECT: THOUGHTS ON THE VISIT OF DEFENSE MINISTER JOBIM TO WASHINGTON 
+
+REF: A. A) BRASILIA 236 B. B) OSD REPORT DTG 251847Z MAR 08 C. C) BRASILIA 175 
+Classified By: Ambassador Clifford Sobel. 
+Reason: 1.5 d 
+''', 2008, [u'08BRASILIA236', u'08BRASILIA175']),
+    # 09PARIS1039
+    ('''
+SUBJECT: FRANCE’S POSITION ON NUCLEAR ISSUES IN THE RUN-UP 
+TO THE NPT REVCON
+
+REF: A. PARIS POINTS JULY 15  B. PARIS POINTS JULY 6  C. PARIS POINTS APRIL 10  D. PARIS 1025
+
+Classified By:
+''', 2009, [u'09PARIS1025']),
+     
 )
 
 def test_parse_references():
     def check(content, year, reference_id, expected):
-        assert parse_references(content, year, reference_id) == expected
+        eq_(parse_references(content, year, reference_id), expected)
     for test in _TEST_DATA:
         reference_id = None
         if len(test) == 4:

@@ -664,23 +664,36 @@ def parse_nondisclosure_deadline(content):
 
 
 _MONTHS = (
+    'JAN',
     'JANUARY',
+    'FEB',
     'FEBRUARY',
+    'MAR',
     'MARCH',
+    'APR',
     'APRIL',
-    'MAY', 
+    'MAY',
+    'JUN', 
     'JUNE',
+    'JUL',
+    'JULY',
+    'AUG',
     'AUGUST',
+    'SEP',
     'SEPTEMBER',
+    'OCT',
     'OCTOBER',
+    'NOV',
     'NOVEMBER',
+    'DEC',
     'DECEMBER',
 )
 
+
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
-_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z]+)(?:\s*)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
-_REF_PARAGRAPH_PATTERN = re.compile(r'\n[0-9]\.\([A-Z]+\)[ ]+', re.IGNORECASE|re.UNICODE)
+_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
+_REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
 _REF_STOP_PATTERN = re.compile('classified by', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+', re.UNICODE)
@@ -710,7 +723,7 @@ def parse_references(content, year, reference_id=None):
     # 2. Find references
     m_start = _REF_START_PATTERN.search(content, 0, max_idx)
     # 3. Check if we have a paragraph in the references
-    m_stop = _REF_PARAGRAPH_PATTERN .search(content, m_start and m_start.end() or 0, max_idx)
+    m_stop = _REF_NOT_REF_PATTERN.search(content, m_start and m_start.end() or 0, max_idx)
     last_end = m_start and m_start.end() or 0
     # 4. Find the next max_idx
     max_idx = min(m_stop and m_stop.start() or 1200, max_idx)
@@ -740,17 +753,16 @@ def parse_references(content, year, reference_id=None):
             l = len(origin)
             if (l < MIN_ORIGIN_LENGTH or l > MAX_ORIGIN_LENGTH):
                 continue
-            for month in _MONTHS:
-                if month in origin:
-                    origin = None
-                    break
+            if not 'RIODEJAN' in origin:
+                for month in _MONTHS:
+                    if month in origin:
+                        origin = None
+                        break
             if origin \
                 and not 'MAIL' in origin \
-                and not 'DAILYREPORT' in origin \
-                and not 'REASON' in origin \
-                and not origin.startswith('OSC') \
-                and not origin.startswith('POLITICAL') \
-                and not origin.startswith('PARISPOINTS'):
+                and not 'REPORT' in origin \
+                and not 'POINTS' in origin \
+                and not origin.startswith('OSC'):
                 reference = u'%s%s%d' % (y, origin, int(sn))
                 if reference != reference_id:
                     res.append(reference)

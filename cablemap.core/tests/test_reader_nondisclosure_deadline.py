@@ -40,35 +40,30 @@ Tests non-disclosure deadline parsing.
 """
 from cablemap.core.reader import parse_nondisclosure_deadline
 
-def test_nondisclosure_deadline():
-    """
+_TEST_DATA = (
+    # Input string, expected
+    ('DEPT FOR WHA/BSC E.O. 12958: DECL: 11/22/2012 ', u'2012-11-22'),
+    ('EO 12958 DECL: 2020/02/23', u'2020-02-23'),
+    ('E.O. 12958: DECL: 11/03/2015', u'2015-11-03'),
+    ('EO 12958 DECL: 12/31/2034', u'2034-12-31'),
+    ('E.O. 12958 DECL: 12/31/2034', u'2034-12-31'),
+    ('E.o. 12958: decl: 07/01/2034', u'2034-07-01'),
+    (u'''E.o. 12958: decl: 01/07/2014 Tags: prel, pgov, pins, tu Subject: turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?
+(U) Classifi''', u'2014-01-07'),
+    (u'EO 12958: decl: 12/31/2034', u'2034-12-31'),
+    (u'EO 12958: decl: 6/30/08', u'2008-06-30'),
+    (u'EO 12958: decl: 6/3/08', u'2008-06-03'),
+    (u'EO 12958: decl: 06/30/08', u'2008-06-30'),
+    (u'E.O. 12958: N/A', None)
+)
 
-    >>> parse_nondisclosure_deadline('DEPT FOR WHA/BSC E.O. 12958: DECL: 11/22/2012 ')
-    u'2012-11-22'
-    >>> parse_nondisclosure_deadline('EO 12958 DECL: 2020/02/23')
-    u'2020-02-23'
-    >>> parse_nondisclosure_deadline('E.O. 12958: DECL: 11/03/2015')
-    u'2015-11-03'
-    >>> parse_nondisclosure_deadline('EO 12958 DECL: 12/31/2034')
-    u'2034-12-31'
-    >>> parse_nondisclosure_deadline('E.O. 12958 DECL: 12/31/2034')
-    u'2034-12-31'
-    >>> parse_nondisclosure_deadline('E.o. 12958: decl: 07/01/2034')
-    u'2034-07-01'
-    >>> parse_nondisclosure_deadline(u'E.o. 12958: decl: 01/07/2014 Tags: prel, pgov, pins, tu Subject: turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?\\n\\n(U) Classifi')
-    u'2014-01-07'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 12/31/2034')
-    u'2034-12-31'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 6/30/08')
-    u'2008-06-30'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 6/3/08')
-    u'2008-06-03'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 06/30/08')
-    u'2008-06-30'
-    >>> parse_nondisclosure_deadline(u'E.O. 12958: N/A') is None
-    True
-    """
+def test_non_disclosure_deadline():
+    def check(content, expected):
+        assert parse_nondisclosure_deadline(content) == expected
+    for content, expected in _TEST_DATA:
+        yield check, content, expected
+
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
+    import nose
+    nose.core.runmodule()

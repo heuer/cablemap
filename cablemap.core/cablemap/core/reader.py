@@ -746,10 +746,6 @@ def parse_references(content, year, reference_id=None):
                 origin = 'RIODEJANEIRO'
             elif origin == 'SECSTATE':
                 origin = 'STATE'
-            elif origin in ('SECDEFMSGDTG', 'ZSEP', # 08BERLIN1387
-                            'MTCRPOC', #08STATE15220
-                            ): 
-                continue
             l = len(origin)
             if (l < MIN_ORIGIN_LENGTH or l > MAX_ORIGIN_LENGTH):
                 continue
@@ -762,6 +758,8 @@ def parse_references(content, year, reference_id=None):
                 and not 'MAIL' in origin \
                 and not 'REPORT' in origin \
                 and not 'POINTS' in origin \
+                and not 'MSG' in origin \
+                and not 'MTCRPOC' in origin \
                 and not origin.startswith('OSC'):
                 reference = u'%s%s%d' % (y, origin, int(sn))
                 if reference != reference_id:

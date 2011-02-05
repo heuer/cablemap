@@ -148,7 +148,63 @@ REF: A. PARIS POINTS JULY 15  B. PARIS POINTS JULY 6  C. PARIS POINTS APRIL 10  
 
 Classified By:
 ''', 2009, [u'09PARIS1025']),
-     
+    # 08BERLIN1387
+    ('''
+SUBJECT: GERMANY: BUNDESTAG SET TO RENEW A BEEFED-UP ISAF
+MANDATE AND A SCALED-DOWN OEF COUNTERPART
+
+REF: A. BERLIN 1045 
+¶B. SECDEF MSG DTG 301601z SEP 08
+
+Classified By: CHARGE D'AFFAIRES''',
+     2008,
+     [u'08BERLIN1045']),
+    # 08STATE15220
+    ('''
+Subject: (s) further scheming by german firm to export
+test chamber to iranian ballistic missile program
+
+Ref: a. 05 state 201650
+
+B. 05 berlin 3726
+c. 05 state 211408
+d. 05 berlin 3954
+e. 06 state 36325
+f. 06 berlin 674
+g. 06 state 62278
+h. 06 berlin 1123
+i. 06 state 70328
+j. 06 berlin 1229
+k. 06 berlin 1550
+l. Mtcr poc 201/2006 - may 16 2006
+m. 07 state 75839
+n. 07 berlin 1137
+o. 07 state 108420
+p. 07 berlin 002163
+q. 07 state 166482
+r. 07 berlin 2216
+
+Classified By: ISN/MTR DIRECTOR PAM DURHAM
+for reasons 1.4 (b), (d).
+''', 2008,
+     [u'05STATE201650', u'05BERLIN3726', u'05STATE211408', u'05BERLIN3954', u'06STATE36325', u'06BERLIN674', u'06STATE62278', u'06BERLIN1123', u'06STATE70328', u'06BERLIN1229', u'06BERLIN1550', u'07STATE75839', u'07BERLIN1137', u'07STATE108420', u'07BERLIN2163', u'07STATE166482', u'07BERLIN2216']),
+    # 09PARIS504
+    ('''SUBJECT: DRC/ROC/NIGER: FRENCH PRESIDENCY'S READOUT OF 
+SARKOZY'S MARCH 26-27 VISITS 
+
+REF: A. PARIS 399 
+B. KINSHASA 291 
+C. BRAZZAVILLE 101 
+D. NIAMEY 234 
+E. 08 PARIS 1501 
+F. 08 PARIS 1568 
+G. 08 PARIS 1698 
+
+Classified By: Political Minister-Counselor Kathleen Allegrone, 1.4 (b/ 
+d). ''',
+     2009,
+     [u'09PARIS399', u'09KINSHASA291', u'09BRAZZAVILLE101', u'09NIAMEY234', u'08PARIS1501', u'08PARIS1568', u'08PARIS1698']),
+
 )
 
 def test_parse_references():

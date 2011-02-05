@@ -281,14 +281,18 @@ def cables_from_directory(directory):
 
 def cable_by_id(reference_id):
     """\
-    Returns a cable by its reference identifier.
+    Returns a cable by its reference identifier or ``None`` if
+    the cable does not exist.
 
-    The cable is fetched from the Internet.
+    The cable is fetched from the ``wikileaks.ch`` website.
 
     `reference_id`
         The reference identifier of the cable.
     """
-    return cable_from_html(cable_page_by_id(reference_id))
+    page = cable_page_by_id(reference_id)
+    if page:
+        return cable_from_html(page)
+    return None
 
 
 if __name__ == '__main__':

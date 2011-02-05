@@ -388,7 +388,6 @@ def parse_transmission_id(header, reference_id):
         The cable's header
     `reference_id`
         The cable's reference ID.
-
     """
     m = _TID_PATTERN.search(header)
     if not m:
@@ -619,72 +618,6 @@ def parse_subject(content, reference_id=None, clean=True):
         U.S. Department of State Foreign Affairs Handbook Volume 5 Handbook 1 — Correspondence Handbook
         5 FAH-1 H-210 -- HOW TO USE TELEGRAMS; page 2
         <http://www.state.gov/documents/organization/89319.pdf>
-
-    >>> parse_subject("TAGS: TAG TAG2\\nSUBJECT:  SINGLE LINE SUBJECT \\n\\nREF: REF 1")
-    u'SINGLE LINE SUBJECT'
-    >>> parse_subject("TAGS: TAG TAG2\\nSUBJECT: SUBJECT WHICH HAS a \\nSECOND LINE \\n\\nREF: REF 1")
-    u'SUBJECT WHICH HAS a SECOND LINE'
-    >>> parse_subject("SUBJECT: SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES \\nREF: A. RIYADH 1579  B. RIYADH 1408  C. RIYADH 1298\\n")
-    u'SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES'
-    >>> parse_subject("SUBJECT: SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES\\nREF: A. RIYADH 1579  B. RIYADH 1408  C. RIYADH 1298\\n")
-    u'SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES'
-    >>> parse_subject("SUBJECT: SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES\\nREF A. RIYADH 1579  B. RIYADH 1408  C. RIYADH 1298\\n")
-    u'SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES'
-    >>> parse_subject("SUBJECT SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES\\nREF A. RIYADH 1579  B. RIYADH 1408  C. RIYADH 1298\\n")
-    u'SAG AGREES TO USG STEPS TO PROTECT OIL FACILITIES'
-    >>> parse_subject("SUBJECT: NEGOTIATIONS \\n \\n")
-    u'NEGOTIATIONS'
-    >>> parse_subject("SUBJECT: A CAUCASUS WEDDING \\nClassified By: Deputy Chief of Mission Daniel A. Russell. Reason 1.4 ( b, d)")
-    u'A CAUCASUS WEDDING'
-    >>> parse_subject("SUBJ: GUINEA - U.S./French Meeting with President Compaore \\n\\nClassified by Charge d\'Affaires")
-    u'GUINEA - U.S./French Meeting with President Compaore'
-    >>> parse_subject("SUBJECT: UAE FM DISCUSSES TALIBAN FINANCIAL FLOWS AND REINTEGRATION \\nWITH AMB. HOLBROOKE AND TREASURY A/S COHEN\\nCLASSIFIED BY: Richard")
-    u'UAE FM DISCUSSES TALIBAN FINANCIAL FLOWS AND REINTEGRATION WITH AMB. HOLBROOKE AND TREASURY A/S COHEN'
-    >>> parse_subject("SUBJECT:  EXTENDED NATIONAL JURISDICTIONS OVER HIGH SEAS \\n\\nREF: STATE 106206 CIRCULAR; STATE CA-3400 NOV 2, 1966")
-    u'EXTENDED NATIONAL JURISDICTIONS OVER HIGH SEAS'
-    >>> parse_subject('SUBJECT: (S) GERMANY TAKING ACTION ON SHIPMENT OF ...', clean=False)
-    u'(S) GERMANY TAKING ACTION ON SHIPMENT OF ...'
-    >>> parse_subject('SUBJECT: (S) GERMANY TAKING ACTION ON SHIPMENT OF ...', clean=True)
-    u'GERMANY TAKING ACTION ON SHIPMENT OF ...'
-    >>> parse_subject(u'E.o. 12958: decl: 01/07/2014 Tags: prel, pgov, pins, tu Subject: turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?\\n\\n(U) Classifi')
-    u'turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?'
-    >>> parse_subject("SUBJECT: PART 3 OF 3:  THE LIFE AND TIMES OF SOUTH AFRICA'S \\nNEW PRESIDENT\\nPRETORIA 00000954 001.2 OF 004\\n")
-    u"PART 3 OF 3: THE LIFE AND TIMES OF SOUTH AFRICA'S NEW PRESIDENT"
-    >>> parse_subject("SUBJECT: ZIM NOTES 11-09-2009 \\n----------- \\n1. SUMMARY\\n----------- \\n")
-    u'ZIM NOTES 11-09-2009'
-    >>> parse_subject("TAGS: PGOV EINV INRB GM\\nSUBJECT: GERMANY/BAVARIA: CSU HOPES FOR FRESH START WITH NEW AND\\nYOUNGER FACES IN CABINETAND A DYNAMIC SECRETARY GENERAL \\n\\n")
-    u'GERMANY/BAVARIA: CSU HOPES FOR FRESH START WITH NEW AND YOUNGER FACES IN CABINETAND A DYNAMIC SECRETARY GENERAL'
-    >>> parse_subject('SUBJECT: ASSISTANT SECRETARY MEETS WITH ZIMBABWE \\n CONFIDENTIAL\\nPAGE 02 HARA')
-    u'ASSISTANT SECRETARY MEETS WITH ZIMBABWE CONFIDENTIAL'
-    >>> parse_subject('TAGS ENRG, EUN, ECON, EIND, KGHG, SENV, SW\\nSUBJECT: SWEDISH DEPUTY PM URGES SENIOR USG VISITS TO SWEDEN DURING\\nEU PRESIDENCY; WANTS TO LAUNCH U.S.-EU ALERNATIVE ENERGY PARTNERSHIP AT U.S.-EU SUMMIT\\nThis is an Action request. Please see para 2.\\n')
-    u'SWEDISH DEPUTY PM URGES SENIOR USG VISITS TO SWEDEN DURING EU PRESIDENCY; WANTS TO LAUNCH U.S.-EU ALERNATIVE ENERGY PARTNERSHIP AT U.S.-EU SUMMIT'
-    >>> parse_subject('C O R R E C T E D COPY//SUBJECT LINE//////////////////////////////////\\n\\nNOFORN\\nSIPDIS\\n\\nEO 12958 DECL: 07/09/2018\\nTAGS PREL, PTER, MOPS, IR, PK, AF, CA\\n\\nSUBJECT: COUNSELOR, CSIS DIRECTOR DISCUSS CT THREATS,\\nPAKISTAN, AFGHANISTAN, IRAN\\nREF: A. OTTAWA 360 B. OTTAWA 808 C. OTTAWA 850 D. OTTAWA 878\\nOTTAWA 00000918 001.2 OF 003\\n')
-    u'COUNSELOR, CSIS DIRECTOR DISCUSS CT THREATS, PAKISTAN, AFGHANISTAN, IRAN'
-    >>> parse_subject(u"TAGS OVIP (CLINTON, HILLARY), PGOV, PREL, KDEV, ECON,\\nNL, IS, SR\\nSUBJECT: (U) Secretary Clinton's July 14 conversation\\nwith Dutch Foreign Minister Verhagen\\n1. Classified by Bureau Assistant Secretary Philip H. Gordon. Reason: 1.4 (d)\\n2. (U) July 14; 2:45 p.m.; Washington, DC.\\n3. (SBU) Participants:\\n", clean=False)
-    u"(U) Secretary Clinton's July 14 conversation with Dutch Foreign Minister Verhagen"
-    >>> parse_subject(u"TAGS OVIP (CLINTON, HILLARY), PGOV, PREL, KDEV, ECON,\\nNL, IS, SR\\nSUBJECT: (U) Secretary Clinton's July 14 conversation\\nwith Dutch Foreign Minister Verhagen\\n1. Classified by Bureau Assistant Secretary Philip H. Gordon. Reason: 1.4 (d)\\n2. (U) July 14; 2:45 p.m.; Washington, DC.\\n3. (SBU) Participants:\\n")
-    u"Secretary Clinton's July 14 conversation with Dutch Foreign Minister Verhagen"
-    >>> parse_subject('TAGS: ECON EINV ENRG PGOV PBTS MARR BR\\n\\nSUBJECT: AMBASSADOR SOBEL MEETS WITH KEY ENERGY ENTITIES IN RIO Ref(s): A) 08 RIO DE JAN 138; B) 08 RIO DE JAN 0044 and previous Sensitive But Unclassified - Please handle accordingly. This message has been approved by Ambassador Sobel. ')
-    u'AMBASSADOR SOBEL MEETS WITH KEY ENERGY ENTITIES IN RIO'
-    >>> parse_subject("SUBJECT: BRAZIL: BLACKOUT -CAUSES AND IMPLICATIONS Classified By: Charge d'Affaires Cherie Jackson, Reasons 1.4 (b) and (d). REFTELS: A) 2008 BRASILIA 672, B) 2008 BRASILIA 593, C)2008 SAO PAULO 260\\n")
-    u'BRAZIL: BLACKOUT -CAUSES AND IMPLICATIONS'
-    >>> parse_subject('SUBJECT: MEMBERS OF CONGRESS DISCUSS BONUSES, BAIL-OUTS AND\\nOTHER REFORM MEASURES WITH UK OFFICIALS\\n1. (SBU) Summary. Bonuses, regulatory structures')
-    u'MEMBERS OF CONGRESS DISCUSS BONUSES, BAIL-OUTS AND OTHER REFORM MEASURES WITH UK OFFICIALS'
-    >>> parse_subject('SUBJECT: AARGH! SWEDISH PIRATES SET SAIL FOR BRUSSELS\\n1. Summary and Comment: Sweden')
-    u'AARGH! SWEDISH PIRATES SET SAIL FOR BRUSSELS'
-    >>> parse_subject('SUBJECT: EU JHA INFORMAL MINISTERIAL\\n1. Summary. EU Justice and Home...')
-    u'EU JHA INFORMAL MINISTERIAL'
-    >>> parse_subject('\\nSUBJECT: CARDINAL HUMMES DISCUSSES LULA GOVERNMENT, THE OPPOSITION, AND FTAA REF: (A) 05 SAO PAULO 405; (B) 05 SAO PAULO 402 (C) 02 BRASILIA 2670')
-    u'CARDINAL HUMMES DISCUSSES LULA GOVERNMENT, THE OPPOSITION, AND FTAA'
-    >>> # 06BRASILIA882
-    >>> parse_subject('SUBJECT: ENERGY INSTALLATIONS REF: BRASILIA 861')
-    u'ENERGY INSTALLATIONS'
-    >>> # 08MOSCOW864
-    >>> parse_subject("TAGS: EPET ENRG ECON PREL PGOV RS\\nSUBJECT: WHAT'S BEHIND THE RAIDS ON TNK-BP AND BP REF: A. MOSCOW 816 B. MOSCOW 768 C. 07 MOSCOW 3054 Classified By: Ambassador William J. Burns for Reasons 1.4 (b/d)\\n")
-    u"WHAT'S BEHIND THE RAIDS ON TNK-BP AND BP"
-    >>> # 08TRIPOLI266
-    >>> parse_subject('SUBJECT: GOL DELAYS RELEASING DETAINED HUMAN RIGHTS ACTIVIST FATHI EL-JAHMI REF: A) TRIPOLI 223, B) TRIPOLI 229 \\n')
-    u'GOL DELAYS RELEASING DETAINED HUMAN RIGHTS ACTIVIST FATHI EL-JAHMI'
     """
     m = _SUBJECT_PATTERN.search(content, 0, 1200)
     if not m:
@@ -712,31 +645,6 @@ def parse_nondisclosure_deadline(content):
 
     `content`
         The cable's content.
-
-    >>> parse_nondisclosure_deadline('DEPT FOR WHA/BSC E.O. 12958: DECL: 11/22/2012 ')
-    u'2012-11-22'
-    >>> parse_nondisclosure_deadline('EO 12958 DECL: 2020/02/23')
-    u'2020-02-23'
-    >>> parse_nondisclosure_deadline('E.O. 12958: DECL: 11/03/2015')
-    u'2015-11-03'
-    >>> parse_nondisclosure_deadline('EO 12958 DECL: 12/31/2034')
-    u'2034-12-31'
-    >>> parse_nondisclosure_deadline('E.O. 12958 DECL: 12/31/2034')
-    u'2034-12-31'
-    >>> parse_nondisclosure_deadline('E.o. 12958: decl: 07/01/2034')
-    u'2034-07-01'
-    >>> parse_nondisclosure_deadline(u'E.o. 12958: decl: 01/07/2014 Tags: prel, pgov, pins, tu Subject: turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?\\n\\n(U) Classifi')
-    u'2014-01-07'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 12/31/2034')
-    u'2034-12-31'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 6/30/08')
-    u'2008-06-30'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 6/3/08')
-    u'2008-06-03'
-    >>> parse_nondisclosure_deadline(u'EO 12958: decl: 06/30/08')
-    u'2008-06-30'
-    >>> parse_nondisclosure_deadline(u'E.O. 12958: N/A') is None
-    True
     """
     m = _DEADLINE_PATTERN.search(content)
     if not m:
@@ -786,81 +694,6 @@ def parse_references(content, year, reference_id=None):
         The year when the cable was created.
     `reference_id`
         The reference identifier of the cable.
-    
-    >>> # 07TBILISI1732
-    >>> parse_references('\\nREF: A. TBILISI 1605  B. TBILISI 1352  C. TBILISI 1100  D. 06 TBILISI 2601  E. 06 TBILISI 2590  F. 06 TBILISI 2425  G. 06 TBILISI 2390  H. 06 TBILISI 1532  I. 06 STATE 80908  J. 06 TBILISI 1064  K. 06 TBILISI 0619  L. 06 TBILISI 0397  M. 06 MOSCOW 0546  N. 06 TBILISI 0140  O. 05 TBILISI 3171', 2007)
-    [u'07TBILISI1605', u'07TBILISI1352', u'07TBILISI1100', u'06TBILISI2601', u'06TBILISI2590', u'06TBILISI2425', u'06TBILISI2390', u'06TBILISI1532', u'06STATE80908', u'06TBILISI1064', u'06TBILISI619', u'06TBILISI397', u'06MOSCOW546', u'06TBILISI140', u'05TBILISI3171']
-    >>> # 08PARIS1698
-    >>> parse_references('\\nREF: A. PARIS 1501 \\nB. PARIS 1568 \\nC. HOTR WASHINGTON DC//USDAO PARIS (SUBJ: IIR 6 832 \\n0617 08)\\nD. HOTR WASHINGTON DC//USDAO PARIS (SUBJ: IIR 6 832 \\n0626 08) ', 2008)
-    [u'08PARIS1501', u'08PARIS1568']
-    >>> # 08PARIS1501
-    >>> parse_references('\\nREF: A. 05 PARIS 5459 \\nB. 06 PARIS 5733', 2008)
-    [u'05PARIS5459', u'06PARIS5733']
-    >>> # 07TALLINN375
-    >>> parse_references('\\nREF: A) TALLINN 366 B) LEE-GOLDSTEIN EMAIL 05/11/07 \\nB) TALLINN 347 ', 2007)
-    [u'07TALLINN366', u'07TALLINN347']
-    >>> # 07TRIPOLI943
-    >>> parse_references('\\nREF: A) STATE 135205; B) STATE 127608; C) JOHNSON-STEVENS/GODFREY E-MAIL 10/15/07; D) TRIPOLI 797; E) TRIPOLI 723 AND PREVIOUS', 2007)
-    [u'07STATE135205', u'07STATE127608', u'07TRIPOLI797', u'07TRIPOLI723']
-    >>> # 07STATE156011
-    >>> parse_references('\\nREF: LA PAZ 2974', 2007)
-    [u'07LAPAZ2974']
-    >>> # 05PARIS7835
-    >>> parse_references('\\nREF: A. (A) PARIS 7682 AND PREVIOUS ', 2005)
-    [u'05PARIS7682']
-    >>> # 05PARIS7835
-    >>> parse_references('\\nREF: A. (A) PARIS 7682 AND PREVIOUS \\n\\nB. (B) EMBASSY PARIS DAILY REPORT FOR OCTOBER 28 - \\nNOVEMBER 16 (PARIS SIPRNET SITE) \\nC. (C) PARIS 7527 ', 2005)
-    [u'05PARIS7682', u'05PARIS7527']
-    >>> # 09MADRID869
-    >>> parse_references('\\nSUBJECT: UPDATES IN SPAIN’S INVESTIGATIONS OF RUSSIAN MAFIA \\nREF: A. OSC EUP20080707950031  B. OSC EUP20081019950022  C. OSC EUP20090608178005  D. MADRID 286  E. OSC EUP20050620950076  F. OSC EUP20080708950049  G. OSC EUP20081029950032  H. OSC EUP 20061127123001\\nMADRID 00000869 001.2 OF 004\\n', 2009)
-    [u'09MADRID286']
-    >>> # 07STATE152317
-    >>> parse_references('\\nREF: (A)STATE 071143, (B)STATE 073601, (C)STATE 72896, (D)BEIJING \\n5361, (E) STATE 148514', 2007)
-    [u'07STATE71143', u'07STATE73601', u'07STATE72896', u'07BEIJING5361', u'07STATE148514']
-    >>> # 08MANAGUA573
-    >>> parse_references('\\nREF: A. MANAGUA 520 \\nB. MANAGUA 500 \\nC. MANAGUA 443 \\nD. MANAGUA 340 \\nE. MANAGUA 325 \\nF. MANAGUA 289 \\nG. MANAGUA 263 \\nH. MANAGUA 130 \\nI. 2007 MANAGUA 2135 \\nJ. 2007 MANAGUA 1730 \\nK. 2007 MANAGUA 964 \\nL. 2006 MANAGUA 2611 ', 2008)
-    [u'08MANAGUA520', u'08MANAGUA500', u'08MANAGUA443', u'08MANAGUA340', u'08MANAGUA325', u'08MANAGUA289', u'08MANAGUA263', u'08MANAGUA130', u'07MANAGUA2135', u'07MANAGUA1730', u'07MANAGUA964', u'06MANAGUA2611']
-    >>> # 66BUENOSAIRES2481
-    >>> parse_references('\\n REF: STATE 106206 CIRCULAR; STATE CA-3400 NOV 2, 1966 ', 1966)
-    [u'66STATE106206']
-    >>> #04MADRID4063
-    >>> parse_references('\\nREF: EMBASSY MADRID E-MAIL TO EUR/WE OF OCTOBER 14\\n', 2004)
-    []
-    >>> #08RIYADH1134
-    >>> parse_references('\\nREF: A. SECSTATE 74879 \\n     B. RIYADH 43 \\n', 2008)
-    [u'08STATE74879', u'08RIYADH43']
-    >>> #08RIODEJANEIRO165
-    >>> parse_references('TAGS: ECON EINV ENRG PGOV PBTS MARR BR\\n\\nSUBJECT: AMBASSADOR SOBEL MEETS WITH KEY ENERGY ENTITIES IN RIO Ref(s): A) 08 RIO DE JAN 138; B) 08 RIO DE JAN 0044 and previous Sensitive But Unclassified - Please handle accordingly. This message has been approved by Ambassador Sobel. ', 2008)
-    [u'08RIODEJANEIRO138', u'08RIODEJANEIRO44']
-    >>> parse_references('\\nREF: A. A) SECSTATE 54183 B. B) 07 BRASILIA 1868 C. C) STATE 57700 D. 07 STATE 17940 Classified By: DCM Phillip Chicola, Reason 1.5 (d) ', 2008)
-    [u'08STATE54183', u'07BRASILIA1868', u'08STATE57700', u'07STATE17940']
-    >>> # 08BRASILIA806
-    >>> parse_references('\\nPROGRAM REF: A. A) SECSTATE 54183 B. B) 07 BRASILIA 1868 C. C) STATE 57700 D. 07 STATE 17940 Classified By: DCM Phillip Chicola, Reason 1.5 (d) ', 2008)
-    [u'08STATE54183', u'07BRASILIA1868', u'08STATE57700', u'07STATE17940']
-    >>> # 06SAOPAULO276
-    >>> parse_references('\\nCARDINAL HUMMES DISCUSSES LULA GOVERNMENT, THE OPPOSITION, AND FTAA REF: (A) 05 SAO PAULO 405; (B) 05 SAO PAULO 402 (C) 02 BRASILIA 2670', 2006)
-    [u'05SAOPAULO405', u'05SAOPAULO402', u'02BRASILIA2670']
-    >>> # 08BERLIN1387
-    >>> parse_references('\\nREF: A. BERLIN 1045\\nB. SECDEF MSG DTG 301601z SEP 08', 2008)
-    [u'08BERLIN1045']
-    >>> #09NAIROBI1938
-    >>> parse_references('\\nREF: A. 08 STATE 81854\\n\\n\\nS e c r e t nairobi 001938', 2009)
-    [u'08STATE81854']
-    >>> # 02ROME1196
-    >>> parse_references('\\nREF: A. STATE 40721\\n CONFIDENTIAL\\nPAGE 02 ROME 01196 01 OF 02 082030Z  B. ROME 1098  C. ROME 894  D. MYRIAD POST-DEPARTMENT E-MAILS FROM 10/01-02/02  E. ROME 348\\nCLASSIFIED BY: POL', 2002)
-    [u'02STATE40721', u'02ROME1098', u'02ROME894', u'02ROME348']
-    >>> # 10TRIPOLI167
-    >>> parse_references('\\nREF: TRIPOLI 115\\n\\n1.(SBU) This is an action request; please see para 4.\\n\\n', 2010)
-    [u'10TRIPOLI115']
-    >>> # 06BRASILIA882
-    >>> parse_references('SUBJECT: ENERGY INSTALLATIONS REF: BRASILIA 861', 2006)
-    [u'06BRASILIA861']
-    >>> # 08MOSCOW864
-    >>> parse_references("TAGS: EPET ENRG ECON PREL PGOV RS\\nSUBJECT: WHAT'S BEHIND THE RAIDS ON TNK-BP AND BP REF: A. MOSCOW 816 B. MOSCOW 768 C. 07 MOSCOW 3054 Classified By: Ambassador William J. Burns for Reasons 1.4 (b/d)\\n", 2008)
-    [u'08MOSCOW816', u'08MOSCOW768', u'07MOSCOW3054']
-    >>> # 08TRIPOLI402
-    >>> parse_references('REF: A) TRIPOLI 199, B) TRIPOLI 227 TRIPOLI 00000402 \\n\\n001.2 OF 003 ', 2008, '08TRIPOLI402')
-    [u'08TRIPOLI199', u'08TRIPOLI227']
     """
     def format_year(y):
         y = str(y)
@@ -945,93 +778,6 @@ def parse_tags(content, reference_id=None):
         The content of the cable.
     `reference_id`
         The reference identifier of the cable.
-    
-    >>> parse_tags('TAGS: something')
-    [u'SOMETHING']
-    >>> parse_tags('TAGS: something\\n')
-    [u'SOMETHING']
-    >>> parse_tags('TAGS: something\\nhere')
-    [u'SOMETHING']
-    >>> parse_tags('TAGS: something, \\nhere')
-    [u'SOMETHING', u'HERE']
-    >>> parse_tags(u'TAGS: something,\\nhere')
-    [u'SOMETHING', u'HERE']
-    >>> parse_tags(u'TAGS something')
-    [u'SOMETHING']
-    >>> parse_tags(u'TAGS something\\n')
-    [u'SOMETHING']
-    >>> parse_tags(u'TAGS something\\nhere')
-    [u'SOMETHING']
-    >>> parse_tags(u'TAGS something, \\nhere')
-    [u'SOMETHING', u'HERE']
-    >>> parse_tags(u'tAgs something')
-    [u'SOMETHING']
-    >>> parse_tags('tAgs something\\n')
-    [u'SOMETHING']
-    >>> parse_tags(u'tAgs something\\nhere')
-    [u'SOMETHING']
-    >>> parse_tags(u'tAgs something, \\nhere')
-    [u'SOMETHING', u'HERE']
-    >>> parse_tags(u'tAgs something,\\nhere')
-    [u'SOMETHING', u'HERE']
-    >>> parse_tags(u'tAgs: something')
-    [u'SOMETHING']
-    >>> parse_tags(u'tAgs: something\\n')
-    [u'SOMETHING']
-    >>> parse_tags(u'tAgs: something\\nhere')
-    [u'SOMETHING']
-    >>> parse_tags(u'tAgs: something, \\nhere')
-    [u'SOMETHING', u'HERE']
-    >>> parse_tags(u'tAgs: something,\\nhere')
-    [u'SOMETHING', u'HERE']
-    >>> parse_tags(u'TAGS: PREL ECON EFIN ELAB PGOV FR')
-    [u'PREL', u'ECON', u'EFIN', u'ELAB', u'PGOV', u'FR']
-    >>> parse_tags(u'TAGS PREL ECON EFIN ELAB PGOV FR')
-    [u'PREL', u'ECON', u'EFIN', u'ELAB', u'PGOV', u'FR']
-    >>> parse_tags(u'tags PREL ECON EFIN ELAB PGOV FR')
-    [u'PREL', u'ECON', u'EFIN', u'ELAB', u'PGOV', u'FR']
-    >>> parse_tags(u'tags: PREL ECON EFIN ELAB PGOV FR')
-    [u'PREL', u'ECON', u'EFIN', u'ELAB', u'PGOV', u'FR']
-    >>> parse_tags(u'TAGS ECON, PGOV, EFIN, MOPS, PINR, UK')
-    [u'ECON', u'PGOV', u'EFIN', u'MOPS', u'PINR', u'UK']
-    >>> parse_tags(u'TAG PTER, PGOV, ASEC, EFIN, ENRG, KCIP')
-    [u'PTER', u'PGOV', u'ASEC', u'EFIN', u'ENRG', u'KCIP']
-    >>> parse_tags(u'E.o. 12958: decl: 01/07/2014 Tags: prel, pgov, pins, tu \\nSubject: turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?\\n\\n(U) Classifi')
-    [u'PREL', u'PGOV', u'PINS', u'TU']
-    >>> parse_tags(u"E.o. 12958: decl: after korean unification\\nTags: ovip (steinberg, james b.), prel, parm, pgov, econ,\\netra, mnuc, marr, ch, jp, kn, ks, ir\\nSubject: deputy secretary steinberg's meeting with xxxxx\\nforeign minister he yafei, september 29, 2009")
-    [u'OVIP', u'STEINBERG, JAMES B.', u'PREL', u'PARM', u'PGOV', u'ECON', u'ETRA', u'MNUC', u'MARR', u'CH', u'JP', u'KN', u'KS', u'IR']
-    >>> parse_tags('TAGS: ECON EINV ENRG PGOV PBTS MARR BR\\n\\nSUBJECT: AMBASSADOR SOBEL MEETS WITH KEY ENERGY ENTITIES IN RIO Ref(s): A) 08 RIO DE JAN 138; B) 08 RIO DE JAN 0044 and previous Sensitive But Unclassified - Please handle accordingly. This message has been approved by Ambassador Sobel. ')
-    [u'ECON', u'EINV', u'ENRG', u'PGOV', u'PBTS', u'MARR', u'BR']
-    >>> #02ROME1196
-    >>> parse_tags('\\nEO 12958 DECL: 03/05/2007\\nTAGS PHUM, OPRC, OPRC, OPRC, OPRC, IT, ITPHUM, ITPHUM, ITPHUM, HUMAN RIGHTS\\nSUBJECT: AS PREDICTED, ITALY’S HUMAN RIGHTS REPORT\\nGENERATES FODDER FOR DOMESTIC POLITICAL MILLS')
-    [u'PHUM', u'OPRC', u'IT', u'ITPHUM', u'HUMAN RIGHTS']
-    >>> # 09STATE11937
-    >>> parse_tags('E.O. 12958: DECL: 02/05/2019\\nTAGS: OVIP CLINTON HILLARY PREL KPAL FR IR RS\\nNATO, UK, CN\\nSUBJECT: (U) Secreta')
-    [u'OVIP', u'CLINTON, HILLARY', u'PREL', u'KPAL', u'FR', u'IR', u'RS', u'NATO', u'UK', u'CN']
-    >>> #09BEIJING2964
-    >>> parse_tags('TAGS: OVIP STEINBERG JAMES PREL MNUC SN CH KN')
-    [u'OVIP', u'STEINBERG, JAMES B.', u'PREL', u'MNUC', u'SN', u'CH', u'KN']
-    >>> # 09SANTIAGO331
-    >>> parse_tags("E.O. 12958: DECL: 04/07/2019\\nTAGS: OVIP BIDEN JOSEPH PREL ECON PGOV SOCI EU\\nSUBJECT: VICE PRESIDENT BIDEN'S MARCH 28 MEETING WITH PRIME")
-    [u'OVIP', u'BIDEN, JOSEPH', u'PREL', u'ECON', u'PGOV', u'SOCI', u'EU']
-    >>> #08STATE100219
-    >>> parse_tags('E.O. 12958: DECL: 09/17/2018\\nTAGS: OVIP RICE CONDOLEEZZA PREL PHSA SP KV CU\\nBL, IS\\nSUBJECT: Secretary Rice')
-    [u'OVIP', u'RICE, CONDOLEEZZA', u'PREL', u'PHSA', u'SP', u'KV', u'CU', u'BL', u'IS']
-    >>> # 04SANAA2346
-    >>> parse_tags('TAGS: MASS MOPS OVIP PARM PINR PREL PTER YM COUNTER TERRORISM')
-    [u'MASS', u'MOPS', u'OVIP', u'PARM', u'PINR', u'PREL', u'PTER', u'YM', u'COUNTERTERRORISM']
-    >>> # 05TELAVIV1580
-    >>> parse_tags('TAGS PGOV, PREL, KWBG, IR, IS, COUNTERTERRORISM, GOI EXTERNAL ')
-    [u'PGOV', u'PREL', u'KWBG', u'IR', u'IS', u'COUNTERTERRORISM', u'GOI EXTERNAL']
-    >>> parse_tags('TAGS PTER MARR, MOPPS')
-    [u'PTER', u'MARR', u'MOPS']
-    >>> parse_tags('TAGS: IS ISRAELI PALESTINIAN AFFAIRS GOI EXTERNAL')
-    [u'IS', u'ISRAELI PALESTINIAN AFFAIRS', u'GOI', u'EXTERNAL']
-    >>> parse_tags('TAGS: IS GAZA DISENGAGEMENT ISRAELI PALESTINIAN AFFAIRS')
-    [u'IS', u'GAZA DISENGAGEMENT', u'ISRAELI PALESTINIAN AFFAIRS']
-    >>> # 05BRASILIA2675
-    >>> parse_tags('TAGS: PREL PGOV BR OVIP ZOELLICK ROBERT US')
-    [u'PREL', u'PGOV', u'BR', u'OVIP', u'ZOELLICK, ROBERT', u'US']
     """
     m = _TAGS_PATTERN.search(content)
     if not m:
@@ -1077,52 +823,6 @@ def parse_summary(content, reference_id=None):
         The content of the cable.
     `reference_id`
         The reference identifier of the cable.
-    
-    >>> # 72TEHRAN5055
-    >>> parse_summary('REF: TEHRAN 4887\\n\\nSUMMARY: FOLLOWING ASSASSINATION [...].\\nEND SUMMARY\\n\\n1. IN WAKE ')
-    u'FOLLOWING ASSASSINATION [...].'
-    >>> # 09BERLIN1197
-    >>> parse_summary('''Classified By: AMBASSADOR PHILIP D. MURPHY FOR REASONS 1.4 (B) and (D)\\n\\nSUMMARY\\n-------\\n\\n1. (C) Chancellor Merkel [...].\\nEnd Summary.\\n\\nOVERALL TREND: MAJOR PARTIES IN DECLINE''')
-    u'Chancellor Merkel [...].'
-    >>> # 09HAVANA35
-    >>> parse_summary('''Classified By: COM Jonathan Farrar for reasons 1.4 (b) and (d)\\n\\n1. (C) SUMMARY: Fidel Castro's [...].\\n \\nWHAT WE KNO''')
-    u"Fidel Castro's [...]."
-    >>> # 07SAOPAULO464
-    >>> parse_summary('''------- SUMMARY -------\\n\\n1. Pope Benedict XVI's four-day [...] End Summary''')
-    u"Pope Benedict XVI\'s four-day [...]"
-    >>> # 07SAOPAULO250
-    >>> parse_summary('''------- SUMMARY -------\\n\\n1. Summary: On March 21, Pope Benedict XVI [...] End Summary. ''')
-    u'On March 21, Pope Benedict XVI [...]'
-    >>> # 09BERLIN1176
-    >>> parse_summary('''SUMMARY\\n-------\\n\\n1. (C/NF) This is not a "change" election. [...]. END SUMMARY. ''')
-    u'This is not a "change" election. [...].'
-    >>> # 09BRASILIA1300
-    >>> parse_summary('''1. (U) Paragraphs 2 and 8 contain Mission Brazil action request.\\n\\n2. (C) Summary and Action Request. With Iranian President [...]. End Summary and Action Request. ''')
-    u'With Iranian President [...].'
-    >>> # 09BRASILIA1368
-    >>> parse_summary('''Summary -------\\n\\n2. (C) President Lula welcomed [...] End Summary''')
-    u'President Lula welcomed [...]'
-    >>> # 05PARIS7682
-    >>> parse_summary('1. (C) Summary and Comment: Continuing violent unrest in[...]. End Summary and Comment. ')
-    u'Continuing violent unrest in[...].'
-    >>> # 09BERLIN1548
-    >>> parse_summary('''1. (C/NF) Summary: In separate December 1 meetings [...] following way forward:\\n\\n-- the Interior Ministry [...]\\n\\nrelationship with Chancellor Merkel. End summary''')
-    u'In separate December 1 meetings [...] following way forward: -- the Interior Ministry [...] relationship with Chancellor Merkel.'
-    >>> # 10BERLIN164
-    >>> parse_summary('''Classified By: Classified by Political M-C George Glass for reasons 1.4\\n(b,d).\\n\\n1. (C) German FM Westerwelle told [...]. END SUMMARY.''')
-    u'German FM Westerwelle told [...].'
-    >>> # 09BRUSSELS536
-    >>> parse_summary('''Classified By: USEU EconMinCouns Peter Chase for reasons 1.4 (b), (d), (e).\\n\\n1. (S//NF) SUMMARY AND COMMENT: During a March 2-3 visit to\\n\\n2. (C) EU Member States and officials uniformly praised the\\n\\n3. (C) The content[...]. END SUMMARY AND COMMENT. ''')
-    u'During a March 2-3 visit to EU Member States and officials uniformly praised the The content[...].'
-    >>> # 10BRASILIA61
-    >>> parse_summary('''CLASSIFIED BY: Thomas A. Shannon, Ambassador, State, Embassy Brasilia; REASON: 1.4(B), (D)\\n1. (C) Summary. During separate [...]. End summary.''')
-    u'During separate [...].'
-    >>> # 09TRIPOLI715
-    >>> parse_summary('''CLASSIFIED BY: Gene A. Cretz, Ambassador, US Embassy Tripoli, Department of State. REASON: 1.4 (b), (d)\\n\\n1.(C) The August 31 African [...]. End Summary.''')
-    u'The August 31 African [...].'
-    >>> # 06TOKYO3567
-    >>> parse_summary('''OF 002   \\n\\n1.  Summary: (SBU) Japanese [...]. End Summary \\n\\n2. ''')
-    u'Japanese [...].'
     """
     summary = None
     m = _END_SUMMARY_PATTERN.search(content)

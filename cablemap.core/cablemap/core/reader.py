@@ -747,7 +747,7 @@ def parse_references(content, year, reference_id=None):
             elif origin == 'SECSTATE':
                 origin = 'STATE'
             l = len(origin)
-            if (l < MIN_ORIGIN_LENGTH or l > MAX_ORIGIN_LENGTH):
+            if l < MIN_ORIGIN_LENGTH or l > MAX_ORIGIN_LENGTH:
                 continue
             if not 'RIODEJAN' in origin:
                 for month in _MONTHS:

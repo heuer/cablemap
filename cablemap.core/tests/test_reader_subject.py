@@ -135,7 +135,14 @@ CLASSIFIED BY AMB. JON R. PURNELL, FOR REASONS 1.4 (B, D)
  
 SUBJECT: Grants Support for PD Projects (Iceland) 
  
-REF:  STATE 105588 ''',
+REF:  STATE 105588 ''', True,
+     u'Grants Support for PD Projects (Iceland)'),
+    # 07REYKJAVIK232
+    ('''TAGS: OEXC SCUL KPAO IC
+ 
+SUBJECT: Grants Support for PD Projects (Iceland) 
+ 
+REF:  STATE 105588 ''', False,
      u'Grants Support for PD Projects (Iceland)'),
 )
 

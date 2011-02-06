@@ -83,6 +83,9 @@ _TEST_DATA = (
     # 06BERLIN2546
     ("SPD IN DRIVER'S SEAT FOR BERLIN ELECTION",
      u"SPD in Driver's Seat for Berlin Election"),
+    # 07TRIPOLI949
+    ('''SLOW PROGRESS ON ITALY-LIBYA COLONIAL COMPENSATION TREATY A SIGN OF GOL'S "CORSAIR MENTALITY"''',
+     u'''Slow Progress on Italy-Libya Colonial Compensation Treaty a Sign of GOL's "Corsair Mentality"'''),
 )
 
 def test_titlefy():

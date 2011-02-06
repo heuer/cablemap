@@ -38,6 +38,7 @@ Tests summary parsing.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from nose.tools import eq_
 from cablemap.core.reader import parse_summary
 
 _TEST_DATA = (
@@ -86,11 +87,19 @@ _TEST_DATA = (
     # 06TOKYO3567
     ('''OF 002   \n\n1.  Summary: (SBU) Japanese [...]. End Summary \n\n2. ''',
      u'Japanese [...].'),
+    # 08THEHAGUE938
+    ('''Classified By: Head of Economic Unit Shawn Gray, reasons 1.4 (b), (d)
+
+1. (S) SUMMARY: The Dutch [...]. END
+SUMMARY.
+
+2. (S) Econoff delivered ''',
+     u'The Dutch [...].'),
 )
 
 def test_summary():
     def check(content, expected):
-        assert parse_summary(content) == expected
+        eq_(expected, parse_summary(content))
 
     for content, expected in _TEST_DATA:
         yield check, content, expected

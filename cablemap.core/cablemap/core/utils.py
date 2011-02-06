@@ -295,6 +295,40 @@ def cable_by_id(reference_id):
     return None
 
 
+_TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
+_TITLEFY_BIG_PATTERN = re.compile(r'^((MOD)|(HMG)|(PMDB)|(FCO)|(UK)|(IMF)|(US)|(DDR)|(FBI)|(BP)|(SPD)|(GOL)|(WTO)|(AG)|(GSL)|(EU)|(SWIFT)|(GDRC)|(GOB)|(ROK)|(DEA)|(GOC)|(TFTP)|(MEP)|(MFA)|(VFM)|(FM)|(PM)|(FDP)|(GPC)|(GOI)|(ETA)|(US-EU)|(TFTP/SWIFT)|(xx+)|(XX+)|(\([A-Z]+\):?))[,:]?$', re.UNICODE)
+
+def titlefy(subject):
+   """\
+   Titlecases the provided subject but respects common abbreviations.
+   
+   This function returns ``None`` if the provided `subject` is ``None``. It
+   returns an empty string if the provided subject is empty.
+   
+   `subject
+       A cable's subject.
+   """
+   def titlefy_word(word):
+       if _TITLEFY_BIG_PATTERN.match(word):
+            return word.upper()
+       return word.title().replace(u"'S", u"'s").replace(u",S", u"'s").replace(u"’S", u"’s").replace(u"'T", u"'t")
+   if not subject:
+       return None if subject is None else u''
+   res = []
+   append = res.append
+   wl = subject.strip().split()
+   append(titlefy_word(wl[0]))
+   for word in wl[1:]:
+       if _TITLEFY_SMALL_PATTERN.match(word):
+           if res[-1][-1] not in ':-':
+               append(word.lower())
+           else:
+               append(titlefy_word(word))
+       else:
+           append(titlefy_word(word))
+   return u' '.join(res)
+
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

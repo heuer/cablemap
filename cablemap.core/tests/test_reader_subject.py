@@ -38,6 +38,7 @@ Tests subject parsing.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from nose.tools import eq_
 from cablemap.core.reader import parse_subject
 
 _TEST_DATA = (
@@ -129,12 +130,19 @@ CLASSIFIED BY AMB. JON R. PURNELL, FOR REASONS 1.4 (B, D)
 
 1. (C) ''',
      u'GULNORA INC. STRIKES AGAIN'),
+    # 07REYKJAVIK232
+    ('''TAGS: OEXC SCUL KPAO IC
+ 
+SUBJECT: Grants Support for PD Projects (Iceland) 
+ 
+REF:  STATE 105588 ''',
+     u'Grants Support for PD Projects (Iceland)'),
 )
 
 
 def test_parse_subject():
     def check(content, clean, expected):
-        assert parse_subject(content, clean=clean) == expected
+        eq_(expected, parse_subject(content, clean=clean))
     for test in _TEST_DATA:
         clean = True
         if len(test) == 3:

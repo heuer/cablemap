@@ -598,7 +598,7 @@ def parse_info_recipients(header, reference_id):
 _SUBJECT_PATTERN = re.compile(ur'(?:SUBJ(?:ECT)?:?\s+(?!LINE[/]+))(.+?)(?:\Z|[ ]+REFS?:[ ]+|\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s|REF\(S\):?|[\r\n ]+Classified By:?\s|[1-9]\.?[ ]+Classified By|[1-9]\.?[ ]+\(SBU\)|1\.?[ ]Summary|[A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF|\-\-\-\-\-*\s+|Friday|PAGE [0-9]+|This is an Action Req|REF:[ ]+\(A\))', re.DOTALL|re.IGNORECASE|re.UNICODE)
 _NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
-_BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$', re.IGNORECASE)
+_BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$')
 
 def parse_subject(content, reference_id=None, clean=True):
     """\

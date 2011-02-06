@@ -86,6 +86,18 @@ _TEST_DATA = (
     # 07TRIPOLI949
     ('''SLOW PROGRESS ON ITALY-LIBYA COLONIAL COMPENSATION TREATY A SIGN OF GOL'S "CORSAIR MENTALITY"''',
      u'''Slow Progress on Italy-Libya Colonial Compensation Treaty a Sign of GOL's "Corsair Mentality"'''),
+    # 09TRIPOLI363
+    ('SLA/U CAN NEGOTIATE ONLY WITH ASSURANCES THAT JEM AND KHARTOUM WILL ALSO LAY DOWN ARMS',
+     u'SLA/U Can Negotiate Only With Assurances That Jem and Khartoum Will Also Lay Down Arms'),
+    # 09LONDON2569
+    ('HMG STRESSES U.S.-UK COORDINATION ON AFGHANISTAN STRATEGY',
+     u'HMG Stresses U.S.-UK Coordination on Afghanistan Strategy'),
+    # 10LONDON76
+    ("AFGHANISTAN/YEMEN/IRAN: SENIOR UK-BASED DIPLOMATS DISCUSS AT CHINESE AMB'S FAREWELL DINNER",
+     u"Afghanistan/Yemen/Iran: Senior UK-Based Diplomats Discuss at Chinese Amb's Farewell Dinner"),
+    # 09LONDON2237
+    ("Economists Warn UK's Economic Recovery Is Fragile",
+     u"Economists Warn UK's Economic Recovery Is Fragile"),
 )
 
 def test_titlefy():

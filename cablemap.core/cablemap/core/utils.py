@@ -295,8 +295,33 @@ def cable_by_id(reference_id):
     return None
 
 
+_ACRONYMS = (
+    'AFM', 'AG', 'ASD/ISA', 'AU',
+    'BBC', 'BP',
+    'CMC', 'CNP',
+    'DAS', 'DCA', 'DDR', 'DEA', 'DG',
+    'EFCC', 'ETA', 'EU',
+    'FATF', 'FBI', 'FCO', 'FDP', 'FM',
+    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL',
+    'HMG',
+    'ICTY', 'III', 'IMF',
+    'MEP', 'MFA', 'MOD',
+    'NATO', 'NDP', 'NSA',
+    'PD', 'PM', 'PMDB',
+    'ROK', 'RWE',
+    'SLA', 'SLA/U', 'SPD', 'SWIFT',
+    'TFTP', 'TFTP/SWIFT',
+    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG',
+    'VFM', 'VP',
+    'WEF', 'WTO',
+)
+
+_SPECIAL_WORDS = {
+    'UK-BASED': 'UK-Based',
+}
+
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(r"^((SLA/U)|(SLA)|(AU)|(PD)|(NSA)|(GM)|(GOE)|(UAE)|(III)|(GAERC)|(WEF)|(CNP)|(CMC)|(EFCC)|(UNHCR)|(ASD/ISA)|(NDP)|(GOK)|(DAS)|(AFM)|(DG)|(GOAJ)|(NATO)|(FATF)|(ICTY)|(DCA)|(VP)|(UNSC)|(UN)|(USG)|(BBC)|(U.S.-EU)|(U.S.-UK)|(MOD)|(RWE)|(HMG)|(PMDB)|(FCO)|(UK)|(IMF)|(US)|(DDR)|(FBI)|(BP)|(SPD)|(GOL)|(WTO)|(AG)|(GSL)|(EU)|(SWIFT)|(GDRC)|(GOB)|(ROK)|(DEA)|(GOC)|(TFTP)|(MEP)|(MFA)|(VFM)|(FM)|(PM)|(FDP)|(GPC)|(GOI)|(ETA)|(US-EU)|(TFTP/SWIFT)|(xx+)|(XX+)|(\([A-Z]+\):?))(([,:;\.])|('S|'s))?$", re.UNICODE)
+_TITLEFY_BIG_PATTERN = re.compile(r"^(%s|(xx+)|(XX+)|(\([A-Z]+\):?))(([,:;\.])|('S|'s))?$" % r'|'.join(('(%s)' % accr for accr in _ACRONYMS)), re.UNICODE)
 
 def titlefy(subject):
     """\
@@ -313,7 +338,7 @@ def titlefy(subject):
     def titlefy_word(word):
         if _TITLEFY_BIG_PATTERN.match(word):
             return clean_word(word.upper())
-        return clean_word(word.title())
+        return clean_word(_SPECIAL_WORDS.get(word, word.title()))
     if not subject:
         return None if subject is None else u''
     res = []

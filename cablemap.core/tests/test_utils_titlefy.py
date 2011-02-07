@@ -98,6 +98,15 @@ _TEST_DATA = (
     # 09LONDON2237
     ("Economists Warn UK's Economic Recovery Is Fragile",
      u"Economists Warn UK's Economic Recovery Is Fragile"),
+    # 01VATICAN1261
+    ('DROC--VATICAN DEMARCHE',
+     u'DROC--Vatican Demarche'),
+    # 01STATE176819
+    ("AFGHANISTAN'S POLITICAL FUTURE (CORRECTED COPY)",
+     u"Afghanistan's Political Future (Corrected Copy)"),
+    # 04TASHKENT3180
+    ('FIRST DAUGHTER LOLA (KARIMOVA) CUTS LOSE',
+     u'First Daughter Lola (Karimova) Cuts Lose'),
 )
 
 def test_titlefy():

@@ -170,6 +170,11 @@ Classified By:''',
     # Test HTML entity replacements
     ('SUBJECT: Bla &#8217; bla &#8220; bla &#8221; bla ',
      u'Bla \u2019 bla \u201c bla \u201d bla'),
+    # 03THEHAGUE1910
+    ('''SUBJECT: CODEL HASTERT TO THE NETHERLANDS (JUL 30 - JUL 31)
+
+REF: STATE 184642 ''',
+     'CODEL HASTERT TO THE NETHERLANDS (JUL 30 - JUL 31)'),
 )
 
 

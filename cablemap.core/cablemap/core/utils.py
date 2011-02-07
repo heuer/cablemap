@@ -311,7 +311,7 @@ _ACRONYMS = (
     'OIC', 'OECD',
     'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC',
     'ROK', 'RWE',
-    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI',
+    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT',
     'TFTP', 'TFTP/SWIFT',
     'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO',
     'VFM', 'VP', 'VI', 'VARIG',
@@ -337,6 +337,8 @@ _SPECIAL_WORDS = {
     'US-IRAN': u'US-Iran',
     'DUTCH/EU:': u'Dutch/EU:',
     'DoD': 'DoD',
+    'SPAIN/CT:': u'Spain/CT:',
+    'SPAIN/CIA': u'Spain/CIA',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)

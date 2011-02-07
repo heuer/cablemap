@@ -600,6 +600,7 @@ _SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:SUBJ(?:ECT)?:?\s+(?!LINE[/]+))(.+?)(?
 _NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$')
+_HTML_ENTITIES_PATTERN = re.compile(r'&#([0-9]+);')
 
 def parse_subject(content, reference_id=None, clean=True):
     """\
@@ -623,18 +624,16 @@ def parse_subject(content, reference_id=None, clean=True):
         5 FAH-1 H-210 -- HOW TO USE TELEGRAMS; page 2
         <http://www.state.gov/documents/organization/89319.pdf>
     """
+    def to_unicodechar(match):
+        return unichr(int(match.group(1)))
     m = _SUBJECT_PATTERN.search(content, 0, 1200)
     if not m:
         if reference_id not in _CABLES_WITHOUT_SUBJECT:
             logger.debug('No subject found in cable "%s", content: "%s"' % (reference_id, content))
         return None
-    res = _NL_PATTERN.sub(' ', m.groups()[0]).strip()
-    res = _WS_PATTERN.sub(' ', res)
-    res = res.replace(u'&#8217;', u'’') \
-                .replace(u'&#8220;', u'“') \
-                .replace(u'&#8221;', u'”')
-    if '&#' in res:
-        raise Exception('Unreplaced HTML entities in "%s", "%s"' % (res, content))
+    res = _NL_PATTERN.sub(u' ', m.group(1)).strip()
+    res = _WS_PATTERN.sub(u' ', res)
+    res = _HTML_ENTITIES_PATTERN.sub(to_unicodechar, res)
     if clean:
         res = _BRACES_PATTERN.sub(u'', res)
     return res

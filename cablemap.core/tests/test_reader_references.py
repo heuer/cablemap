@@ -209,7 +209,7 @@ d). ''',
 
 def test_parse_references():
     def check(content, year, reference_id, expected):
-        eq_(parse_references(content, year, reference_id), expected)
+        eq_(expected, parse_references(content, year, reference_id))
     for test in _TEST_DATA:
         reference_id = None
         if len(test) == 4:
@@ -247,8 +247,8 @@ SUBJECT: CHEMICAL WEAPONS CONVENTION (CWC): CONVERSION OF THE RABTA CHEMICAL WEA
 
 
 def test_malformed_tripoli_cables():
-    def check(content, year, reference_id, expected_result):
-        assert parse_references(content, year, reference_id) == expected_result
+    def check(content, year, reference_id, expected):
+        eq_(expected, parse_references(content, year, reference_id))
     for ref_id, params in _TRIPOLI_TESTS.iteritems():
         content, year, result = params
         yield check, content, year, ref_id, result

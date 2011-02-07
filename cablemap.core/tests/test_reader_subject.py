@@ -167,6 +167,9 @@ SUBJECT: DEMARCHE FOLLOWING CHINA'S JANUARY 2010 INTERCEPT FLIGHT-TEST
 
 Classified By:''',
      u"DEMARCHE FOLLOWING CHINA'S JANUARY 2010 INTERCEPT FLIGHT-TEST"),
+    # Test HTML entity replacements
+    ('SUBJECT: Bla &#8217; bla &#8220; bla &#8221; bla ',
+     u'Bla \u2019 bla \u201c bla \u201d bla'),
 )
 
 

@@ -296,23 +296,24 @@ def cable_by_id(reference_id):
 
 
 _ACRONYMS = (
-    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK',
+    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT',
     'BBC', 'BP',
-    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT',
+    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC',
     'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM',
-    'EFCC', 'ETA', 'EU', 'EU/US',
+    'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
-    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO',
+    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF',
     'HMG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR',
-    'MDC', 'MEP', 'MFA', 'MOD', 'MRE',
-    'NATO', 'NDP', 'NSA', 'NGO',
-    'PD', 'PM', 'PMDB', 'PS',
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC',
+    'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP',
+    'NATO', 'NDP', 'NSA', 'NGO', 'NEA',
+    'OIC', 'OECD',
+    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT',
     'ROK', 'RWE',
     'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI',
     'TFTP', 'TFTP/SWIFT',
-    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA',
-    'VFM', 'VP',
+    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK',
+    'VFM', 'VP', 'VI',
     'WEF', 'WTO',
     'ZANU-PF',
 )
@@ -328,10 +329,13 @@ _SPECIAL_WORDS = {
     'EU/TURKEY:': u'EU/Turkey:',
     'ACCESSION/EU:': u'Accession/EU:',
     'EX-GTMO': u'Ex-GTMO',
+    "PNG'ING": u"PNG'ing",
+    'SUDAN/ICC:': u'Sudan/ICC:',
+    'IDP/REFUGEE': u'IDP/Refugee',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(r"^(%s|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|('S|'s))?$" % r'|'.join(('(%s)' % accr for accr in _ACRONYMS)), re.UNICODE)
+_TITLEFY_BIG_PATTERN = re.compile(r"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|('S|'s))?$" % r'|'.join(_ACRONYMS), re.UNICODE)
 
 def titlefy(subject):
     """\

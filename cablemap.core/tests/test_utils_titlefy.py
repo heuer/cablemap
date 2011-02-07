@@ -107,6 +107,12 @@ _TEST_DATA = (
     # 04TASHKENT3180
     ('FIRST DAUGHTER LOLA (KARIMOVA) CUTS LOSE',
      u'First Daughter Lola (Karimova) Cuts Lose'),
+    # 07TUNIS1489
+    ("THE PNG'ING OF SUHA ARAFAT: MANY RUMORS, FEW FACTS",
+     u"The PNG'ing of Suha Arafat: Many Rumors, Few Facts"),
+    # 08LONDON1761
+    ('CWS/BWC: CLOSE ALLIES MEETING, JUNE 17-18, 2008',
+      u'CWS/BWC: Close Allies Meeting, June 17-18, 2008'),
 )
 
 def test_titlefy():

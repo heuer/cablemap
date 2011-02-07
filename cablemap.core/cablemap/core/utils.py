@@ -296,7 +296,7 @@ def cable_by_id(reference_id):
 
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(r"^((SLA/U)|(SLA)|(AU)|(PD)|(NSA)|(GM)|(GOE)|(UAE)|(III)|(GAERC)|(WEF)|(CNP)|(MOD)|(CMC)|(EFCC)|(UNHCR)|(ASD/ISA)|(NDP)|(GOK)|(DAS)|(AFM)|(DG)|(GOAJ)|(NATO)|(FATF)|(ICTY)|(DCA)|(VP)|(UNSC)|(UN)|(USG)|(BBC)|(U.S.-EU)|(U.S.-UK)|(MOD)|(RWE)|(HMG)|(PMDB)|(FCO)|(UK)|(IMF)|(US)|(DDR)|(FBI)|(BP)|(SPD)|(GOL)|(WTO)|(AG)|(GSL)|(EU)|(SWIFT)|(GDRC)|(GOB)|(ROK)|(DEA)|(GOC)|(TFTP)|(MEP)|(MFA)|(VFM)|(FM)|(PM)|(FDP)|(GPC)|(GOI)|(ETA)|(US-EU)|(TFTP/SWIFT)|(xx+)|(XX+)|(\([A-Z]+\):?))(([,:])|('S|'s))?$", re.UNICODE)
+_TITLEFY_BIG_PATTERN = re.compile(r"^((SLA/U)|(SLA)|(AU)|(PD)|(NSA)|(GM)|(GOE)|(UAE)|(III)|(GAERC)|(WEF)|(CNP)|(CMC)|(EFCC)|(UNHCR)|(ASD/ISA)|(NDP)|(GOK)|(DAS)|(AFM)|(DG)|(GOAJ)|(NATO)|(FATF)|(ICTY)|(DCA)|(VP)|(UNSC)|(UN)|(USG)|(BBC)|(U.S.-EU)|(U.S.-UK)|(MOD)|(RWE)|(HMG)|(PMDB)|(FCO)|(UK)|(IMF)|(US)|(DDR)|(FBI)|(BP)|(SPD)|(GOL)|(WTO)|(AG)|(GSL)|(EU)|(SWIFT)|(GDRC)|(GOB)|(ROK)|(DEA)|(GOC)|(TFTP)|(MEP)|(MFA)|(VFM)|(FM)|(PM)|(FDP)|(GPC)|(GOI)|(ETA)|(US-EU)|(TFTP/SWIFT)|(xx+)|(XX+)|(\([A-Z]+\):?))(([,:;\.])|('S|'s))?$", re.UNICODE)
 
 def titlefy(subject):
     """\

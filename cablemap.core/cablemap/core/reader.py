@@ -239,6 +239,8 @@ def fix_content(content, reference_id):
         content = content.replace(u'XXXNEED A MILLION', u'XXX NEED A MILLION')
     elif reference_id == '09BEIJING1176':
         content = content.replace(u'XXXDISCUSSES', u'XXX DISCUSSES')
+    elif reference_id == '09BEIJING2438':
+        content = content.replace(u'NEGOTIATE SE \nCRETLY', u'NEGOTIATE SECRETLY')
     elif reference_id == '08LONDON1991':
         content = content.replace(u'UK PRIMEREF: A.', u'UK PRIME\nREF: A.')
     elif reference_id == '09STATE30049':

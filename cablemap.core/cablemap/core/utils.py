@@ -296,16 +296,16 @@ def cable_by_id(reference_id):
 
 
 _ACRONYMS = (
-    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK',
+    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP',
     'BBC', 'BP',
     'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR',
-    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD',
-    'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS',
+    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO',
+    'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF',
     'HMG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO',
-    'JSF',
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC',
+    'JSF', 'JHA',
     'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
     'OIC', 'OECD',
@@ -313,7 +313,7 @@ _ACRONYMS = (
     'ROK', 'RWE',
     'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT',
     'TFTP', 'TFTP/SWIFT',
-    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO',
+    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 'US-ROYG',
     'VFM', 'VP', 'VI', 'VARIG',
     'WEF', 'WTO',
     'ZANU-PF',
@@ -339,6 +339,7 @@ _SPECIAL_WORDS = {
     'DoD': 'DoD',
     'SPAIN/CT:': u'Spain/CT:',
     'SPAIN/CIA': u'Spain/CIA',
+    'dio': u'DIO', #TODO: Should not be here, lower/uppercase the whole string to avoid this here?
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)

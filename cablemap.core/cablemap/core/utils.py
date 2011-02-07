@@ -296,23 +296,24 @@ def cable_by_id(reference_id):
 
 
 _ACRONYMS = (
-    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT',
+    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK',
     'BBC', 'BP',
-    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC',
-    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM',
+    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR',
+    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC',
     'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF',
     'HMG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC',
-    'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP',
-    'NATO', 'NDP', 'NSA', 'NGO', 'NEA',
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO',
+    'JSF',
+    'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
+    'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
     'OIC', 'OECD',
-    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT',
+    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC',
     'ROK', 'RWE',
     'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI',
     'TFTP', 'TFTP/SWIFT',
-    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK',
+    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO',
     'VFM', 'VP', 'VI',
     'WEF', 'WTO',
     'ZANU-PF',
@@ -332,6 +333,9 @@ _SPECIAL_WORDS = {
     "PNG'ING": u"PNG'ing",
     'SUDAN/ICC:': u'Sudan/ICC:',
     'IDP/REFUGEE': u'IDP/Refugee',
+    'EU/PAKISTAN:': u'EU/Pakistan:',
+    'US-IRAN': u'US-Iran',
+    'DoD': 'DoD',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)

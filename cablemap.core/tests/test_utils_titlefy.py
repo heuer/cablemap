@@ -113,6 +113,12 @@ _TEST_DATA = (
     # 08LONDON1761
     ('CWS/BWC: CLOSE ALLIES MEETING, JUNE 17-18, 2008',
       u'CWS/BWC: Close Allies Meeting, June 17-18, 2008'),
+    # 08LONDON2822
+    ('DRC: UK FOCUSING ON POLITICAL SOLUTION, MAKING MONUC MORE RESPONSIVE AND FLEXIBLE',
+     u'DRC: UK Focusing on Political Solution, Making MONUC More Responsive and Flexible'),
+    # 10SANSALVADOR85
+    ('Scenesetter for DoD Visit to El Salvador, March 8-9',
+     u'Scenesetter for DoD Visit to El Salvador, March 8-9'),
 )
 
 def test_titlefy():

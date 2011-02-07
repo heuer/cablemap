@@ -237,6 +237,8 @@ def fix_content(content, reference_id):
         content = re.sub('JAMAHIRIYA-STYLE\s+Q: A\) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI', content)
     elif reference_id == '07HAVANA252':
         content = content.replace(u'XXXNEED A MILLION', u'XXX NEED A MILLION')
+    elif reference_id == '09BEIJING1176':
+        content = content.replace(u'XXXDISCUSSES', u'XXX DISCUSSES')
     elif reference_id == '08LONDON1991':
         content = content.replace(u'UK PRIMEREF: A.', u'UK PRIME\nREF: A.')
     elif reference_id == '09STATE30049':

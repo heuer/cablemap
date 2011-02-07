@@ -298,22 +298,22 @@ def cable_by_id(reference_id):
 _ACRONYMS = (
     'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP',
     'BBC', 'BP',
-    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR',
-    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO',
+    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR', 'CFE',
+    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO', 'DHS',
     'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
-    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF',
+    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS',
     'HMG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC',
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA', 'INR/B',
     'JSF', 'JHA',
     'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
     'OIC', 'OECD',
-    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC',
-    'ROK', 'RWE',
-    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT',
+    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC', 'PRC/DPRK', 'PNG',
+    'ROK', 'RWE', 'RFG',
+    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC',
     'TFTP', 'TFTP/SWIFT',
-    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 'US-ROYG',
+    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 'US-ROYG', 'UNSCR',
     'VFM', 'VP', 'VI', 'VARIG',
     'WEF', 'WTO',
     'ZANU-PF',
@@ -330,7 +330,6 @@ _SPECIAL_WORDS = {
     'EU/TURKEY:': u'EU/Turkey:',
     'ACCESSION/EU:': u'Accession/EU:',
     'EX-GTMO': u'Ex-GTMO',
-    "PNG'ING": u"PNG'ing",
     'SUDAN/ICC:': u'Sudan/ICC:',
     'IDP/REFUGEE': u'IDP/Refugee',
     'EU/PAKISTAN:': u'EU/Pakistan:',
@@ -339,11 +338,13 @@ _SPECIAL_WORDS = {
     'DoD': 'DoD',
     'SPAIN/CT:': u'Spain/CT:',
     'SPAIN/CIA': u'Spain/CIA',
-    'dio': u'DIO', #TODO: Should not be here, lower/uppercase the whole string to avoid this here?
+    'SPAIN/ETA:': u'Spain/ETA:',
+    'PRC/IRAN:': u'PRC/Iran:',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(r"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|('S|'s))?$" % r'|'.join(_ACRONYMS), re.UNICODE)
+_TITLEFY_BIG_PATTERN = re.compile(r"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|('[a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
+_APOS_PATTERN = re.compile(ur"^(\w+)('|’)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
 
 def titlefy(subject):
     """\
@@ -356,7 +357,7 @@ def titlefy(subject):
         A cable's subject.
     """
     def clean_word(word):
-        return word.replace(u"'S", u"'s").replace(u",S", u"'s").replace(u"’S", u"’s").replace(u"'T", u"'t").replace(u"'Ll", u"'ll").replace('Ve', u've')
+        return _APOS_PATTERN.sub(lambda m: u'%s%s%s' % (m.group(1), m.group(2), m.group(3).lower()), word)
     def titlefy_word(word):
         if _TITLEFY_BIG_PATTERN.match(word):
             return clean_word(word.upper())

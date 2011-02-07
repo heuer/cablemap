@@ -125,6 +125,9 @@ _TEST_DATA = (
     # 05SANAA923
     ("SALEH ON KANAAN: WE'VE GOT HIM!!",
      u"Saleh on Kanaan: We've Got Him!!"),
+    # 09SEOUL59
+    (u"ROK’S FOREIGN POLICY TOWARD THE NEIGHBORS: NORTH KOREA, JAPAN, CHINA AND RUSSIA",
+     u"ROK’s Foreign Policy Toward the Neighbors: North Korea, Japan, China and Russia"),
 )
 
 def test_titlefy():

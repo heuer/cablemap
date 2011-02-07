@@ -304,7 +304,7 @@ _ACRONYMS = (
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS',
     'HMG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA', 'INR/B',
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA', 'INR/B', 'ICC',
     'JSF', 'JHA',
     'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
@@ -343,7 +343,7 @@ _SPECIAL_WORDS = {
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(r"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|('[a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
+_TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|(?:'|’)([a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
 _APOS_PATTERN = re.compile(ur"^(\w+)('|’|,)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
 
 def titlefy(subject):

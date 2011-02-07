@@ -376,11 +376,6 @@ def parse_meta(file_content, cable):
     return cable
 
 
-def parse_tranmission_id(header, reference_id):
-    import warnings
-    warnings.warn('Use "parse_transmission_id"', DeprecationWarning)
-    return parse_transmission_id(header, reference_id)
-
 _TID_PATTERN = re.compile(r'(VZCZ[A-Z]+[0-9]+)', re.UNICODE)
 
 def parse_transmission_id(header, reference_id):

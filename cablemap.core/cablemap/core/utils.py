@@ -299,7 +299,7 @@ _ACRONYMS = (
     'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK',
     'BBC', 'BP',
     'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR',
-    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC',
+    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD',
     'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF',
@@ -314,7 +314,7 @@ _ACRONYMS = (
     'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI',
     'TFTP', 'TFTP/SWIFT',
     'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO',
-    'VFM', 'VP', 'VI',
+    'VFM', 'VP', 'VI', 'VARIG',
     'WEF', 'WTO',
     'ZANU-PF',
 )
@@ -335,6 +335,7 @@ _SPECIAL_WORDS = {
     'IDP/REFUGEE': u'IDP/Refugee',
     'EU/PAKISTAN:': u'EU/Pakistan:',
     'US-IRAN': u'US-Iran',
+    'DUTCH/EU:': u'Dutch/EU:',
     'DoD': 'DoD',
 }
 
@@ -352,7 +353,7 @@ def titlefy(subject):
         A cable's subject.
     """
     def clean_word(word):
-        return word.replace(u"'S", u"'s").replace(u",S", u"'s").replace(u"’S", u"’s").replace(u"'T", u"'t")
+        return word.replace(u"'S", u"'s").replace(u",S", u"'s").replace(u"’S", u"’s").replace(u"'T", u"'t").replace(u"'Ll", u"'ll")
     def titlefy_word(word):
         if _TITLEFY_BIG_PATTERN.match(word):
             return clean_word(word.upper())

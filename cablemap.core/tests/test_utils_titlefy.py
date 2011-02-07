@@ -119,6 +119,9 @@ _TEST_DATA = (
     # 10SANSALVADOR85
     ('Scenesetter for DoD Visit to El Salvador, March 8-9',
      u'Scenesetter for DoD Visit to El Salvador, March 8-9'),
+    # 06BRASILIA694
+    ("VARIG'S DOWNWARD SPIRAL: WE'LL PAY YOU LATER",
+     u"VARIG's Downward Spiral: We'll Pay You Later"),
 )
 
 def test_titlefy():

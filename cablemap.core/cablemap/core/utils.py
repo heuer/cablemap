@@ -300,7 +300,7 @@ _ACRONYMS = (
     'BBC', 'BP',
     'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR', 'CFE',
     'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO', 'DHS', 'DOL',
-    'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR',
+    'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR', 'EFTA',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS',
     'HMG', 'HLDG',
@@ -311,7 +311,7 @@ _ACRONYMS = (
     'OIC', 'OECD',
     'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC', 'PRC/DPRK', 'PNG', 'PRC',
     'ROK', 'RWE', 'RFG',
-    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC',
+    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC', 'SCSL',
     'TFTP', 'TFTP/SWIFT',
     'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 'US-ROYG', 'UNSCR',
     'VFM', 'VP', 'VI', 'VARIG',
@@ -342,10 +342,15 @@ _SPECIAL_WORDS = {
     'PRC/IRAN:': u'PRC/Iran:',
     'NETHERLANDS/JSF:': u'Netherlands/JSF:',
     'NETHERLANDS/JSF': u'Netherlands/JSF',
+    'TURKEY/EU': u'Turkey/EU',
+    'TURKEY-EU': u'Turkey-EU',
+    'EU-AFRICA': u'EU/Africa',
+    'U.S.-FRANCE-EU': u'U.S.-France-EU',
+    'CHAD/SUDAN/EUFOR:': u'Chad/Sudan/EUFOR:',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|(?:'|’)([a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
+_TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.\-])|(?:'|’)([a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
 _APOS_PATTERN = re.compile(ur"^(\w+)('|’|,)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
 
 def titlefy(subject):

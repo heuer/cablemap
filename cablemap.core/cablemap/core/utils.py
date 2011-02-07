@@ -299,7 +299,7 @@ _ACRONYMS = (
     'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP',
     'BBC', 'BP',
     'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR', 'CFE',
-    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO', 'DHS',
+    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO', 'DHS', 'DOL',
     'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS',
@@ -344,7 +344,7 @@ _SPECIAL_WORDS = {
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
 _TITLEFY_BIG_PATTERN = re.compile(r"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|('[a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
-_APOS_PATTERN = re.compile(ur"^(\w+)('|’)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
+_APOS_PATTERN = re.compile(ur"^(\w+)('|’|,)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
 
 def titlefy(subject):
     """\
@@ -357,7 +357,7 @@ def titlefy(subject):
         A cable's subject.
     """
     def clean_word(word):
-        return _APOS_PATTERN.sub(lambda m: u'%s%s%s' % (m.group(1), m.group(2), m.group(3).lower()), word)
+        return _APOS_PATTERN.sub(lambda m: u'%s%s%s' % (m.group(1), m.group(2) if not m.group(2) == ',' else u"'", m.group(3).lower()), word)
     def titlefy_word(word):
         if _TITLEFY_BIG_PATTERN.match(word):
             return clean_word(word.upper())

@@ -303,13 +303,13 @@ _ACRONYMS = (
     'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR',
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS',
-    'HMG',
+    'HMG', 'HLDG',
     'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA', 'INR/B', 'ICC',
     'JSF', 'JHA',
     'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
     'OIC', 'OECD',
-    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC', 'PRC/DPRK', 'PNG',
+    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC', 'PRC/DPRK', 'PNG', 'PRC',
     'ROK', 'RWE', 'RFG',
     'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC',
     'TFTP', 'TFTP/SWIFT',
@@ -340,6 +340,8 @@ _SPECIAL_WORDS = {
     'SPAIN/CIA': u'Spain/CIA',
     'SPAIN/ETA:': u'Spain/ETA:',
     'PRC/IRAN:': u'PRC/Iran:',
+    'NETHERLANDS/JSF:': u'Netherlands/JSF:',
+    'NETHERLANDS/JSF': u'Netherlands/JSF',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)

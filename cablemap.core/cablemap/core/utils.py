@@ -356,7 +356,7 @@ def titlefy(subject):
         A cable's subject.
     """
     def clean_word(word):
-        return word.replace(u"'S", u"'s").replace(u",S", u"'s").replace(u"’S", u"’s").replace(u"'T", u"'t").replace(u"'Ll", u"'ll")
+        return word.replace(u"'S", u"'s").replace(u",S", u"'s").replace(u"’S", u"’s").replace(u"'T", u"'t").replace(u"'Ll", u"'ll").replace('Ve', u've')
     def titlefy_word(word):
         if _TITLEFY_BIG_PATTERN.match(word):
             return clean_word(word.upper())

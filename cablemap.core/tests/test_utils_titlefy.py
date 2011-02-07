@@ -122,6 +122,9 @@ _TEST_DATA = (
     # 06BRASILIA694
     ("VARIG'S DOWNWARD SPIRAL: WE'LL PAY YOU LATER",
      u"VARIG's Downward Spiral: We'll Pay You Later"),
+    # 05SANAA923
+    ("SALEH ON KANAAN: WE'VE GOT HIM!!",
+     u"Saleh on Kanaan: We've Got Him!!"),
 )
 
 def test_titlefy():

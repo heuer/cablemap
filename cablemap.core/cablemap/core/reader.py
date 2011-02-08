@@ -582,7 +582,6 @@ def parse_info_recipients(header, reference_id):
     m = _INFO_PATTERN.search(header)
     if not m:
         return []
-        #raise Exception('No INFO header found in "%s"' % header)
     to_header = m.group(1)
     return _route_recipient_from_header(to_header, reference_id)
     res = []

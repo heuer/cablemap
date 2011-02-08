@@ -721,7 +721,7 @@ def parse_references(content, year, reference_id=None):
             origin = origin.replace(' ', '').upper()
             if origin in ('RIO', 'RIODEJAN'):
                 origin = 'RIODEJANEIRO'
-            elif origin == 'SECSTATE':
+            elif origin in ('SECSTATE', 'SECDEF'):
                 origin = 'STATE'
             elif origin in ('UNVIE', 'EMBASSYVIENNA'):
                 origin = 'UNVIENNA'

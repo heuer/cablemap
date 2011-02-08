@@ -88,7 +88,7 @@ _TEST_DATA = (
      u'''Slow Progress on Italy-Libya Colonial Compensation Treaty a Sign of GOL's "Corsair Mentality"'''),
     # 09TRIPOLI363
     ('SLA/U CAN NEGOTIATE ONLY WITH ASSURANCES THAT JEM AND KHARTOUM WILL ALSO LAY DOWN ARMS',
-     u'SLA/U Can Negotiate Only With Assurances That Jem and Khartoum Will Also Lay Down Arms'),
+     u'SLA/U Can Negotiate Only With Assurances That JEM and Khartoum Will Also Lay Down Arms'),
     # 09LONDON2569
     ('HMG STRESSES U.S.-UK COORDINATION ON AFGHANISTAN STRATEGY',
      u'HMG Stresses U.S.-UK Coordination on Afghanistan Strategy'),

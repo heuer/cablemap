@@ -58,6 +58,4 @@ if __name__ == '__main__':
     import os
     if not os.path.isdir('./cable/'):
         raise Exception('Expected a directory "cable"')
-    if not os.path.isdir('./out/'):
-        os.mkdir('./out')
-    generate_csv('./cable/', './out/cables.csv')
+    generate_csv('./cable/', './cables.csv')

@@ -296,26 +296,55 @@ def cable_by_id(reference_id):
 
 
 _ACRONYMS = (
-    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP',
-    'BBC', 'BP',
-    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR',
-    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO',
-    'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR',
-    'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
-    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF',
-    'HMG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA',
-    'JSF', 'JHA',
-    'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
+    # A
+    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP', 'ASD', 
+    'AQAP', 'AQIM', 'ARENA',
+    # B
+    'BBC', 'BP', 'BR-3',
+    # C
+    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR', 
+    'CFE', 'CISMOA', 'CN', 'CIA', 'CTJWG', 'CG',
+    # D
+    'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO', 'DHS', 'DOL',
+    'DPRK',
+    # E
+    'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR', 'EFTA',
+    # F
+    'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC', 'FX2', 'FMLN',
+    # G
+    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 
+    'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS', 'GBRV', 'GOP', 'GOU',
+    # H
+    'HMG', 'HLDG', 'HEU',
+    # I
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA', 
+    'INR/B', 'ICC', 'ICG-G', 'ICJ',
+    # J
+    'JSF', 'JHA', 'JCET',
+    # M
+    'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC', 'MOP-3', 'MEA',
+    # N
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
-    'OIC', 'OECD',
-    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC',
-    'ROK', 'RWE',
-    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT',
+    # O
+    'OIC', 'OECD', 'OAS',
+    # P
+    'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC', 'PRC/DPRK', 'PNG', 'PRC',
+    # R
+    'ROK', 'RWE', 'RFG', 'RMB', 'RSO', 'RPO',
+    # S
+    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC', 'SCSL', 
+    'S/SRAP', 'SG',
+    # T
     'TFTP', 'TFTP/SWIFT',
-    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 'US-ROYG',
-    'VFM', 'VP', 'VI', 'VARIG',
+    # U
+    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 
+    'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 
+    'US-ROYG', 'UNSCR',
+    # V
+    'VFM', 'VP', 'VI', 'VARIG', 'VOA',
+    # W
     'WEF', 'WTO',
+    # Z
     'ZANU-PF',
 )
 
@@ -330,7 +359,6 @@ _SPECIAL_WORDS = {
     'EU/TURKEY:': u'EU/Turkey:',
     'ACCESSION/EU:': u'Accession/EU:',
     'EX-GTMO': u'Ex-GTMO',
-    "PNG'ING": u"PNG'ing",
     'SUDAN/ICC:': u'Sudan/ICC:',
     'IDP/REFUGEE': u'IDP/Refugee',
     'EU/PAKISTAN:': u'EU/Pakistan:',
@@ -339,11 +367,21 @@ _SPECIAL_WORDS = {
     'DoD': 'DoD',
     'SPAIN/CT:': u'Spain/CT:',
     'SPAIN/CIA': u'Spain/CIA',
-    'dio': u'DIO', #TODO: Should not be here, lower/uppercase the whole string to avoid this here?
+    'SPAIN/ETA:': u'Spain/ETA:',
+    'PRC/IRAN:': u'PRC/Iran:',
+    'NETHERLANDS/JSF:': u'Netherlands/JSF:',
+    'NETHERLANDS/JSF': u'Netherlands/JSF',
+    'TURKEY/EU': u'Turkey/EU',
+    'TURKEY-EU': u'Turkey-EU',
+    'EU-AFRICA': u'EU/Africa',
+    'U.S.-FRANCE-EU': u'U.S.-France-EU',
+    'CHAD/SUDAN/EUFOR:': u'Chad/Sudan/EUFOR:',
+    '(ART)': u'(art)',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(r"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.])|('S|'s))?$" % r'|'.join(_ACRONYMS), re.UNICODE)
+_TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.\-])|(?:'|’)([a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
+_APOS_PATTERN = re.compile(ur"^(\w+)('|’|,)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
 
 def titlefy(subject):
     """\
@@ -356,7 +394,7 @@ def titlefy(subject):
         A cable's subject.
     """
     def clean_word(word):
-        return word.replace(u"'S", u"'s").replace(u",S", u"'s").replace(u"’S", u"’s").replace(u"'T", u"'t").replace(u"'Ll", u"'ll").replace('Ve', u've')
+        return _APOS_PATTERN.sub(lambda m: u'%s%s%s' % (m.group(1), m.group(2) if not m.group(2) == ',' else u"'", m.group(3).lower()), word)
     def titlefy_word(word):
         if _TITLEFY_BIG_PATTERN.match(word):
             return clean_word(word.upper())
@@ -370,7 +408,11 @@ def titlefy(subject):
     for word in wl[1:]:
         if _TITLEFY_SMALL_PATTERN.match(word):
             if res[-1][-1] not in ':-':
-                append(word.lower())
+                if word == u'A' and res[-1] == u'and' and res[-2] == 'Q':
+                    # Q and A
+                    append(word.upper())
+                else:
+                    append(word.lower())
             else:
                 append(titlefy_word(word))
         else:

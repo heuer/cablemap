@@ -304,7 +304,7 @@ _ACRONYMS = (
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF',
     'HMG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC',
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA',
     'JSF', 'JHA',
     'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',

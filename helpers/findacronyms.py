@@ -16,13 +16,14 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'GOP', u'GOU', u'HMG', u'HLDG', u'HEU', u'ICTY', u'II', u'III', u'IMF', u'ITGA', u'IPR', u'IRGC', u'ICAO',
              u'IRA', u'ISAF', u'(INCSR)', u'ICRC', u'ISA', u'INR/B', u'ICC', u'ICG-G', u'ICJ',
              u'JSF', u'JHA', u'JCET', u'JPMG',
-             u'MDC', u'MEP', u'MFA', u'MOD',
+             u'MDC', u'MEP', u'MFA', u'MOD', u'MI-17'
              u'MRE', u'MP', u'MONUC', u'MOP-3', u'MEA', u'NATO', u'NDP', u'NSA', u'NGO', u'NEA', u'NEA/MAG', u'OIC',
              u'OECD', u'OAS', u'PD', u'PM', u'PMDB', u'PS', u'PDAS', u'PRT', u'POC', u'PRC/DPRK', u'PNG', u'PRC', u'ROK',
              u'RWE', u'RFG', u'RMB', u'RSO', u'RPO', u'SLA', u'SLA/U', u'SPD', u'SWIFT', u'S/WCI', u'S/CT', u'S/CRS',
              u'S/GC', u'SCSL', u'S/SRAP', u'SG', u'TFTP', u'TFTP/SWIFT', u'U.S.-EU', u'U.S.-UK', u'UAE', u'UK', u'UN',
-             u'UNHCR', u'UNSC', u'US', u'US-EU', u'USG', u'USTR', u'UNCHR', u'USEB', u'UNGA', u'U.S./UK', u'UNESCO',
-             u'U/SYG', u'US-ROYG', u'UNSCR', u'VFM', u'VP', u'VI', u'VARIG', u'VOA', u'WEF', u'WTO', u'XVI', u'ZANU-PF')
+             u'UNHCR', u'UNSC', u'US', u'US-CU', u'US-EU', u'USG', u'USTR', u'UNCHR', u'USEB', u'UNGA', u'U.S./UK', u'UNESCO',
+             u'U/SYG', u'US-ROYG', u'UNSCR',
+             u'VFM', u'VP', u'VI', u'VARIG', u'VOA', u'WEF', u'WTO', u'XVI', u'ZANU-PF')
 
 _UNWANTED = (u'SAVE',)
 

@@ -42,7 +42,7 @@ import os
 import re
 import logging
 import codecs
-from cablemap.core.constants import MIN_ORIGIN_LENGTH, MAX_ORIGIN_LENGTH
+from cablemap.core.constants import REFERENCE_ID_PATTERN
 from cablemap.core.models import Cable
 
 #
@@ -88,7 +88,7 @@ _CABLES_WITHOUT_SUBJECT = (
     '09LONDON2477', '09LONDON2582', '09DJIBOUTI1425', '09LONDON2769',
     '09LONDON2909', '09MOSCOW2932', '10MADRID49', '08BRASILIA278',
     '08BRASILIA1219', '09BRASILIA178', '09MOSCOW1730', '09MOSCOW1732',
-    
+    '05CAIRO8938', '06CAIRO493', '09LONDON333', '10LONDON255',
     )
 
 #
@@ -151,6 +151,49 @@ _CABLES_WITHOUT_TID = (
 _CABLES_WITHOUT_TO = ()
 
 _CABLES_WITH_MALFORMED_SUMMARY = ()
+
+_CABLE_FIXES = {
+    '08TRIPOLI402':
+        (ur'JAMAHIRIYA-STYLE\s+Q: A\) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI'),
+    '07HAVANA252':
+        (ur'XXXNEED A MILLION', u'XXX NEED A MILLION'),
+    '09BEIJING1176':
+        (ur'XXXDISCUSSES', u'XXX DISCUSSES'),
+    '09BEIJING2438':
+        (ur'NEGOTIATE SE\s+CRETLY', u'NEGOTIATE SECRETLY'),
+    '08LONDON1991':
+        (ur'UK PRIMEREF: A.', u'UK PRIME\nREF: A.'),
+    '09STATE30049':
+        (ur'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n'),
+    '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
+        (ur'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING'),
+    '09BAKU687':
+        (ur'IR\nClassified By:', u'''IR
+SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF
+MARTIAL ARTS CLUBS FOR REPRESSION; xxxxxxxxxxxx
+
+REF: a) BAKU 575
+
+Classified By:'''),
+    '08KYIV2414':
+        (ur'UP[ ]*\n1.', u'''UP
+SUBJECT: UKRAINE: FIRTASH MAKES HIS CASE TO THE USG
+REF: A. KYIV 2383 B. KYIV 2294
+
+1.
+'''),
+    '09CAIRO79':
+        (ur'EG\n\nClassified', u"""
+SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
+
+REF: A. 08 CAIRO 2431
+B. 08 CAIRO 2430
+C. 08 CAIRO 2260
+D. 08 CAIRO 783
+E. 07 CAIRO 3214
+F. 07 CAIRO 2845
+"""),
+}
 
 logger = logging.getLogger('cablemap-reader')
 
@@ -233,31 +276,9 @@ def fix_content(content, reference_id):
     >>> fix_content('\\nBLOGGERS MOVING', '09UNKNOWNID3122')
     '\\nBLOGGERS MOVING'
     """
-    if reference_id == '08TRIPOLI402':
-        content = re.sub('JAMAHIRIYA-STYLE\s+Q: A\) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI', content)
-    elif reference_id == '07HAVANA252':
-        content = content.replace(u'XXXNEED A MILLION', u'XXX NEED A MILLION')
-    elif reference_id == '09BEIJING1176':
-        content = content.replace(u'XXXDISCUSSES', u'XXX DISCUSSES')
-    elif reference_id == '08LONDON1991':
-        content = content.replace(u'UK PRIMEREF: A.', u'UK PRIME\nREF: A.')
-    elif reference_id == '09STATE30049':
-        content = content.replace(u'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n') #09STATE30049
-    elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
-        content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')
-    elif reference_id == '09CAIRO79' and 'EG\n\nClassified' in content: # This cable contains sometimes the complete header and sometimes not
-                                                                        # See <http://cablesearch.org/cable/view.php?id=09CAIRO79>
-        restored_header = u"""
-SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
-
-REF: A. 08 CAIRO 2431
-B. 08 CAIRO 2430
-C. 08 CAIRO 2260
-D. 08 CAIRO 783
-E. 07 CAIRO 3214
-F. 07 CAIRO 2845
-"""
-        content = content.replace('EG\n\nClassified', u'EG\n%s\nClassified' % restored_header)
+    if reference_id in _CABLE_FIXES:
+        pattern, repl = _CABLE_FIXES.get(reference_id)
+        content = re.sub(pattern, repl, content)
     return content
 
 _CONTENT_PATTERN = re.compile(ur'(?:<code><pre>)(.+?)(?:</pre></code>)', re.DOTALL|re.UNICODE)
@@ -561,7 +582,6 @@ def parse_info_recipients(header, reference_id):
     m = _INFO_PATTERN.search(header)
     if not m:
         return []
-        #raise Exception('No INFO header found in "%s"' % header)
     to_header = m.group(1)
     return _route_recipient_from_header(to_header, reference_id)
     res = []
@@ -665,33 +685,6 @@ def parse_nondisclosure_deadline(content):
     return u'%s-%s-%s' % (year, month, day)
 
 
-_MONTHS = (
-    'JAN',
-    'JANUARY',
-    'FEB',
-    'FEBRUARY',
-    'MAR',
-    'MARCH',
-    'APR',
-    'APRIL',
-    'MAY',
-    'JUN', 
-    'JUNE',
-    'JUL',
-    'JULY',
-    'AUG',
-    'AUGUST',
-    'SEP',
-    'SEPTEMBER',
-    'OCT',
-    'OCTOBER',
-    'NOV',
-    'NOVEMBER',
-    'DEC',
-    'DECEMBER',
-)
-
-
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 _REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
@@ -746,26 +739,15 @@ def parse_references(content, year, reference_id=None):
             origin = origin.replace(' ', '').upper()
             if origin in ('RIO', 'RIODEJAN'):
                 origin = 'RIODEJANEIRO'
-            elif origin == 'SECSTATE':
+            elif origin in ('SECSTATE', 'SECDEF'):
                 origin = 'STATE'
-            l = len(origin)
-            if l < MIN_ORIGIN_LENGTH or l > MAX_ORIGIN_LENGTH:
+            elif origin in ('UNVIE', 'EMBASSYVIENNA'):
+                origin = 'UNVIENNA'
+            reference = u'%s%s%d' % (y, origin, int(sn))
+            if not REFERENCE_ID_PATTERN.match(reference):
                 continue
-            if not 'RIODEJAN' in origin:
-                for month in _MONTHS:
-                    if month in origin:
-                        origin = None
-                        break
-            if origin \
-                and not 'MAIL' in origin \
-                and not 'REPORT' in origin \
-                and not 'POINTS' in origin \
-                and not 'MSG' in origin \
-                and not 'MTCRPOC' in origin \
-                and not origin.startswith('OSC'):
-                reference = u'%s%s%d' % (y, origin, int(sn))
-                if reference != reference_id:
-                    res.append(reference)
+            elif reference != reference_id: 
+                res.append(reference)
     return res
 
 

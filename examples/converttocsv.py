@@ -2,7 +2,7 @@
 """\
 This module converts cable(s) to CSV:
 
-    Reference ID | Created | Subject
+    Reference ID | Created | Origin | Subject
 
 It expects a cable directory ./cable/ with the cables
 and saves the cables into './out/cables.csv'
@@ -49,9 +49,9 @@ def generate_csv(in_dir, out):
     Walks through the `in_dir` and generates the CSV file `out`
     """
     writer = UnicodeWriter(open(out, 'wb'), delimiter=';')
-    writer.writerow(('Reference ID', 'Created', 'Subject'))
+    writer.writerow(('Reference ID', 'Created', 'Origin', 'Subject'))
     for cable in cables_from_directory(in_dir):
-        writer.writerow((cable.reference_id, cable.created, titlefy(cable.subject or u'')))
+        writer.writerow((cable.reference_id, cable.created, cable.origin, titlefy(cable.subject or u'')))
 
 
 if __name__ == '__main__':

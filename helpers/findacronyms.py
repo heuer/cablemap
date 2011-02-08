@@ -22,13 +22,15 @@ _ACRONYMS = (u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT', u'AF-PA
              u'UNHCR', u'UNSC', u'US', u'US-EU', u'USG', u'USTR', u'UNCHR', u'USEB', u'UNGA', u'U.S./UK', u'UNESCO',
              u'U/SYG', u'US-ROYG', u'UNSCR', u'VFM', u'VP', u'VI', u'VARIG', u'VOA', u'WEF', u'WTO', u'ZANU-PF')
 
+_UNWANTED = (u'SAVE',)
+
 def find_acronyms(in_dir):
     s = set(_ACRONYMS)
     for cable in cables_from_directory(in_dir):
         if not cable.subject or not cable.content_body:
             continue
         subject_words = cable.subject.upper().split()
-        s.update((ac for ac in _AC_PATTERN.findall(cable.content_body) if ac in subject_words))
+        s.update((ac for ac in _AC_PATTERN.findall(cable.content_body) if ac in subject_words and ac not in _UNWANTED))
     print sorted(s)
     
 if __name__ == '__main__':

@@ -300,19 +300,20 @@ _ACRONYMS = (
     'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP', 'ASD', 
     'AQAP', 'AQIM', 'ARENA',
     # B
-    'BBC', 'BP',
+    'BBC', 'BP', 'BR-3',
     # C
     'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR', 
-    'CFE', 'CISMOA', 'CN', 'CIA',
+    'CFE', 'CISMOA', 'CN', 'CIA', 'CTJWG', 'CG',
     # D
     'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO', 'DHS', 'DOL',
+    'DPRK',
     # E
     'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR', 'EFTA',
     # F
     'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC', 'FX2', 'FMLN',
     # G
     'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 
-    'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS', 'GBRV',
+    'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS', 'GBRV', 'GOP', 'GOU',
     # H
     'HMG', 'HLDG', 'HEU',
     # I
@@ -321,7 +322,7 @@ _ACRONYMS = (
     # J
     'JSF', 'JHA', 'JCET',
     # M
-    'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
+    'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC', 'MOP-3', 'MEA',
     # N
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
     # O
@@ -329,7 +330,7 @@ _ACRONYMS = (
     # P
     'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC', 'PRC/DPRK', 'PNG', 'PRC',
     # R
-    'ROK', 'RWE', 'RFG', 'RMB',
+    'ROK', 'RWE', 'RFG', 'RMB', 'RSO', 'RPO',
     # S
     'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC', 'SCSL', 
     'S/SRAP', 'SG',
@@ -340,7 +341,7 @@ _ACRONYMS = (
     'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 
     'US-ROYG', 'UNSCR',
     # V
-    'VFM', 'VP', 'VI', 'VARIG',
+    'VFM', 'VP', 'VI', 'VARIG', 'VOA',
     # W
     'WEF', 'WTO',
     # Z
@@ -375,6 +376,7 @@ _SPECIAL_WORDS = {
     'EU-AFRICA': u'EU/Africa',
     'U.S.-FRANCE-EU': u'U.S.-France-EU',
     'CHAD/SUDAN/EUFOR:': u'Chad/Sudan/EUFOR:',
+    '(ART)': u'(art)',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)

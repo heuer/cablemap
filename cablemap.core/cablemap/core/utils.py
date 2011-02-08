@@ -296,26 +296,54 @@ def cable_by_id(reference_id):
 
 
 _ACRONYMS = (
-    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP',
+    # A
+    'ADC', 'AFM', 'AG', 'ASD/ISA', 'AU', 'AK', 'APHSCT', 'AF-PAK', 'AKP', 'ASD', 
+    'AQAP', 'AQIM', 'ARENA',
+    # B
     'BBC', 'BP',
-    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR', 'CFE',
+    # C
+    'CMC', 'CNP', 'CODEL', 'CJCS', 'CT', 'CWS/BWC', 'CW', 'CENTCOM', 'CDR', 
+    'CFE', 'CISMOA', 'CN', 'CIA',
+    # D
     'DAS', 'DCA', 'DDR', 'DEA', 'DG', 'DCM', 'DRC', 'DASD', 'DIO', 'DHS', 'DOL',
+    # E
     'EFCC', 'ETA', 'EU', 'EU/US', 'EXBS', 'EUR', 'EFTA',
-    'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC',
-    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS',
-    'HMG', 'HLDG',
-    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA', 'INR/B', 'ICC',
-    'JSF', 'JHA',
+    # F
+    'FATF', 'FBI', 'FCO', 'FDP', 'FM', 'FTAA', 'FARC', 'FX2', 'FMLN',
+    # G
+    'GAERC', 'GDRC', 'GM', 'GOAJ', 'GOB', 'GOC', 'GOE', 'GOI', 'GOK', 'GOL', 
+    'GPC', 'GSL', 'GSP', 'GTMO', 'GOF', 'GOS', 'GBRV',
+    # H
+    'HMG', 'HLDG', 'HEU',
+    # I
+    'ICTY', 'II', 'III', 'IMF', 'ITGA', 'IPR', 'IRGC', 'ICAO', 'ICRC', 'ISA', 
+    'INR/B', 'ICC', 'ICG-G', 'ICJ',
+    # J
+    'JSF', 'JHA', 'JCET',
+    # M
     'MDC', 'MEP', 'MFA', 'MOD', 'MRE', 'MP', 'MONUC',
+    # N
     'NATO', 'NDP', 'NSA', 'NGO', 'NEA', 'NEA/MAG',
-    'OIC', 'OECD',
+    # O
+    'OIC', 'OECD', 'OAS',
+    # P
     'PD', 'PM', 'PMDB', 'PS', 'PDAS', 'PRT', 'POC', 'PRC/DPRK', 'PNG', 'PRC',
-    'ROK', 'RWE', 'RFG',
-    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC', 'SCSL',
+    # R
+    'ROK', 'RWE', 'RFG', 'RMB',
+    # S
+    'SLA', 'SLA/U', 'SPD', 'SWIFT', 'S/WCI', 'S/CT', 'S/CRS', 'S/GC', 'SCSL', 
+    'S/SRAP', 'SG',
+    # T
     'TFTP', 'TFTP/SWIFT',
-    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 'US-ROYG', 'UNSCR',
+    # U
+    'U.S.-EU', 'U.S.-UK', 'UAE', 'UK', 'UN', 'UNHCR', 'UNSC', 'US', 'US-EU', 
+    'USG', 'USTR', 'UNCHR', 'USEB', 'UNGA', 'U.S./UK', 'UNESCO', 'U/SYG', 
+    'US-ROYG', 'UNSCR',
+    # V
     'VFM', 'VP', 'VI', 'VARIG',
+    # W
     'WEF', 'WTO',
+    # Z
     'ZANU-PF',
 )
 
@@ -378,7 +406,11 @@ def titlefy(subject):
     for word in wl[1:]:
         if _TITLEFY_SMALL_PATTERN.match(word):
             if res[-1][-1] not in ':-':
-                append(word.lower())
+                if word == u'A' and res[-1] == u'and' and res[-2] == 'Q':
+                    # Q and A
+                    append(word.upper())
+                else:
+                    append(word.lower())
             else:
                 append(titlefy_word(word))
         else:

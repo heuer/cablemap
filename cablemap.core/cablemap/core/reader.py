@@ -42,7 +42,7 @@ import os
 import re
 import logging
 import codecs
-from cablemap.core.constants import MIN_ORIGIN_LENGTH, MAX_ORIGIN_LENGTH
+from cablemap.core.constants import REFERENCE_ID_PATTERN
 from cablemap.core.models import Cable
 
 #
@@ -667,33 +667,6 @@ def parse_nondisclosure_deadline(content):
     return u'%s-%s-%s' % (year, month, day)
 
 
-_MONTHS = (
-    'JAN',
-    'JANUARY',
-    'FEB',
-    'FEBRUARY',
-    'MAR',
-    'MARCH',
-    'APR',
-    'APRIL',
-    'MAY',
-    'JUN', 
-    'JUNE',
-    'JUL',
-    'JULY',
-    'AUG',
-    'AUGUST',
-    'SEP',
-    'SEPTEMBER',
-    'OCT',
-    'OCTOBER',
-    'NOV',
-    'NOVEMBER',
-    'DEC',
-    'DECEMBER',
-)
-
-
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 _REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
@@ -750,24 +723,13 @@ def parse_references(content, year, reference_id=None):
                 origin = 'RIODEJANEIRO'
             elif origin == 'SECSTATE':
                 origin = 'STATE'
-            l = len(origin)
-            if l < MIN_ORIGIN_LENGTH or l > MAX_ORIGIN_LENGTH:
+            elif origin in ('UNVIE', 'EMBASSYVIENNA'):
+                origin = 'UNVIENNA'
+            reference = u'%s%s%d' % (y, origin, int(sn))
+            if not REFERENCE_ID_PATTERN.match(reference):
                 continue
-            if not 'RIODEJAN' in origin:
-                for month in _MONTHS:
-                    if month in origin:
-                        origin = None
-                        break
-            if origin \
-                and not 'MAIL' in origin \
-                and not 'REPORT' in origin \
-                and not 'POINTS' in origin \
-                and not 'MSG' in origin \
-                and not 'MTCRPOC' in origin \
-                and not origin.startswith('OSC'):
-                reference = u'%s%s%d' % (y, origin, int(sn))
-                if reference != reference_id:
-                    res.append(reference)
+            elif reference != reference_id: 
+                res.append(reference)
     return res
 
 

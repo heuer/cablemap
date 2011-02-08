@@ -152,6 +152,49 @@ _CABLES_WITHOUT_TO = ()
 
 _CABLES_WITH_MALFORMED_SUMMARY = ()
 
+_CABLE_FIXES = {
+    '08TRIPOLI402':
+        (ur'JAMAHIRIYA-STYLE\s+Q: A\) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI'),
+    '07HAVANA252':
+        (ur'XXXNEED A MILLION', u'XXX NEED A MILLION'),
+    '09BEIJING1176':
+        (ur'XXXDISCUSSES', u'XXX DISCUSSES'),
+    '09BEIJING2438':
+        (ur'NEGOTIATE SE\s+CRETLY', u'NEGOTIATE SECRETLY'),
+    '08LONDON1991':
+        (ur'UK PRIMEREF: A.', u'UK PRIME\nREF: A.'),
+    '09STATE30049':
+        (ur'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n'),
+    '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
+        (ur'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING'),
+    '09BAKU687':
+        (ur'IR\nClassified By:', u'''IR
+SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF
+MARTIAL ARTS CLUBS FOR REPRESSION; xxxxxxxxxxxx
+
+REF: a) BAKU 575
+
+Classified By:'''),
+    '08KYIV2414':
+        (ur'UP[ ]*\n1.', u'''UP
+SUBJECT: UKRAINE: FIRTASH MAKES HIS CASE TO THE USG
+REF: A. KYIV 2383 B. KYIV 2294
+
+1.
+'''),
+    '09CAIRO79':
+        (ur'EG\n\nClassified', u"""
+SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
+
+REF: A. 08 CAIRO 2431
+B. 08 CAIRO 2430
+C. 08 CAIRO 2260
+D. 08 CAIRO 783
+E. 07 CAIRO 3214
+F. 07 CAIRO 2845
+"""),
+}
+
 logger = logging.getLogger('cablemap-reader')
 
 def cable_from_file(filename):
@@ -233,48 +276,9 @@ def fix_content(content, reference_id):
     >>> fix_content('\\nBLOGGERS MOVING', '09UNKNOWNID3122')
     '\\nBLOGGERS MOVING'
     """
-    if reference_id == '08TRIPOLI402':
-        content = re.sub('JAMAHIRIYA-STYLE\s+Q: A\) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI', content)
-    elif reference_id == '07HAVANA252':
-        content = content.replace(u'XXXNEED A MILLION', u'XXX NEED A MILLION')
-    elif reference_id == '09BEIJING1176':
-        content = content.replace(u'XXXDISCUSSES', u'XXX DISCUSSES')
-    elif reference_id == '09BEIJING2438':
-        content = content.replace(u'NEGOTIATE SE \nCRETLY', u'NEGOTIATE SECRETLY')
-    elif reference_id == '08LONDON1991':
-        content = content.replace(u'UK PRIMEREF: A.', u'UK PRIME\nREF: A.')
-    elif reference_id == '09STATE30049':
-        content = content.replace(u'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n') #09STATE30049
-    elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
-        content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')
-    elif reference_id == '09BAKU687' and 'IR\nClassified By:' in content:
-        restored_header = u'''IR
-SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF
-MARTIAL ARTS CLUBS FOR REPRESSION; xxxxxxxxxxxx
-
-REF: a) BAKU 575
-
-Classified By:'''
-        content = content.replace('IR\nClassified By:', restored_header)
-    elif reference_id == '08KYIV2414' and 'UP\n1. (S)' in content:
-        restored_header = '''UP
-SUBJECT: UKRAINE: FIRTASH MAKES HIS CASE TO THE USG
-REF: A. KYIV 2383 B. KYIV 2294
-'''
-        content = content.replace('UP\n1. (S)', restored_header)
-    elif reference_id == '09CAIRO79' and 'EG\n\nClassified' in content: # This cable contains sometimes the complete header and sometimes not
-                                                                        # See <http://cablesearch.org/cable/view.php?id=09CAIRO79>
-        restored_header = u"""
-SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
-
-REF: A. 08 CAIRO 2431
-B. 08 CAIRO 2430
-C. 08 CAIRO 2260
-D. 08 CAIRO 783
-E. 07 CAIRO 3214
-F. 07 CAIRO 2845
-"""
-        content = content.replace('EG\n\nClassified', u'EG\n%s\nClassified' % restored_header)
+    if reference_id in _CABLE_FIXES:
+        pattern, repl = _CABLE_FIXES.get(reference_id)
+        content = re.sub(pattern, repl, content)
     return content
 
 _CONTENT_PATTERN = re.compile(ur'(?:<code><pre>)(.+?)(?:</pre></code>)', re.DOTALL|re.UNICODE)

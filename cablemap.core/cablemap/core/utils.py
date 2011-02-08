@@ -295,7 +295,8 @@ def cable_by_id(reference_id):
     return None
 
 
-_ACRONYMS = (u'ABD', u'ADC', u'AEC', u'AESA', u'AF-PAK', u'AFM', u'AG', u'AK', 
+_ACRONYMS = (u'(INCSR)', 
+    u'AA/S', u'ABD', u'ADC', u'AEC', u'AESA', u'AF-PAK', u'AFM', u'AG', u'AK', 
     u'AKP', u'AL', u'ALBA', u'AMA', u'AML/CFT', u'ANA', u'APHSCT', u'AQAP', 
     u'AQIM', u'ARENA', u'ARS', u'ASD', u'ASD/ISA', u'AT', u'AU', 
     u'BBC', u'BP', u'BR-163', u'BR-3', 
@@ -309,18 +310,19 @@ _ACRONYMS = (u'ABD', u'ADC', u'AEC', u'AESA', u'AF-PAK', u'AFM', u'AG', u'AK',
     u'ELN', u'ENR', u'ETA', u'ETIA', u'EU', u'EU/US', u'EUR', u'EXBS', 
     u'F-X', u'FARC', u'FATF', u'FBI', u'FCO', u'FCPA', u'FDLR', u'FDP', u'FM', 
     u'FMLN', u'FTAA', u'FX2', 
-    u'GAERC', u'GBRV', u'GC', u'GDRC', u'GHQ', u'GICNT', u'GM', u'GOAJ', 
-    u'GOB', u'GOC', u'GOE', u'GOF', u'GOI', u'GOK', u'GOL', u'GOP', u'GOS', 
-    u'GOU', u'GPC', u'GSI', u'GSL', u'GSP', u'GTMO', 
+    u'GAERC', u'GBRV', u'GC', u'GDRC', u'GHQ', u'GICNT', u'GM', u'GOAJ', u'GOB', 
+    u'GOC', u'GOE', u'GOF', u'GOI', u'GOK', u'GOL', u'GOP', u'GOS', u'GOU', 
+    u'GPC', u'GSI', u'GSL', u'GSP', u'GTMO', 
     u'HEU', u'HEU-LEU', u'HLDG', u'HMG', 
-    u'IAEA', u'IAF', u'ICAO', u'ICC', u'ICG-G', u'ICJ', u'ICRC', u'ICTY', 
-    u'II', u'III', u'IMF', u'IMO', u'INR/B', u'IPCC', u'IPR', u'IRENA', u'IRGC', 
-    u'IRGC-QF', u'IRI', u'IRISL', u'ISA', u'ISN/CTR', u'ITGA', 
-    u'JCET', u'JEM', u'JHA', u'JSF', u'JUD', 
+    u'IAEA', u'IAF', u'ICAO', u'ICC', u'ICG-G', u'ICJ', u'ICRC', u'ICTY', u'II', 
+    u'III', u'IMF', u'IMO', u'INR/B', u'IPCC', u'IPR', u'IRA', u'IRENA', 
+    u'IRGC', u'IRGC-QF', u'IRI', u'IRISL', u'ISA', u'ISAF', u'ISN/CTR', 
+    u'ITGA', 
+    u'JCET', u'JEM', u'JHA', u'JSF', u'JPMG', u'JUD',
     u'LAAD', u'LIFG', 
     u'M/V', u'MANPADS', u'MB', u'MDC', u'MEA', u'MEK', u'MEP', u'MFA', 
-    u'MINUSTAH', u'MOA', u'MOD', u'MOIS', u'MONUC', u'MOP-3', u'MP', 
-    u'MRE', u'MST', u'MTCR', 
+    u'MINUSTAH', u'MOA', u'MOD', u'MOIS', u'MONUC', u'MOP-3', u'MP', u'MRE', 
+    u'MST', u'MTCR', 
     u'NAM', u'NATO', u'NCP', u'NDP', u'NEA', u'NEA/MAG', u'NEC', u'NFIU', 
     u'NGO', u'NIE', u'NPT', u'NSA', u'NSC', u'NSG', 
     u'OAS', u'OECD', u'OEF', u'OIC', u'ONA', u'ONDCP', u'OPCON', u'OSCE', 
@@ -328,9 +330,10 @@ _ACRONYMS = (u'ABD', u'ADC', u'AEC', u'AESA', u'AF-PAK', u'AFM', u'AG', u'AK',
     u'POC', u'PPP', u'PRC', u'PRC/DPRK', u'PRT', u'PS', u'PSDB', 
     u'QATAR', u'QDR', u'QIZ', u'QME', 
     u'RAK', u'RFG', u'RMB', u'ROK', u'RPO', u'RSO', u'RWE', 
-    u'S/CRS', u'S/CT', u'S/GC', u'S/SRAP', u'S/WCI', u'SBIG', 
-    u'SCOFCAH', u'SCSL', u'SEDENA', u'SEGPRES', u'SG', u'SHIG', u'SLA', 
-    u'SLA/U', u'SLV', u'SOCAR', u'SPD', u'SR', u'SRSG', u'STAFFDEL', u'SWIFT', 
+    u'S/CRS', u'S/CT', u'S/GC', u'S/SRAP', u'S/WCI', u'SAFE', u'SBIG', 
+    u'SCOFCAH', u'SCSL', u'SECSTATE', u'SEDENA', u'SEGPRES', u'SG', u'SHIG', 
+    u'SLA', u'SLA/U', u'SLV', u'SOCAR', u'SPD', u'SR', u'SRSG', u'STAFFDEL', 
+    u'SWIFT', 
     u'TBA', u'TFG', u'TFTP', u'TFTP/SWIFT', u'TIP', u'TSA', u'TSCC', u'TSCTP', 
     u'U.S.-EU', u'U.S.-UK', u'U.S./UK', u'U/SYG', u'UAE', u'UAV', u'UK', u'UN', 
     u'UNCHR', u'UNESCO', u'UNFCCC', u'UNGA', u'UNHCR', u'UNIFIL', u'UNODC', 
@@ -338,6 +341,7 @@ _ACRONYMS = (u'ABD', u'ADC', u'AEC', u'AESA', u'AF-PAK', u'AFM', u'AG', u'AK',
     u'USEB', u'USG', u'USTR', 
     u'V/FM', u'VARIG', u'VFM', u'VI', u'VOA', u'VP', 
     u'WEF', u'WTO', 
+    u'XVI', 
     u'ZANU-PF')
 
 #TODO: This should be automated as well.
@@ -369,11 +373,15 @@ _SPECIAL_WORDS = {
     'U.S.-FRANCE-EU': u'U.S.-France-EU',
     'CHAD/SUDAN/EUFOR:': u'Chad/Sudan/EUFOR:',
     '(ART)': u'(art)',
+    'MBZ': u'MbZ',
+    'MbZ': u'MbZ',
+    'SECGEN': u'SecGen',
 }
 
-_TITLEFY_SMALL_PATTERN = re.compile(r'^((a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
+_TITLEFY_SMALL_PATTERN = re.compile(r'^(([0-9]+(th|st|nd))|(a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
 _TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.\-])|(?:'|’)([a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
 _APOS_PATTERN = re.compile(ur"^(\w+)('|’|,)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
+_is_number = re.compile('^[0-9]+(th|st|nd)$', re.IGNORECASE).match
 
 def titlefy(subject):
     """\
@@ -388,6 +396,8 @@ def titlefy(subject):
     def clean_word(word):
         return _APOS_PATTERN.sub(lambda m: u'%s%s%s' % (m.group(1), m.group(2) if not m.group(2) == ',' else u"'", m.group(3).lower()), word)
     def titlefy_word(word):
+        if _is_number(word):
+            return word.lower()
         if _TITLEFY_BIG_PATTERN.match(word):
             return clean_word(word.upper())
         return clean_word(_SPECIAL_WORDS.get(word, word.title()))

@@ -88,7 +88,8 @@ _CABLES_WITHOUT_SUBJECT = (
     '09LONDON2477', '09LONDON2582', '09DJIBOUTI1425', '09LONDON2769',
     '09LONDON2909', '09MOSCOW2932', '10MADRID49', '08BRASILIA278',
     '08BRASILIA1219', '09BRASILIA178', '09MOSCOW1730', '09MOSCOW1732',
-    
+    '05CAIRO8938', '06CAIRO493', '09LONDON333', '09BAKU687', 
+    '10LONDON255',
     )
 
 #
@@ -247,6 +248,21 @@ def fix_content(content, reference_id):
         content = content.replace(u'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n') #09STATE30049
     elif reference_id == '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
         content = content.replace(u'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING')
+    elif reference_id == '' and 'IR\nClassified By:' in content:
+        restored_header == '''IR
+SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF
+MARTIAL ARTS CLUBS FOR REPRESSION; xxxxxxxxxxxx
+
+REF: a) BAKU 575
+
+Classified By:'''
+        content = content.replace('IR\nClassified By:', restored_header)
+    elif reference_id == '08KYIV2414' and 'UP\n1. (S)' in content:
+        restored_header = '''UP
+SUBJECT: UKRAINE: FIRTASH MAKES HIS CASE TO THE USG
+REF: A. KYIV 2383 B. KYIV 2294
+'''
+        content = content.replace('UP\n1. (S)', restored_header)
     elif reference_id == '09CAIRO79' and 'EG\n\nClassified' in content: # This cable contains sometimes the complete header and sometimes not
                                                                         # See <http://cablesearch.org/cable/view.php?id=09CAIRO79>
         restored_header = u"""

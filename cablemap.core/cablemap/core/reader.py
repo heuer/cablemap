@@ -167,6 +167,8 @@ _CABLE_FIXES = {
         (ur'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n'),
     '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
         (ur'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING'),
+    '03BRASILIA1066':
+        (ur'THE NEGOTIATIONS SENSITIVE BUT', u'THE NEGOTIATIONS\n\nSENSITIVE BUT'),
     '09BAKU687':
         (ur'IR\nClassified By:', u'''IR
 SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF

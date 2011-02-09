@@ -169,6 +169,8 @@ _CABLE_FIXES = {
         (ur'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING'),
     '07CAIRO3126':
         (r'CAIROClassified', u'CAIRO\nClassified'),
+    '06CAIRO941':
+        (r'TO EGYPTREF', u'TO EGYPT\nREF'),
     '09BAKU687':
         (ur'IR\nClassified By:', u'''IR
 SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF

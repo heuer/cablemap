@@ -627,7 +627,8 @@ _HTML_ENTITIES_PATTERN = re.compile(r'&#([0-9]+);')
 
 def parse_subject(content, reference_id=None, clean=True):
     """\
-    Parses and returns the subject of a cable.
+    Parses and returns the subject of a cable. If the cable has no subject, an
+    empty string is returned.
     
     `content`
         The cable's content.
@@ -653,7 +654,7 @@ def parse_subject(content, reference_id=None, clean=True):
     if not m:
         if reference_id not in _CABLES_WITHOUT_SUBJECT:
             logger.debug('No subject found in cable "%s", content: "%s"' % (reference_id, content))
-        return None
+        return u''
     res = _NL_PATTERN.sub(u' ', m.group(1)).strip()
     res = _WS_PATTERN.sub(u' ', res)
     res = _HTML_ENTITIES_PATTERN.sub(to_unicodechar, res)

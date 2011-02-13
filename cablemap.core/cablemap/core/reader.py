@@ -89,6 +89,9 @@ _CABLES_WITHOUT_SUBJECT = (
     '09LONDON2909', '09MOSCOW2932', '10MADRID49', '08BRASILIA278',
     '08BRASILIA1219', '09BRASILIA178', '09MOSCOW1730', '09MOSCOW1732',
     '05CAIRO8938', '06CAIRO493', '09LONDON333', '10LONDON255',
+    '04BRASILIA913', '06SAOPAULO348', '06SAOPAULO532', '07RIYADH2441',
+    '08RIYADH732', '08RIYADH868', '09DAMASCUS142', '09DAMASCUS195',
+    '09DAMASCUS357', '09RIYADH1557', 
     )
 
 #
@@ -145,10 +148,13 @@ _CABLES_WITHOUT_TID = (
     '08LONDON3132', '08LONDON3134', '08LONDON3191', '09LONDON109',
     '09LONDON33', '09LONDON1932', '09LONDON1933', '09LONDON2001',
     '09LONDON2027', '09LONDON2229', '09LONDON2230', '09LONDON2509',
-    '09LONDON2639', '09LONDON1942', '10BANJUL65',
+    '09LONDON2639', '09LONDON1942', '10BANJUL65', '08BRASILIA93',
+    '08SAOPAULO87', '09MALABO13', 
     ) # was meant for debugging purposes. Who would expected that long list for the bloody, unimporant transmission ID? :)
 
-_CABLES_WITHOUT_TO = ()
+_CABLES_WITHOUT_TO = (
+    '08MONTERREY468',
+    )
 
 _CABLES_WITH_MALFORMED_SUMMARY = ()
 
@@ -564,9 +570,9 @@ def parse_recipients(header, reference_id):
     """
     m = _TO_PATTERN.search(header)
     if not m:
-        if reference_id in _CABLES_WITHOUT_TO:
-            return []
-        raise Exception('No TO header found in "%s"' % header)
+        if reference_id not in _CABLES_WITHOUT_TO:
+            logger.warn('No TO header found in "%s", header: "%s"' % (reference_id, header))
+        return []
     to_header = m.group(1)
     return _route_recipient_from_header(to_header, reference_id)
 

@@ -232,7 +232,7 @@ def cable_from_html(html, reference_id=None):
     if not reference_id:
         m = _REFERENCE_ID_PATTERN.search(html)
         if not m:
-            raise Exception("Cannot extract the cable's reference id")
+            raise ValueError("Cannot extract the cable's reference id")
         reference_id = m.group(1)
     cable = Cable(reference_id)
     parse_meta(html, cable)
@@ -314,7 +314,7 @@ def get_header_as_text(file_content):
     elif len(res) == 1:
         return ''
     else:
-        raise Exception('Unexpected <code><pre> sections: "%r"' % res)
+        raise ValueError('Unexpected <code><pre> sections: "%r"' % res)
     return _clean_html(content)
 
 
@@ -389,14 +389,14 @@ def parse_meta(file_content, cable):
     start_idx = file_content.rindex("<table class='cable'>", 0, end_idx)
     m = _META_PATTERN.search(file_content, start_idx, end_idx)
     if not m:
-        raise Exception('Cable table not found')
+        raise ValueError('Cable table not found')
     if len(m.groups()) != 5:
-        raise Exception('Unexpected metadata result: "%r"' % m.groups())
+        raise ValueError('Unexpected metadata result: "%r"' % m.groups())
     # Table content: 
     # Reference ID | Created | Released | Classification | Origin
     ref, created, released, classification, origin = m.groups()
     if cable.reference_id != ref:
-        raise Exception('cable.reference_id != ref. reference_id="%s", ref="%s"' % (cable.reference_id, ref))
+        raise ValueError('cable.reference_id != ref. reference_id="%s", ref="%s"' % (cable.reference_id, ref))
     cable.created = created
     cable.released = released
     cable.origin = origin
@@ -733,7 +733,7 @@ def parse_references(content, year, reference_id=None):
         m_end = _REF_LAST_REF_PATTERN.search(content, last_end, max_idx)
     res = []
     if m_end and not m_start:
-        raise Exception('Found ref end but no start in "%s"' % content)
+        logger.warn('Found ref end but no start in "%s", content: "%s"' % (reference_id, content))
     if m_start and last_end:
         start = m_start.start(1)
         end = last_end or m_start.end()

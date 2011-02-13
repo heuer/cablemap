@@ -282,6 +282,19 @@ SENSITIVE BUT UNCLASSIFIED
 ''',
      2006,
      [u'06SAOPAULO526', u'06SAOPAULO319', u'06SAOPAULO42', u'05SAOPAULO975']),
+    # 08LIMA480
+    ('''
+E.O. 12958:DECL: 03/18/2018   TAGS: PGOV PREL PINR PE
+
+REF: A. LIMA 0389        
+B. LIMA 3853        
+C. LIMA 0390      
+
+Classified By: 
+''',
+     2008,
+     [u'08LIMA389', u'08LIMA3853', u'08LIMA390']),
+     
 )
 
 def test_parse_references():

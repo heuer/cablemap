@@ -337,6 +337,7 @@ _SPECIAL_WORDS = {
     'MBZ': u'MbZ',
     'MbZ': u'MbZ',
     'SECGEN': u'SecGen',
+    'Ex-IM': u'Ex-IM',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^(([0-9]+(th|st|nd))|(a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)

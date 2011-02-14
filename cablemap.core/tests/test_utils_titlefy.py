@@ -128,6 +128,9 @@ _TEST_DATA = (
     # 09SEOUL59
     (u"ROK’S FOREIGN POLICY TOWARD THE NEIGHBORS: NORTH KOREA, JAPAN, CHINA AND RUSSIA",
      u"ROK’s Foreign Policy Toward the Neighbors: North Korea, Japan, China and Russia"),
+    # 10MEXICO690
+    (u'Scenesetter for Ex-IM Chairman Fred Hochberg',
+     u'Scenesetter for Ex-IM Chairman Fred Hochberg'),
 )
 
 def test_titlefy():

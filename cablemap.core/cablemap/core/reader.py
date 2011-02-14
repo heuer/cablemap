@@ -132,7 +132,7 @@ def cable_from_file(filename):
     reference_id = os.path.basename(filename)
     if reference_id.rfind('.htm') > 0:
         reference_id = reference_id[:reference_id.rfind('.')]
-    return cable_from_html(html, reference_id)
+    return cable_from_html(html, MALFORMED_CABLE_IDS.get(reference_id, reference_id))
 
 
 _REFERENCE_ID_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', re.UNICODE)

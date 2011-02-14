@@ -42,7 +42,7 @@ import os
 import re
 import logging
 import codecs
-from cablemap.core.constants import REFERENCE_ID_PATTERN
+from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
 from cablemap.core.models import Cable
 
 #
@@ -151,9 +151,15 @@ def cable_from_html(html, reference_id=None):
         raise ValueError('The HTML page of the cable must be provided, got: "%r"' % html)
     if not reference_id:
         m = _REFERENCE_ID_PATTERN.search(html)
-        if not m:
-            raise ValueError("Cannot extract the cable's reference id")
-        reference_id = m.group(1)
+        if m:
+            reference_id = m.group(1)
+        else:
+            # Maybe a malformed ID?
+            m = re.search(r'(%s)' % '|'.join(MALFORMED_CABLE_IDS.keys()), html, re.UNICODE)
+            if m:
+                reference_id = MALFORMED_CABLE_IDS[m.group(1)]
+            else:
+                raise ValueError("Cannot extract the cable's reference id")
     cable = Cable(reference_id)
     parse_meta(html, cable)
     header = get_header_as_text(html)
@@ -316,7 +322,9 @@ def parse_meta(file_content, cable):
     # Reference ID | Created | Released | Classification | Origin
     ref, created, released, classification, origin = m.groups()
     if cable.reference_id != ref:
-        raise ValueError('cable.reference_id != ref. reference_id="%s", ref="%s"' % (cable.reference_id, ref))
+        reference_id = MALFORMED_CABLE_IDS.get(ref)
+        if reference_id != cable.reference_id:
+            raise ValueError('cable.reference_id != ref. reference_id="%s", ref="%s"' % (cable.reference_id, ref))
     cable.created = created
     cable.released = released
     cable.origin = origin

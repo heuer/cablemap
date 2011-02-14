@@ -38,6 +38,7 @@ This module provides models to keep data about cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from cablemap.core.constants import MALFORMED_CABLE_IDS
 
 # Commonly used base URIs for Wikileaks Cablegate
 # Formats: 
@@ -104,7 +105,13 @@ class Cable(object):
             if not self.created:
                 raise ValueError('The "created" property must be provided')
             year, month = year_month(self.created)
-            l = '%s/%s/%s' % (year, month, self.reference_id)
+            reference_id = self.reference_id
+            if reference_id in MALFORMED_CABLE_IDS.values():
+                for k, v in MALFORMED_CABLE_IDS.iteritems():
+                    if v == reference_id:
+                        reference_id = k
+                        break
+            l = '%s/%s/%s' % (year, month, reference_id)
             html = l + '.html'
             for wl in _WL_CABLE_BASE_URIS:
                 self._wl_links.append(wl + l)

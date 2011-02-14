@@ -48,6 +48,7 @@ def test_issue5():
     assert cable
     assert u'06SAOPAULO215' in cable.references
     assert u'05SAOPAULO975' in cable.references
+    eq_([u'PGOV', u'PHUM', u'KCRM', u'SOCI', u'SNAR', u'ASEC', u'BR'], cable.tags)
 
 
 if __name__ == '__main__':

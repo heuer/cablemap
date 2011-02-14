@@ -265,7 +265,7 @@ def cable_to_yaml(cable, metaonly=False, include_summary=True):
     return _json_or_yaml(to_yaml, cable, metaonly, include_summary)
 
 
-def cables_from_directory(directory):
+def cables_from_directory(directory, predicate=None):
     """\
     Returns a generator with ``models.Cable`` instances.
     
@@ -274,9 +274,16 @@ def cables_from_directory(directory):
 
     `directory`
         The directory to read the cables from.
+    `predicate`
+        A predicate that is invoked for each cable file name.
+        If the predicate evaluates to ``False`` the file is ignored.
+        By default, all cable files are used.
+        I.e. ``cables_from_directory('./cables/', lambda f: f.startswith('09'))``
+        would return cables where the file name starts with ``09``. 
     """
+    pred = predicate or bool
     for root, dirs, files in os.walk(directory):
-        for name in (n for n in files if '.html' in n):
+        for name in (n for n in files if '.html' in n and pred(n)):
             yield cable_from_file(os.path.join(os.path.abspath(root), name))
 
 def cable_by_id(reference_id):

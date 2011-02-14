@@ -8,8 +8,6 @@ from cablemap.core import cables_from_directory
 def find_cables_without_subject(in_dir, knowncables):
     def want_cable(f):
         name = f[:f.rfind('.')]
-        print name
-        print name not in knowncables
         return name not in knowncables
     s = set(knowncables)
     s.update([cable.reference_id for cable in cables_from_directory(in_dir, want_cable) if not cable.subject])

@@ -47,6 +47,7 @@ import gzip
 import urllib2
 from cablemap.core import cable_from_file, cable_from_html
 from cablemap.core.models import Cable
+from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
 try:
     import simplejson as json
 except ImportError:
@@ -73,10 +74,8 @@ def _fetch_url(url):
     return resp.read().decode('utf-8')
     
 
-_BASE = 'http://wikileaks.ch/'
+_BASE = 'http://213.251.145.96/'
 _INDEX = _BASE + 'cablegate.html'
-
-_CABLE_ID_PATTERN = re.compile('([0-9]{2})([A-Z]+)([0-9]+)')
 
 _LINKS_PATTERN = re.compile(r"<a href='(.+?)'\s*>")
 _PAGINATOR_PATTERN = re.compile('''<div\s+class=(?:"|')paginator(?:"|')\s*>.+?<a href=(?:"|')(/date/[0-9]{4}-[0-9]{2}_).+?(?:"|')>([2-9]+)</a><a href=.+?> &gt;&gt;</a></div>''')
@@ -118,7 +117,7 @@ def cable_page_by_id(reference_id):
         if m:
             return True, _fetch_url(_BASE + m.group(1))
         return False, pg
-    m = _CABLE_ID_PATTERN.match(reference_id)
+    m = REFERENCE_ID_PATTERN.match(MALFORMED_CABLE_IDS.get(reference_id, reference_id))
     if not m:
         return None
     year = normalize_year(m.group(1))

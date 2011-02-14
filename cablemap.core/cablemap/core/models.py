@@ -82,7 +82,7 @@ class Cable(object):
         self.recipients = []
         self.info_recipients = []
         self.references = []
-        self.subject = None
+        self.subject = u''
         self.created = None
         self.released = None
         self.header = None

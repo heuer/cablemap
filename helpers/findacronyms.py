@@ -56,7 +56,9 @@ if __name__ == '__main__':
     if not os.path.isdir('./cable/'):
         raise Exception('Expected a directory "cable"')
     filename = os.path.join(os.path.dirname(__file__), 'acronyms.txt')
-    current_acronyms = set((l.rstrip() for l in codecs.open(filename, 'rb', 'utf-8')))
+    f = codecs.open(filename, 'rb', 'utf-8')
+    current_acronyms = set((l.rstrip() for l in f))
+    f.close()
     acronyms = find_acronyms('./cable/')
     diff = acronyms ^ current_acronyms
     if diff:

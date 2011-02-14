@@ -108,7 +108,15 @@ F. 07 CAIRO 2845
     '06SAOPAULO348':
         ('''BR
 \(B\) Sao Paulo 215;''', u'''BR
-REF: (B) Sao Paulo 215;''')
+REF: (B) Sao Paulo 215;'''),
+    '09TRIPOLI63':
+        ('''LY
+
+CLASSIFIED BY:''', u'''LY
+
+SUBJECT: RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GOL [8466936]
+
+CLASSIFIED BY:'''),
 }
 
 logger = logging.getLogger('cablemap-reader')

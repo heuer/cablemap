@@ -24,7 +24,7 @@ if __name__ == '__main__':
     cables = find_cables_without_subject('./cable/', current)
     diff = cables ^ current
     if diff:
-        print 'difference: ', diff
+        print('difference: %r' % diff)
         f = codecs.open(filename, 'wb', 'utf-8')
         for ref in sorted(cables):
             f.write(ref)

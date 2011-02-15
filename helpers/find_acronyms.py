@@ -63,7 +63,7 @@ if __name__ == '__main__':
     acronyms = find_acronyms('./cable/')
     diff = acronyms ^ current_acronyms
     if diff:
-        print 'difference: ', diff
+        print('difference: %r' % diff)
         f = codecs.open(filename, 'wb', 'utf-8')
         for acronym in sorted(acronyms):
             f.write(acronym)

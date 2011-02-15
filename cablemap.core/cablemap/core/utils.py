@@ -74,7 +74,7 @@ def _fetch_url(url):
     return resp.read().decode('utf-8')
     
 
-_BASE = 'http://213.251.145.96/'
+_BASE = 'http://wikileaks.ch/'
 _INDEX = _BASE + 'cablegate.html'
 
 _LINKS_PATTERN = re.compile(r"<a href='(.+?)'\s*>")

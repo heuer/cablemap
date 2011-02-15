@@ -48,7 +48,7 @@ def find_acronyms(in_dir):
     for cable in cables_from_directory(in_dir):
         if not cable.subject or not cable.content_body:
             continue
-        subject_words = cable.subject.upper().split()
+        subject_words = [w for w in cable.subject.upper().split() if not w.startswith('XXXXX')]
         s.update((ac for ac in _AC_PATTERN.findall(cable.content_body) if ac in subject_words and ac not in _UNWANTED))
     return s
     

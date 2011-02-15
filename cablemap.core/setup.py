@@ -41,7 +41,7 @@ except ImportError:
 
 setup(
       name = 'cablemap.core',
-      version = '0.1.0',
+      version = '0.2.0',
       description = 'Cablemap - Cablegate Utilities',
       long_description = '\n\n'.join([open('README.txt').read()]),
       author = 'Lars Heuer',

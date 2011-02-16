@@ -112,6 +112,9 @@ if __name__ == '__main__':
     def filter_known_cables(f, knowncables):
         name = f[:f.rfind('.')]
         return name not in knowncables
+    if not os.path.exists(_FILE_SEEN_CABLES):
+        f = open(_FILE_SEEN_CABLES, 'wb')
+        f.close()
     seen_cables = _file_as_set(_FILE_SEEN_CABLES)
     want_file = partial(filter_known_cables, knowncables=seen_cables)
     res = run_update('./cable/', want_file)

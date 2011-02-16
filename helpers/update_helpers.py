@@ -48,7 +48,7 @@ _UNWANTED = (u'SAVE',)
 
 def run_update(in_dir, predicate=None):
     seen_cables = set()
-    acronyms = set()
+    acronyms = set(_ACRONYMS)
     subjects = set()
     tids = set()
     for cable in cables_from_directory(in_dir, predicate):
@@ -75,6 +75,9 @@ def update_missing_transmission_ids(cable, cable_refs):
 def _filename(name):
     return os.path.join(os.path.dirname(__file__), name)
 
+def _file_in_core(name):
+    return os.path.join(os.path.dirname(__file__), '..', 'cablemap.core', 'cablemap/core/', name)
+
 def _file_as_set(filename):
     f = codecs.open(filename, 'rb', 'utf-8')
     s = set((l.rstrip() for l in f))
@@ -99,9 +102,9 @@ def update_file(filename, found):
 
 
 _FILE_SEEN_CABLES = _filename('seen_cables.txt')
-_FILE_ACRONYMS = _filename('acronyms.txt')
-_FILE_SUBJECTS = _filename('no_subject.txt')
-_FILE_TIDS = _filename('no_transmissionid.txt')
+_FILE_ACRONYMS = _file_in_core('acronyms.txt')
+_FILE_SUBJECTS = _file_in_core('no_subject.txt')
+_FILE_TIDS = _file_in_core('no_transmissionid.txt')
     
 if __name__ == '__main__':
     if not os.path.isdir('./cable/'):

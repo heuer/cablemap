@@ -116,5 +116,6 @@ if __name__ == '__main__':
     update_file(_FILE_SUBJECTS, res['subjects'])
     update_file(_FILE_TIDS, res['tids'])
     # Should be the last step in case of errors in one of the above steps
-    seen_cables.update(res['seen_cables'])
-    _write_set(_FILE_SEEN_CABLES, seen_cables)    
+    if seen_cables ^ (seen_cables | res['seen_cables']):
+        seen_cables.update(res['seen_cables'])
+        _write_set(_FILE_SEEN_CABLES, seen_cables)    

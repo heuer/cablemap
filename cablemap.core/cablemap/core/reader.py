@@ -79,6 +79,8 @@ _CABLE_FIXES = {
         (ur'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n'),
     '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
         (ur'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING'),
+    '09CAIRO211':
+        (r'''EG\nEGYPT'S 54''', u'''EG\nSUBJECT: EGYPT'S 54'''),
     '09BAKU687':
         (ur'IR\nClassified By:', u'''IR
 SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF
@@ -548,7 +550,7 @@ def parse_info_recipients(header, reference_id):
     return res
 
 
-_SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:SUBJ(?:ECT)?:?\s+(?!LINE[/]+))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT UNCL)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]+\(SBU\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is an Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
+_SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:SUBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]+))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]+\(SBU\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is an Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
 _NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$')

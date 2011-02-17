@@ -18,7 +18,7 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'DAS', u'DCA', u'DDR', u'DEA', u'DG', u'DCM', u'DFID',
              u'DRC', u'DASD', u'DIO', u'DHS', u'DOL', u'DPRK',
              u'EFCC', u'ETA', u'EU', u'EU/US', u'EXBS', u'EUR', u'EFTA',
-             u'FATF', u'FBI', u'FCO', u'FDP', u'FM', u'FTAA', u'FARC', u'FX2', u'FMLN',
+             u'FATF', u'FBI', u'FCO', u'FDA', u'FDP', u'FM', u'FTAA', u'FARC', u'FX2', u'FMLN',
              u'GAERC', u'GDRC', u'GM', u'GOAJ', u'GOB', u'GOC', u'GOE', u'GOI', u'GOK', u'GOL',
              u'GPC', u'GSL', u'GSP', u'GTMO', u'GOF', u'GOS', u'GBRV', u'GOP', u'GOU', u'GFA',
              u'G/TIP',

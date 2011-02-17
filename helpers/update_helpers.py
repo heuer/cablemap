@@ -38,7 +38,7 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'TFTP', u'TFTP/SWIFT', u'U.S.-EU', u'U.S.-UK', u'UAE', u'UK', u'UN',
              u'UNHCR', u'UNSC', u'US', u'US-CU', u'US-EU', u'USG', u'USTR', u'UNCHR',
              u'USEB', u'UNGA', u'U.S./UK', u'UNESCO', u'U/SYG', u'US-ROYG', u'UNSCR',
-             u'USG-GOB',
+             u'USG-GOB', u'USD/P', u'USS', u'UNDP',
              u'VFM', u'VP', u'VI', u'VARIG', u'VOA',
              u'WEF', u'WTO',
              u'XVI',

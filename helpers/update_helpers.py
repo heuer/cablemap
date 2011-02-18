@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """\
-This module tries to detect acronyms, finds cables w/o subject and w/o transmission id.
+This module tries to detect acronyms, finds cables w/o subject.
 """
 import os
 import re
@@ -54,7 +54,8 @@ def run_update(in_dir, predicate=None):
     for cable in cables_from_directory(in_dir, predicate):
         update_acronyms(cable, acronyms)
         update_missing_subjects(cable, subjects)
-        update_missing_transmission_ids(cable, tids)
+        # Ignore missing transmission ids, the parser seems to detect them correctly
+        # update_missing_transmission_ids(cable, tids)
         seen_cables.add(cable.reference_id)
     return {'acronyms': acronyms, 'subjects': subjects, 'tids': tids, 'seen_cables': seen_cables}
 
@@ -79,6 +80,8 @@ def _file_in_core(name):
     return os.path.join(os.path.dirname(__file__), '..', 'cablemap.core', 'cablemap/core/', name)
 
 def _file_as_set(filename):
+    if not os.path.exists(filename):
+        return set()
     f = codecs.open(filename, 'rb', 'utf-8')
     s = set((l.rstrip() for l in f))
     f.close()

@@ -5,7 +5,7 @@ This module converts cable(s) to CSV:
     Reference ID | Created | Origin | Subject
 
 It expects a cable directory ./cable/ with the cables
-and saves the cables into './out/cables.csv'
+and saves the cables into './cables.csv'
 """
 import csv
 import codecs

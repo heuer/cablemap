@@ -103,8 +103,8 @@ def update_file(filename, found):
 
 _FILE_SEEN_CABLES = _filename('seen_cables.txt')
 _FILE_ACRONYMS = _file_in_core('acronyms.txt')
-_FILE_SUBJECTS = _file_in_core('no_subject.txt')
-_FILE_TIDS = _file_in_core('no_transmissionid.txt')
+_FILE_SUBJECTS = _filename('no_subject.txt')
+_FILE_TIDS = _filename('no_transmissionid.txt')
     
 if __name__ == '__main__':
     if not os.path.isdir('./cable/'):

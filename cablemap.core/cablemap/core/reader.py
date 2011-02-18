@@ -46,19 +46,9 @@ from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
 from cablemap.core.models import Cable
 
 #
-# Cables w/o a subject
-#
-_CABLES_WITHOUT_SUBJECT = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'no_subject.txt'), 'rb', 'utf-8')]
-
-#
 # Cables w/o tags
 #
 _CABLES_WITHOUT_TAGS = ('06KABUL3934', '08BEIJING3662')
-
-#
-# Cables without a transmission identifier.
-#
-_CABLES_WITHOUT_TID = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'no_transmissionid.txt'), 'rb', 'utf-8')]
 
 _CABLES_WITHOUT_TO = (
     '08MONTERREY468',
@@ -353,8 +343,6 @@ def parse_transmission_id(header, reference_id):
     """
     m = _TID_PATTERN.search(header)
     if not m:
-        if reference_id not in _CABLES_WITHOUT_TID:
-            logger.debug('No transmission ID found in "%s", header: "%s"' % (reference_id, header))
         return None
     return m.group(1)
 
@@ -585,8 +573,6 @@ def parse_subject(content, reference_id=None, clean=True):
         return unichr(int(match.group(1)))
     m = _SUBJECT_PATTERN.search(content, 0, 1200)
     if not m:
-        if reference_id not in _CABLES_WITHOUT_SUBJECT:
-            logger.debug('No subject found in cable "%s", content: "%s"' % (reference_id, content))
         return u''
     res = _NL_PATTERN.sub(u' ', m.group(1)).strip()
     res = _WS_PATTERN.sub(u' ', res)

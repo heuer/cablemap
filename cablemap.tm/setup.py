@@ -53,7 +53,8 @@ setup(
       zip_safe = False,
       include_package_data = True,
       package_data = {'': ['*.txt']},
-      keywords = ['WikiLeaks', 'Cablegate'],
+      install_requires=['mio.ctm>=0.1.3', 'mio.xtm>=0.1.7'],
+      keywords = ['WikiLeaks', 'Cablegate', 'Topic Maps'],
       classifiers = [
                     'Intended Audience :: Developers',
                     'Intended Audience :: Information Technology',

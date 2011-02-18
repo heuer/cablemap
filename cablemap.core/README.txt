@@ -25,3 +25,14 @@ The core package has no Topic Maps related code and can be used independently
 of the other packages.
 
 For other examples see: https://github.com/heuer/cablemap/tree/master/examples
+
+
+Installation
+------------
+cablemap.core 0.1.0 is the current stable release. To install it, use::
+
+    easy_install -U cablemap.core==0.1.0
+
+cablemap.core 0.2.0 is the unstable, next release; install it via::
+
+    easy_install -U cablemap.core

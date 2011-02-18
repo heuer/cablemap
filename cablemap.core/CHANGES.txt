@@ -5,6 +5,8 @@ Changes
 2011-mm-dd -- 0.2.0
 -------------------
 * Added more acronyms
+* Better extraction of subjects
+* Removed (debug) logging msgs of missing subjects/transmission ids
 
 
 2011-02-15 -- 0.1.0

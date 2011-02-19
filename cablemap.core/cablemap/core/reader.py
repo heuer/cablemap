@@ -45,6 +45,8 @@ import codecs
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
 from cablemap.core.models import Cable
 
+logger = logging.getLogger('cablemap-reader')
+
 #
 # Cables w/o tags
 #
@@ -57,6 +59,8 @@ _CABLES_WITHOUT_TO = (
 _CABLES_WITH_MALFORMED_SUMMARY = ()
 
 _CABLE_FIXES = {
+    '08MANAMA492': # (08ECTION01OF02MANAMA492)
+        (r'TORUEHC/SECSTATE', u'TO RUEHC/SECSTATE'),
     '08TRIPOLI402':
         (ur'JAMAHIRIYA-STYLE\s+Q: A\) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI'),
     '07HAVANA252':
@@ -113,8 +117,6 @@ SUBJECT: RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GO
 CLASSIFIED BY:'''),
 }
 
-logger = logging.getLogger('cablemap-reader')
-
 def cable_from_file(filename):
     """\
     Returns a cable from the provided file.
@@ -158,7 +160,7 @@ def cable_from_html(html, reference_id=None):
                 raise ValueError("Cannot extract the cable's reference id")
     cable = Cable(reference_id)
     parse_meta(html, cable)
-    header = get_header_as_text(html)
+    header = get_header_as_text(html, reference_id)
     content =  get_content_as_text(html, reference_id)
     cable.header = header
     cable.content = content
@@ -223,7 +225,7 @@ def get_content_as_text(file_content, reference_id):
     """
     return fix_content(_clean_html(_CONTENT_PATTERN.findall(file_content)[-1]), reference_id)
 
-def get_header_as_text(file_content):
+def get_header_as_text(file_content, reference_id):
     """\
     Returns the cable's header as text.
     
@@ -237,7 +239,7 @@ def get_header_as_text(file_content):
         return ''
     else:
         raise ValueError('Unexpected <code><pre> sections: "%r"' % res)
-    return _clean_html(content)
+    return fix_content(_clean_html(content), reference_id)
 
 
 _PILCROW_PATTERN = re.compile(ur'<a[^>]*>¶</a>', re.UNICODE)

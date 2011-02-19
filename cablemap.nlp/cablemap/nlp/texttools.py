@@ -46,10 +46,12 @@ tokenize = tokenizer.tokenize
 
 
 _CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)   # Something like 1. (C)
-                                 |(\s+\-{3,}\s*.+\s*\-{3,}\s*)          # Sections like -----\n Header \n ----
-                                 |([A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)       # Section numbers like ROME 0001 003.2 OF 004
+                                 |(\-{3,})                              # Section delimiter ---
+                                 |(\s*[A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)    # Section numbers like ROME 0001 003.2 OF 004
                                  |(^[0-9]+\s*\.\s*)                     # Paragraph numbering without classification
-                            ''', re.VERBOSE|re.MULTILINE)
+                                 |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?\s*\.?:?[ ]*) # Introduction/end of summary
+                                 |((END )?\s*COMMENT\s*\.?:?[ ]*)        # Introduction/end of comment
+                            ''', re.VERBOSE|re.MULTILINE|re.IGNORECASE)
 
 def clean_cable_content(content):
     """\

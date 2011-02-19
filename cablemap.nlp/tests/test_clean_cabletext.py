@@ -47,11 +47,13 @@ from cablemap.nlp.texttools import clean_cable_content
 _DATA_DIR = 'clean_test_data'
 
 def test_cleaning():
+    def check(expected, input):
+        eq_(expected, clean_cable_content(input))
     base = os.path.join(os.path.dirname(__file__), _DATA_DIR)
     for name in [name for name in os.listdir(os.path.join(base, 'in')) if name.endswith('.txt')]:
         input = codecs.open(os.path.join(base, 'in', name), 'rb', 'utf-8').read()
         expected = codecs.open(os.path.join(base, 'out', name), 'rb', 'utf-8').read()
-        yield eq_ , expected, clean_cable_content(input)
+        yield check, expected, input
 
 if __name__ == '__main__':
     import nose

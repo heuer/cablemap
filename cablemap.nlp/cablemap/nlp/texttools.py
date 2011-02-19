@@ -45,10 +45,11 @@ tokenizer = WordPunctTokenizer()
 tokenize = tokenizer.tokenize
 
 
-_CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)    # Something like 1. (C)
+_CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)   # Something like 1. (C)
                                  |(\s+\-{3,}\s*.+\s*\-{3,}\s*)          # Sections like -----\n Header \n ----
                                  |([A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)       # Section numbers like ROME 0001 003.2 OF 004
-                            ''', re.VERBOSE|re.UNICODE)
+                                 |(^[0-9]+\s*\.\s*)                     # Paragraph numbering without classification
+                            ''', re.VERBOSE|re.MULTILINE)
 
 def clean_cable_content(content):
     """\

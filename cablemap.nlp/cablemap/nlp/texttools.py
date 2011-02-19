@@ -63,6 +63,7 @@ def clean_cable_content(content):
     res = _CLEAN_PATTERN.sub('', content)
     return res
 
+
 _UNWANTED_WORDS_PATTERN = re.compile(r'(--+)|(xx+)', re.IGNORECASE|re.UNICODE)
 
 def _accept_word(word):

@@ -39,7 +39,6 @@ Tests against ``cablemap.nlp.texttools.clean_cable_content``.
 :license:      BSD license
 """
 import os
-import glob
 import codecs
 from nose.tools import eq_
 from cablemap.nlp.texttools import clean_cable_content

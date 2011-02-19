@@ -61,8 +61,7 @@ def clean_cable_content(content):
     `content`
         The content of the cable.
     """
-    res = _CLEAN_PATTERN.sub('', content)
-    return res
+    return _CLEAN_PATTERN.sub('', content)
 
 
 _UNWANTED_WORDS_PATTERN = re.compile(r'(--+)|(xx+)', re.IGNORECASE|re.UNICODE)

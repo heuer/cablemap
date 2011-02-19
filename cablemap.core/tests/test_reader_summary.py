@@ -95,6 +95,11 @@ SUMMARY.
 
 2. (S) Econoff delivered ''',
      u'The Dutch [...].'),
+    # 08MANAMA492 (08ECTION01OF02MANAMA492)
+    ('''1.(C) Summary: The GOB [...]. -------- Training --------
+
+2.(U) Bah''',
+     u'The GOB [...].'),
 )
 
 def test_summary():

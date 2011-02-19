@@ -44,6 +44,22 @@ stop_words = set(stopwords.words('english'))
 tokenizer = WordPunctTokenizer()
 tokenize = tokenizer.tokenize
 
+
+_CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)    # Something like 1. (C)
+                                 |(\s+\-{3,}\s*.+\s*\-{3,}\s*)          # Sections like -----\n Header \n ----
+                                 |([A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)       # Section numbers like ROME 0001 003.2 OF 004
+                            ''', re.VERBOSE|re.UNICODE)
+
+def clean_cable_content(content):
+    """\
+    Removes content like "1. (C)" from the content.
+    
+    `content`
+        The content of the cable.
+    """
+    res = _CLEAN_PATTERN.sub('', content)
+    return res
+
 _UNWANTED_WORDS_PATTERN = re.compile(r'(--+)|(xx+)', re.IGNORECASE|re.UNICODE)
 
 def _accept_word(word):

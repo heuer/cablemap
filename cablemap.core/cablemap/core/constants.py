@@ -119,7 +119,7 @@ _STATIONS = (
 
 REFERENCE_ID_PATTERN = re.compile(r'^([0-9]{2})(%s)([0-9]{%d,%d})$' % ('|'.join(_STATIONS), MIN_SERIAL_LENGTH, MAX_SERIAL_LENGTH), re.UNICODE)
 
-# WikiLeak cable identifiers which are wrong
+# Wrong WikiLeaks cable identifiers
 MALFORMED_CABLE_IDS = {
     '08SCTION02OF02SAOPAULO335': u'08SAOPAULO335',
     '08SECTION01GF02BISHIEK21': u'08BISHKEK1021',

@@ -54,6 +54,7 @@ setup(
       include_package_data = True,
       package_data = {'': ['*.txt']},
       keywords = ['WikiLeaks', 'Cablegate'],
+      install_requires=['cablemap.core>=0.1.0', 'nltk'],
       classifiers = [
                     'Intended Audience :: Developers',
                     'Intended Audience :: Information Technology',

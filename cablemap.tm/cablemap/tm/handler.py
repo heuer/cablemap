@@ -34,24 +34,6 @@
 """\
 This module defines an event handler to process cables.
 """
-#
-# The following constants are taken from `tm.mio` and repeated here to
-# avoid a dependency to the package `tm.mio`.
-#
-ITEM_IDENTIFIER = 1
-"""\
-Constant for an item identifier reference.
-"""
-
-SUBJECT_IDENTIFIER = 2
-"""\
-Constant for a subject identifier reference.
-"""
-
-SUBJECT_LOCATOR = 3
-"""\
-Constant for a subject locator reference.
-"""
 
 class CableHandler(object):
     """\

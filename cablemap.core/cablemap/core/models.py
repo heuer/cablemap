@@ -124,9 +124,6 @@ class Cable(object):
     def to_dict(self):
         """\
         Returns a dict representation.
-
-        The returned dict should be compatible to the
-        key/value structure of the JSON format of <http://www.leakfeed.com/>
         """
         return dict(
                     identifier=self.reference_id,

@@ -3,6 +3,10 @@
 This module tries to detect person names and assigns cable ids
 to the mentioned person names.
 
+Note: This script matches person names very naive. It's based on
+string matching an cannot distinguish between the person JFK and
+the airport JFK.
+
 It expects a cable directory ./cable/ with the cables
 and saves the cables into './cable2persons.csv'
 """

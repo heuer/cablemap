@@ -56,13 +56,10 @@ def generate_csv(in_dir, out):
         known_persons = set((l.rstrip() for l in f))
     writer = UnicodeWriter(open(out, 'wb'), delimiter=';')
     for cable in cables_from_directory(in_dir):
-        if not cable.content_body:
-            continue
         content = cable.content_body
-        persons = []
-        for person in known_persons:
-            if person in content:
-                persons.append(person)
+        if not content:
+            continue
+        persons = [person for person in known_persons if person in content]
         if persons:
             row = [cable.reference_id]
             row.extend(persons)

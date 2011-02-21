@@ -290,16 +290,16 @@ def cables_from_directory(directory, predicate=None):
 
 def cablefiles_from_directory(directory, predicate=None):
     """\
-    Returns a generator which yields absoulte filenames to cable html files.
+    Returns a generator which yields absoulte filenames to cable HTML files.
     
     `directory`
         The directory.
     `predicate`
         A predicate that is invoked for each cable filename.
         If the predicate evaluates to ``False`` the file is ignored.
-        By default, all cable files are used.
+        By default, all files with the file extension ".html" are returned.
         I.e. ``cablefiles_from_directory('./cables/', lambda f: f.startswith('09'))``
-        would return filenames starting with ``09``. 
+        would accept only filenames starting with ``09``. 
     """
     pred = predicate or bool
     for root, dirs, files in os.walk(directory):

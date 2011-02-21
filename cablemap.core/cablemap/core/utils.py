@@ -42,6 +42,7 @@ import os
 import re
 import codecs
 from functools import partial
+from itertools import imap
 from StringIO import StringIO
 import gzip
 import urllib2
@@ -279,16 +280,31 @@ def cables_from_directory(directory, predicate=None):
     `directory`
         The directory to read the cables from.
     `predicate`
-        A predicate that is invoked for each cable file name.
+        A predicate that is invoked for each cable filename.
         If the predicate evaluates to ``False`` the file is ignored.
         By default, all cable files are used.
         I.e. ``cables_from_directory('./cables/', lambda f: f.startswith('09'))``
-        would return cables where the file name starts with ``09``. 
+        would return cables where the filename starts with ``09``. 
+    """
+    return imap(cable_from_file, cablefiles_from_directory(directory, predicate))
+
+def cablefiles_from_directory(directory, predicate=None):
+    """\
+    Returns a generator which yields absoulte filenames to cable html files.
+    
+    `directory`
+        The directory.
+    `predicate`
+        A predicate that is invoked for each cable filename.
+        If the predicate evaluates to ``False`` the file is ignored.
+        By default, all cable files are used.
+        I.e. ``cablefiles_from_directory('./cables/', lambda f: f.startswith('09'))``
+        would return filenames starting with ``09``. 
     """
     pred = predicate or bool
     for root, dirs, files in os.walk(directory):
         for name in (n for n in files if '.html' in n and pred(n)):
-            yield cable_from_file(os.path.join(os.path.abspath(root), name))
+            yield os.path.join(os.path.abspath(root), name)
 
 def cable_by_id(reference_id):
     """\

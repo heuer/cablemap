@@ -35,6 +35,7 @@
 Experimental module which stores cables into Whoosh.
 """
 from __future__ import absolute_import
+from functools import partial
 from whoosh import index
 from whoosh.fields import SchemaClass, ID, TEXT
 from whoosh.qparser import QueryParser
@@ -52,7 +53,7 @@ class CableSchema(SchemaClass):
     body = TEXT
 
 
-def index_cables(directory, cables, clean=False, schema=CableSchema, add_cable=None):
+def index_cables(directory, cables, clean=False, schema=CableSchema, add_cable=None, avoid_duplicates=False):
     """\
     Writes the provides `cables` to the Whoosh index.
     
@@ -72,11 +73,13 @@ def index_cables(directory, cables, clean=False, schema=CableSchema, add_cable=N
         If `add_cable` is ``None`` (default), a default function will be used
         which assumes a schema similar to `CableSchema`.
     """
+    def _remove_duplicate(writer, cable, add_cable):
+        writer.delete_by_term('reference_id', cable.reference_id)
+        add_cable(writer, cable)
     def _add_cable(writer, cable):
         writer.add_document(reference_id=unicode(cable.reference_id),
                             subject=unicode(cable.subject),
-                            body=unicode(getattr(cable, 'content_body', cable.content))
-                            )
+                            body=unicode(getattr(cable, 'content_body', cable.content)))
     if clean:
         ix = index.create_in(directory, schema=schema)
     else:
@@ -86,6 +89,8 @@ def index_cables(directory, cables, clean=False, schema=CableSchema, add_cable=N
             ix = index.create_in(directory, schema=schema)
     writer = ix.writer()
     add_cable = add_cable or _add_cable
+    if avoid_duplicates:
+        add_cable = partial(_remove_duplicate, add_cable=add_cable)
     for cable in cables:
         add_cable(writer, cable)
     writer.commit()
@@ -106,4 +111,36 @@ def index_cable(directory, cable, schema=CableSchema, add_cable=None):
         which assumes a schema similar to `CableSchema`.
     """
     index_cables(directory, (cable,), clean=False, schema=schema, add_cable=add_cable)
-  
+
+def reindex_cable(directory, cable):
+    """\
+    Updates the index for the provided `cable`.
+    
+    `directory`
+        An existing directory of the Whoosh index.
+    `cable`
+        The cable to reindex
+    """
+    ix = index.open_dir(directory)
+    writer = ix.writer()
+    writer.update_document(reference_id=cable.reference_id,
+                            subject=unicode(cable.subject),
+                            body=unicode(getattr(cable, 'content_body', cable.content)))
+    writer.commit()
+
+def get_reference_ids(directory):
+    """\
+    Returns the reference identifiers of the cables stored in the index.
+    
+    `directory`
+        An existing directory of the Whoosh index.
+    """
+    ix = index.open_dir(directory)
+    searcher = ix.searcher()
+    return (fields['reference_id'] for fields in searcher.all_stored_fields())
+
+def most_frequent_terms(directory, field='body', reference_ids=None, limit=250):
+    #TODO: This function seems to add no value, should be removed.
+    ix = index.open_dir(directory)
+    reader = ix.reader()
+    return (t[1] for t in reader.most_frequent_terms('body', limit))

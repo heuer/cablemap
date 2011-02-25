@@ -35,8 +35,7 @@
 Experimental module which stores cables into Whoosh.
 """
 from __future__ import absolute_import
-import os
-from whoosh.index import create_in, open_dir
+from whoosh import index
 from whoosh.fields import SchemaClass, ID, TEXT
 from whoosh.qparser import QueryParser
 
@@ -58,7 +57,7 @@ def index_cables(directory, cables, clean=False, schema=CableSchema, add_cable=N
     Writes the provides `cables` to the Whoosh index.
     
     `directory`
-        The directory for the Whoosh index.
+        An existing directory for the Whoosh index.
     `cables`
         An iterable of cables.
     `clean`
@@ -78,10 +77,13 @@ def index_cables(directory, cables, clean=False, schema=CableSchema, add_cable=N
                             subject=unicode(cable.subject),
                             body=unicode(getattr(cable, 'content_body', cable.content))
                             )
-    if clean or not os.path.exists(directory):
-        ix = create_in(directory, schema=schema)
+    if clean:
+        ix = index.create_in(directory, schema=schema)
     else:
-        ix = open_dir(directory)
+        try:
+            ix = index.open_dir(directory)
+        except index.EmptyIndexError:
+            ix = index.create_in(directory, schema=schema)
     writer = ix.writer()
     add_cable = add_cable or _add_cable
     for cable in cables:
@@ -93,7 +95,7 @@ def index_cable(directory, cable, schema=CableSchema, add_cable=None):
     Adds a single cable to the index.
 
     `directory`
-        The directory for the Whoosh index.
+        An existing directory for the Whoosh index.
     `cable`
         A cable.
     `schema`

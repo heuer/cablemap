@@ -77,7 +77,7 @@ class Cable(object):
     def __init__(self, reference_id):
         if not reference_id:
             raise TypeError('The reference id must be provided')
-        self.reference_id = reference_id
+        self.reference_id = unicode(reference_id) # Ensure Unicode
         self.transmission_id = None
         self.origin = None
         self.recipients = []

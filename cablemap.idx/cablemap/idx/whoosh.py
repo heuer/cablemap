@@ -93,6 +93,6 @@ def find_term(directory, term):
     `directory`
         The directory for the Whoosh index.
     `term`
-        
+        The term to find.
     """
     

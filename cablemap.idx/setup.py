@@ -53,7 +53,6 @@ setup(
       zip_safe = False,
       include_package_data = True,
       package_data = {'': ['*.txt']},
-      install_requires=['cablemap.core>=0.1.0'],
       keywords = ['WikiLeaks', 'Cablegate', 'Whoosh'],
       classifiers = [
                     'Intended Audience :: Developers',

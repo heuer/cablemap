@@ -8,6 +8,12 @@ import codecs
 from functools import partial
 from cablemap.core import cables_from_directory
 
+import logging 
+import sys
+logger = logging.getLogger('cablemap-reader')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler(sys.stdout))
+
 _AC_PATTERN = re.compile(r'\(([A-Z\-/\.]{2,}[0-9]*)\)')
 
 _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT',

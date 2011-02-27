@@ -108,6 +108,9 @@ _TEST_DATA = (
     # 05BRASILIA2675
     ('TAGS: PREL PGOV BR OVIP ZOELLICK ROBERT US',
      [u'PREL', u'PGOV', u'BR', u'OVIP', u'ZOELLICK, ROBERT', u'US']),
+    # 07BUENOSAIRES1673
+    ('DECL: 08/22/2017 AGS: PGOV, PREL, ECON, SOCI, AR',
+     [u'PGOV', u'PREL', u'ECON', u'SOCI', u'AR']),
 )
 
 def test_tags():

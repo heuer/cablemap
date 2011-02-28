@@ -55,7 +55,7 @@ class CableSchema(SchemaClass):
 
 def index_cables(directory, cables, clean=False, schema=CableSchema, add_cable=None, avoid_duplicates=False):
     """\
-    Writes the provides `cables` to the Whoosh index.
+    Writes the provided `cables` to the Whoosh index.
     
     `directory`
         An existing directory for the Whoosh index.

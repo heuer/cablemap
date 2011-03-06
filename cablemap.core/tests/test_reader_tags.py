@@ -38,6 +38,7 @@ Tests TAGs parsing.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from nose.tools import eq_
 from cablemap.core.reader import parse_tags
 
 _TEST_DATA = (
@@ -111,11 +112,15 @@ _TEST_DATA = (
     # 07BUENOSAIRES1673
     ('DECL: 08/22/2017 AGS: PGOV, PREL, ECON, SOCI, AR',
      [u'PGOV', u'PREL', u'ECON', u'SOCI', u'AR']),
+    # 04ANKARA348
+    ('''E.o. 12958: decl: 01/07/2014 Tags: prel, pgov, pins, tu Subject: turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?
+''',
+     [u'PREL', u'PGOV', u'PINS', u'TU']),
 )
 
 def test_tags():
     def check(content, expected):
-        assert parse_tags(content) == expected
+        eq_(expected, parse_tags(content))
     for content, expected in _TEST_DATA:
         yield check, content, expected
 

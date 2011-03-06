@@ -678,9 +678,10 @@ def parse_references(content, year, reference_id=None):
 
 
 _TAGS_PATTERN = re.compile(r'(?:T?AGS?:?\s*)(.+)', re.IGNORECASE|re.UNICODE)
+_TAGS_SUBJECT = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
-_TAG_PATTERN = re.compile(r'(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE)
+_TAG_PATTERN = re.compile(r'(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE|re.MULTILINE)
 
 # Used to normalize the TAG (corrects typos etc.)
 _TAG_FIXES = {
@@ -713,8 +714,14 @@ def parse_tags(content, reference_id=None):
             logger.debug('No TAGS found in cable ID "%r", content: "%s"' % (reference_id, content))
         return []
     tags = m.group(1)
+    min_idx = m.end()
+    max_idx = 1200
+    msubj = _TAGS_SUBJECT.search(tags)
+    if msubj:
+        tags = tags[:msubj.start()]
+        max_idx = min(max_idx, msubj.start())
     m2 = None
-    if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, m.end(), 1200):
+    if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, min_idx, max_idx):
         m2 = _TAGS_CONT_PATTERN.match(content, m.end())
     if m2:
         tags = u' '.join([tags, m2.group(1)])

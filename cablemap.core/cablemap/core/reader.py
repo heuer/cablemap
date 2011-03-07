@@ -678,7 +678,7 @@ def parse_references(content, year, reference_id=None):
 
 
 _TAGS_PATTERN = re.compile(r'(?:T?AGS?:?\s*)(.+)', re.IGNORECASE|re.UNICODE)
-_TAGS_SUBJECT = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
+_TAGS_SUBJECT_PATTERN = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
 _TAG_PATTERN = re.compile(r'(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE|re.MULTILINE)
@@ -716,7 +716,7 @@ def parse_tags(content, reference_id=None):
     tags = m.group(1)
     min_idx = m.end()
     max_idx = 1200
-    msubj = _TAGS_SUBJECT.search(tags)
+    msubj = _TAGS_SUBJECT_PATTERN.search(tags)
     if msubj:
         tags = tags[:msubj.start()]
         max_idx = min(max_idx, msubj.start())

@@ -101,7 +101,9 @@ SUMMARY.
 2.(U) Bah''',
      u'The GOB [...].'),
     # 09BRASILIA1300
-    ('''1. (U) Paragraphs 2 and 8 contain Mission Brazil action request. 
+    ('''Classified By: Charge D'Affaires Lisa Kubiske for reasons 1.4 (b) and ( d). 
+
+1. (U) Paragraphs 2 and 8 contain Mission Brazil action request. 
 
 2. (C) Summary and Action Request. With Iranian President [...] End Summary and Action Request.
 ''',

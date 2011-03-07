@@ -56,7 +56,7 @@ _CABLES_WITHOUT_TO = (
     '08MONTERREY468',
     )
 
-_CABLES_WITH_MALFORMED_SUMMARY = ()
+_CABLES_WITH_MALFORMED_SUMMARY = ('09CAIRO2133',)
 
 _CABLE_FIXES = {
     '08MANAMA492': # (08ECTION01OF02MANAMA492)
@@ -739,10 +739,10 @@ def parse_tags(content, reference_id=None):
 
 _END_SUMMARY_PATTERN = re.compile(r'END\s+SUMMARY', re.IGNORECASE)
 # 09OSLO146 contains "Summay" instead of "SummaRy"
-_START_SUMMARY_PATTERN = re.compile(r'(SUMMAR?Y( AND COMMENT)?[ \-\n:\.]*)|(\n1\.[ ]+(\([^\)]+\))?([ ]*summary( and comment)?(:|\.))?)', re.IGNORECASE)
+_START_SUMMARY_PATTERN = re.compile(r'(SUMMAR?Y( AND COMMENT)?( AND ACTION REQUEST)?[ \-\n:\.]*)', re.IGNORECASE)
 # Some cables like 07BAGHDAD3895, 07TRIPOLI1066 contain "End Summary" but no "Summary:" start
 # Since End Summary occurs in the first paragraph, we interpret the first paragraph as summary
-_ALTERNATIVE_START_SUMMARY_PATTERN = re.compile(r'\n1\.\([^\)]+\) ')
+_ALTERNATIVE_START_SUMMARY_PATTERN = re.compile(r'\n1\.[ ]*\([^\)]+\) ')
 _SUMMARY_PATTERN = re.compile(r'(?:SUMMARY[ \-\n]*)(?::|\.|\s)(.+?)(?=(\n[ ]*\n)|(END[ ]+SUMMARY)|(----+))', re.DOTALL|re.IGNORECASE|re.UNICODE)
 _CLEAN_SUMMARY_CLS_PATTERN = re.compile(r'^[ ]*\([SBU/NTSC]+\)[ ]*')
 _CLEAN_SUMMARY_WS_PATTERN = re.compile('[ \n]+')

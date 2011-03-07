@@ -8,6 +8,8 @@ Changes
 * Better extraction of subjects
 * Removed (debug) logging msgs of missing subjects/transmission ids
 * Deprecated ``cablemap.core.handler.py``, use ``cablemap.tm.handler.py``
+* Improved TAGS parsing
+* Improved summary parsing
 
 
 2011-02-15 -- 0.1.0

@@ -108,6 +108,19 @@ SUMMARY.
 2. (C) Summary and Action Request. With Iranian President [...] End Summary and Action Request.
 ''',
      u'With Iranian President [...]'),
+    # 08MEXICO2382
+    ('''
+ISSUES (IWI) VISITS MEXICO
+
+1. On 28 July 2008
+[...]. End
+Summary.
+
+THE CIVIL SOCIETY PERSPECTIVE
+-----------------------------
+''',
+     u'On 28 July 2008 [...].'),
+
 )
 
 def test_summary():

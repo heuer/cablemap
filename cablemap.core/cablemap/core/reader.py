@@ -731,6 +731,9 @@ def parse_tags(content, reference_id=None):
         if tag == 'PTER MARR': # 07BAKU855
             res.extend(tag.split())
             continue
+        elif tag == 'PHUMBA': # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
+            res.extend([u'PHUM', u'BA'])
+            continue
         tag = _TAG_FIXES.get(tag, tag)
         if tag not in res:
             res.append(tag)

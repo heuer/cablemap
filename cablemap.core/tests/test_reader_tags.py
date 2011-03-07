@@ -116,6 +116,18 @@ _TEST_DATA = (
     ('''E.o. 12958: decl: 01/07/2014 Tags: prel, pgov, pins, tu Subject: turkish p.m. Erdogan goes to washington: how strong a leader in the face of strong challenges?
 ''',
      [u'PREL', u'PGOV', u'PINS', u'TU']),
+    # 08MANAMA492
+    ('''SIPDIS 
+ 
+STATE FOR G/TIP 
+BAGHDAD FOR AMBASSADOR ERELI 
+ 
+E.O. 12958: DECL: 07/24/2018 
+TAGS: KCRM KWMN ASEC PHUM BA
+SUBJECT: BAHRAIN SEEKS IOM'S ASSISTANCE TO COMBAT TIP 
+ 
+REF: A. MANAMA''',
+     [u'KCRM', u'KWMN', u'ASEC', u'PHUM', u'BA']),
 )
 
 def test_tags():

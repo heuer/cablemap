@@ -100,6 +100,12 @@ SUMMARY.
 
 2.(U) Bah''',
      u'The GOB [...].'),
+    # 09BRASILIA1300
+    ('''1. (U) Paragraphs 2 and 8 contain Mission Brazil action request. 
+
+2. (C) Summary and Action Request. With Iranian President [...] End Summary and Action Request.
+''',
+     u'With Iranian President [...]'),
 )
 
 def test_summary():

@@ -677,7 +677,7 @@ def parse_references(content, year, reference_id=None):
     return res
 
 
-_TAGS_PATTERN = re.compile(r'(?:T?AGS?:?\s*)(.+)', re.IGNORECASE|re.UNICODE)
+_TAGS_PATTERN = re.compile(r'(?:T?AGS?)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
 _TAGS_SUBJECT_PATTERN = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)

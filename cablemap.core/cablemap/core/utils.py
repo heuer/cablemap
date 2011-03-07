@@ -121,10 +121,8 @@ def cable_page_by_id(reference_id):
     m = REFERENCE_ID_PATTERN.match(MALFORMED_CABLE_IDS.get(reference_id, reference_id))
     if not m:
         return None
-    if reference_id in MALFORMED_CABLE_IDS.values():
-        for k, v in MALFORMED_CABLE_IDS.iteritems():
-            if v == reference_id:
-                reference_id = k
+    if reference_id == '08BISHKEK1021':
+        reference_id = '08SECTION01GF02BISHIEK21' # The only cable which has no valid counterpart
     year = normalize_year(m.group(1))
     index = _fetch_url(_INDEX)
     by_date_m = _BY_DATE_PATTERN.search(index)

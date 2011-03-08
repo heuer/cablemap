@@ -49,7 +49,7 @@ _CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)  # Somethi
                                 |(\-{3,})                              # Section delimiter ---
                                 |(\s*[A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)    # Section numbers like ROME 0001 003.2 OF 004
                                 |(^[0-9]+\s*\.\s*)                     # Paragraph numbering without classification
-                                |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?\s*\.?:?[ ]*) # Introduction/end of summary
+                                |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?(\s+AND\s+ACTION\s+REQUEST)?\s*\.?:?[ ]*) # Introduction/end of summary
                                 |((END )?\s*COMMENT\s*\.?:?[ ]*)       # Introduction/end of comment
                                 |(^\s*SIPDIS\s*)                       # Trends to occur randomly ;)
                             ''', re.VERBOSE|re.MULTILINE|re.IGNORECASE)

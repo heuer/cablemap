@@ -44,7 +44,6 @@ stop_words = set(stopwords.words('english'))
 tokenizer = WordPunctTokenizer()
 tokenize = tokenizer.tokenize
 
-
 _CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)  # Something like 1. (C)
                                 |(\-{3,})                              # Section delimiter ---
                                 |(\s*[A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)    # Section numbers like ROME 0001 003.2 OF 004
@@ -74,12 +73,12 @@ def _accept_word(word):
         The word to check.
     """
     return len(word) > 2 \
-            and word not in stop_words \
+            and word.lower() not in stop_words \
             and not _UNWANTED_WORDS_PATTERN.match(word)
 
-def word_list(content, filter=True, predicate=None):
+def words(content, filter=True, predicate=None):
     """\
-    Returns the list of words from the provided text.
+    Returns an iterable words from the provided text.
     
     `content`
         A text.
@@ -91,18 +90,18 @@ def word_list(content, filter=True, predicate=None):
         default stop words, and words which have no min. length of 3 are filtered
         (iff ``filter`` is set to ``True``).
     
-    >>> word_list('Hello and goodbye ------ ')
+    >>> list(words('Hello and goodbye ------ '))
     ['Hello', 'goodbye']
-    >>> word_list('Hello, and goodbye ------ Subject xxxxxxxxx XXXXXXXXXXXX here')
+    >>> list(words('Hello, and goodbye ------ Subject xxxxxxxxx XXXXXXXXXXXX here'))
     ['Hello', 'goodbye', 'Subject']
-    >>> word_list('Hello, and goodbye.How are you?')
-    ['Hello', 'goodbye', 'How']
+    >>> list(words('Hello, and goodbye.How are you?'))
+    ['Hello', 'goodbye']
     """
     words = tokenize(content)
     if filter or predicate:
         if predicate is None:
             predicate = _accept_word
-        return [w for w in words if predicate(w)]
+        return (w for w in words if predicate(w))
     return words
 
 def sentence_list(content):
@@ -116,6 +115,27 @@ def sentence_list(content):
     ["I've been waiting.", "I've been waiting night and day."]
     """
     return sent_tokenize(content)
+
+def freq_dist(words):
+    """\
+    Returns a frequency distribution for the provided `words`.
+    
+    The returned dict provides a ``'word': no-of-occurrences`` mapping.
+    
+    `words`
+        An iterable of words.
+
+    >>> fd = freq_dist(['a', 'a', 'a', 'A', 'b', 'b', 'c'])
+    >>> fd['a']
+    3
+    >>> fd['A']
+    1
+    >>> fd['b']
+    2
+    >>> fd['c']
+    1
+    """
+    return nltk.FreqDist(words)
 
 
 if __name__ == '__main__':

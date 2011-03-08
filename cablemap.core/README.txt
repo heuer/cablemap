@@ -18,6 +18,7 @@ from diplomatic cables::
     u'09BERLIN1167'
     >>> cable.subject
     u'DATA PRIVACY TRUMPS SECURITY: IMPLICATIONS OF A FDP VICTORY ON COUNTERTERRORISM COOPERATION'
+    >>> # Generate a more readable subject
     >>> titlefy(cable.subject)
     u'Data Privacy Trumps Security: Implications of a FDP Victory on Counterterrorism Cooperation'
     >>> json = cable_to_json(cable)

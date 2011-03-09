@@ -54,6 +54,7 @@ def test_cleaning():
         expected = codecs.open(os.path.join(base, 'out', name), 'rb', 'utf-8').read()
         yield check, expected, input
 
+
 if __name__ == '__main__':
     import nose
     nose.core.runmodule()

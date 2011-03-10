@@ -44,7 +44,7 @@ import cablemap.nlp.texttools as tt
 _DATA = (
         '''I've been waiting. I've been waiting night and day.''',
         '''I'VE BEEN WAITING. I'VE BEEN WAITING NIGHT AND DAY.''',
-        '''you are will I be''',
+        '''you are will I be he she me the a''', # stopwords
         )
 
 _WORDS_RESULTS = (
@@ -62,7 +62,7 @@ _LOWERCASED_WORDS_RESULTS = (
 _SENT_RESULTS = (
     ['''I've been waiting.''', '''I've been waiting night and day.'''],
     ['''I'VE BEEN WAITING.''', '''I'VE BEEN WAITING NIGHT AND DAY.'''],
-    ['you are will I be'],
+    ['you are will I be he she me the a'],
     )
 
 _FREQ_DIST_RESULTS = (

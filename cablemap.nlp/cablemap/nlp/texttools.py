@@ -36,6 +36,7 @@ Text-related utilities to process the cable content.
 """
 import re
 import nltk
+import gensim
 from cablemap.core import reader
 
 stop_words = set(nltk.corpus.stopwords.words('english'))
@@ -187,6 +188,7 @@ def tokenize_from_html(html, reference_id):
         The cable's reference identifier.
     """
     return tokenize_cable_content(extract_cable_content(html, reference_id))
+
 
 if __name__ == '__main__':
     import doctest

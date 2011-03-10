@@ -36,13 +36,9 @@ Text-related utilities to process the cable content.
 """
 import re
 import nltk
-from nltk.tokenize import TreebankWordTokenizer, WordPunctTokenizer
-from nltk.corpus import stopwords
-from nltk import sent_tokenize
 
-stop_words = set(stopwords.words('english'))
-tokenizer = WordPunctTokenizer()
-tokenize = tokenizer.tokenize
+stop_words = set(nltk.corpus.stopwords.words('english'))
+tokenize = nltk.tokenize.WordPunctTokenizer().tokenize
 
 _CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)  # Something like 1. (C)
                                 |(\-{3,})                              # Section delimiter ---
@@ -136,7 +132,7 @@ def sentence_list(content):
     >>> sentence_list("I've been waiting. I've been waiting night and day.")
     ["I've been waiting.", "I've been waiting night and day."]
     """
-    return sent_tokenize(content)
+    return nltk.sent_tokenize(content)
 
 def freq_dist(words):
     """\

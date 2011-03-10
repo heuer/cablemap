@@ -36,6 +36,7 @@ Text-related utilities to process the cable content.
 """
 import re
 import nltk
+from cablemap.core import reader
 
 stop_words = set(nltk.corpus.stopwords.words('english'))
 tokenize = nltk.tokenize.WordPunctTokenizer().tokenize
@@ -155,6 +156,37 @@ def freq_dist(words):
     """
     return nltk.FreqDist(words)
 
+def extract_cable_content(html, reference_id):
+    """\
+    Returns the cable's content from the provided HTML string.
+    
+    `html`
+        The HTML string.
+    `reference_id`
+        The cable's reference identifier.
+    """
+    content = reader.get_content_as_text(html, reference_id)
+    return reader.header_body_from_content(content)[1] or content
+
+def tokenize_cable_content(content):
+    """\
+    Returns a generator of (lowercased) words of the cable's content.
+    
+    `content`
+        A string.
+    """
+    return lowercased_words(clean_cable_content(content))
+
+def tokenize_from_html(html, reference_id):
+    """\
+    Convienence function for ``tokenize_cable_content(extract_cable_content(html, reference_id))``.
+
+    `html`
+        The HTML string.
+    `reference_id`
+        The cable's reference identifier.
+    """
+    return tokenize_cable_content(extract_cable_content(html, reference_id))
 
 if __name__ == '__main__':
     import doctest

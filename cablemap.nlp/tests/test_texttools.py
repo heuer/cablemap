@@ -43,21 +43,31 @@ import cablemap.nlp.texttools as tt
 
 _DATA = (
         '''I've been waiting. I've been waiting night and day.''',
+        '''I'VE BEEN WAITING. I'VE BEEN WAITING NIGHT AND DAY.''',
         '''you are will I be''',
         )
 
 _WORDS_RESULTS = (
+    ['waiting', 'waiting', 'night', 'day'],
+    ['WAITING', 'WAITING', 'NIGHT', 'DAY'],
+    [],
+    )
+
+_LOWERCASED_WORDS_RESULTS = (
+    ['waiting', 'waiting', 'night', 'day'],
     ['waiting', 'waiting', 'night', 'day'],
     [],
     )
 
 _SENT_RESULTS = (
     ['''I've been waiting.''', '''I've been waiting night and day.'''],
+    ['''I'VE BEEN WAITING.''', '''I'VE BEEN WAITING NIGHT AND DAY.'''],
     ['you are will I be'],
     )
 
 _FREQ_DIST_RESULTS = (
     {'waiting': 2, 'night': 1, 'day': 1},
+    {'WAITING': 2, 'NIGHT': 1, 'DAY': 1},
     {},
     )
 
@@ -66,6 +76,12 @@ def test_words():
         eq_(words, list(tt.words(content)))
     for i, c in enumerate(_DATA):
         yield check, c, _WORDS_RESULTS[i]
+
+def test_lowercased_words():
+    def check(content, words):
+        eq_(words, list(tt.lowercased_words(content)))
+    for i, c in enumerate(_DATA):
+        yield check, c, [w.lower() for w in _WORDS_RESULTS[i]]
 
 def test_sent_list():
     def check(content, sentences):

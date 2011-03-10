@@ -65,20 +65,9 @@ def clean_cable_content(content):
 
 _UNWANTED_WORDS_PATTERN = re.compile(r'(--+)|(xx+)', re.IGNORECASE|re.UNICODE)
 
-def _accept_word(word):
-    """\
-    Returns if the `word` is acceptable/useful
-    
-    `word`
-        The word to check.
-    """
-    return len(word) > 2 \
-            and word.lower() not in stop_words \
-            and not _UNWANTED_WORDS_PATTERN.match(word)
-
 def words(content, filter=True, predicate=None):
     """\
-    Returns an iterable words from the provided text.
+    Returns an iterable of words from the provided text.
     
     `content`
         A text.
@@ -97,12 +86,45 @@ def words(content, filter=True, predicate=None):
     >>> list(words('Hello, and goodbye.How are you?'))
     ['Hello', 'goodbye']
     """
+    def accept_word(word):
+        """\
+        Returns if the `word` is acceptable/useful
+        
+        `word`
+            The word to check.
+        """
+        return len(word) > 2 \
+                and word.lower() not in stop_words \
+                and not _UNWANTED_WORDS_PATTERN.match(word)
     words = tokenize(content)
     if filter or predicate:
-        if predicate is None:
-            predicate = _accept_word
+        if not predicate:
+            predicate = accept_word
         return (w for w in words if predicate(w))
     return words
+
+def lowercased_words(content, filter=True, predicate=None):
+    """\
+    Returns an iterable of lowercased words from the provided text.
+    
+    `content`
+        A text.
+    `filter`
+        Indicates if stop words and garbage like "xxxxxx" should be removed from
+        the word list.
+    `predicate`
+        An alternative word filter. If it is ``None`` "xxxx", "---",
+        default stop words, and words which have no min. length of 3 are filtered
+        (iff ``filter`` is set to ``True``).
+    
+    >>> list(lowercased_words('Hello and goodbye ------ '))
+    ['hello', 'goodbye']
+    >>> list(lowercased_words('Hello, and goodbye ------ Subject xxxxxxxxx XXXXXXXXXXXX here'))
+    ['hello', 'goodbye', 'subject']
+    >>> list(lowercased_words('Hello, and goodbye.How are you?'))
+    ['hello', 'goodbye']
+    """
+    return (w.lower() for w in words(content, filter, predicate))
 
 def sentence_list(content):
     """\

@@ -127,13 +127,7 @@ def cable_from_file(filename):
         An absolute path to the cable file.
     """
     html = codecs.open(filename, 'rb', 'utf-8').read()
-    reference_id = os.path.basename(filename)
-    if reference_id.rfind('.htm') > 0:
-        reference_id = reference_id[:reference_id.rfind('.')]
-    # Use the correct cable id if the reference id is malformed
-    reference_id = MALFORMED_CABLE_IDS.get(reference_id, reference_id)
     return cable_from_html(html, reference_id)
-
 
 _REFERENCE_ID_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', re.UNICODE)
 
@@ -150,16 +144,7 @@ def cable_from_html(html, reference_id=None):
     if not html:
         raise ValueError('The HTML page of the cable must be provided, got: "%r"' % html)
     if not reference_id:
-        m = _REFERENCE_ID_PATTERN.search(html)
-        if m:
-            reference_id = m.group(1)
-        else:
-            # Maybe a malformed ID?
-            m = re.search(r'(%s)' % '|'.join(MALFORMED_CABLE_IDS.keys()), html, re.UNICODE)
-            if m:
-                reference_id = MALFORMED_CABLE_IDS[m.group(1)]
-            else:
-                raise ValueError("Cannot extract the cable's reference id")
+        reference_id = reference_id_from_html(html)
     cable = Cable(reference_id)
     parse_meta(html, cable)
     header = get_header_as_text(html, reference_id)
@@ -183,6 +168,33 @@ def cable_from_html(html, reference_id=None):
     cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
     cable.summary = parse_summary(content, reference_id)
     return cable
+
+def reference_id_from_filename(filename):
+    """\
+    Extracts the reference identifier from the provided filename.
+    """
+    reference_id = os.path.basename(filename)
+    if reference_id.rfind('.htm') > 0:
+        reference_id = reference_id[:reference_id.rfind('.')]
+    # Use the correct cable id if the reference id is malformed
+    return MALFORMED_CABLE_IDS.get(reference_id, reference_id)
+
+def reference_id_from_html(html):
+    """\
+    Extracts the cable's reference identifier from the provided HTML string.
+
+    `html`
+        The HTML page of the cable.
+    """
+    m = _REFERENCE_ID_PATTERN.search(html)
+    if m:
+        return m.group(1)
+    else:
+        # Maybe a malformed ID?
+        m = re.search(r'(%s)' % '|'.join(MALFORMED_CABLE_IDS.keys()), html, re.UNICODE)
+        if m:
+            return MALFORMED_CABLE_IDS[m.group(1)]
+    raise ValueError("Cannot extract the cable's reference id")
 
 def fix_content(content, reference_id):
     """\

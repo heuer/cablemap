@@ -267,7 +267,6 @@ def cable_to_yaml(cable, metaonly=False, include_summary=True):
     to_yaml = partial(yaml.dump, Dumper=Dumper)
     return _json_or_yaml(to_yaml, cable, metaonly, include_summary)
 
-
 def cables_from_directory(directory, predicate=None):
     """\
     Returns a generator with ``models.Cable`` instances.

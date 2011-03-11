@@ -34,22 +34,32 @@
 """\
 Text-related utilities to process the cable content.
 """
+from __future__ import with_statement
+import os
 import re
+import codecs
+import string
 import nltk
 import gensim
 from cablemap.core import reader
 
 stop_words = set(nltk.corpus.stopwords.words('english'))
-tokenize = nltk.tokenize.WordPunctTokenizer().tokenize
+_tokenize = nltk.tokenize.WordPunctTokenizer().tokenize
+_porter_stem = nltk.stem.PorterStemmer().stem
+_lanc_stem = nltk.stem.LancasterStemmer().stem
 
-_CLEAN_PATTERN = re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)  # Something like 1. (C)
-                                |(\-{3,})                              # Section delimiter ---
-                                |(\s*[A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)    # Section numbers like ROME 0001 003.2 OF 004
-                                |(^[0-9]+\s*\.\s*)                     # Paragraph numbering without classification
-                                |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?(\s+AND\s+ACTION\s+REQUEST)?\s*\.?:?[ ]*) # Introduction/end of summary
-                                |((END )?\s*COMMENT\s*\.?:?[ ]*)       # Introduction/end of comment
-                                |(^\s*SIPDIS\s*)                       # Trends to occur randomly ;)
-                            ''', re.VERBOSE|re.MULTILINE|re.IGNORECASE)
+_CLEAN_PATTERNS = (
+        # pattern, substitution
+        (re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)  # Something like 1. (C)
+                    |(\-{3,}|={3,}|_{3,}|/{3,}|\#{3,}|\*{3,}|\.{3,})      # Section delimiters
+                    |(\s*[A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)    # Section numbers like ROME 0001 003.2 OF 004
+                    |(^[0-9]+\s*\.\s*)                     # Paragraph numbering without classification
+                    |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?(\s+AND\s+ACTION\s+REQUEST)?\s*\.?:?[ ]*) # Introduction/end of summary
+                    |((END )?\s*COMMENT\s*\.?:?[ ]*)       # Introduction/end of comment
+                    |(^\s*SIPDIS\s*)                       # Trends to occur randomly ;)
+                    ''', re.VERBOSE|re.MULTILINE|re.IGNORECASE),
+            ''),
+    )
 
 def clean_cable_content(content):
     """\
@@ -58,10 +68,12 @@ def clean_cable_content(content):
     `content`
         The content of the cable.
     """
-    return _CLEAN_PATTERN.sub('', content)
+    for pattern, subst in _CLEAN_PATTERNS:
+        content = pattern.sub(subst, content)
+    return content
 
 
-_UNWANTED_WORDS_PATTERN = re.compile(r'(--+)|(xx+)', re.IGNORECASE|re.UNICODE)
+_UNWANTED_WORDS_PATTERN = re.compile(ur'--+|xx+|^[ %s”’]+$' % string.punctuation, re.IGNORECASE|re.UNICODE)
 
 def words(content, filter=True, predicate=None):
     """\
@@ -94,7 +106,7 @@ def words(content, filter=True, predicate=None):
         return len(word) > 2 \
                 and word.lower() not in stop_words \
                 and not _UNWANTED_WORDS_PATTERN.match(word)
-    words = tokenize(content)
+    words = _tokenize(content)
     if filter or predicate:
         if not predicate:
             predicate = accept_word
@@ -136,6 +148,19 @@ def sentence_list(content):
     """
     return nltk.sent_tokenize(content)
 
+def porter_stem(word):
+    """\
+    Strips affixes from the word and returns the stem using the Porter stemming 
+    algorithm.
+    """
+    return _porter_stem(word)
+
+def lancaster_stem(word):
+    """\
+    Stems a word using the Lancaster stemming algorithm.
+    """
+    return _lanc_stem(word)
+
 def freq_dist(words):
     """\
     Returns a frequency distribution for the provided `words`.
@@ -157,7 +182,7 @@ def freq_dist(words):
     """
     return nltk.FreqDist(words)
 
-def extract_cable_content(html, reference_id):
+def extract_cable_content(html):
     """\
     Returns the cable's content from the provided HTML string.
     
@@ -166,6 +191,7 @@ def extract_cable_content(html, reference_id):
     `reference_id`
         The cable's reference identifier.
     """
+    reference_id = reader.reference_id_from_html(html)
     content = reader.get_content_as_text(html, reference_id)
     return reader.header_body_from_content(content)[1] or content
 
@@ -178,17 +204,64 @@ def tokenize_cable_content(content):
     """
     return lowercased_words(clean_cable_content(content))
 
-def tokenize_from_html(html, reference_id):
+def tokenize_from_file(filename):
+    """\
+    Returns a cable from the provided file.
+    
+    `filename`
+        An absolute path to the cable file.
+    """
+    return tokenize_from_html(codecs.open(filename, 'rb', 'utf-8').read())
+
+def tokenize_from_html(html):
     """\
     Convienence function for ``tokenize_cable_content(extract_cable_content(html, reference_id))``.
 
     `html`
         The HTML string.
-    `reference_id`
-        The cable's reference identifier.
     """
-    return tokenize_cable_content(extract_cable_content(html, reference_id))
+    return tokenize_cable_content(extract_cable_content(html))
 
+def load_word2idmapping(filename):
+    """\
+    
+    """
+    dct = gensim.corpora.dictionary.Dictionary()
+    with codecs.open(filename, encoding='utf-8') as f:
+        for line in f:
+            word_id, word, doc_freq = line.rstrip().split()
+            word_id = int(word_id)
+            dct.token2id[word] = word_id
+            dct.docFreq[word_id] = int(doc_freq)
+    return dct
+
+def save_word2idmapping(filename, dct):
+    """\
+    
+    """
+    with codecs.open(filename, 'wb', encoding='utf-8') as f:
+        for word, word_id in sorted(dct.token2id.iteritems()):
+            f.write('%i %s %i\n' % (word_id, word, dct.docFreq[word_id]))
+
+def create_word2idmapping(documents):
+    """\
+    
+    """
+    return gensim.corpora.dictionary.Dictionary.fromDocuments(documents)
+
+def save_docterm_matrix(filename, documents, dct):
+    """\
+    
+    """
+    doc2bow = dct.doc2bow
+    gensim.matutils.MmWriter.writeCorpus(filename, (doc2bow(doc) for doc in documents))
+
+def load_docterm_matrix(filename):
+    """\
+
+    """
+    return gensim.matutils.MmReader(filename)
+    
 
 if __name__ == '__main__':
     import doctest

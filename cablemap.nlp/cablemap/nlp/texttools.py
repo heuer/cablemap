@@ -223,7 +223,7 @@ def load_word2idmapping(filename):
     """\
     
     """
-    dct = gensim.corpora.dictionary.Dictionary()
+    dct = gensim.corpora.Dictionary()
     with codecs.open(filename, encoding='utf-8') as f:
         for line in f:
             word_id, word, doc_freq = line.rstrip().split()
@@ -244,7 +244,7 @@ def create_word2idmapping(documents):
     """\
     
     """
-    return gensim.corpora.dictionary.Dictionary.fromDocuments(documents)
+    return gensim.corpora.Dictionary.fromDocuments(documents)
 
 def save_docterm_matrix(filename, documents, dct):
     """\

@@ -255,9 +255,9 @@ def save_docterm_matrix(filename, documents, dct):
 
 def load_docterm_matrix(filename):
     """\
-
+    Returns an iterable document-term matrix from the provided file.
     """
-    return gensim.matutils.MmReader(filename)
+    return gensim.corpora.MmCorpus(filename)
     
 
 if __name__ == '__main__':

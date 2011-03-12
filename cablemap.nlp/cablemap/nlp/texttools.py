@@ -188,11 +188,8 @@ def extract_cable_content(html):
     
     `html`
         The HTML string.
-    `reference_id`
-        The cable's reference identifier.
     """
-    reference_id = reader.reference_id_from_html(html)
-    content = reader.get_content_as_text(html, reference_id)
+    content = reader.get_content_as_text(html, reader.reference_id_from_html(html))
     return reader.header_body_from_content(content)[1] or content
 
 def tokenize_cable_content(content):
@@ -215,7 +212,7 @@ def tokenize_from_file(filename):
 
 def tokenize_from_html(html):
     """\
-    Convienence function for ``tokenize_cable_content(extract_cable_content(html, reference_id))``.
+    Convienence function for ``tokenize_cable_content(extract_cable_content(html))``.
 
     `html`
         The HTML string.

@@ -127,7 +127,7 @@ def cable_from_file(filename):
         An absolute path to the cable file.
     """
     html = codecs.open(filename, 'rb', 'utf-8').read()
-    return cable_from_html(html, reference_id)
+    return cable_from_html(html, reference_id_from_filename(filename))
 
 _REFERENCE_ID_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', re.UNICODE)
 

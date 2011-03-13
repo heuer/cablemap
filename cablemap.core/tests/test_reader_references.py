@@ -308,7 +308,17 @@ Classified By''',
 REF: A. MANAMA 165 B. MANAMA 320 C. MANAMA 363 D. MANAMA 486 Classiied By: CDA Chr''',
      2008,
      [u'08MANAMA165', u'08MANAMA320', u'08MANAMA363', u'08MANAMA486']),
-     
+    # 06GENEVA1673
+    (ur'''TAGS: PHUM UNHRC
+SUBJECT: HRC: SPECIAL SESSION ON PALESTINE \
+ \
+REF: A. A) BERN 1253 \
+ \
+     B. B) GENEVA 1633 \
+ \
+Classified By: Pol''',
+     2006,
+     [u'06BERN1253', u'06GENEVA1633']),
 )
 
 def test_parse_references():

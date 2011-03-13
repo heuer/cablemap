@@ -259,6 +259,7 @@ def get_header_as_text(file_content, reference_id):
 _PILCROW_PATTERN = re.compile(ur'<a[^>]*>¶</a>', re.UNICODE)
 _LINK_PATTERN = re.compile(ur'<a[^>]*>', re.UNICODE)
 _HTML_TAG_PATTERN = re.compile(r'</?[a-zA-Z]+>')
+_BACKSLASH_PATTERN = re.compile(r'\\[ ]*\n')
 
 def _clean_html(html):
     """\
@@ -269,6 +270,7 @@ def _clean_html(html):
     content = _PILCROW_PATTERN.sub(u'', content)
     content = _LINK_PATTERN.sub(u'', content)
     content = _HTML_TAG_PATTERN.sub(u'', content)
+    content = _BACKSLASH_PATTERN.sub(u'\n', content)
     return content
 
 

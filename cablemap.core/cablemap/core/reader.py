@@ -47,6 +47,10 @@ from cablemap.core.models import Cable
 
 logger = logging.getLogger('cablemap-reader')
 
+# Indicates the max. index where the reader tries to detect the subject/TAGS/references
+# Should be 1200 but due to the malformed cables 06GENEVA2654 06GENEVA1673, 07BERN881 this was set to 2200
+_MAX_HEADER_IDX = 2200
+
 #
 # Cables w/o tags
 #
@@ -256,18 +260,16 @@ def get_header_as_text(file_content, reference_id):
     return fix_content(_clean_html(content), reference_id)
 
 
-_PILCROW_PATTERN = re.compile(ur'<a[^>]*>¶</a>', re.UNICODE)
 _LINK_PATTERN = re.compile(ur'<a[^>]*>', re.UNICODE)
 _HTML_TAG_PATTERN = re.compile(r'</?[a-zA-Z]+>')
-_BACKSLASH_PATTERN = re.compile(r'\\[ ]*\n')
+_BACKSLASH_PATTERN = re.compile(r'\\[ ]*\n|\\[ ]*$')
 
 def _clean_html(html):
     """\
     Removes links (``<a href="...">...</a>``) from the provided HTML input.
     Further, it replaces "&#x000A;" with ``\n`` and removes "¶" from the texts.
     """
-    content = html.replace(u'&#x000A;', u'\n')
-    content = _PILCROW_PATTERN.sub(u'', content)
+    content = html.replace(u'&#x000A;', u'\n').replace(u'¶', '')
     content = _LINK_PATTERN.sub(u'', content)
     content = _HTML_TAG_PATTERN.sub(u'', content)
     content = _BACKSLASH_PATTERN.sub(u'\n', content)
@@ -589,7 +591,7 @@ def parse_subject(content, reference_id=None, clean=True):
     """
     def to_unicodechar(match):
         return unichr(int(match.group(1)))
-    m = _SUBJECT_PATTERN.search(content, 0, 1200)
+    m = _SUBJECT_PATTERN.search(content, 0, _MAX_HEADER_IDX)
     if not m:
         return u''
     res = _NL_PATTERN.sub(u' ', m.group(1)).strip()
@@ -656,14 +658,14 @@ def parse_references(content, year, reference_id=None):
     # 1. Try to find "Classified By:"
     m_stop = _REF_STOP_PATTERN.search(content)
     # If found, use it as maximum index to search for references, otherwise use a constant
-    max_idx = m_stop and m_stop.start() or 1200
+    max_idx = m_stop and m_stop.start() or _MAX_HEADER_IDX
     # 2. Find references
     m_start = _REF_START_PATTERN.search(content, 0, max_idx)
     # 3. Check if we have a paragraph in the references
     m_stop = _REF_NOT_REF_PATTERN.search(content, m_start and m_start.end() or 0, max_idx)
     last_end = m_start and m_start.end() or 0
     # 4. Find the next max_idx
-    max_idx = min(m_stop and m_stop.start() or 1200, max_idx)
+    max_idx = min(m_stop and m_stop.start() or _MAX_HEADER_IDX, max_idx)
     m_end = _REF_LAST_REF_PATTERN.search(content, last_end, max_idx)
     while m_end:
         last_end = m_end.end()
@@ -731,7 +733,7 @@ def parse_tags(content, reference_id=None):
         return []
     tags = m.group(1)
     min_idx = m.end()
-    max_idx = 1200
+    max_idx = _MAX_HEADER_IDX
     msubj = _TAGS_SUBJECT_PATTERN.search(tags)
     if msubj:
         tags = tags[:msubj.start()]

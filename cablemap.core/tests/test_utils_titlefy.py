@@ -134,6 +134,9 @@ _TEST_DATA = (
     # 09SAOPAULO558
     (u'WHAT HAPPENED TO THE PCC?',
      u'What Happened to the PCC?'),
+    # 08BRASILIA1252
+    (u'63RD UN GENERAL ASSEMBLY: BRAZILIAN PRIORITIES',
+     u'63rd UN General Assembly: Brazilian Priorities'),
 )
 
 def test_titlefy():

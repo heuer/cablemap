@@ -381,10 +381,10 @@ _SPECIAL_WORDS = {
     'Ex-IM': u'Ex-IM',
 }
 
-_TITLEFY_SMALL_PATTERN = re.compile(r'^(([0-9]+(th|st|nd))|(a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
+_TITLEFY_SMALL_PATTERN = re.compile(r'^(([0-9]+(th|st|rd|nd))|(a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
 _TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.\-])|(?:'|’)([a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
 _APOS_PATTERN = re.compile(ur"^(\w+)('|’|,)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
-_is_number = re.compile('^[0-9]+(th|st|nd)$', re.IGNORECASE).match
+_is_number = re.compile('^[0-9]+(th|st|rd|nd)$', re.IGNORECASE).match
 
 def titlefy(subject):
     """\

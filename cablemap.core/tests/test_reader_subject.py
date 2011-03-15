@@ -238,6 +238,13 @@ SUBJECT: HRC: SPECIAL SESSION ON PALESTINE \
  \
 REF: A. A) BERN 1253''',
      u'''HRC: SPECIAL SESSION ON PALESTINE \\ \\'''),
+    # 09CAIRO1945
+    (u'''
+SUBJECT:
+
+Cooperation and Coordination Busts Fraud Ring
+1.(SBU) Summary: The Cairo Fraud Prevention Unit''',
+     u'Cooperation and Coordination Busts Fraud Ring'),
 )
 
 

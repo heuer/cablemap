@@ -131,6 +131,9 @@ _TEST_DATA = (
     # 10MEXICO690
     (u'Scenesetter for Ex-IM Chairman Fred Hochberg',
      u'Scenesetter for Ex-IM Chairman Fred Hochberg'),
+    # 09SAOPAULO558
+    (u'WHAT HAPPENED TO THE PCC?',
+     u'What Happened to the PCC?'),
 )
 
 def test_titlefy():

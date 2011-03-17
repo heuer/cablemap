@@ -60,8 +60,6 @@ def run_update(in_dir, predicate=None):
     for cable in cables_from_directory(in_dir, predicate):
         update_acronyms(cable, acronyms)
         update_missing_subjects(cable, subjects)
-        # Ignore missing transmission ids, the parser seems to detect them correctly
-        # update_missing_transmission_ids(cable, tids)
         seen_cables.add(cable.reference_id)
     return {'acronyms': acronyms, 'subjects': subjects, 'tids': tids, 'seen_cables': seen_cables}
 
@@ -73,10 +71,6 @@ def update_acronyms(cable, acronyms):
 
 def update_missing_subjects(cable, cable_refs):
     if not cable.subject:
-        cable_refs.add(cable.reference_id)
-
-def update_missing_transmission_ids(cable, cable_refs):
-    if not cable.partial and not cable.transmission_id:
         cable_refs.add(cable.reference_id)
  
 def _filename(name):
@@ -110,27 +104,12 @@ def update_file(filename, found):
         print('New in "%s": %r' % (filename, diff))
 
 
-_FILE_SEEN_CABLES = _filename('seen_cables.txt')
 _FILE_ACRONYMS = _file_in_core('acronyms.txt')
 _FILE_SUBJECTS = _filename('no_subject.txt')
-_FILE_TIDS = _filename('no_transmissionid.txt')
     
 if __name__ == '__main__':
     if not os.path.isdir('./cable/'):
         raise Exception('Expected a directory "cable"')
-    def filter_known_cables(f, knowncables):
-        name = f[:f.rfind('.')]
-        return name not in knowncables
-    if not os.path.exists(_FILE_SEEN_CABLES):
-        f = open(_FILE_SEEN_CABLES, 'wb')
-        f.close()
-    seen_cables = _file_as_set(_FILE_SEEN_CABLES)
-    want_file = partial(filter_known_cables, knowncables=seen_cables)
-    res = run_update('./cable/', want_file)
+    res = run_update('./cable/')
     update_file(_FILE_ACRONYMS, res['acronyms'])
     update_file(_FILE_SUBJECTS, res['subjects'])
-    update_file(_FILE_TIDS, res['tids'])
-    # Should be the last step in case of errors in one of the above steps
-    if seen_cables ^ (seen_cables | res['seen_cables']):
-        seen_cables.update(res['seen_cables'])
-        _write_set(_FILE_SEEN_CABLES, seen_cables)    

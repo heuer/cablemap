@@ -155,22 +155,7 @@ def cable_from_html(html, reference_id=None):
     content =  get_content_as_text(html, reference_id)
     cable.header = header
     cable.content = content
-    content_header, content_body = header_body_from_content(content)
-    if content_header:
-        cable.content_header = content_header
-        cable.content_body = content_body
-    else:
-        content_header = content
-    cable.subject = parse_subject(content_header, reference_id)
-    cable.tags = parse_tags(content_header, reference_id)
-    cable.references = parse_references(content_header, cable.created[:4], reference_id)
     cable.partial = 'This record is a partial extract of the original cable' in header
-    if not cable.partial: # Partial cables have no header
-        cable.transmission_id = parse_transmission_id(header, reference_id)
-        cable.recipients = parse_recipients(header, reference_id)
-    cable.info_recipients = parse_info_recipients(header, reference_id)
-    cable.nondisclosure_deadline = parse_nondisclosure_deadline(content_header)
-    cable.summary = parse_summary(content, reference_id)
     return cable
 
 def reference_id_from_filename(filename):

@@ -353,11 +353,12 @@ _CLEAN_PATTERNS = (
                     |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?(\s+AND\s+ACTION\s+REQUEST)?\s*\.?:?[ ]*) # Introduction/end of summary
                     |((END )?\s*COMMENT\s*\.?:?[ ]*)       # Introduction/end of comment
                     |(^\s*SIPDIS\s*)                       # Trends to occur randomly ;)
+                    |((?<=[a-z])?xx+)                       # xxx
                     ''', re.VERBOSE|re.MULTILINE|re.IGNORECASE),
             ''),
     )
 
-def clean_cable_content(content):
+def clean_content(content):
     """\
     Removes something "1. (C)" from the content.
     

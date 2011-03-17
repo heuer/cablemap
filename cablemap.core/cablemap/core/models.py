@@ -166,7 +166,7 @@ class Cable(object):
         cable.content = dct.get('body')
         return cable
 
-    wl_uris = property(_get_wl_links, doc='Returns IRIs to the cable at Wikileaks (mirrors)')
+    wl_uris = property(_get_wl_links, doc='Returns IRIs to the cable at WikiLeaks (mirrors)')
 
 
 if __name__ == '__main__':

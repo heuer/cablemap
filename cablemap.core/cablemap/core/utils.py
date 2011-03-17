@@ -344,6 +344,31 @@ def cable_by_id(reference_id):
     return None
 
 
+_CLEAN_PATTERNS = (
+        # pattern, substitution
+        (re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)  # Something like 1. (C)
+                    |(\-{3,}|={3,}|_{3,}|/{3,}|\#{3,}|\*{3,}|\.{3,})      # Section delimiters
+                    |(\s*[A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)    # Section numbers like ROME 0001 003.2 OF 004
+                    |(^[0-9]+\s*\.\s*)                     # Paragraph numbering without classification
+                    |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?(\s+AND\s+ACTION\s+REQUEST)?\s*\.?:?[ ]*) # Introduction/end of summary
+                    |((END )?\s*COMMENT\s*\.?:?[ ]*)       # Introduction/end of comment
+                    |(^\s*SIPDIS\s*)                       # Trends to occur randomly ;)
+                    ''', re.VERBOSE|re.MULTILINE|re.IGNORECASE),
+            ''),
+    )
+
+def clean_cable_content(content):
+    """\
+    Removes something "1. (C)" from the content.
+    
+    `content`
+        The content of the cable.
+    """
+    for pattern, subst in _CLEAN_PATTERNS:
+        content = pattern.sub(subst, content)
+    return content
+
+
 _ACRONYMS = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'acronyms.txt'), 'rb', 'utf-8')]
 
 #TODO: This should be automated as well.

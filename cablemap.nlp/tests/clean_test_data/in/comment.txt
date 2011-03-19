@@ -1,3 +1,0 @@
-11. (C) Comment: Progress Line 1
-Line 2.  End Comment. 
-Line 3

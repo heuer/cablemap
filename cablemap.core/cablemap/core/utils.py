@@ -347,20 +347,23 @@ def cable_by_id(reference_id):
 _CLEAN_PATTERNS = (
         # pattern, substitution
         (re.compile(r'''([0-9]+\s*\.?\s*\(?[SBU/NTSC]+\)[ ]*)  # Something like 1. (C)
-                    |(\-{3,}|={3,}|_{3,}|/{3,}|\#{3,}|\*{3,}|\.{3,})      # Section delimiters
+                    |(\-{3,}|={3,}|_{3,}|/{3,}|\#{3,}|\*{3,}|\.{4,})      # Section delimiters
                     |(\s*[A-Z]+\s+[0-9 \.]+OF\s+[0-9]+)    # Section numbers like ROME 0001 003.2 OF 004
                     |(^[0-9]+\s*\.\s*)                     # Paragraph numbering without classification
                     |((END )?\s*SUMMAR?Y(\s+AND\s+COMMENT)?(\s+AND\s+ACTION\s+REQUEST)?\s*\.?:?[ ]*) # Introduction/end of summary
                     |((END )?\s*COMMENT\s*\.?:?[ ]*)       # Introduction/end of comment
                     |(^\s*SIPDIS\s*)                       # Trends to occur randomly ;)
-                    |((?<=[a-z])?xx+)                       # xxx
+                    |((?<=[a-z])?xx+)                      # xxx
                     ''', re.VERBOSE|re.MULTILINE|re.IGNORECASE),
             ''),
     )
 
 def clean_content(content):
     """\
-    Removes something "1. (C)" from the content.
+    Removes paragraph numbers, section delimiters, xxxx etc. from the content.
+    
+    This function can be used to clean-up the cable's content before it
+    is processed by NLP tools or to create a search engine index.
     
     `content`
         The content of the cable.

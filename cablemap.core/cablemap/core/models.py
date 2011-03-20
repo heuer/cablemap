@@ -42,7 +42,7 @@ import codecs
 from cablemap.core.constants import MALFORMED_CABLE_IDS
 from cablemap.core import reader
 
-__all__ = ['Cable']
+__all__ = ['cable_from_file', 'cable_from_html']
 
 def cable_from_file(filename):
     """\
@@ -70,11 +70,8 @@ def cable_from_html(html, reference_id=None):
         reference_id = reader.reference_id_from_html(html)
     cable = Cable(reference_id)
     reader.parse_meta(html, cable)
-    header = reader.get_header_as_text(html, reference_id)
-    content =  reader.get_content_as_text(html, reference_id)
-    cable.header = header
-    cable.content = content
-    cable.partial = 'This record is a partial extract of the original cable' in header
+    cable.header = reader.get_header_as_text(html, reference_id)
+    cable.content = reader.get_content_as_text(html, reference_id)
     return cable
 
 # Commonly used base URIs for Wikileaks Cablegate
@@ -272,6 +269,10 @@ class Cable(_CableBase):
     @cached_property
     def info_recipients(self):
         return reader.parse_info_recipients(self.header, self.reference_id)
+
+    @cached_property
+    def partial(self):
+        return 'This record is a partial extract of the original cable' in self.header
 
     #
     # Content properties

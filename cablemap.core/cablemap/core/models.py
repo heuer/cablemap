@@ -38,9 +38,44 @@ This module provides models to keep data about cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+import codecs
 from cablemap.core.constants import MALFORMED_CABLE_IDS
+from cablemap.core import reader
 
 __all__ = ['Cable']
+
+def cable_from_file(filename):
+    """\
+    Returns a cable from the provided file.
+    
+    `filename`
+        An absolute path to the cable file.
+    """
+    html = codecs.open(filename, 'rb', 'utf-8').read()
+    return cable_from_html(html, reader.reference_id_from_filename(filename))
+
+def cable_from_html(html, reference_id=None):
+    """\
+    Returns a cable from the provided HTML page.
+    
+    `html`
+        The HTML page of the cable
+    `reference_id`
+        The reference identifier of the cable. If the reference_id is ``None``
+        this function tries to detect it.
+    """
+    if not html:
+        raise ValueError('The HTML page of the cable must be provided, got: "%r"' % html)
+    if not reference_id:
+        reference_id = reader.reference_id_from_html(html)
+    cable = Cable(reference_id)
+    reader.parse_meta(html, cable)
+    header = reader.get_header_as_text(html, reference_id)
+    content =  reader.get_content_as_text(html, reference_id)
+    cable.header = header
+    cable.content = content
+    cable.partial = 'This record is a partial extract of the original cable' in header
+    return cable
 
 # Commonly used base URIs for Wikileaks Cablegate
 # Formats: 
@@ -211,10 +246,6 @@ class _ModifiableCable(_CableBase):
         self.content_body = None
         self.summary = None
 
-def reader():
-    from cablemap.core import reader
-    return reader
-
 
 class Cable(_CableBase):
     """\
@@ -230,48 +261,48 @@ class Cable(_CableBase):
     def transmission_id(self):
         if self.partial:
             return None
-        return reader().parse_transmission_id(self.header, self.reference_id)
+        return reader.parse_transmission_id(self.header, self.reference_id)
 
     @cached_property
     def recipients(self):
         if self.partial:
             return ()
-        return reader().parse_recipients(self.header, self.reference_id)
+        return reader.parse_recipients(self.header, self.reference_id)
 
     @cached_property
     def info_recipients(self):
-        return reader().parse_info_recipients(self.header, self.reference_id)
+        return reader.parse_info_recipients(self.header, self.reference_id)
 
     #
     # Content properties
     #
     @cached_property
     def subject(self):
-        return reader().parse_subject(self.content, self.reference_id)
+        return reader.parse_subject(self.content, self.reference_id)
 
     @cached_property
     def nondisclosure_deadline(self):
-        return reader().parse_nondisclosure_deadline(self.content)
+        return reader.parse_nondisclosure_deadline(self.content)
 
     @cached_property
     def parse_references(self):
-        return reader().parse_references(self.content, self.created[:4], self.reference_id)
+        return reader.parse_references(self.content, self.created[:4], self.reference_id)
 
     @cached_property
     def tags(self):
-        return reader().parse_tags(self.content, self.reference_id)
+        return reader.parse_tags(self.content, self.reference_id)
 
     @cached_property
     def summary(self):
-        return reader().parse_summary(self.content, self.reference_id)
+        return reader.parse_summary(self.content, self.reference_id)
 
     @cached_property
     def content_header(self):
-        return reader().header_body_from_content(self.content)[0]
+        return reader.header_body_from_content(self.content)[0]
 
     @cached_property
     def content_body(self):
-        return reader().header_body_from_content(self.content)[1]
+        return reader.header_body_from_content(self.content)[1]
 
 
 if __name__ == '__main__':

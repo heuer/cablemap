@@ -41,15 +41,12 @@ This module extracts information from cables.
 import os
 import re
 import logging
-import codecs
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
-from cablemap.core.models import Cable
 
 logger = logging.getLogger('cablemap-reader')
 
 # Indicates the max. index where the reader tries to detect the subject/TAGS/references
-# Should be 1200 but due to the malformed cables 06GENEVA2654 06GENEVA1673, 07BERN881 this was set to 2200
-_MAX_HEADER_IDX = 2200
+_MAX_HEADER_IDX = 1200
 
 #
 # Cables w/o tags
@@ -124,39 +121,16 @@ CLASSIFIED BY:'''),
 }
 
 def cable_from_file(filename):
-    """\
-    Returns a cable from the provided file.
-    
-    `filename`
-        An absolute path to the cable file.
-    """
-    html = codecs.open(filename, 'rb', 'utf-8').read()
-    return cable_from_html(html, reference_id_from_filename(filename))
-
-_REFERENCE_ID_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', re.UNICODE)
+    import warnings
+    warnings.warn('Use "from cablemap.core import cable_from_file"', DeprecationWarning)
+    from cablemap.core import models
+    return models.cable_from_file(filename)
 
 def cable_from_html(html, reference_id=None):
-    """\
-    Returns a cable from the provided HTML page.
-    
-    `html`
-        The HTML page of the cable
-    `reference_id`
-        The reference identifier of the cable. If the reference_id is ``None``
-        this function tries to detect it.
-    """
-    if not html:
-        raise ValueError('The HTML page of the cable must be provided, got: "%r"' % html)
-    if not reference_id:
-        reference_id = reference_id_from_html(html)
-    cable = Cable(reference_id)
-    parse_meta(html, cable)
-    header = get_header_as_text(html, reference_id)
-    content =  get_content_as_text(html, reference_id)
-    cable.header = header
-    cable.content = content
-    cable.partial = 'This record is a partial extract of the original cable' in header
-    return cable
+    import warnings
+    warnings.warn('Use "from cablemap.core import cable_from_html"', DeprecationWarning)
+    from cablemap.core import models
+    return models.cable_from_html(html, reference_id)
 
 def reference_id_from_filename(filename):
     """\
@@ -168,6 +142,8 @@ def reference_id_from_filename(filename):
     # Use the correct cable id if the reference id is malformed
     return MALFORMED_CABLE_IDS.get(reference_id, reference_id)
 
+_REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', re.UNICODE)
+
 def reference_id_from_html(html):
     """\
     Extracts the cable's reference identifier from the provided HTML string.
@@ -175,7 +151,7 @@ def reference_id_from_html(html):
     `html`
         The HTML page of the cable.
     """
-    m = _REFERENCE_ID_PATTERN.search(html)
+    m = _REFERENCE_ID_FROM_HTML_PATTERN.search(html)
     if m:
         return m.group(1)
     else:

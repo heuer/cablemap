@@ -38,7 +38,7 @@ Provides access to commonly used functions.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
-from cablemap.core.reader import cable_from_file, cable_from_html
+from cablemap.core.models import cable_from_file, cable_from_html
 from cablemap.core.utils import cables_from_directory, cable_by_id
 
 __all__ = ['cable_from_file', 'cable_from_html',

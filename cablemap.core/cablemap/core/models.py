@@ -125,7 +125,6 @@ class _CableBase(object):
         self.content = None
         self.created = None
         self.released = None
-        self.partial = False
 
     @cached_property
     def wl_uris(self):
@@ -242,6 +241,7 @@ class _ModifiableCable(_CableBase):
         self.content_header = None
         self.content_body = None
         self.summary = None
+        self.partial = False
 
 
 class Cable(_CableBase):

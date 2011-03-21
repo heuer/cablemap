@@ -62,10 +62,10 @@ def run_update(in_dir, predicate=None):
     return {'acronyms': acronyms, 'subjects': subjects, 'tids': tids}
 
 def update_acronyms(cable, acronyms):
-    if not cable.subject or not cable.content_body:
+    if not cable.subject:
         return
     subject_words = [w for w in cable.subject.upper().split() if not w.startswith('XXXXX')]
-    acronyms.update((ac for ac in _AC_PATTERN.findall(cable.content_body) if ac in subject_words and ac not in _UNWANTED))
+    acronyms.update((ac for ac in _AC_PATTERN.findall(cable.content) if ac in subject_words and ac not in _UNWANTED))
 
 def update_missing_subjects(cable, cable_refs):
     if not cable.subject:

@@ -53,15 +53,13 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
 _UNWANTED = (u'SAVE',)
 
 def run_update(in_dir, predicate=None):
-    seen_cables = set()
     acronyms = set(_ACRONYMS)
     subjects = set()
     tids = set()
     for cable in cables_from_directory(in_dir, predicate):
         update_acronyms(cable, acronyms)
         update_missing_subjects(cable, subjects)
-        seen_cables.add(cable.reference_id)
-    return {'acronyms': acronyms, 'subjects': subjects, 'tids': tids, 'seen_cables': seen_cables}
+    return {'acronyms': acronyms, 'subjects': subjects, 'tids': tids}
 
 def update_acronyms(cable, acronyms):
     if not cable.subject or not cable.content_body:
@@ -98,10 +96,16 @@ def update_file(filename, found):
     if not found:
         return
     current = _file_as_set(filename)
-    diff = current ^ (found | current)
+    diff = current ^ found
     if diff:
-        _write_set(filename, (found | current))
-        print('New in "%s": %r' % (filename, diff))
+        _write_set(filename, found)
+        removed = current - found
+        fn = os.path.basename(filename)
+        if removed:
+            print('Removed from "%s": %r' % (fn , removed))
+        added = found - current
+        if added:
+            print('Added to "%s": %r' % (fn, added))
 
 
 _FILE_ACRONYMS = _file_in_core('acronyms.txt')

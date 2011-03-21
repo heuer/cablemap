@@ -41,6 +41,7 @@ Utility functions for cables.
 import os
 import re
 import codecs
+import string
 from functools import partial
 from itertools import imap
 from StringIO import StringIO
@@ -411,7 +412,7 @@ _SPECIAL_WORDS = {
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^(([0-9]+(th|st|rd|nd))|(a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)
-_TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(([,:;\.\-])|(?:'|’)([a-z]{1,3}))?$" % r'|'.join(_ACRONYMS), re.UNICODE|re.IGNORECASE)
+_TITLEFY_BIG_PATTERN = re.compile(ur"^((%s)|(xx+)|(XX+)|(\([A-Z]{2,4}\):?))(?:[%s]?)(([,:;\.\-])|(?:'|’)([a-z]{1,3}))?$" % (r'|'.join(_ACRONYMS), string.punctuation), re.UNICODE|re.IGNORECASE)
 _APOS_PATTERN = re.compile(ur"^(\w+)('|’|,)([A-Z]{1,3}|,s)$", re.UNICODE|re.IGNORECASE)
 _is_number = re.compile('^[0-9]+(th|st|rd|nd)$', re.IGNORECASE).match
 

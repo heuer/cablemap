@@ -43,7 +43,7 @@ import codecs
 from nose.tools import eq_
 from cablemap.core.utils import clean_content
 
-_DATA_DIR = 'clean_test_data'
+_DATA_DIR = 'data-clean'
 
 _TEST_DATA = (
     ('gentlexxx', u'gentle'),

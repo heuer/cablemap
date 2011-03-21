@@ -521,7 +521,8 @@ def parse_info_recipients(header, reference_id):
     return res
 
 
-_SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]+\(SBU\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is an Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
+_SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\(SBU\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is an Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
+_SUBJECT_MAX_PATTERN = re.compile(r'[1-9]\.?[ ]*\([^\)]+\)')
 _NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$')
@@ -552,10 +553,13 @@ def parse_subject(content, reference_id=None, clean=True):
     """
     def to_unicodechar(match):
         return unichr(int(match.group(1)))
-    m = _SUBJECT_PATTERN.search(content, 0, _MAX_HEADER_IDX)
+    m = _SUBJECT_MAX_PATTERN.search(content)
+    max_idx = m and m.start() or _MAX_HEADER_IDX
+    m = _SUBJECT_PATTERN.search(content, 0, max_idx)
     if not m:
         return u''
-    res = _NL_PATTERN.sub(u' ', m.group(1)).strip()
+    res = m.group(1).strip()
+    res = _NL_PATTERN.sub(u' ', res)
     res = _WS_PATTERN.sub(u' ', res)
     res = _HTML_ENTITIES_PATTERN.sub(to_unicodechar, res)
     if clean:

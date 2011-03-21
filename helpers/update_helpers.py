@@ -101,11 +101,14 @@ def update_file(filename, found):
         _write_set(filename, found)
         removed = current - found
         fn = os.path.basename(filename)
+        header = 'Changes in %s' % fn
+        print('\n' + header)
+        print('=' * len(header))
         if removed:
-            print('Removed from "%s": %r' % (fn , removed))
+            print('Removed:\n%r\n' % (removed))
         added = found - current
         if added:
-            print('Added to "%s": %r' % (fn, added))
+            print('Added:\n%r\n' % (added))
 
 
 _FILE_ACRONYMS = _file_in_core('acronyms.txt')

@@ -38,8 +38,13 @@ Tests subject parsing.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+import os
+import codecs
 from nose.tools import eq_
 from cablemap.core.reader import parse_subject
+from cablemap.core import cable_from_file
+
+_DATA_DIR = 'data-subject'
 
 _TEST_DATA = (
     ("TAGS: TAG TAG2\\nSUBJECT:  SINGLE LINE SUBJECT \n\nREF: REF 1",  u'SINGLE LINE SUBJECT'),
@@ -258,6 +263,19 @@ def test_parse_subject():
         else:
             content, expected = test
         yield check, content, clean, expected
+
+def test_parse_subject_issue14():
+    """\
+    Test against issue #14.
+    <https://github.com/heuer/cablemap/issues/#issue/14>
+    """
+    def check(expected, input):
+        eq_(expected, parse_subject(input))
+    base = os.path.join(os.path.dirname(__file__), _DATA_DIR)
+    for name in [name for name in os.listdir(os.path.join(base, 'in')) if name.endswith('.html')]:
+        input = cable_from_file(os.path.join(base, 'in', name)).content
+        expected = codecs.open(os.path.join(base, 'out', name.replace('.html', '.txt')), 'rb', 'utf-8').readline().rstrip()
+        yield check, expected, input
 
 if __name__ == '__main__':
     import nose

@@ -10,6 +10,7 @@ Changes
 * Deprecated ``cablemap.core.handler.py``, use ``cablemap.tm.handler.py``
 * Improved TAGS parsing
 * Improved summary parsing
+* Improved performance: Many cable properties are initialized lazily.
 
 
 2011-02-15 -- 0.1.0

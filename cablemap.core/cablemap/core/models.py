@@ -286,7 +286,7 @@ class Cable(_CableBase):
         return reader.parse_nondisclosure_deadline(self.content)
 
     @cached_property
-    def parse_references(self):
+    def references(self):
         return reader.parse_references(self.content, self.created[:4], self.reference_id)
 
     @cached_property

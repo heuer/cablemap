@@ -137,6 +137,9 @@ _TEST_DATA = (
     # 08BRASILIA1252
     (u'63RD UN GENERAL ASSEMBLY: BRAZILIAN PRIORITIES',
      u'63rd UN General Assembly: Brazilian Priorities'),
+    # 08PARIS1561
+    (u'WORKING WITH FRANCE TO ADVANCE A SOLUTION TO THE CONFLICT IN GEORGIA (UNSCR AND GAERC)',
+     u'Working With France to Advance a Solution to the Conflict in Georgia (UNSCR and GAERC)'),
 )
 
 def test_titlefy():

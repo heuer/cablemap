@@ -55,11 +55,10 @@ _UNWANTED = (u'SAVE', u'CITES')
 def run_update(in_dir, predicate=None):
     acronyms = set(_ACRONYMS)
     subjects = set()
-    tids = set()
     for cable in cables_from_directory(in_dir, predicate):
         update_acronyms(cable, acronyms)
         update_missing_subjects(cable, subjects)
-    return {'acronyms': acronyms, 'subjects': subjects, 'tids': tids}
+    return {'acronyms': acronyms, 'subjects': subjects}
 
 def update_acronyms(cable, acronyms):
     if not cable.subject:

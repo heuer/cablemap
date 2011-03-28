@@ -43,7 +43,7 @@ import re
 import logging
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
 
-logger = logging.getLogger('cablemap-reader')
+logger = logging.getLogger('cablemap.core.reader')
 
 # Indicates the max. index where the reader tries to detect the subject/TAGS/references
 _MAX_HEADER_IDX = 1200

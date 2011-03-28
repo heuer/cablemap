@@ -38,9 +38,23 @@ Provides access to commonly used functions.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+import logging
 from cablemap.core.models import cable_from_file, cable_from_html
 from cablemap.core.utils import cables_from_directory, cable_by_id
+try:
+    from logging import NullHandler # Python >= 2.7
+except ImportError:
+    class NullHandler(logging.Handler):
+        def emit(self, record):
+            pass
 
 __all__ = ['cable_from_file', 'cable_from_html',
            'cables_from_directory', 'cable_by_id',
            ]
+
+_nh = NullHandler()
+
+logger = logging.getLogger('cablemap')
+logger.addHandler(_nh)
+
+

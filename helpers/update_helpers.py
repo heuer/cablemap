@@ -10,7 +10,7 @@ from cablemap.core import cables_from_directory
 
 import logging 
 import sys
-logger = logging.getLogger('cablemap-reader')
+logger = logging.getLogger('cablemap.core.reader')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler(sys.stdout))
 

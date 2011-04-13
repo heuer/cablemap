@@ -35,7 +35,7 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'MDC', u'MEP', u'MFA', u'MOD', u'MI-17', u'MI-6',
              u'MRE', u'MP', u'MONUC', u'MOP-3', u'MEA',
              u'NATO', u'NDP', u'NSA', u'NGO', u'NEA', u'NEA/MAG', u'NTM-I',
-             u'OIC', u'OECD', u'OAS',
+             u'OIC', u'OECD', u'OAS', u'OSCE',
              u'PA', u'PD', u'PM', u'PMDB', u'PS', u'PDAS', u'PRT', u'POC', u'PRC/DPRK',
              u'PNG', u'PRC',
              u'ROK', u'RWE', u'RFG', u'RMB', u'RSO', u'RPO', u'RTG',

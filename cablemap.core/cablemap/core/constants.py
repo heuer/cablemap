@@ -90,7 +90,7 @@ _STATIONS = (
     'MOSCOW', 'MUMBAI', 'MUNICH', 'MUSCAT', 'MELBOURNE', 'MANILA',
     # N
     'NAIROBI', 'NAPLES', 'NASSAU', 'NEWDELHI', 'NIAMEY', 'NICOSIA',
-    'NDJAMENA',
+    'NDJAMENA', 'NAHA',
     # O 
     'OSLO', 'OTTAWA', 'OUAGADOUGOU', 
     # P

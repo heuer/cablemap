@@ -45,6 +45,7 @@ Other sources:
 * <http://cablegate.heroku.com/>
 * <http://cablegategame.com/>
 * <http://www.ceinquiry.us/2010-11-28-wikileaks-glossary.php>
+* <http://aebr.home.xs4all.nl/wl/aftenposten/>
 
 Software for Cablegate:
 * <https://github.com/hamstar/CableBot>

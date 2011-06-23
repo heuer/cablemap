@@ -733,7 +733,7 @@ def parse_tags(content, reference_id=None):
 
 _END_SUMMARY_PATTERN = re.compile(r'END\s+SUMMARY', re.IGNORECASE)
 # 09OSLO146 contains "Summay" instead of "SummaRy"
-_START_SUMMARY_PATTERN = re.compile(r'(SUMMAR?Y( AND COMMENT)?( AND ACTION REQUEST)?[ \-\n:\.]*)', re.IGNORECASE)
+_START_SUMMARY_PATTERN = re.compile(ur'(SUMMAR?Y( AND COMMENT)?( AND ACTION REQUEST)?( AND INTRODUCTION)?[ ‐\-\n:\.]*)', re.IGNORECASE)
 # Some cables like 07BAGHDAD3895, 07TRIPOLI1066 contain "End Summary" but no "Summary:" start
 # Since End Summary occurs in the first paragraph, we interpret the first paragraph as summary
 _ALTERNATIVE_START_SUMMARY_PATTERN = re.compile(r'\n1\.[ ]*(\([^\)]+\))? ')

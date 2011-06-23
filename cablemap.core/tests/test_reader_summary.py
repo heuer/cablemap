@@ -120,6 +120,24 @@ THE CIVIL SOCIETY PERSPECTIVE
 -----------------------------
 ''',
      u'On 28 July 2008 [...].'),
+    # 05PANAMA1729
+    (u'''Classified By: Charge d'Affaires Luis Arreaga for reasons 1.4 (B) AND (
+D).
+
+1. (SBU) This message is the first in a three‐part series on
+views of the Torrijos administration's performance as it
+approaches its September 1 first anniversary.
+
+SUMMARY AND INTRODUCTION
+‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐
+
+2. (C) Martin Torrijos's [...]
+performance, dashed expectations, and squandered
+opportunities. END SUMMARY AND INTRODUCTION.
+
+Great Expectations
+‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐''',
+     u'''Martin Torrijos's [...] performance, dashed expectations, and squandered opportunities.'''),
 
 )
 

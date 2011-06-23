@@ -2,7 +2,11 @@
 Changes
 =======
 
-2011-mm-dd -- 0.2.0
+2011-mm-dd -- 0.3.0
+-------------------
+
+
+2011-06-23 -- 0.2.0
 -------------------
 * Added more acronyms
 * Better extraction of subjects

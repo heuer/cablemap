@@ -32,10 +32,10 @@ For other examples see: https://github.com/heuer/cablemap/tree/master/examples
 
 Installation
 ------------
-cablemap.core 0.1.0 is the current stable release. To install it, use::
+cablemap.core 0.2.0 is the current stable release. To install it, use::
 
-    easy_install -U cablemap.core==0.1.0
+    easy_install -U cablemap.core==0.2.0
 
-cablemap.core 0.2.0 is the unstable, next release; install it via::
+cablemap.core 0.3.0 is the unstable, next release; install it via::
 
     easy_install -U cablemap.core

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """\
-This module tries to detect acronyms, finds cables w/o subject.
+This module tries to detect acronyms and cables w/o subject.
 """
 import os
 import re

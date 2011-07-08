@@ -39,6 +39,7 @@ This module extracts information from cables.
 :license:      BSD license
 """
 import os
+import codecs
 import re
 import logging
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
@@ -66,6 +67,10 @@ _CABLES_WITH_MALFORMED_SUMMARY = (
     '09CAIRO2133', '06BUENOSAIRES2711', '08BUENOSAIRES1305', '07ATHENS2386',
     '09SOFIA716',
     )
+
+_CABLE_ID_SUBJECT_PATTERN = re.compile('^([0-9]+[^:]+):\s(.+)$')
+
+_CABLE_SUBJECT_FIXES = dict([_CABLE_ID_SUBJECT_PATTERN.match(l).groups() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subjects.txt'), 'rb', 'utf-8') if l and not l.startswith(u'#')])
 
 _CABLE_FIXES = {
     '08MANAMA492': # (08ECTION01OF02MANAMA492)
@@ -565,7 +570,11 @@ def parse_subject(content, reference_id=None, clean=True):
     max_idx = m and m.start() or _MAX_HEADER_IDX
     m = _SUBJECT_PATTERN.search(content, 0, max_idx)
     if not m:
-        return u''
+        # No subject found, try to find it in the fixed subjects dict, otherwise return u''
+        subject = _CABLE_SUBJECT_FIXES.get(reference_id, u'')
+        if subject and clean:
+            subject = _BRACES_PATTERN.sub(u'', subject)
+        return subject
     res = m.group(1).strip()
     res = _NL_PATTERN.sub(u' ', res)
     res = _WS_PATTERN.sub(u' ', res)

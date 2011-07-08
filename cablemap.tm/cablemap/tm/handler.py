@@ -229,7 +229,7 @@ class CableHandler(object):
 
     def handle_release(self, datetime):
         """\
-        Assigns the Wikileaks release datetime to the cable.
+        Assigns the WikiLeaks release datetime to the cable.
 
         `datetime`
             ISO 8601 formatted datetime
@@ -247,5 +247,14 @@ class CableHandler(object):
         `partial`
             A boolean value, ``True`` indicates that the current cable is
             only partially available.
+        """
+        pass
+
+    def handle_media(self, iri):
+        """\
+        Assigns the provided IRI to the media coverage IRIs.
+
+        `iri`
+            The IRI to add.
         """
         pass

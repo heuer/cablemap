@@ -541,7 +541,7 @@ _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$')
 _HTML_ENTITIES_PATTERN = re.compile(r'&#([0-9]+);')
 
-def parse_subject(content, reference_id=None, clean=True):
+def parse_subject(content, reference_id=None, clean=True, fix_subject=True):
     """\
     Parses and returns the subject of a cable. If the cable has no subject, an
     empty string is returned.
@@ -563,6 +563,13 @@ def parse_subject(content, reference_id=None, clean=True):
         U.S. Department of State Foreign Affairs Handbook Volume 5 Handbook 1 — Correspondence Handbook
         5 FAH-1 H-210 -- HOW TO USE TELEGRAMS; page 2
         <http://www.state.gov/documents/organization/89319.pdf>
+    `fix_subject`
+        If no subject can be found in the WikiLeaks cable source, the
+        subject can be set to another value if the reader has knowledge
+        about the subject from 3rd party cable releases like the Aftenposten
+        cable releases.
+        If `fix_subject` is set to ``True`` (default) the reader tries to
+        find set the subject, otherwise the subject will be an emtpy string.
     """
     def to_unicodechar(match):
         return unichr(int(match.group(1)))
@@ -570,6 +577,8 @@ def parse_subject(content, reference_id=None, clean=True):
     max_idx = m and m.start() or _MAX_HEADER_IDX
     m = _SUBJECT_PATTERN.search(content, 0, max_idx)
     if not m:
+        if not fix_subject:
+            return u''
         # No subject found, try to find it in the fixed subjects dict, otherwise return u''
         subject = _CABLE_SUBJECT_FIXES.get(reference_id, u'')
         if subject and clean:

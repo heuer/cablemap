@@ -7,6 +7,7 @@ import re
 import codecs
 from functools import partial
 from cablemap.core import cables_from_directory
+from cablemap.core.reader import parse_subject
 
 import logging 
 import sys
@@ -67,7 +68,7 @@ def update_acronyms(cable, acronyms):
     acronyms.update((ac for ac in _AC_PATTERN.findall(cable.content) if ac in subject_words and ac not in _UNWANTED))
 
 def update_missing_subjects(cable, cable_refs):
-    if not cable.subject:
+    if not parse_subject(cable.content, fix_subject=False):
         cable_refs.add(cable.reference_id)
  
 def _filename(name):

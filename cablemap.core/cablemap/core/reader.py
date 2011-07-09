@@ -133,18 +133,6 @@ SUBJECT: RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GO
 CLASSIFIED BY:'''),
 }
 
-def cable_from_file(filename):
-    import warnings
-    warnings.warn('Use "from cablemap.core import cable_from_file"', DeprecationWarning)
-    from cablemap.core import models
-    return models.cable_from_file(filename)
-
-def cable_from_html(html, reference_id=None):
-    import warnings
-    warnings.warn('Use "from cablemap.core import cable_from_html"', DeprecationWarning)
-    from cablemap.core import models
-    return models.cable_from_html(html, reference_id)
-
 def reference_id_from_filename(filename):
     """\
     Extracts the reference identifier from the provided filename.

@@ -45,7 +45,7 @@ _TEST_DATA = (
     (u'07BUENOSAIRES1776', [u'http://www.lanacion.com.ar/1360470-cuatro-paises-denunciaron-corrupcion-en-el-gobierno']),
     (u'06MEXICO680', [u'http://wikileaks.jornada.com.mx/notas/eu-no-veia-mal-la-llegada-de-lopez-obrador-a-los-pinos']),
     (u'06WARSAW1592', [u'http://www.mcclatchydc.com/2011/05/16/114269/wikileaks-cables-show-oil-a-major.html']),
-    (u'09BERLIN1162', [u'http://www.spiegel.de/']),
+    (u'09BERLIN1162', [u'http://www.spiegel.de']),
     )
 
 def test_media_urls():

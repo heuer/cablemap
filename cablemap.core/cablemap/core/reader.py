@@ -294,6 +294,7 @@ def header_body_from_content(content):
 
 
 _META_PATTERN = re.compile(r'''<table\s+class\s*=\s*(?:"|')cable(?:"|')\s*>.+?<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>''', re.MULTILINE|re.DOTALL)
+_MEDIA_URLS_PATTERN = re.compile(r'''<a href=(?:"|')([^"']+)''')
 
 def parse_meta(file_content, cable):
     """\
@@ -320,6 +321,10 @@ def parse_meta(file_content, cable):
     cable.origin = origin
     # classifications are usually written in upper case, but you never know.. 
     cable.classification = classification.upper()
+    # Try to find media IRIs
+    start_idx = file_content.rfind(u'Appears in these', start_idx, end_idx)
+    if start_idx > 0:
+        cable.media_uris = _MEDIA_URLS_PATTERN.findall(file_content, start_idx, end_idx)
     return cable
 
 

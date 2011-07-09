@@ -126,6 +126,7 @@ class _CableBase(object):
         self.content = None
         self.created = None
         self.released = None
+        self.media_uris = []
 
     @cached_property
     def wl_uris(self):
@@ -169,6 +170,7 @@ class _CableBase(object):
                     origin=self.origin,
                     references=self.references,
                     recipients=self.recipients,
+                    media_uris=self.media_uris,
                     info=self.info_recipients,
                     partial=self.partial,
                     classification=self.classification,
@@ -193,6 +195,7 @@ class _CableBase(object):
         cable.origin = dct.get('origin')
         cable.references = dct.get('references', [])
         cable.recipients = dct.get('recipients', [])
+        cable.media_uris = dct.get('media_uris', [])
         cable.info_recipients = dct.get('info', [])
         cable.partial = dct.get('partial', False)
         cable.classification = dct.get('classification')

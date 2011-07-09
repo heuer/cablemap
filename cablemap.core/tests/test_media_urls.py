@@ -50,7 +50,7 @@ _TEST_DATA = (
 
 def test_media_urls():
     def check(cable, media_urls):
-        eq_(sorted(cable.media_urls), sorted(media_urls))
+        eq_(sorted(cable.media_uris), sorted(media_urls))
     for cable_id, media_urls in _TEST_DATA:
         yield check, cable_by_id(cable_id), media_urls
 

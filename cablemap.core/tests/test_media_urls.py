@@ -46,6 +46,7 @@ _TEST_DATA = (
     (u'06MEXICO680', [u'http://wikileaks.jornada.com.mx/notas/eu-no-veia-mal-la-llegada-de-lopez-obrador-a-los-pinos']),
     (u'06WARSAW1592', [u'http://www.mcclatchydc.com/2011/05/16/114269/wikileaks-cables-show-oil-a-major.html']),
     (u'09BERLIN1162', [u'http://www.spiegel.de']),
+    (u'05ROME1593', []),
     )
 
 def test_media_urls():

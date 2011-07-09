@@ -80,7 +80,8 @@ def cable_from_html(html, reference_id=None):
 # * BASE/<year>/<month>/<reference-id>.html
 _WL_CABLE_BASE_URIS = (
                 'http://wikileaks.ch/cable/',
-                'http://cablegate.wikileaks.org/cable/',
+                'http://wikileaks.org/cable/',
+                'http://cablegate.wikileaks.org/cable/', # Does not work anymore
                 'http://213.251.145.96/cable/'
                 )
 

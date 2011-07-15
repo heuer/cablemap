@@ -47,6 +47,11 @@ _TEST_DATA = (
     (u'06WARSAW1592', [u'http://www.mcclatchydc.com/2011/05/16/114269/wikileaks-cables-show-oil-a-major.html']),
     (u'09BERLIN1162', [u'http://www.spiegel.de']),
     (u'05ROME1593', []),
+    (u'10UNESCOPARISFR187', [u'http://www.haitiliberte.com',
+                             u'http://www.haiti-liberte.com/archives/volume4-48/Le%20d%C3%A9ploiement%20des%20militaires.asp',
+                             u'http://www.haiti-liberte.com/archives/volume4-48/Une%20ru%C3%A9e%20vers%20l%E2%80%99or.asp',
+                             u'http://www.haiti-liberte.com/archives/volume4-48/U.S.%20Worried%20about%20International.asp',
+                             u'http://www.haiti-liberte.com/archives/volume4-48/After%20Quake.asp']),
     )
 
 def test_media_urls():

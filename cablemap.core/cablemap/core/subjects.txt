@@ -42,8 +42,6 @@
 07OSLO729: NORWAY: NEGATIVE IMPACT OF U.S. WEAPONS SYSTEM PROBLEMS
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3972838.ece>
 07TELAVIV2281: APHSCT TOWNSEND RECEIVES ACTION PLAN ON PALESTINIANS FROM ISRAELI NSC
-# <http://apublica.org/2011/06/08brasilia672/>
-08BRASILIA672: SOURCES OF GENERATION – ELECTRICITY SERIES #2
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3965547.ece>
 08COPENHAGEN70: DENMARK: CARTOONS IN DEFENSE OF FREE SPEECH
 # <http://aebr.home.xs4all.nl/wl/rusrep/08MOSCOW2426.html>

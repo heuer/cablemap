@@ -24,8 +24,6 @@ _RR_IRI = 'http://aebr.home.xs4all.nl/wl/rusrep/'
 _additional_subjects = {
     # Format:
     # Cable ID: (subject, source)
-    u'08BRASILIA672': (u'SOURCES OF GENERATION – ELECTRICITY SERIES #2',
-                       u'http://apublica.org/2011/06/08brasilia672/'),
     }
 
 _FILE_HEADER = u'''\

@@ -44,10 +44,20 @@ from cablemap.core import cable_by_id
 
 
 def test_issue5():
+    #
+    # Note: The issue lists
+    #   (B) Sao Paulo 215;
+    #   (C) 05 Sao Paulo 975
+    #
+    # but the cable changed to:
+    #   REF: A) Sao Paulo 319 B) Sao Paulo 278
+    #
+    # (2011-07-15)
+    #
     cable = cable_by_id('06SAOPAULO348')
     assert cable
-    assert u'06SAOPAULO215' in cable.references
-    assert u'05SAOPAULO975' in cable.references
+    assert u'06SAOPAULO319' in cable.references
+    assert u'06SAOPAULO278' in cable.references
     eq_([u'PGOV', u'PHUM', u'KCRM', u'SOCI', u'SNAR', u'ASEC', u'BR'], cable.tags)
 
 

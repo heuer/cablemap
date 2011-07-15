@@ -80,7 +80,7 @@ _BASE = 'http://wikileaks.ch/'
 _INDEX = _BASE + 'cablegate.html'
 
 _LINKS_PATTERN = re.compile(r"<a href='(.+?)'\s*>")
-_PAGINATOR_PATTERN = re.compile('''<div\s+class=(?:"|')paginator(?:"|')\s*>.+?<a href=(?:"|')(/date/[0-9]{4}-[0-9]{2}_).+?(?:"|')>([2-9]+)</a><a href=.+?> &gt;&gt;</a></div>''')
+_PAGINATOR_PATTERN = re.compile('''<div\s+class=(?:"|')paginator(?:"|')\s*>.+?<a href=(?:"|')(/date/[0-9]{4}-[0-9]{2}_).+?(?:"|')>([0-9]+)</a><a href=.+?> &gt;&gt;</a></div>''')
 _PAGE_PATTERN = re.compile(r'''<a[ ]+href=(?:"|')([^"']+)(?:"|')>[2-9]+</a>''')
 _BY_DATE_PATTERN = re.compile(r'''<div\s+class=(?:"|')sort(?:"|')\s+id=(?:"|')year_1966(?:"|')>(.+?)<h3>Browse\s+by\s+<a\s+href=(?:"|')#by_A''', re.DOTALL)
 

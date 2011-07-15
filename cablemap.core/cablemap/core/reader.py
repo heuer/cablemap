@@ -119,10 +119,6 @@ D. 08 CAIRO 783
 E. 07 CAIRO 3214
 F. 07 CAIRO 2845
 """),
-    '06SAOPAULO348':
-        ('''BR
-\(B\) Sao Paulo 215;''', u'''BR
-REF: (B) Sao Paulo 215;'''),
     '09TRIPOLI63':
         ('''LY
 

@@ -4,6 +4,8 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
+* Added ability to reconstruct subjects from sources != WikiLeaks, namely 
+  <http://aebr.home.xs4all.nl/wl/> 
 * cable_by_id and cable_page_by_id returned None if the release year page
   contains 10 or more pages to walk through. Fixed.
 * Added support to parse media IRIs to the reader module

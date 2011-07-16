@@ -4,7 +4,7 @@ This module reports malformed cable ids.
 """
 import os
 import re
-from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
+from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 def find_malformed_ids(in_dir):
     dct = {}
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     import os, codecs
     if not os.path.isdir('./cable/'):
         raise Exception('Expected a directory "cable"')
-    current = set(MALFORMED_CABLE_IDS.keys())
+    current = set(MALFORMED_CABLE_IDS.keys()) | set(INVALID_CABLE_IDS.keys())
     dct = find_malformed_ids('./cable/')
     s = set(dct.keys())
     diff = s ^ current

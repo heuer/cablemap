@@ -4,6 +4,7 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
+* Better handling of malformed/illegal cable identifiers
 * Added ability to reconstruct subjects from sources != WikiLeaks, namely 
   <http://aebr.home.xs4all.nl/wl/> 
 * cable_by_id and cable_page_by_id returned None if the release year page

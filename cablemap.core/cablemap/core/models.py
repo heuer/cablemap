@@ -82,7 +82,7 @@ _WL_CABLE_BASE_URIS = (
                 'http://wikileaks.ch/cable/',
                 'http://wikileaks.org/cable/',
                 'http://cablegate.wikileaks.org/cable/', # Does not work anymore
-                'http://213.251.145.96/cable/'
+                'http://213.251.145.96/cable/' # Seems to work neither
                 )
 
 # Source: <https://github.com/mitsuhiko/werkzeug/blob/master/werkzeug/utils.py#L30>

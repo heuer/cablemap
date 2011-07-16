@@ -119,7 +119,7 @@ def cable_page_by_id(reference_id):
         if m:
             return True, _fetch_url(_BASE + m.group(1))
         return False, pg
-    m = REFERENCE_ID_PATTERN.match(MALFORMED_CABLE_IDS.get(reference_id, reference_id))
+    m = REFERENCE_ID_PATTERN.match(MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id)))
     if not m:
         return None
     # Cables without a valid counterpart

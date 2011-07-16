@@ -49,7 +49,7 @@ import gzip
 import urllib2
 from cablemap.core import cable_from_file, cable_from_html
 from cablemap.core.models import Cable
-from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
+from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 try:
     import simplejson as json
 except ImportError:
@@ -122,11 +122,12 @@ def cable_page_by_id(reference_id):
     m = REFERENCE_ID_PATTERN.match(MALFORMED_CABLE_IDS.get(reference_id, reference_id))
     if not m:
         return None
-    # Cables without a valid counterpart:
-    if reference_id == '08BISHKEK1021':
-        reference_id = '08SECTION01GF02BISHIEK21'
-    elif reference_id == '09SANJOSE525':
-        reference_id = '09SECTION01OF03SANJOSE525'
+    # Cables without a valid counterpart
+    if reference_id in INVALID_CABLE_IDS.values():
+        for invalid, correct in INVALID_CABLE_IDS.iteritems():
+            if correct == reference_id:
+                reference_id = invalid
+                break
     year = normalize_year(m.group(1))
     index = _fetch_url(_INDEX)
     by_date_m = _BY_DATE_PATTERN.search(index)

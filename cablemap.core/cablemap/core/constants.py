@@ -147,7 +147,7 @@ INVALID_CABLE_IDS = {
     # Format:
     # Invalid cable ID: Cable ID which would be correct
     '09EFTOHELSINKI235': u'09HELSINKI235',
-    '08SECTION01GF02BISHIEK21': u'08BISHKEK1021',
+    '08SECTION01GF02BISHIEK21': u'08BISHKEK1021', # See <http://aebr.home.xs4all.nl/wl/corrupted/corrupted.html>
     '09SECTION01OF03SANJOSE525': u'09SANJOSE525',
     '07EFTOOTTAWA1217': u'07OTTAWA1217',
     '06BRAILIA1079': u'06BRASILIA1079',

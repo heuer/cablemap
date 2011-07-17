@@ -136,10 +136,8 @@ REFERENCE_ID_PATTERN = re.compile(r'^([0-9]{2})(%s)([0-9]{%d,%d})$' % ('|'.join(
 # Wrong WikiLeaks cable identifiers
 MALFORMED_CABLE_IDS = {
     '08SCTION02OF02SAOPAULO335': u'08SAOPAULO335',
-    '08SECTION01GF02BISHIEK21': u'08BISHKEK1021',
     '09SECTION02OF03QRIPOLI583': u'09TRIPOLI583',
     '08ECTION01OF02MANAMA492': u'08MANAMA492',
-    '09SECTION01OF03SANJOSE525': u'09SANJOSE525',
 }
 
 # Wrong WikiLeaks cable identifiers w/o a valid equivalent

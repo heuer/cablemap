@@ -101,6 +101,12 @@ def cable_page_by_id(reference_id):
     >>> cable_page_by_id('10MUSCAT103') is not None
     True
     """
+    def wl_id_ref_id(reference_id):
+        if reference_id in INVALID_CABLE_IDS.values():
+            for k, v in INVALID_CABLE_IDS.iteritems():
+                if v == reference_id:
+                    return k, reference_id
+        return reference_id, reference_id
     def normalize_year(y):
         year = y
         try:
@@ -119,16 +125,8 @@ def cable_page_by_id(reference_id):
         if m:
             return True, _fetch_url(_BASE + m.group(1))
         return False, pg
-    m = REFERENCE_ID_PATTERN.match(MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id)))
-    if not m:
-        return None
-    # Cables without a valid counterpart
-    if reference_id in INVALID_CABLE_IDS.values():
-        for invalid, correct in INVALID_CABLE_IDS.iteritems():
-            if correct == reference_id:
-                reference_id = invalid
-                break
-    year = normalize_year(m.group(1))
+    wl_id, reference_id = wl_id_ref_id(reference_id)
+    year = normalize_year(reference_id[:2])
     index = _fetch_url(_INDEX)
     by_date_m = _BY_DATE_PATTERN.search(index)
     if by_date_m:
@@ -139,7 +137,7 @@ def cable_page_by_id(reference_id):
     m = p.search(index)
     if not m:
         return None
-    get_page = partial(get_html_page, link_finder=re.compile(r'''<a\s+href=(?:"|')(.+?)(?:"|')>%s</a>''' % reference_id).search)
+    get_page = partial(get_html_page, link_finder=re.compile(r'''<a\s+href=(?:"|')(.+?)(?:"|')>%s</a>''' % wl_id).search)
     for link in _LINKS_PATTERN.findall(m.group(1)):
         found, page = get_page(link)
         if found:

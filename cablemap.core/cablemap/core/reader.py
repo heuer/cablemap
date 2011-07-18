@@ -42,7 +42,7 @@ import os
 import codecs
 import re
 import logging
-from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS
+from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 logger = logging.getLogger('cablemap.core.reader')
 
@@ -137,9 +137,26 @@ def reference_id_from_filename(filename):
     if reference_id.rfind('.htm') > 0:
         reference_id = reference_id[:reference_id.rfind('.')]
     # Use the correct cable id if the reference id is malformed
-    return MALFORMED_CABLE_IDS.get(reference_id, reference_id)
+    return reference_id
 
-_REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[0-9]+),', re.UNICODE)
+def canonicalize_id(reference_id):
+    """\
+    Returns the canonicalized form of the provided reference_id.
+
+    WikiLeaks provides some malformed cable identifiers. If the provided `reference_id`
+    is not valid, this method returns the valid reference identifier equivalent.
+    If the reference identifier is valid, the reference id is returned unchanged.
+
+    Note: The returned canonicalized identifier may not be a valid WikiLeaks identifier anymore.
+
+    `reference_id`
+        The cable identifier to canonicalize
+    """
+    if u'PARISFR' in reference_id and not u'UNESCOPARISFR' in reference_id:
+        return reference_id.replace(u'PARISFR', u'UNESCOPARISFR')
+    return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
+
+_REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)
 
 def reference_id_from_html(html):
     """\
@@ -151,11 +168,6 @@ def reference_id_from_html(html):
     m = _REFERENCE_ID_FROM_HTML_PATTERN.search(html)
     if m:
         return m.group(1)
-    else:
-        # Maybe a malformed ID?
-        m = re.search(r'(%s)' % '|'.join(MALFORMED_CABLE_IDS.keys()), html, re.UNICODE)
-        if m:
-            return MALFORMED_CABLE_IDS[m.group(1)]
     raise ValueError("Cannot extract the cable's reference id")
 
 def fix_content(content, reference_id):
@@ -299,7 +311,9 @@ def parse_meta(file_content, cable):
     if cable.reference_id != ref:
         reference_id = MALFORMED_CABLE_IDS.get(ref)
         if reference_id != cable.reference_id:
-            raise ValueError('cable.reference_id != ref. reference_id="%s", ref="%s"' % (cable.reference_id, ref))
+            reference_id = INVALID_CABLE_IDS.get(ref)
+            if reference_id != cable.reference_id:
+                raise ValueError('cable.reference_id != ref. reference_id="%s", ref="%s"' % (cable.reference_id, ref))
     cable.created = created
     cable.released = released
     cable.origin = origin

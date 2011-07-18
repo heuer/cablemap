@@ -152,7 +152,7 @@ def canonicalize_id(reference_id):
     `reference_id`
         The cable identifier to canonicalize
     """
-    if u'PARISFR' in reference_id and not u'UNESCOPARISFR' in reference_id:
+    if u'PARISFR' in reference_id and not u'UNESCOPARISFR' in reference_id: #TODO: Could be added to INVALID_CABLE_IDS
         return reference_id.replace(u'PARISFR', u'UNESCOPARISFR')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 

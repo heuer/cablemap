@@ -39,7 +39,6 @@ This module provides models to keep data about cables.
 :license:      BSD license
 """
 import codecs
-from cablemap.core.constants import MALFORMED_CABLE_IDS
 from cablemap.core import reader
 
 __all__ = ['cable_from_file', 'cable_from_html']
@@ -129,6 +128,10 @@ class _CableBase(object):
         self.media_uris = []
 
     @cached_property
+    def canonical_id(self):
+        return reader.canonicalize_id(self.reference_id)
+
+    @cached_property
     def wl_uris(self):
         """\
         Returns cable IRIs to WikiLeaks (mirrors).
@@ -139,13 +142,7 @@ class _CableBase(object):
         if not self.created:
             raise ValueError('The "created" property must be provided')
         year, month = year_month(self.created)
-        reference_id = self.reference_id
-        if reference_id in MALFORMED_CABLE_IDS.values():
-            for k, v in MALFORMED_CABLE_IDS.iteritems():
-                if v == reference_id:
-                    reference_id = k
-                    break
-        l = '%s/%s/%s' % (year, month, reference_id)
+        l = '%s/%s/%s' % (year, month, self.reference_id)
         html = l + '.html'
         wl_uris = []
         append = wl_uris.append

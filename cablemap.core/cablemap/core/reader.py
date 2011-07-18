@@ -136,7 +136,7 @@ def reference_id_from_filename(filename):
     reference_id = os.path.basename(filename)
     if reference_id.rfind('.htm') > 0:
         reference_id = reference_id[:reference_id.rfind('.')]
-    # Use the correct cable id if the reference id is malformed
+    #TODO: else: raise ValueError('bla bla')?
     return reference_id
 
 def canonicalize_id(reference_id):

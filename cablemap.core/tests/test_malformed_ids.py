@@ -46,18 +46,20 @@ def _get_test_cases():
     return MALFORMED_CABLE_IDS.iteritems()
 
 def test_from_malformed_cable_id():
-    def check(reference_id, expected):
-        cable = cable_by_id(reference_id)
+    def check(wl_id, canonical_id):
+        cable = cable_by_id(wl_id)
         ok_(cable is not None)
-        eq_(expected, cable.reference_id)
+        eq_(wl_id, cable.reference_id)
+        eq_(canonical_id, cable.canonical_id)
     for k, v in _get_test_cases():
         yield check, k, v
 
 def test_to_malformed_cable_id():
-    def check(reference_id):
-        cable = cable_by_id(reference_id)
+    def check(canonical_id):
+        cable = cable_by_id(canonical_id)
         ok_(cable is not None)
-        eq_(reference_id, cable.reference_id)
+        eq_(canonical_id, cable.reference_id)
+        eq_(canonical_id, cable.canonical_id)
     for k, v in _get_test_cases():
         yield check, v
 

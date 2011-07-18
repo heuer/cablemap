@@ -5,6 +5,10 @@ Changes
 2011-mm-dd -- 0.3.0
 -------------------
 * Better handling of malformed/illegal cable identifiers
+* Added canonical_id property to models.Cable which returns the canonical 
+  identifier of the cable (which may be different from the cable's 
+  reference_id property and which may not be a valid referenceable 
+  WikiLeaks identifier anymore)
 * Added ability to reconstruct subjects from sources != WikiLeaks, namely 
   <http://aebr.home.xs4all.nl/wl/> 
 * cable_by_id and cable_page_by_id returned None if the release year page

@@ -425,6 +425,15 @@ REF: A) RIO DE JANEIRO 91, B) RIO DE JANEIRO 35, C) 07 SAO PAULO
 1. Summary. ''',
      2008,
      [u'08RIODEJANEIRO91', u'08RIODEJANEIRO35', u'07SAOPAULO953']),
+    # 09RIODEJANEIRO357
+    ('''SUBJECT: (C) WAR BY ANY OTHER NAME: RIO'S "INTERNAL ARMED CONFLICT" 
+
+REF: A. (A) RIO 329 
+¶B. (B) RIO 346 Classified By: Principal Officer Dennis W. Hearne for reasons 1.4 (b, d ) 
+
+¶1. (C) Summary: Rio Principal''',
+     2009,
+     [u'09RIODEJANEIRO329', u'09RIODEJANEIRO346']),
     
 )
 

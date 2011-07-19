@@ -373,6 +373,19 @@ REF: EMBASSY VIENNA 1450
 Classified By: Mark''',
      2009,
      [u'09VIENNA1450']),
+    # 08BRASILIA672
+    ('''SUBJECT: SOURCES OF GENERATION - ELECTRICITY SERIES #2 
+ 
+SENSITIVE BUT UNCLASSIFED--PLEASE PROTECT ACCORDINGLY 
+ 
+REF: A: Sao Paulo 0031; B: La Paz 0462; C: 06 Sao Paulo 1059 D: 
+Brasilia 00593; E: Sao Paulo  F: Rio 0091 
+ 
+ 
+1.(U)SUMMARY: As''',
+     2008,
+     [u'08SAOPAULO31', u'08LAPAZ462', u'06SAOPAULO1059', u'08BRASILIA593', u'08RIODEJANEIRO91']),
+    
 )
 
 def test_parse_references():

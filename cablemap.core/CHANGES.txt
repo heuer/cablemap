@@ -10,6 +10,8 @@ Changes
   were considered to represent the US Mission Vienna). Fixed.
 * Updated reference parsing. Added option to return canonical identifiers
   (enabled by default)
+* Improved reference parsing: More legal (even malformed) references are 
+  detected
 * Better handling of malformed/illegal cable identifiers
 * Added canonical_id property to models.Cable which returns the canonical 
   identifier of the cable (which may be different from the cable's 

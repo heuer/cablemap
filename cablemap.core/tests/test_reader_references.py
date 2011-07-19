@@ -337,6 +337,16 @@ REF: (A) PARIS FR 2144
 Classified by Amb[...]''',
      2008,
      [u'08UNESCOPARISFR2144', u'08UNESCOPARISFR2153']),
+    # 10UNESCOPARISFR187
+    ('''SUBJECT: HAITI EARTHQUAKE:  UNESCO MEETING ON SAVING HAITI'S 
+HERITAGE 
+ 
+REF: UNESCO PARIS FR 000087 
+
+1. Summary. UNESCO, ''',
+     2010,
+     [u'10UNESCOPARISFR87']),
+     
 )
 
 def test_parse_references():

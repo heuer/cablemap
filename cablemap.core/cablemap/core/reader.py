@@ -163,6 +163,11 @@ def canonicalize_id(reference_id):
         return reference_id.replace(u'UNVIE', u'UNVIEVIENNA')
     elif u'EMBASSY' in reference_id:
         return reference_id.replace(u'EMBASSY', u'')
+    elif u'RIO' and not u'RIODEJANEIRO' in reference_id:
+        if u'RIODEJAN' in reference_id:
+            return reference_id.replace(u'RIODEJAN', u'RIODEJANEIRO')
+        else:
+            return reference_id.replace(u'RIO', u'RIODEJANEIRO')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)
@@ -633,12 +638,12 @@ def parse_nondisclosure_deadline(content):
 
 
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
-_REF_LAST_REF_PATTERN = re.compile(r'(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
-_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\))\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
+_REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
+_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\)|:)\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
-_REF_STOP_PATTERN = re.compile('classified by', re.IGNORECASE|re.UNICODE)
+_REF_STOP_PATTERN = re.compile('(classified by)|summary', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
-_CLEAN_REFS_PATTERN = re.compile(r'PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+', re.UNICODE)
+_CLEAN_REFS_PATTERN = re.compile(r'(PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+)|([A-Z]+\s+[0-9]+\s+[0-9]+(?:\.[0-9]+)?\s+OF)', re.UNICODE)
 
 def parse_references(content, year, reference_id=None, canonicalize=True):
     """\
@@ -684,9 +689,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
         for y, origin, sn in _REF_PATTERN.findall(refs):
             y = format_year(y)
             origin = origin.replace(' ', '').upper()
-            if origin in ('RIO', 'RIODEJAN'):
-                origin = 'RIODEJANEIRO'
-            elif origin in ('SECSTATE', 'SECDEF'):
+            if origin in ('SECSTATE', 'SECDEF'):
                 origin = 'STATE'
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:

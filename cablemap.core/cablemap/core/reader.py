@@ -154,6 +154,8 @@ def canonicalize_id(reference_id):
     """
     if u'PARISFR' in reference_id and not u'UNESCOPARISFR' in reference_id: #TODO: Could be added to INVALID_CABLE_IDS
         return reference_id.replace(u'PARISFR', u'UNESCOPARISFR')
+    elif u'USUNESCOPARISFR' in reference_id:
+        return reference_id.replace(u'US', u'')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)
@@ -631,7 +633,7 @@ _REF_STOP_PATTERN = re.compile('classified by', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+', re.UNICODE)
 
-def parse_references(content, year, reference_id=None):
+def parse_references(content, year, reference_id=None, canonicalize=True):
     """\
     Returns the references to other cables as (maybe empty) list.
     
@@ -682,6 +684,8 @@ def parse_references(content, year, reference_id=None):
             elif origin in ('UNVIE', 'EMBASSYVIENNA'):
                 origin = 'UNVIENNA'
             reference = u'%s%s%d' % (y, origin, int(sn))
+            if canonicalize:
+                reference = canonicalize_id(reference)
             if not REFERENCE_ID_PATTERN.match(reference):
                 continue
             elif reference != reference_id: 

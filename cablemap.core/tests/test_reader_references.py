@@ -385,6 +385,46 @@ Brasilia 00593; E: Sao Paulo  F: Rio 0091
 1.(U)SUMMARY: As''',
      2008,
      [u'08SAOPAULO31', u'08LAPAZ462', u'06SAOPAULO1059', u'08BRASILIA593', u'08RIODEJANEIRO91']),
+    # 04RIODEJANEIRO1105
+    ('''SUBJECT: BRZAIL'S MINAS GERAIS:  PT INCUMBENT COULD 
+WIN A TIGHT RACE IN BRAZIL'S THIRD CITY 
+ 
+Refs:  (A) Rio de Janeiro 00190  (B) Rio de Janeiro 
+ 
+00723  (C) Brasilia 01392 
+ 
+1.  (U)  SUMMARY''',
+     2004,
+     [u'04RIODEJANEIRO190', u'04RIODEJANEIRO723', u'04BRASILIA1392']),
+    # 05RIODEJANEIRO19
+    ('''SUBJECT:  Brazil - Bahia State Growing Faster but Interior 
+Still a Problem 
+ 
+Ref:  2003 Rio de Janeiro 1773 
+ 
+Summary 
+------- ''',
+     2005,
+     [u'03RIODEJANEIRO1773']),
+    # 05RIODEJANEIRO1120
+    ('''SUBJECT: MINAS GERAIS:  THE VIEW FROM BELO HORIZONTE 
+ 
+Reftel:  Rio de Janeiro 1118 
+ 
+SUMMARY 
+------- ''',
+     2005,
+     [u'05RIODEJANEIRO1118']),
+    # 08RIODEJANEIRO135
+    ('''SUBJECT: Petrobras Delays Some Subsalt Tests Due to Equipment 
+Shortage 
+ 
+REF: A) RIO DE JANEIRO 91, B) RIO DE JANEIRO 35, C) 07 SAO PAULO 
+0953 
+ 
+1. Summary. ''',
+     2008,
+     [u'08RIODEJANEIRO91', u'08RIODEJANEIRO35', u'07SAOPAULO953']),
     
 )
 

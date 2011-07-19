@@ -147,7 +147,10 @@ def canonicalize_id(reference_id):
     is not valid, this method returns the valid reference identifier equivalent.
     If the reference identifier is valid, the reference id is returned unchanged.
 
-    Note: The returned canonicalized identifier may not be a valid WikiLeaks identifier anymore.
+    Note: The returned canonicalized identifier may not be a valid WikiLeaks identifier
+    anymore. In most cases the returned canonical form is identical to the WikiLeaks
+    identifier, but for malformed cable identifiers like "09SECTION01OF03SANJOSE525"
+    it is not (becomes "09SANJOSE525").
 
     `reference_id`
         The cable identifier to canonicalize
@@ -158,7 +161,7 @@ def canonicalize_id(reference_id):
         return reference_id.replace(u'PARISFR', u'UNESCOPARISFR')
     elif u'UNVIE' in reference_id and not u'UNVIEVIENNA' in reference_id:
         return reference_id.replace(u'UNVIE', u'UNVIEVIENNA')
-    elif u'EMBASSYVIENNA' in reference_id:
+    elif u'EMBASSY' in reference_id:
         return reference_id.replace(u'EMBASSY', u'')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 

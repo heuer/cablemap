@@ -4,6 +4,8 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
+* Updated reference parsing. Added option to return canonical identifiers
+  (enabled by default)
 * Better handling of malformed/illegal cable identifiers
 * Added canonical_id property to models.Cable which returns the canonical 
   identifier of the cable (which may be different from the cable's 

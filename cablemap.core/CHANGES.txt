@@ -4,6 +4,10 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
+* Cleaned-up valid station identifier constants (removed illegal station
+  identifiers and added them to the constant INVALID_CABLE_IDS)
+* Cable reference UNVIE an EMBASSY VIENNA were treated the same way (both
+  were considered to represent the US Mission Vienna). Fixed.
 * Updated reference parsing. Added option to return canonical identifiers
   (enabled by default)
 * Better handling of malformed/illegal cable identifiers
@@ -18,6 +22,7 @@ Changes
 * Added support to parse media IRIs to the reader module
 * Added media_uris property to models.Cable which gives information about
   the media coverage
+* Added/updated test cases
 
 
 2011-06-23 -- 0.2.0

@@ -156,6 +156,10 @@ def canonicalize_id(reference_id):
         return reference_id.replace(u'US', u'')
     elif u'PARISFR' in reference_id and not u'UNESCOPARISFR' in reference_id:
         return reference_id.replace(u'PARISFR', u'UNESCOPARISFR')
+    elif u'UNVIE' in reference_id and not u'UNVIEVIENNA' in reference_id:
+        return reference_id.replace(u'UNVIE', u'UNVIEVIENNA')
+    elif u'EMBASSYVIENNA' in reference_id:
+        return reference_id.replace(u'EMBASSY', u'')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)
@@ -681,8 +685,6 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
                 origin = 'RIODEJANEIRO'
             elif origin in ('SECSTATE', 'SECDEF'):
                 origin = 'STATE'
-            elif origin in ('UNVIE', 'EMBASSYVIENNA'):
-                origin = 'UNVIENNA'
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:
                 reference = canonicalize_id(reference)

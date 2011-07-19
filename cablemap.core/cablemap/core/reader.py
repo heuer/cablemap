@@ -152,11 +152,10 @@ def canonicalize_id(reference_id):
     `reference_id`
         The cable identifier to canonicalize
     """
-    if u'PARISFR' in reference_id and not u'USUNESCOPARISFR' in reference_id:
-        if not u'UNESCOPARISFR' in reference_id:
-            return reference_id.replace(u'PARISFR', u'USUNESCOPARISFR')
-        else:
-            return reference_id.replace(u'UNESCOPARISFR', u'USUNESCOPARISFR')
+    if u'USUNESCOPARISFR' in reference_id:
+        return reference_id.replace(u'US', u'')
+    elif u'PARISFR' in reference_id and not u'UNESCOPARISFR' in reference_id:
+        return reference_id.replace(u'PARISFR', u'UNESCOPARISFR')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)

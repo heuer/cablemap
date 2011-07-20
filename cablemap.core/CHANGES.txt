@@ -26,6 +26,7 @@ Changes
 * Added media_uris property to models.Cable which gives information about
   the media coverage
 * Added/updated test cases
+* Removed deprecated functions/modules
 
 
 2011-06-23 -- 0.2.0

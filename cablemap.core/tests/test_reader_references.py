@@ -434,6 +434,17 @@ REF: A. (A) RIO 329
 ¶1. (C) Summary: Rio Principal''',
      2009,
      [u'09RIODEJANEIRO329', u'09RIODEJANEIRO346']),
+    # 05BOGOTA3726
+    ('''SUBJECT: PEACE PROCESS WITH ELN STALLS
+ 
+REF: A. BOGOTA 1775
+ 
+     ¶B. BOGOTA 3422
+     ¶C. CARACAS 0951
+ 
+Classified By: Ambassador Willia''',
+     2005,
+     [u'05BOGOTA1775', u'05BOGOTA3422', u'05CARACAS951']),
     
 )
 

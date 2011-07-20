@@ -4,6 +4,8 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
+* Cable reference SECDEF, SECSTATE, and STATE were interpreted as 
+  STATE. SECDEF shouldn't be treated as reference to SECSTATE. Fixed.
 * Improved parsing of (malformed) TAGs
 * Cleaned-up valid station identifier constants (removed illegal station
   identifiers and added them to the constant INVALID_CABLE_IDS)

@@ -163,6 +163,8 @@ def canonicalize_id(reference_id):
         return reference_id.replace(u'UNVIE', u'UNVIEVIENNA')
     elif u'EMBASSY' in reference_id:
         return reference_id.replace(u'EMBASSY', u'')
+    elif u'SECSTATE' in reference_id:
+        return reference_id.replace(u'SECSTATE', u'STATE')
     elif u'RIO' in reference_id and not u'RIODEJANEIRO' in reference_id:
         if u'RIODEJAN' in reference_id:
             return reference_id.replace(u'RIODEJAN', u'RIODEJANEIRO')
@@ -691,8 +693,6 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
                 y = alt_year
             y = format_year(y)
             origin = origin.replace(' ', '').upper()
-            if origin in ('SECSTATE', 'SECDEF'):
-                origin = 'STATE'
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:
                 reference = canonicalize_id(reference)

@@ -712,17 +712,28 @@ _TAG_PATTERN = re.compile(r'(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAEL
 
 # Used to normalize the TAG (corrects typos etc.)
 _TAG_FIXES = {
-    u'CLINTON HILLARY': u'CLINTON, HILLARY',
-    u'STEINBERG JAMES': u'STEINBERG, JAMES B.',
-    u'BIDEN JOSEPH': u'BIDEN, JOSEPH',
-    u'ZOELLICK ROBERT': u'ZOELLICK, ROBERT',
-    u'RICE CONDOLEEZZA': u'RICE, CONDOLEEZZA',
-    u'COUNTER TERRORISM': u'COUNTERTERRORISM',
-    u'MOPPS': u'MOPS', # 09BEIRUT818
-    u'POGOV': u'PGOV', # 09LONDON2222
-    u'RU': u'RS', # 09BERLIN1433, 09RIYADH181 etc.
-    u'SYR': u'SY',
-    u'UNDESCO': u'UNESCO', # 05SANJOSE2199
+    u'CLINTON HILLARY': (u'CLINTON, HILLARY',),
+    u'STEINBERG JAMES': (u'STEINBERG, JAMES B.',),
+    u'BIDEN JOSEPH': (u'BIDEN, JOSEPH',),
+    u'ZOELLICK ROBERT': (u'ZOELLICK, ROBERT',),
+    u'RICE CONDOLEEZZA': (u'RICE, CONDOLEEZZA',),
+    u'COUNTER TERRORISM': (u'COUNTERTERRORISM',),
+    u'MOPPS': (u'MOPS',), # 09BEIRUT818
+    u'POGOV': (u'PGOV',), # 09LONDON2222
+    u'RU': (u'RS',), # 09BERLIN1433, 09RIYADH181 etc.
+    u'SYR': (u'SY',),
+    u'UNDESCO': (u'UNESCO',), # 05SANJOSE2199
+    u'PTER MARR': (u'PTER', u'MARR'), # 07BAKU855
+    u'VTPREL': (u'VT', u'PREL'), # 03VATICAN1570 and others
+    u'VEPREL': (u'VE', u'PREL'), # 02VATICAN5607
+    u'PHUMBA': (u'PHUM', u'BA'), # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
+    u'ETRDEINVECINPGOVCS': (u'ETRD', u'EINV', u'ECIN', u'PGOV', u'CS'), # 06SANJOSE2802 and others
+    u'AMEDCASCKFLO': (u'AMED', u'CASC', u'KFLO'), # 09BRASILIA542
+    u'KNNPMNUC': (u'KNNP', u'MNUC'), # 08THEHAGUE553
+    u'KFRDKIRFCVISCMGTKOCIASECPHUMSMIGEG': (u'KFRD', u'KIRF', u'CVIS', u'CMGT', u'KOCI', u'ASEC', u'PHUM', u'SMIG', u'EG'), # 09CAIRO2205
+    u'ASECKFRDCVISKIRFPHUMSMIGEG': (u'ASEC', u'KFRD', u'CVIS', u'KIRF', u'PHUM', u'SMIG', u'EG'), # 09CAIRO2190
+    u'KPAOPREL': (u'KPAO', u'PREL'), # 08VIENTIANE632
+    u'POLMIL': (u'POL', u'MIL'),
 }
 
 def parse_tags(content, reference_id=None):
@@ -756,55 +767,17 @@ def parse_tags(content, reference_id=None):
     res = []
     for t in _TAG_PATTERN.findall(tags):
         tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
-        if tag == 'PTER MARR': # 07BAKU855
-            res.extend(tag.split())
-            continue
-        elif tag == 'VTPREL': # 03VATICAN1570 and others
-            if not u'VT' in res:
-                res.append(u'VT')
-            if not u'PREL' in res:
-                res.append(u'PREL')
-            continue
-        elif tag == 'VEPREL': # 02VATICAN5607
-            if not u'VE' in res:
-                res.append(u'VE')
-            if not u'PREL' in res:
-                res.append(u'PREL')
-            continue
-        elif tag == 'PHUMBA': # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
-            res.extend([u'PHUM', u'BA'])
-            continue
-        elif tag == 'ETRDEINVECINPGOVCS': # 06SANJOSE2802 and others
-            res.extend([u'ETRD', u'EINV', u'ECIN', u'PGOV', u'CS'])
-            continue
-        elif tag == 'AMEDCASCKFLO': # 09BRASILIA542
-            res.extend([u'AMED', u'CASC', u'KFLO'])
-            continue
-        elif tag == 'KNNPMNUC': # 08THEHAGUE553
-            res.extend([u'KNNP', u'MNUC'])
-            continue
-        elif tag == u'KFRDKIRFCVISCMGTKOCIASECPHUMSMIGEG': # 09CAIRO2205
-            res.extend([u'KFRD', u'KIRF', u'CVIS', u'CMGT', u'KOCI', u'ASEC', u'PHUM', u'SMIG', u'EG'])
-            continue
-        elif tag == u'ASECKFRDCVISKIRFPHUMSMIGEG': # 09CAIRO2190
-            res.extend([u'ASEC', u'KFRD', u'CVIS', u'KIRF', u'PHUM', u'SMIG', u'EG'])
-            continue
-        elif tag == u'RIGHTSPOLMIL': # 04PANAMA586 and others
+        if tag == u'RIGHTSPOLMIL': # 04PANAMA586 and others
             if u'HUMAN' in res:
                 res.remove(u'HUMAN')
                 res.append(u'HUMAN RIGHTS')
             else:
                 res.append(u'RIGHTS')
-            res.extend([u'POL', u'MIL'])
-            continue
-        elif tag == u'KPAOPREL': # 08VIENTIANE632
-            res.extend([u'KPAO', u'PREL'])
-            continue
-        tag = _TAG_FIXES.get(tag, tag)
-        if tag not in res:
-            res.append(tag)
+            tag = u'POLMIL'
+        for tag in _TAG_FIXES.get(tag, (tag,)):
+            if not tag in res:
+                res.append(tag)
     return res
-
 
 _END_SUMMARY_PATTERN = re.compile(r'END\s+SUMMARY', re.IGNORECASE)
 # 09OSLO146 contains "Summay" instead of "SummaRy"

@@ -720,6 +720,7 @@ _TAG_FIXES = {
     u'POGOV': u'PGOV', # 09LONDON2222
     u'RU': u'RS', # 09BERLIN1433, 09RIYADH181 etc.
     u'SYR': u'SY',
+    u'UNDESCO': u'UNESCO', # 05SANJOSE2199
 }
 
 def parse_tags(content, reference_id=None):
@@ -758,6 +759,15 @@ def parse_tags(content, reference_id=None):
             continue
         elif tag == 'PHUMBA': # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
             res.extend([u'PHUM', u'BA'])
+            continue
+        elif tag == u'KFRDKIRFCVISCMGTKOCIASECPHUMSMIGEG': # 09CAIRO2205
+            res.extend([u'KFRD', u'KIRF', u'CVIS', u'CMGT', u'KOCI', u'ASEC', u'PHUM', u'SMIG', u'EG'])
+            continue
+        elif tag == u'ASECKFRDCVISKIRFPHUMSMIGEG': # 09CAIRO2190
+            res.extend([u'ASEC', u'KFRD', u'CVIS', u'KIRF', u'PHUM', u'SMIG', u'EG'])
+            continue
+        elif tag == u'KPAOPREL': # 08VIENTIANE632
+            res.extend([u'KPAO', u'PREL'])
             continue
         tag = _TAG_FIXES.get(tag, tag)
         if tag not in res:

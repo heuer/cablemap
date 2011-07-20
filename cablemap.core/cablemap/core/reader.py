@@ -760,6 +760,9 @@ def parse_tags(content, reference_id=None):
         elif tag == 'PHUMBA': # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
             res.extend([u'PHUM', u'BA'])
             continue
+        elif tag == 'KNNPMNUC': # 08THEHAGUE553
+            res.extend([u'KNNP', u'MNUC'])
+            continue
         elif tag == u'KFRDKIRFCVISCMGTKOCIASECPHUMSMIGEG': # 09CAIRO2205
             res.extend([u'KFRD', u'KIRF', u'CVIS', u'CMGT', u'KOCI', u'ASEC', u'PHUM', u'SMIG', u'EG'])
             continue

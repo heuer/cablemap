@@ -163,7 +163,7 @@ def canonicalize_id(reference_id):
         return reference_id.replace(u'UNVIE', u'UNVIEVIENNA')
     elif u'EMBASSY' in reference_id:
         return reference_id.replace(u'EMBASSY', u'')
-    elif u'RIO' and not u'RIODEJANEIRO' in reference_id:
+    elif u'RIO' in reference_id and not u'RIODEJANEIRO' in reference_id:
         if u'RIODEJAN' in reference_id:
             return reference_id.replace(u'RIODEJAN', u'RIODEJANEIRO')
         else:

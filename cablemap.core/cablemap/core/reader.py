@@ -769,6 +769,14 @@ def parse_tags(content, reference_id=None):
         elif tag == u'ASECKFRDCVISKIRFPHUMSMIGEG': # 09CAIRO2190
             res.extend([u'ASEC', u'KFRD', u'CVIS', u'KIRF', u'PHUM', u'SMIG', u'EG'])
             continue
+        elif tag == u'RIGHTSPOLMIL': # 04PANAMA586 and others
+            if u'HUMAN' in res:
+                res.remove(u'HUMAN')
+                res.append(u'HUMAN RIGHTS')
+            else:
+                res.append(u'RIGHTS')
+            res.extend([u'POL', u'MIL'])
+            continue
         elif tag == u'KPAOPREL': # 08VIENTIANE632
             res.extend([u'KPAO', u'PREL'])
             continue

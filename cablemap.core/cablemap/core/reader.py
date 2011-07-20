@@ -639,7 +639,7 @@ def parse_nondisclosure_deadline(content):
 
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
-_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\)|:)\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)', re.MULTILINE|re.UNICODE|re.IGNORECASE)
+_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\)|:)\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
 _REF_STOP_PATTERN = re.compile('(classified by)|summary', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
@@ -686,7 +686,9 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
         end = last_end or m_start.end()
         refs = content[start:end].replace('\n', ' ')
         refs = _CLEAN_REFS_PATTERN.sub('', refs)
-        for y, origin, sn in _REF_PATTERN.findall(refs):
+        for y, origin, sn, alt_year in _REF_PATTERN.findall(refs):
+            if alt_year and not y:
+                y = alt_year
             y = format_year(y)
             origin = origin.replace(' ', '').upper()
             if origin in ('SECSTATE', 'SECDEF'):

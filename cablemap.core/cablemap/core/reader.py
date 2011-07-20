@@ -759,8 +759,26 @@ def parse_tags(content, reference_id=None):
         if tag == 'PTER MARR': # 07BAKU855
             res.extend(tag.split())
             continue
+        elif tag == 'VTPREL': # 03VATICAN1570 and others
+            if not u'VT' in res:
+                res.append(u'VT')
+            if not u'PREL' in res:
+                res.append(u'PREL')
+            continue
+        elif tag == 'VEPREL': # 02VATICAN5607
+            if not u'VE' in res:
+                res.append(u'VE')
+            if not u'PREL' in res:
+                res.append(u'PREL')
+            continue
         elif tag == 'PHUMBA': # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
             res.extend([u'PHUM', u'BA'])
+            continue
+        elif tag == 'ETRDEINVECINPGOVCS': # 06SANJOSE2802 and others
+            res.extend([u'ETRD', u'EINV', u'ECIN', u'PGOV', u'CS'])
+            continue
+        elif tag == 'AMEDCASCKFLO': # 09BRASILIA542
+            res.extend([u'AMED', u'CASC', u'KFLO'])
             continue
         elif tag == 'KNNPMNUC': # 08THEHAGUE553
             res.extend([u'KNNP', u'MNUC'])

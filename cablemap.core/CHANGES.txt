@@ -28,7 +28,7 @@ Changes
 * Added support to parse media IRIs to the reader module
 * Added media_uris property to models.Cable which gives information about
   the media coverage
-* Added/updated test cases
+* Added/updated test cases (now: 360+ test cases)
 * Removed deprecated functions/modules
 
 

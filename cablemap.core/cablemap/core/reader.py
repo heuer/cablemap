@@ -708,7 +708,7 @@ _TAGS_PATTERN = re.compile(r'(?:TAGS|TAG|AGS:)(?::\s*|\s+)(.+)', re.IGNORECASE|r
 _TAGS_SUBJECT_PATTERN = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
-_TAG_PATTERN = re.compile(r'(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE|re.MULTILINE)
+_TAG_PATTERN = re.compile(r'(ECONOMIC[ ]+AFFAIRS)|(HUMAN[ ]+RIGHTS)|(BUSH[ ]+GEORGE)|(CARSON[ ]+JOHNNIE)|(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE|re.MULTILINE)
 
 # Used to normalize the TAG (corrects typos etc.)
 _TAG_FIXES = {
@@ -717,12 +717,15 @@ _TAG_FIXES = {
     u'BIDEN JOSEPH': (u'BIDEN, JOSEPH',),
     u'ZOELLICK ROBERT': (u'ZOELLICK, ROBERT',),
     u'RICE CONDOLEEZZA': (u'RICE, CONDOLEEZZA',),
+    u'CARSON JOHNNIE': (u'CARSON, JOHNNIE',),
+    u'BUSH GEORGE': (u'BUSH, GEORGE',),
     u'COUNTER TERRORISM': (u'COUNTERTERRORISM',),
     u'MOPPS': (u'MOPS',), # 09BEIRUT818
     u'POGOV': (u'PGOV',), # 09LONDON2222
     u'RU': (u'RS',), # 09BERLIN1433, 09RIYADH181 etc.
     u'SYR': (u'SY',),
     u'UNDESCO': (u'UNESCO',), # 05SANJOSE2199
+    u'KWWMN': (u'KWMN',), # 09TRIPOLI754
     u'PTER MARR': (u'PTER', u'MARR'), # 07BAKU855
     u'VTPREL': (u'VT', u'PREL'), # 03VATICAN1570 and others
     u'VEPREL': (u'VE', u'PREL'), # 02VATICAN5607
@@ -733,7 +736,7 @@ _TAG_FIXES = {
     u'KFRDKIRFCVISCMGTKOCIASECPHUMSMIGEG': (u'KFRD', u'KIRF', u'CVIS', u'CMGT', u'KOCI', u'ASEC', u'PHUM', u'SMIG', u'EG'), # 09CAIRO2205
     u'ASECKFRDCVISKIRFPHUMSMIGEG': (u'ASEC', u'KFRD', u'CVIS', u'KIRF', u'PHUM', u'SMIG', u'EG'), # 09CAIRO2190
     u'KPAOPREL': (u'KPAO', u'PREL'), # 08VIENTIANE632
-    u'POLMIL': (u'POL', u'MIL'),
+    u'POLMIL': (u'POL', u'MIL'), # 04PANAMA586 and others
 }
 
 def parse_tags(content, reference_id=None):
@@ -767,13 +770,6 @@ def parse_tags(content, reference_id=None):
     res = []
     for t in _TAG_PATTERN.findall(tags):
         tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
-        if tag == u'RIGHTSPOLMIL': # 04PANAMA586 and others
-            if u'HUMAN' in res:
-                res.remove(u'HUMAN')
-                res.append(u'HUMAN RIGHTS')
-            else:
-                res.append(u'RIGHTS')
-            tag = u'POLMIL'
         for tag in _TAG_FIXES.get(tag, (tag,)):
             if not tag in res:
                 res.append(tag)

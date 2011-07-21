@@ -162,16 +162,16 @@ def cable_page_by_id(reference_id):
     This function should be faster since it is using <http://www.cablegatesearch.net>
     and the direct cable adressing function of cablegatesearch
 
-    >>> cable_page_by_id2('09BERLIN1167') is not None
+    >>> cable_page_by_id('09BERLIN1167') is not None
     True
-    >>> cable_page_by_id2('22BERLIN1167') is None
+    >>> cable_page_by_id('22BERLIN1167') is None
     True
     >>> # Test pagination
-    >>> cable_page_by_id2('09MOSCOW3010') is not None
+    >>> cable_page_by_id('09MOSCOW3010') is not None
     True
-    >>> cable_page_by_id2('10MADRID87') is not None
+    >>> cable_page_by_id('10MADRID87') is not None
     True
-    >>> cable_page_by_id2('10MUSCAT103') is not None
+    >>> cable_page_by_id('10MUSCAT103') is not None
     True
     """
     def wikileaks_id(reference_id):

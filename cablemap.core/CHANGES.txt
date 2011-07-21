@@ -4,6 +4,9 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
+* Reimplemented cablemap.core.utils.cable_by_id and cable_page_by_id 
+  which rely on <http://www.cablegatesearch.net/> and are *much* faster 
+  than the old functions (still available via the _old suffix)
 * Cable reference SECDEF, SECSTATE, and STATE were interpreted as 
   STATE. SECDEF shouldn't be treated as reference to SECSTATE. Fixed.
 * Improved parsing of (malformed) TAGs

@@ -731,6 +731,8 @@ _TAG_FIXES = {
     u'SYR': (u'SY',),
     u'UNDESCO': (u'UNESCO',), # 05SANJOSE2199
     u'KWWMN': (u'KWMN',), # 09TRIPOLI754
+    u'MASSMNUC': (u'MASS', u'MNUC'), # 08BRASILIA93
+    u'KNNPMNUC': (u'KNNP', u'MNUC'), # 08THEHAGUE553
     u'PTER MARR': (u'PTER', u'MARR'), # 07BAKU855
     u'VTPREL': (u'VT', u'PREL'), # 03VATICAN1570 and others
     u'VEPREL': (u'VE', u'PREL'), # 02VATICAN5607

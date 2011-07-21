@@ -170,6 +170,8 @@ def canonicalize_id(reference_id):
             return reference_id.replace(u'RIODEJAN', u'RIODEJANEIRO')
         else:
             return reference_id.replace(u'RIO', u'RIODEJANEIRO')
+    elif u'PORT-OF-SPAIN' in reference_id:
+        return reference_id.replace(u'PORT-OF-SPAIN', u'PORTOFSPAIN')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)
@@ -641,7 +643,7 @@ def parse_nondisclosure_deadline(content):
 
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
-_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\)|:)\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z]{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?', re.MULTILINE|re.UNICODE|re.IGNORECASE)
+_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\)|:)\s*)?([0-9]{2,4})?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-]{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
 _REF_STOP_PATTERN = re.compile('(classified by)|summary', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables

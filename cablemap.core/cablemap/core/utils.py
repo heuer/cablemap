@@ -64,7 +64,7 @@ except ImportError:
 
 class _Request(urllib2.Request):
     def __init__(self, url):
-        urllib2.Request.__init__(self, url, headers={'User-Agent': 'CablemapBot/1.0', 'Accept-Encoding': 'gzip, identity'})
+        urllib2.Request.__init__(self, url, headers={'User-Agent': 'CablemapBot/1.1', 'Accept-Encoding': 'gzip, identity'})
 
 def _fetch_url(url):
     """\
@@ -84,7 +84,7 @@ _PAGINATOR_PATTERN = re.compile('''<div\s+class=(?:"|')paginator(?:"|')\s*>.+?<a
 _PAGE_PATTERN = re.compile(r'''<a[ ]+href=(?:"|')([^"']+)(?:"|')>[2-9]+</a>''')
 _BY_DATE_PATTERN = re.compile(r'''<div\s+class=(?:"|')sort(?:"|')\s+id=(?:"|')year_1966(?:"|')>(.+?)<h3>Browse\s+by\s+<a\s+href=(?:"|')#by_A''', re.DOTALL)
 
-def cable_page_by_id(reference_id):
+def cable_page_by_id_old(reference_id):
     """\
     Returns the HTML page of the cable identified by `reference_id`.
 
@@ -155,7 +155,7 @@ def cable_page_by_id(reference_id):
 _CGSN_BASE = u'http://www.cablegatesearch.net/cable.php?id='
 _WL_SOURCE_PATTERN = re.compile(r'<td>Source<td><a target="_blank" href="([^"]+)')
 
-def cable_page_by_id2(reference_id):
+def cable_page_by_id(reference_id):
     """\
     Experimental: Returns the HTML page of the cable identified by `reference_id`.
 
@@ -368,6 +368,21 @@ def cables_from_7z(fileobj, predicate=None):
     basename = os.path.basename
     return (cable_from_html(unicode(member.read(), 'utf-8'), refid(basename(member.filename))) for member in a.getmembers() if member.filename.startswith('cable/') and pred(basename(member.filename)))
 
+def cable_by_id_old(reference_id):
+    """\
+    Returns a cable by its reference identifier or ``None`` if
+    the cable does not exist.
+
+    The cable is fetched from the ``wikileaks.ch`` website.
+
+    `reference_id`
+        The reference identifier of the cable.
+    """
+    page = cable_page_by_id_old(reference_id)
+    if page:
+        return cable_from_html(page)
+    return None
+
 def cable_by_id(reference_id):
     """\
     Returns a cable by its reference identifier or ``None`` if
@@ -379,21 +394,6 @@ def cable_by_id(reference_id):
         The reference identifier of the cable.
     """
     page = cable_page_by_id(reference_id)
-    if page:
-        return cable_from_html(page)
-    return None
-
-def cable_by_id2(reference_id):
-    """\
-    Returns a cable by its reference identifier or ``None`` if
-    the cable does not exist.
-
-    The cable is fetched from the ``wikileaks.ch`` website.
-
-    `reference_id`
-        The reference identifier of the cable.
-    """
-    page = cable_page_by_id2(reference_id)
     if page:
         return cable_from_html(page)
     return None

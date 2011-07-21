@@ -308,7 +308,7 @@ def header_body_from_content(content):
 
 
 _META_PATTERN = re.compile(r'''<table\s+class\s*=\s*(?:"|')cable(?:"|')\s*>.+?<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>''', re.MULTILINE|re.DOTALL)
-_MEDIA_URLS_PATTERN = re.compile(r'''<a href=(?:"|')([^"']+)''')
+_MEDIA_URLS_PATTERN = re.compile(r'''<a href=(?:"|')(https?://[^\.]+\.[a-z0-9]+[^"']+)''')
 
 def parse_meta(file_content, cable):
     """\

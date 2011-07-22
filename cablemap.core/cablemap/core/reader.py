@@ -611,6 +611,7 @@ def parse_subject(content, reference_id=None, clean=True, fix_subject=True):
     res = m.group(1).strip()
     res = _NL_PATTERN.sub(u' ', res)
     res = _WS_PATTERN.sub(u' ', res)
+    res = res.replace(u'US- ', u'US-')
     res = _HTML_ENTITIES_PATTERN.sub(to_unicodechar, res)
     if clean:
         res = _BRACES_PATTERN.sub(u'', res)

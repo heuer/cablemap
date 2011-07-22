@@ -752,6 +752,8 @@ _TAG_FIXES = {
     u'NATOIRAQ': (u'NATO', u'IRAQ'), # 05ATHENS2769
     u'ECONCS': (u'ECON', u'CS'), # 07SANJOSE298
     u'PGOVLO': (u'PGOV', u'LO'), # 08BRATISLAVA377
+    u'SENVEAGREAIDTBIOECONSOCIXR': (u'SENV', u'EAGR', u'EAID', u'TBIO', u'ECON' u'SOCI' u'XR'), # 08BRASILIA1504 and others
+    u'ECONSOCIXR': (u'ECON', u'SOCI', u'XR'), # 08BRASILIA1504 and others
     u'EINVECONSENVCSJA': (u'EINV', u'ECON', u'SENV', u'CS', u'JA'), # 07SANJOSE653
     u'EINVKSCA': (u'EINV', u'KSCA'), # 08BRASILIA1335
 # Unsure about this one, maybe POL INTERNAL?

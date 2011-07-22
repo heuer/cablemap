@@ -771,8 +771,10 @@ _TAG_FIXES = {
     u'SENVEAGREAIDTBIOECONSOCIXR': (u'SENV', u'EAGR', u'EAID', u'TBIO', u'ECON' u'SOCI' u'XR'), # 08BRASILIA1504 and others
     u'ECONSOCIXR': (u'ECON', u'SOCI', u'XR'), # 08BRASILIA1504 and others
     u'EINVECONSENVCSJA': (u'EINV', u'ECON', u'SENV', u'CS', u'JA'), # 07SANJOSE653
+#TODO: SENV GR?!?
+#    u'SENVQGR': (u'SENV', u'GR'), # 06BRASILIA2419
     u'EINVKSCA': (u'EINV', u'KSCA'), # 08BRASILIA1335
-# Unsure about this one, maybe POL INTERNAL or POL TINT?
+#TODO: Unsure about this one, maybe POL INTERNAL or POL TINT?
 #    u'POLINT': (u'POL', u'INT'), # 05PARIS7195
     u'PHUMBA': (u'PHUM', u'BA'), # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
     u'ETRDEINVECINPGOVCS': (u'ETRD', u'EINV', u'ECIN', u'PGOV', u'CS'), # 06SANJOSE2802 and others

@@ -703,7 +703,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             if canonicalize:
                 reference = canonicalize_id(reference)
             if not REFERENCE_ID_PATTERN.match(reference):
-                logger.debug('Ignore "%s". Not a valid reference identifier' % reference)
+                logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
                 continue
             elif reference != reference_id: 
                 res.append(reference)

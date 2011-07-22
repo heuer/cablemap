@@ -787,13 +787,13 @@ def parse_tags(content, reference_id=None):
     tags = m.group(1)
     min_idx = m.end()
     max_idx = _MAX_HEADER_IDX
-    msubj = _TAGS_SUBJECT_PATTERN.search(tags)
+    msubj = _TAGS_SUBJECT_PATTERN.search(content)
     if msubj:
-        tags = tags[:msubj.start()]
         max_idx = min(max_idx, msubj.start())
+        tags = _TAGS_PATTERN.search(content, 0, max_idx).group(1)
     m2 = None
     if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, min_idx, max_idx):
-        m2 = _TAGS_CONT_PATTERN.match(content, m.end())
+        m2 = _TAGS_CONT_PATTERN.match(content, m.end(), max_idx)
     if m2:
         tags = u' '.join([tags, m2.group(1)])
     res = []

@@ -749,6 +749,7 @@ _TAG_FIXES = {
     u'PRELBR': (u'PREL', u'BR'), # 06BRASILIA2073
     u'PGOVSOCI': (u'PGOV', u'SOCI'), # 07SAOPAULO726
     u'NATOIRAQ': (u'NATO', u'IRAQ'), # 05ATHENS2769
+    u'EINVECONSENVCSJA': (u'EINV', u'ECON', u'SENV', u'CS', u'JA'), # 07SANJOSE653
 # Unsure about this one, maybe POL INTERNAL?
 #    u'POLINT': (u'POL', u'INT'), # 05PARIS7195
     u'PHUMBA': (u'PHUM', u'BA'), # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492

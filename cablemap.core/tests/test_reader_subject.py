@@ -250,6 +250,12 @@ SUBJECT:
 Cooperation and Coordination Busts Fraud Ring
 1.(SBU) Summary: The Cairo Fraud Prevention Unit''',
      u'Cooperation and Coordination Busts Fraud Ring'),
+    # 05OTTAWA3726
+    ('''E.O. 12958: N/A 
+TAGS: ECON ETRD PGOV CA MX SIPDIS
+SUBJECT: TRILATERAL REGULATORY COOPERATION MEETING UNDER 
+SPP: INFORMATION SHARING ''',
+     u'TRILATERAL REGULATORY COOPERATION MEETING UNDER SPP: INFORMATION SHARING'),
 )
 
 

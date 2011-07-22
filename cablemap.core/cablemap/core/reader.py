@@ -179,6 +179,8 @@ def canonicalize_id(reference_id):
         return reference_id.replace(u'PORT-AU-PRINCE', u'PORTAUPRINCE')
     elif u'PAUP' in reference_id:
         return reference_id.replace(u'PAUP', u'PORTAUPRINCE')
+    elif u'SANJSE' in reference_id:
+        return reference_id.replace(u'SANJSE', u'SANJOSE')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)

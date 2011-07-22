@@ -791,6 +791,8 @@ def parse_tags(content, reference_id=None):
     res = []
     for t in _TAG_PATTERN.findall(tags):
         tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
+        if tag == u'SIPDIS': # Found in 05OTTAWA3726 and 05OTTAWA3709. I think it's an error
+            continue
         for tag in _TAG_FIXES.get(tag, (tag,)):
             if not tag in res:
                 res.append(tag)

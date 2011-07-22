@@ -745,6 +745,9 @@ _TAG_FIXES = {
     u'PHUMPREL': (u'PHUM', u'PREL'), # 07NAIROBI4427
     u'VTPREL': (u'VT', u'PREL'), # 03VATICAN1570 and others
     u'VEPREL': (u'VE', u'PREL'), # 02VATICAN5607
+    u'PRELPK': (u'PREL', u'PK'), # 10ISLAMABAD332
+    u'PRELBR': (u'PREL', u'BR'), # 06BRASILIA2073
+    u'PGOVSOCI': (u'PGOV', u'SOCI'), # 07SAOPAULO726
     u'PHUMBA': (u'PHUM', u'BA'), # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
     u'ETRDEINVECINPGOVCS': (u'ETRD', u'EINV', u'ECIN', u'PGOV', u'CS'), # 06SANJOSE2802 and others
     u'AMEDCASCKFLO': (u'AMED', u'CASC', u'KFLO'), # 09BRASILIA542

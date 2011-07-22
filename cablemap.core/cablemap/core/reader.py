@@ -177,6 +177,8 @@ def canonicalize_id(reference_id):
         return reference_id.replace(u'PORT-OF-SPAIN', u'PORTOFSPAIN')
     elif u'PORT-AU-PRINCE' in reference_id:
         return reference_id.replace(u'PORT-AU-PRINCE', u'PORTAUPRINCE')
+    elif u'PAUP' in reference_id:
+        return reference_id.replace(u'PAUP', u'PORTAUPRINCE')
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)
@@ -704,8 +706,12 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:
                 reference = canonicalize_id(reference)
+            length = len(reference)
+            if length < 7 or length > 25: # constants.MIN_ORIGIN_LENGTH + constants.MIN_SERIAL_LENGTH + length of year or constants.MAX_ORIGIN_LENGTH + constants.MAX_SERIAL_LENGTH + 2 (for the year) 
+                continue
             if not REFERENCE_ID_PATTERN.match(reference):
-                logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
+                if 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
+                    logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
                 continue
             elif reference != reference_id: 
                 res.append(reference)

@@ -765,9 +765,12 @@ _TAG_FIXES = {
     u'EINDETRD': (u'EIND', u'ETRD'), # 09PARIS1267
     u'ETRDEINVTINTCS': (u'ETRD', u'EINV', 'TINT', u'CS'), # 07SANJOSE426
     u'SNARIZ': (u'SNAR', u'IZ'), # 07HELSINKI127
+    u'KPAONZ': (u'KPAO', u'NZ'), # 08WELLINGTON125 and others
+    u'ELTNSNAR': (u'ELTN', u'SNAR'), # 07SAOPAULO161
     u'UNFCYP': (u'UNFICYP',), # 09ATHENS252
     u'OVIPPRELUNGANU': (u'OVIP', u'PREL', u'UNGA', u'NU'), # 08MANAGUA1184
     u'ECONEFIN': (u'ECON', u'EFIN'), # 09CAIRO1691
+    u'ETRDECONWTOCS': (u'ETRD', u'ECON', u'WTO', u'CS'), # 07SANJOSE436
     u'SENVEAGREAIDTBIOECONSOCIXR': (u'SENV', u'EAGR', u'EAID', u'TBIO', u'ECON' u'SOCI' u'XR'), # 08BRASILIA1504 and others
     u'ECONSOCIXR': (u'ECON', u'SOCI', u'XR'), # 08BRASILIA1504 and others
     u'EINVECONSENVCSJA': (u'EINV', u'ECON', u'SENV', u'CS', u'JA'), # 07SANJOSE653
@@ -823,12 +826,12 @@ def parse_tags(content, reference_id=None):
         tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
         if tag == u'SIPDIS': # Found in 05OTTAWA3726 and 05OTTAWA3709. I think it's an error
             continue
-        elif tag == u'ECONSOCIXR': # 08BRASILIA1504
-            for tag in _TAG_FIXES[tag]:
-                if not tag in res:
-                    res.append(tag)
-            continue
         for tag in _TAG_FIXES.get(tag, (tag,)):
+            if tag == u'ECONSOCIXR': # 08BRASILIA1504
+                for tag in _TAG_FIXES[tag]:
+                    if not tag in res:
+                        res.append(tag)
+                continue
             if not tag in res:
                 res.append(tag)
     return res

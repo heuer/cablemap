@@ -118,6 +118,7 @@ _STATIONS = (
     # U
     'ULAANBAATAR', 'UNVIEVIENNA', 'USNATO', 'USUNNEWYORK', 'USEUBRUSSELS',
     'USOSCE', 'UNROME',
+    'USDOC', # Found in REFerences and stands for "United States Department of Commerce"
     'UNESCOPARISFR', # Same as PARISFR
     # V
     'VATICAN', 'VIENNA', 'VILNIUS', 'VLADIVOSTOK', 'VALLETTA', 'VANCOUVER',

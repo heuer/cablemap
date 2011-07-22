@@ -825,6 +825,7 @@ def parse_tags(content, reference_id=None):
             for tag in _TAG_FIXES[tag]:
                 if not tag in res:
                     res.append(tag)
+            continue
         for tag in _TAG_FIXES.get(tag, (tag,)):
             if not tag in res:
                 res.append(tag)

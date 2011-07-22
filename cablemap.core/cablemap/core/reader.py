@@ -739,7 +739,7 @@ _TAG_FIXES = {
     u'SYR': (u'SY',),
     u'UNDESCO': (u'UNESCO',), # 05SANJOSE2199
     u'KWWMN': (u'KWMN',), # 09TRIPOLI754
-    u'RUPREL': (u'RU', u'PREL'), # 00HELSINKI2613)
+    u'RUPREL': (u'RS', u'PREL'), # 00HELSINKI2613)
     u'ITPHUM': (u'IT', u'PHUM'), # 02ROME1196
     u'ITPGOV': (u'IT', u'PGOV'), # 02ROME3639
     u'NATOPREL': (u'NATO', u'PREL'), # 03VATICAN523
@@ -753,6 +753,7 @@ _TAG_FIXES = {
     u'VEPREL': (u'VE', u'PREL'), # 02VATICAN5607
     u'PRELPK': (u'PREL', u'PK'), # 10ISLAMABAD332
     u'PRELBR': (u'PREL', u'BR'), # 06BRASILIA2073
+    u'PBTSRU': (u'PBTS', u'RS'), # 09MANAGUA913
     u'PGOVSOCI': (u'PGOV', u'SOCI'), # 07SAOPAULO726
     u'NATOIRAQ': (u'NATO', u'IRAQ'), # 05ATHENS2769
     u'ECONCS': (u'ECON', u'CS'), # 07SANJOSE298

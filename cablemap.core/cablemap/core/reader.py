@@ -55,7 +55,7 @@ _MAX_HEADER_IDX = 1200
 _CABLES_WITHOUT_TAGS = (
     '06KABUL3934', '08BEIJING3662', '09ROME878', '09ROME1048', '08ROME451',
     '08ROME525', '04QUITO2502', '04QUITO2879', '05PANAMA1589', '06KABUL5653',
-    '07PANAMA400', '07PANAMA946', '01CAIRO5770', '08BRASILIA703',
+    '07PANAMA400', '07PANAMA946', '01CAIRO5770', '08BRASILIA703', '10ASTANA267',
     )
 
 _CABLES_WITHOUT_TO = (
@@ -706,7 +706,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
     return res
 
 
-_TAGS_PATTERN = re.compile(r'(?:TAGS|TAG|AGS:)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
+_TAGS_PATTERN = re.compile(r'(?<!Kaz)(?:TAGS|TAG|AGS:)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
 _TAGS_SUBJECT_PATTERN = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)

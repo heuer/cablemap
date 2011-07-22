@@ -17,6 +17,16 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 
 _AC_PATTERN = re.compile(r'\(([A-Z\-/\.]{2,}[0-9]*)\)')
 
+_KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON, JOHNNIE", "BUSH, GEORGE",
+                "NEW ZEALAND", "ROOD, JOHN", "ECONOMY AND FINANCE", "ECONOMIC AFFAIRS", "HUMAN RIGHTS",
+                "ITALY NATIONAL ELECTIONS", "ZOELLICK, ROBERT", "ZANU-PF", "GAZA DISENGAGEMENT",
+                "COUNTERTERRORISM", "IRAQI FREEDOM", "MEETINGS WITH AMBASSADOR", "EXTERNAL", "CONSULAR AFFAIRS",
+                "JIMENEZ, GASPAR", "ITALIAN POLITICS", "ISRAELI PALESTINIAN AFFAIRS", "DOMESTIC POLITICS",
+                "CROS, GERARD", "GLOBAL DEFENSE", "ISRAEL RELATIONS", "MILITARY RELATIONS", "POLITICS FOREIGN POLICY",
+                "USEU BRUSSELS", "INDIA-BURMA", "STEINBERG, JAMES B.", "NOVO, GUILLERMO", "REMON, PEDRO",
+                "COUNTRY CLEARANCE", "CARICOM", "INMARSAT", "UNESCO", "INTERPOL", "INTELSAT", u'CYPRUS',
+                u'MEDIA REACTION', u'UNICEF', u'SPECIALIST', u'POLITICAL PARTIES')
+
 _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT',
              u'AF-PAK', u'AKP', u'ASD', u'AQAP', u'AQIM', u'ARENA',
              u'BBC', u'BP', u'BR-3',
@@ -56,9 +66,11 @@ _UNWANTED = (u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO', u'CAN')
 def run_update(in_dir, predicate=None):
     acronyms = set(_ACRONYMS)
     subjects = set()
+    tags = set()
     for cable in cables_from_directory(in_dir, predicate):
         update_acronyms(cable, acronyms)
         update_missing_subjects(cable, subjects)
+        update_tags(cable, tags)
     return {'acronyms': acronyms, 'subjects': subjects}
 
 def update_acronyms(cable, acronyms):
@@ -70,6 +82,12 @@ def update_acronyms(cable, acronyms):
 def update_missing_subjects(cable, cable_refs):
     if not parse_subject(cable.content, fix_subject=False):
         cable_refs.add(cable.reference_id)
+
+def update_tags(cable, tags):
+    for tag in cable.tags:
+        if len(tag) > 5 and tag not in _KNOWN_TAGS:
+            print("Valid TAG? u'%s' # %s" % (tag, cable.reference_id))
+        tags.add(tag)
  
 def _filename(name):
     return os.path.join(os.path.dirname(__file__), name)

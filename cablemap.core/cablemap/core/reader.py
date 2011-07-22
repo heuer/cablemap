@@ -55,7 +55,7 @@ _MAX_HEADER_IDX = 1200
 _CABLES_WITHOUT_TAGS = (
     '06KABUL3934', '08BEIJING3662', '09ROME878', '09ROME1048', '08ROME451',
     '08ROME525', '04QUITO2502', '04QUITO2879', '05PANAMA1589', '06KABUL5653',
-    '07PANAMA400', '07PANAMA946', '01CAIRO5770',
+    '07PANAMA400', '07PANAMA946', '01CAIRO5770', '08BRASILIA703', '10ASTANA267',
     )
 
 _CABLES_WITHOUT_TO = (
@@ -127,6 +127,9 @@ CLASSIFIED BY:''', u'''LY
 SUBJECT: RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GOL [8466936]
 
 CLASSIFIED BY:'''),
+    '06LIMA1452': ('''PE
+RUN-OFF''', '''PE
+SUBJECT: RUN-OFF'''),
 }
 
 def reference_id_from_filename(filename):
@@ -706,11 +709,12 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
     return res
 
 
-_TAGS_PATTERN = re.compile(r'(?:TAGS|TAG|AGS:)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
+_TAGS_PATTERN = re.compile(r'(?<!Kaz)(?:TAGS|TAG|AGS:)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
 _TAGS_SUBJECT_PATTERN = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
-_TAG_PATTERN = re.compile(r'(COUNTRY[ ]+CLEARANCE)|(CROS[ ]+GERARD)|(ROOD[ ]+JOHN)|(NEW[ ]+ZEALAND)|(MEETINGS[ ]+WITH[ ]+AMBASSADOR)|(DOMESTIC[ ]+POLITICS)|(ITALIAN[ ]+POLITICS)|(ITALY[ ]+NATIONAL[ ]+ELECTIONS)|(IRAQI[ ]+FREEDOM)|(ECONOMY[ ]+AND[ ]+FINANCE)|(GLOBAL[ ]+DEFENSE)|(NOVO[ ]+GUILLERMO)|(REMON[ ]+PEDRO)|(JIMENEZ[ ]+GASPAR)|(CONSULAR[ ]+AFFAIRS)|(ECONOMIC[ ]+AFFAIRS)|(HUMAN[ ]+RIGHTS)|(BUSH[ ]+GEORGE)|(CARSON[ ]+JOHNNIE)|(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE|re.MULTILINE)
+# TODO: Add (GOI[ ]+EXTERNAL)?!?
+_TAG_PATTERN = re.compile(r'(POLITICAL[ ]+PARTIES)|(MEDIA[ ]+REACTION)|(USEU[ ]+BRUSSELS)|(POLITICS[ ]+FOREIGN[ ]+POLICY)|(MILITARY[ ]+RELATIONS)|(ISRAEL[ ]+RELATIONS)|(COUNTRY[ ]+CLEARANCE)|(CROS[ ]+GERARD)|(ROOD[ ]+JOHN)|(NEW[ ]+ZEALAND)|(MEETINGS[ ]+WITH[ ]+AMBASSADOR)|(DOMESTIC[ ]+POLITICS)|(ITALIAN[ ]+POLITICS)|(ITALY[ ]+NATIONAL[ ]+ELECTIONS)|(IRAQI[ ]+FREEDOM)|(ECONOMY[ ]+AND[ ]+FINANCE)|(GLOBAL[ ]+DEFENSE)|(NOVO[ ]+GUILLERMO)|(REMON[ ]+PEDRO)|(JIMENEZ[ ]+GASPAR)|(CONSULAR[ ]+AFFAIRS)|(ECONOMIC[ ]+AFFAIRS)|(HUMAN[ ]+RIGHTS)|(BUSH[ ]+GEORGE)|(CARSON[ ]+JOHNNIE)|(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE|re.MULTILINE)
 
 # Used to normalize the TAG (corrects typos etc.)
 _TAG_FIXES = {
@@ -733,16 +737,38 @@ _TAG_FIXES = {
     u'SYR': (u'SY',),
     u'UNDESCO': (u'UNESCO',), # 05SANJOSE2199
     u'KWWMN': (u'KWMN',), # 09TRIPOLI754
+    u'RUPREL': (u'RU', u'PREL'), # 00HELSINKI2613)
+    u'ITPHUM': (u'IT', u'PHUM'), # 02ROME1196
+    u'ITPGOV': (u'IT', u'PGOV'), # 02ROME3639
+    u'NATOPREL': (u'NATO', u'PREL'), # 03VATICAN523
+    u'SPCVIS': (u'SP', u'CVIS'), # 04MADRID1764
     u'MASSMNUC': (u'MASS', u'MNUC'), # 08BRASILIA93
     u'KNNPMNUC': (u'KNNP', u'MNUC'), # 08THEHAGUE553
     u'PTER MARR': (u'PTER', u'MARR'), # 07BAKU855
+    u'PHUMPGOV': (u'PHUM', u'PGOV'), #09PARAMARIBO103
+    u'PHUMPREL': (u'PHUM', u'PREL'), # 07NAIROBI4427
     u'VTPREL': (u'VT', u'PREL'), # 03VATICAN1570 and others
     u'VEPREL': (u'VE', u'PREL'), # 02VATICAN5607
+    u'PRELPK': (u'PREL', u'PK'), # 10ISLAMABAD332
+    u'PRELBR': (u'PREL', u'BR'), # 06BRASILIA2073
+    u'PGOVSOCI': (u'PGOV', u'SOCI'), # 07SAOPAULO726
+    u'NATOIRAQ': (u'NATO', u'IRAQ'), # 05ATHENS2769
+    u'ECONCS': (u'ECON', u'CS'), # 07SANJOSE298
+    u'PGOVLO': (u'PGOV', u'LO'), # 08BRATISLAVA377
+    u'ECONEFIN': (u'ECON', u'EFIN'), # 09CAIRO1691
+    u'SENVEAGREAIDTBIOECONSOCIXR': (u'SENV', u'EAGR', u'EAID', u'TBIO', u'ECON' u'SOCI' u'XR'), # 08BRASILIA1504 and others
+    u'ECONSOCIXR': (u'ECON', u'SOCI', u'XR'), # 08BRASILIA1504 and others
+    u'EINVECONSENVCSJA': (u'EINV', u'ECON', u'SENV', u'CS', u'JA'), # 07SANJOSE653
+    u'EINVKSCA': (u'EINV', u'KSCA'), # 08BRASILIA1335
+# Unsure about this one, maybe POL INTERNAL?
+#    u'POLINT': (u'POL', u'INT'), # 05PARIS7195
     u'PHUMBA': (u'PHUM', u'BA'), # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
     u'ETRDEINVECINPGOVCS': (u'ETRD', u'EINV', u'ECIN', u'PGOV', u'CS'), # 06SANJOSE2802 and others
     u'AMEDCASCKFLO': (u'AMED', u'CASC', u'KFLO'), # 09BRASILIA542
     u'KFRDKIRFCVISCMGTKOCIASECPHUMSMIGEG': (u'KFRD', u'KIRF', u'CVIS', u'CMGT', u'KOCI', u'ASEC', u'PHUM', u'SMIG', u'EG'), # 09CAIRO2205
     u'ASECKFRDCVISKIRFPHUMSMIGEG': (u'ASEC', u'KFRD', u'CVIS', u'KIRF', u'PHUM', u'SMIG', u'EG'), # 09CAIRO2190
+    u'KFRDCVISCMGTCASCKOCIASECPHUMSMIGEG': (u'KFRD', u'CVIS', u'CMGT', u'CASC', u'KOCI', u'ASEC', u'PHUM', u'SMIG', u'EG'), # 09CAIRO1054 and others
+    u'PGOVSMIGKCRMKWMNPHUMCVISKFRDCA': (u'PGOV', u'SMIG', u'KCRM', u'KWMN', u'PHUM', u'CVIS', u'KFRD', u'CA'), # 08TORONTO24
     u'KPAOPREL': (u'KPAO', u'PREL'), # 08VIENTIANE632
     u'POLMIL': (u'POL', u'MIL'), # 04PANAMA586 and others
     u'IZPREL': (u'IZ', u'PREL'), # 03ROME2045 and others
@@ -767,18 +793,22 @@ def parse_tags(content, reference_id=None):
     tags = m.group(1)
     min_idx = m.end()
     max_idx = _MAX_HEADER_IDX
-    msubj = _TAGS_SUBJECT_PATTERN.search(tags)
+    msubj = _TAGS_SUBJECT_PATTERN.search(content)
     if msubj:
-        tags = tags[:msubj.start()]
         max_idx = min(max_idx, msubj.start())
+        m = _TAGS_PATTERN.search(content, 0, max_idx)
+        if m:
+            tags = m.group(1)
     m2 = None
     if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, min_idx, max_idx):
-        m2 = _TAGS_CONT_PATTERN.match(content, m.end())
+        m2 = _TAGS_CONT_PATTERN.match(content, m.end(), max_idx)
     if m2:
         tags = u' '.join([tags, m2.group(1)])
     res = []
     for t in _TAG_PATTERN.findall(tags):
         tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
+        if tag == u'SIPDIS': # Found in 05OTTAWA3726 and 05OTTAWA3709. I think it's an error
+            continue
         for tag in _TAG_FIXES.get(tag, (tag,)):
             if not tag in res:
                 res.append(tag)

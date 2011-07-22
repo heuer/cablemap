@@ -710,7 +710,8 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
     return res
 
 
-_TAGS_PATTERN = re.compile(r'(?<!Kaz)(?:TAGS|TAG|AGS:)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
+# "Kaz" found in "10ASTANA267" "NOFORN" found in "08MADRID308"
+_TAGS_PATTERN = re.compile(r'(?<!Kaz)(?:TAGS|TAG|AGS:)(?!\n\nNOFORN)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
 _TAGS_SUBJECT_PATTERN = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
 _TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
@@ -756,13 +757,21 @@ _TAG_FIXES = {
     u'NATOIRAQ': (u'NATO', u'IRAQ'), # 05ATHENS2769
     u'ECONCS': (u'ECON', u'CS'), # 07SANJOSE298
     u'PGOVLO': (u'PGOV', u'LO'), # 08BRATISLAVA377
+    u'SNARCS': (u'SNAR', u'CS'), # 08SANJOSE400
+    u'ECINECONCS': (u'ECIN', u'ECON', u'CS'), # 06SANJOSE2649
+    u'EFINECONCS': (u'EFIN', u'ECON', u'CS'), # 06SANJOSE2803
+    u'KWMNCS': (u'KWMN', u'CS'), # 09SANJOSE692
+    u'EINDETRD': (u'EIND', u'ETRD'), # 09PARIS1267
+    u'ETRDEINVTINTCS': (u'ETRD', u'EINV', 'TINT', u'CS'), # 07SANJOSE426
+    u'SNARIZ': (u'SNAR', u'IZ'), # 07HELSINKI127
+    u'UNFCYP': (u'UNFICYP',), # 09ATHENS252
     u'OVIPPRELUNGANU': (u'OVIP', u'PREL', u'UNGA', u'NU'), # 08MANAGUA1184
     u'ECONEFIN': (u'ECON', u'EFIN'), # 09CAIRO1691
     u'SENVEAGREAIDTBIOECONSOCIXR': (u'SENV', u'EAGR', u'EAID', u'TBIO', u'ECON' u'SOCI' u'XR'), # 08BRASILIA1504 and others
     u'ECONSOCIXR': (u'ECON', u'SOCI', u'XR'), # 08BRASILIA1504 and others
     u'EINVECONSENVCSJA': (u'EINV', u'ECON', u'SENV', u'CS', u'JA'), # 07SANJOSE653
     u'EINVKSCA': (u'EINV', u'KSCA'), # 08BRASILIA1335
-# Unsure about this one, maybe POL INTERNAL?
+# Unsure about this one, maybe POL INTERNAL or POL TINT?
 #    u'POLINT': (u'POL', u'INT'), # 05PARIS7195
     u'PHUMBA': (u'PHUM', u'BA'), # 08ECTION01OF02MANAMA492 which is the malformed version of 08MANAMA492
     u'ETRDEINVECINPGOVCS': (u'ETRD', u'EINV', u'ECIN', u'PGOV', u'CS'), # 06SANJOSE2802 and others

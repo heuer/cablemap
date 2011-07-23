@@ -45,7 +45,7 @@ from cablemap.core import cable_by_id
 def test_05PORTAUPRINCE1609():
     cable = cable_by_id('05PORTAUPRINCE1609')
     assert cable
-    eq_([u'05PORTAUPRINCE1537', u'05TOKYO3020', u'05OSLO868'], cable.references)
+    eq_([u'05PORTAUPRINCE1537', u'05TOKYO3020', u'05OSLO868', u'05OTTAWA1734'], cable.references)
 
 
 if __name__ == '__main__':

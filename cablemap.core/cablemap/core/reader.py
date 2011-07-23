@@ -668,6 +668,7 @@ _REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|
 _REF_PATTERN = re.compile(r'''(?:[A-Z](?:\.|\)|:))?(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?\s*\(?([0-9]{2,4})?\)?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-']{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?''', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
 _REF_STOP_PATTERN = re.compile('(classified by)|summary', re.IGNORECASE|re.UNICODE)
+_REF_ORIGIN_PATTERN = re.compile('[0-9]+([A-Z]+)[0-9]+')
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'(PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+)|([A-Z]+\s+[0-9]+\s+[0-9]+(?:\.[0-9]+)?\s+OF)', re.UNICODE)
 
@@ -723,6 +724,9 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
                 y = alt_year
             y = format_year(y)
             origin = origin.replace(' ', '').replace(u"'", u'').upper()
+            if origin == 'AND':
+                last_origin = _REF_ORIGIN_PATTERN.match(res[-1]).group(1)
+                origin = last_origin
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:
                 reference = canonicalize_id(reference)

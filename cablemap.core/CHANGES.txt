@@ -4,6 +4,8 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
+* Cable references like "09 FOO 12 AND 13" are detected correctly. 
+  "09 FOO 12 AND 13" becomes: ['09FOO12', '09FOO13']
 * Reimplemented cable_by_id and cable_page_by_id using an API provided by 
   <http://www.cablegatesearch.net/>.
   The new implementations are *much* faster than the old functions 

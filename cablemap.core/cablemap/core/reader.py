@@ -729,6 +729,8 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             if origin == 'AND' and res:
                 last_origin = _REF_ORIGIN_PATTERN.match(res[-1]).group(1)
                 origin = last_origin
+            elif origin.startswith('AND'): # for references like 09 FOO 1234 AND BAR 1234
+                origin = origin[3:]
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:
                 reference = canonicalize_id(reference)
@@ -736,7 +738,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             if length < 7 or length > 25: # constants.MIN_ORIGIN_LENGTH + constants.MIN_SERIAL_LENGTH + length of year or constants.MAX_ORIGIN_LENGTH + constants.MAX_SERIAL_LENGTH + 2 (for the year) 
                 continue
             if not REFERENCE_ID_PATTERN.match(reference):
-                if 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
+                if 'OCTOBER' not in reference and 'MAIL' not in reference and 'DECEMBER' not in reference and 'FEBRUAY' not in reference and 'AUGUST' not in reference and 'MARCH' not in reference and 'JULY' not in reference and 'JUNE' not in reference and 'MAIL' not in reference and 'JANUARY' not in reference and '--' not in reference and 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
                     logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
                 continue
             elif reference != reference_id: 

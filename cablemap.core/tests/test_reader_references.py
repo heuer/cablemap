@@ -554,6 +554,10 @@ CLASSIFIED''',
     ('''SUBJECT: THANKS A LOT, JUAN REF: HILL - OPS CENTER TELCONS 9/28 AND 29 ''',
      2003,
      []),
+    # 05WELLINGTON489
+    ('''REF: SECSTATE 113408 AND SECSTATE 113635 ''',
+     2005,
+     [u'05STATE113408', u'05STATE113635']),
 )
 
 def test_parse_references():

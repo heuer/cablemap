@@ -4,8 +4,8 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
-* Reimplemented cablemap.core.utils.cable_by_id and cable_page_by_id 
-  using an API provided by <http://www.cablegatesearch.net/>.
+* Reimplemented cable_by_id and cable_page_by_id using an API provided by 
+  <http://www.cablegatesearch.net/>.
   The new implementations are *much* faster than the old functions 
   (still available via the _old suffix). Thanks to Raymond Hill for 
   providing the web service.
@@ -30,10 +30,12 @@ Changes
   <http://aebr.home.xs4all.nl/wl/> 
 * cable_by_id and cable_page_by_id returned None if the release year page
   contains 10 or more pages to walk through. Fixed.
+  (this change became obsolete due to the Cablegatesearch web service, but still available 
+  as cable_by_id_old)
 * Added support to parse media IRIs to the reader module
 * Added media_uris property to models.Cable which gives information about
   the media coverage
-* Added/updated test cases (now: 380+ test cases)
+* Added/updated test cases (now: 400+ test cases)
 * Removed deprecated functions/modules
 
 

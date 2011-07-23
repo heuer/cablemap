@@ -142,6 +142,22 @@ def reference_id_from_filename(filename):
     #TODO: else: raise ValueError('bla bla')?
     return reference_id
 
+_C14N_FIXES = {
+    u'USUNESCOPARISFR': u'UNESCOPARISFR',
+    u'PARISFR': u'UNESCOPARISFR',
+    u'UNVIE': u'UNVIEVIENNA',
+    u'SECSTATE': u'STATE',
+    u'RIO': u'RIODEJANEIRO',
+    u'RIODEJAN': u'RIODEJANEIRO',
+    u'PORT-OF-SPAIN': u'PORTOFSPAIN',
+    u'PAUP': u'PORTAUPRINCE',
+    u'PORT-AU-PRINCE': u'PORTAUPRINCE',
+    u'SANJSE': u'SANJOSE',
+    u'USEU': u'BRUSSELS',
+    u'USUN': u'USUNNEWYORK',
+}
+_C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
+
 def canonicalize_id(reference_id):
     """\
     Returns the canonicalized form of the provided reference_id.
@@ -158,33 +174,12 @@ def canonicalize_id(reference_id):
     `reference_id`
         The cable identifier to canonicalize
     """
-    if u'USUNESCOPARISFR' in reference_id:
-        return reference_id.replace(u'US', u'')
-    elif u'PARISFR' in reference_id and not u'UNESCOPARISFR' in reference_id:
-        return reference_id.replace(u'PARISFR', u'UNESCOPARISFR')
-    elif u'UNVIE' in reference_id and not u'UNVIEVIENNA' in reference_id:
-        return reference_id.replace(u'UNVIE', u'UNVIEVIENNA')
-    elif u'EMBASSY' in reference_id:
+    if u'EMBASSY' in reference_id:
         return reference_id.replace(u'EMBASSY', u'')
-    elif u'SECSTATE' in reference_id:
-        return reference_id.replace(u'SECSTATE', u'STATE')
-    elif u'RIO' in reference_id and not u'RIODEJANEIRO' in reference_id:
-        if u'RIODEJAN' in reference_id:
-            return reference_id.replace(u'RIODEJAN', u'RIODEJANEIRO')
-        else:
-            return reference_id.replace(u'RIO', u'RIODEJANEIRO')
-    elif u'PORT-OF-SPAIN' in reference_id:
-        return reference_id.replace(u'PORT-OF-SPAIN', u'PORTOFSPAIN')
-    elif u'PORT-AU-PRINCE' in reference_id:
-        return reference_id.replace(u'PORT-AU-PRINCE', u'PORTAUPRINCE')
-    elif u'PAUP' in reference_id:
-        return reference_id.replace(u'PAUP', u'PORTAUPRINCE')
-    elif u'SANJSE' in reference_id:
-        return reference_id.replace(u'SANJSE', u'SANJOSE')
-    elif u'USEU' in reference_id:
-        return reference_id.replace(u'USEU', u'BRUSSELS')
-    elif u'USUN' in reference_id and not u'USUNNEWYORK' in reference_id:
-        return reference_id.replace(u'USUN', u'USUNNEWYORK')
+    m = _C14N_PATTERN.match(reference_id)
+    if m:
+        origin = m.group(1)
+        return reference_id.replace(origin, _C14N_FIXES[origin])
     return MALFORMED_CABLE_IDS.get(reference_id, INVALID_CABLE_IDS.get(reference_id, reference_id))
 
 _REFERENCE_ID_FROM_HTML_PATTERN = re.compile('<h3>Viewing cable ([0-9]{2}[A-Z]+[A-Z0-9]+),', re.UNICODE)

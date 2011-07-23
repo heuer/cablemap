@@ -508,6 +508,14 @@ Classified By: Ambassador Brenda''',
     ('''SUBJECT: IPR in Montreal Part 2 - Music Fans and Industry Stakeholders Take IPR Into Their Own Hands Ref: A Montreal 365, B Ottawa 406, C 05 Ottawa 2970 This message is Sensitive but Unclassified ''',
      2006,
      [u'06MONTREAL365', u'06OTTAWA406', u'05OTTAWA2970']),
+    # 06WELLINGTON725
+    ('''SUBJECT: DON BRASH NOT DOWN FOR THE COUNT - YET 
+ 
+REF A WELLINGTON 721 B WELLINGTON 690 
+ 
+Summary ''',
+     2006,
+     [u'06WELLINGTON721', u'06WELLINGTON690']),
     
      
 )

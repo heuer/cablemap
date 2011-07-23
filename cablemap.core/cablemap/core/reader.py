@@ -159,6 +159,7 @@ _C14N_FIXES = {
     u'PANANA': u'PANAMA',
     u'PANAM': u'PANAMA',
     u'MADRIDSP': u'MADRID',
+    u'USEUBRUSSELS': u'BRUSSELS',
     u'USEU': u'BRUSSELS',
     u'USUN': u'USUNNEWYORK',
     u'USUNNY': u'USUNNEWYORK',

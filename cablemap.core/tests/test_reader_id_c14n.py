@@ -60,6 +60,7 @@ _TEST_DATA = (
     (u'07SANJSE12', u'07SANJOSE12'),
     (u'07USEU2', u'07BRUSSELS2'),
     (u'07USUN2', u'07USUNNEWYORK2'),
+    (u'08HALIF1234', u'08HALIFAX1234'),
 )
 
 def test_c14n():

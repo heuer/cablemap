@@ -155,6 +155,7 @@ _C14N_FIXES = {
     u'PAP': u'PORTAUPRINCE',
     u'PORT-AU-PRINCE': u'PORTAUPRINCE',
     u'SANJSE': u'SANJOSE',
+    u'PANANA': u'PANAMA',
     u'USEU': u'BRUSSELS',
     u'USUN': u'USUNNEWYORK',
     u'HALIF': u'HALIFAX',

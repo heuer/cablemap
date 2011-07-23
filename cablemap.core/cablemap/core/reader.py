@@ -176,6 +176,7 @@ _C14N_FIXES = {
     u'PHNOMPEN': u'PHNOMPENH',
     u'TRIPOLII': u'TRIPOLI',
     u'BRASILA': u'BRASILIA',
+    u'BRAZIL': u'BRASILIA',
     u'MEXICOCITY': u'MEXICO',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))

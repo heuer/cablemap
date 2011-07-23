@@ -152,8 +152,7 @@ def cable_page_by_id_old(reference_id):
                 return page
     return None
 
-_CGSN_BASE = u'http://www.cablegatesearch.net/cable.php?id='
-_WL_SOURCE_PATTERN = re.compile(r'<td>Source<td><a target="_blank" href="([^"]+)')
+_CGSN_BASE = u'http://www.cablegatesearch.net/cablegate-do.php?command=get_cable_wl_url_from_canonical_id&canonical_id='
 
 def cable_page_by_id(reference_id):
     """\
@@ -180,15 +179,9 @@ def cable_page_by_id(reference_id):
                 if v == reference_id:
                     return k
         return reference_id
-    def get_html_page(link, link_finder):
-        pg = _fetch_url(_CGSN_BASE + link)
-        pg = pg[pg.rindex('pane big'):pg.rindex('</table>')]
-        m = link_finder(pg)
-        if m:
-            return True, _fetch_url(_BASE + m.group(1))
-        return False, pg
-    pg = _fetch_url(_CGSN_BASE + wikileaks_id(reference_id))
-    return _fetch_url(_WL_SOURCE_PATTERN.search(pg).group(1))
+    res = json.loads(_fetch_url(_CGSN_BASE + wikileaks_id(reference_id)))
+    wl_url = res['wikileaks_url']
+    return _fetch_url(wl_url) if wl_url else None
 
 def _json_or_yaml(fn, cable, metaonly=False, include_summary=True):
     dct = {}

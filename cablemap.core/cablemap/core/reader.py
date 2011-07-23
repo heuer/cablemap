@@ -158,8 +158,10 @@ _C14N_FIXES = {
     u'PANANA': u'PANAMA',
     u'USEU': u'BRUSSELS',
     u'USUN': u'USUNNEWYORK',
+    u'USUNNY': u'USUNNEWYORK',
     u'HALIF': u'HALIFAX',
     u'KUALALUMP': u'KUALALUMPUR',
+    u'WELLINGOTN': u'WELLINGTON',
     u'BKK': u'BANGKOK',
     u'AMONTREAL': u'MONTREAL', # 06MONTREAL436 contains A Montreal 365, B Ottawa 406 which is parsed as AMONTREAL and BOTTAWA
     u'BOTTAWA': u'OTTAWA',

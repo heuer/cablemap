@@ -156,6 +156,7 @@ _C14N_FIXES = {
     u'PORT-AU-PRINCE': u'PORTAUPRINCE',
     u'SANJSE': u'SANJOSE',
     u'PANANA': u'PANAMA',
+    u'PANAM': u'PANAMA',
     u'USEU': u'BRUSSELS',
     u'USUN': u'USUNNEWYORK',
     u'USUNNY': u'USUNNEWYORK',
@@ -688,8 +689,10 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
         y = str(y)
         if not y:
             y = str(year)
-        if len(y) > 2:
+        if len(y) == 4:
             return y[2:]
+        elif len(y) == 3 and y[0] == '0':
+            return y[1:]
         return y
     offset = 0
     m_offset = _REF_OFFSET_PATTERN.search(content)

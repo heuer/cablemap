@@ -67,6 +67,7 @@ _TEST_DATA = (
     (u'01PANANA12', u'01PANAMA12'),
     (u'01WELLINGOTN12', u'01WELLINGTON12'),
     (u'66USUNNY12', u'66USUNNEWYORK12'),
+    (u'05PANAM12', u'05PANAMA12'),
 )
 
 def test_c14n():

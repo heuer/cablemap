@@ -516,7 +516,16 @@ REF A WELLINGTON 721 B WELLINGTON 690
 Summary ''',
      2006,
      [u'06WELLINGTON721', u'06WELLINGTON690']),
-    
+    # 10QUITO33
+    ('''SUBJECT: New Foreign Minister Patino from Left Side of Correa's 
+Circle 
+ 
+REF: QUITO 5; 094 QUITO 841; 08 QUITO 1062; 07 QUITO 1607 
+07 QUITO 290; 06 QUITO 2937 
+ 
+CLASSIFIED''',
+     2010,
+     [u'10QUITO5', u'94QUITO841', u'08QUITO1062', u'07QUITO1607', u'07QUITO290', u'06QUITO2937']),
      
 )
 

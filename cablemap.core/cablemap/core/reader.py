@@ -178,6 +178,7 @@ _C14N_FIXES = {
     u'BRASILA': u'BRASILIA',
     u'BRAZIL': u'BRASILIA',
     u'MEXICOCITY': u'MEXICO',
+    u'BA': u'BUENOSAIRES',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 
@@ -750,7 +751,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             if length < 7 or length > 25: # constants.MIN_ORIGIN_LENGTH + constants.MIN_SERIAL_LENGTH + length of year or constants.MAX_ORIGIN_LENGTH + constants.MAX_SERIAL_LENGTH + 2 (for the year) 
                 continue
             if not REFERENCE_ID_PATTERN.match(reference):
-                if 'OUTOF' not in reference and 'PROVIDING' not in reference and 'NUMBER' not in reference and 'APRIL' not in reference and 'OCTOBER' not in reference and 'MAIL' not in reference and 'DECEMBER' not in reference and 'FEBRUAY' not in reference and 'AUGUST' not in reference and 'MARCH' not in reference and 'JULY' not in reference and 'JUNE' not in reference and 'MAIL' not in reference and 'JANUARY' not in reference and '--' not in reference and 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
+                if 'SECRET' not in reference and 'SECTION' not in reference and 'TODAY' not in reference and 'DAILY' not in reference and 'OUTOF' not in reference and 'PROVIDING' not in reference and 'NUMBER' not in reference and 'APRIL' not in reference and 'OCTOBER' not in reference and 'MAIL' not in reference and 'DECEMBER' not in reference and 'FEBRUAY' not in reference and 'AUGUST' not in reference and 'MARCH' not in reference and 'JULY' not in reference and 'JUNE' not in reference and 'MAIL' not in reference and 'JANUARY' not in reference and '--' not in reference and 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
                     logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
                 continue
             elif reference != reference_id: 

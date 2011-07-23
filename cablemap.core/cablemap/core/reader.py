@@ -171,6 +171,7 @@ _C14N_FIXES = {
     u'VAT': u'VATICAN',
     u'SAOPAUO': u'SAOPAULO',
     u'SAOPAUL': u'SAOPAULO',
+    u'HAGUE': u'THEHAGUE',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

@@ -75,6 +75,7 @@ _TEST_DATA = (
     (u'04SAOPAUO123', u'04SAOPAULO123'),
     (u'03SAOPAUL12', u'03SAOPAULO12'),
     (u'03SECTSTATE12', u'03STATE12'),
+    (u'03HAGUE12', u'03THEHAGUE12'),
 )
 
 def test_c14n():

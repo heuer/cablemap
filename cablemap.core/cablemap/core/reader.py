@@ -651,6 +651,9 @@ def parse_nondisclosure_deadline(content):
     return u'%s-%s-%s' % (year, month, day)
 
 
+# Some cables have an (incomplete) header section within the content, i.e. 07LIMA2129
+# This pattern is used to find the "real" REF section
+_REF_OFFSET_PATTERN = re.compile('\n\-+ header')
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 _REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\)|:)\s*)?\(?([0-9]{2,4})?\)?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-]{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?', re.MULTILINE|re.UNICODE|re.IGNORECASE)
@@ -677,12 +680,16 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
         if len(y) > 2:
             return y[2:]
         return y
+    offset = 0
+    m_offset = _REF_OFFSET_PATTERN.search(content)
+    if m_offset:
+        offset = m_offset.end()
     # 1. Try to find "Classified By:"
-    m_stop = _REF_STOP_PATTERN.search(content)
+    m_stop = _REF_STOP_PATTERN.search(content, offset)
     # If found, use it as maximum index to search for references, otherwise use a constant
     max_idx = m_stop and m_stop.start() or _MAX_HEADER_IDX
     # 2. Find references
-    m_start = _REF_START_PATTERN.search(content, 0, max_idx)
+    m_start = _REF_START_PATTERN.search(content, offset, max_idx)
     # 3. Check if we have a paragraph in the references
     m_stop = _REF_NOT_REF_PATTERN.search(content, m_start and m_start.end() or 0, max_idx)
     last_end = m_start and m_start.end() or 0

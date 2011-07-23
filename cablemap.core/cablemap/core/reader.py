@@ -159,6 +159,7 @@ _C14N_FIXES = {
     u'USUN': u'USUNNEWYORK',
     u'HALIF': u'HALIFAX',
     u'KUALALUMP': u'KUALALUMPUR',
+    u'BKK': u'BANGKOK',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

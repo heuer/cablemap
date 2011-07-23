@@ -160,6 +160,8 @@ _C14N_FIXES = {
     u'HALIF': u'HALIFAX',
     u'KUALALUMP': u'KUALALUMPUR',
     u'BKK': u'BANGKOK',
+    u'AMONTREAL': u'MONTREAL', # 06MONTREAL436 contains A Montreal 365, B Ottawa 406 which is parsed as AMONTREAL and BOTTAWA
+    u'BOTTAWA': u'OTTAWA',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

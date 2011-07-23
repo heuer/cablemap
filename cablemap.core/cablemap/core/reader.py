@@ -157,6 +157,7 @@ _C14N_FIXES = {
     u'SANJSE': u'SANJOSE',
     u'PANANA': u'PANAMA',
     u'PANAM': u'PANAMA',
+    u'MADRIDSP': u'MADRID',
     u'USEU': u'BRUSSELS',
     u'USUN': u'USUNNEWYORK',
     u'USUNNY': u'USUNNEWYORK',
@@ -164,6 +165,7 @@ _C14N_FIXES = {
     u'KUALALUMP': u'KUALALUMPUR',
     u'WELLINGOTN': u'WELLINGTON',
     u'BKK': u'BANGKOK',
+    u'KINSTON': u'KINGSTON',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 
@@ -667,7 +669,7 @@ _REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|
 # "(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?" for "10HAVANA9": A. REF A HAVANA 639
 _REF_PATTERN = re.compile(r'''(?:[A-Z](?:\.|\)|:))?(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?\s*\(?([0-9]{2,4})?\)?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-']{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?''', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
-_REF_STOP_PATTERN = re.compile('(classified by)|summary', re.IGNORECASE|re.UNICODE)
+_REF_STOP_PATTERN = re.compile('(classified by)|summary|\n1\.?\s*\([SBUC]+\)', re.IGNORECASE|re.UNICODE)
 _REF_ORIGIN_PATTERN = re.compile('[0-9]+([A-Z]+)[0-9]+')
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'(PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+)|([A-Z]+\s+[0-9]+\s+[0-9]+(?:\.[0-9]+)?\s+OF)', re.UNICODE)
@@ -724,7 +726,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
                 y = alt_year
             y = format_year(y)
             origin = origin.replace(' ', '').replace(u"'", u'').upper()
-            if origin == 'AND':
+            if origin == 'AND' and res:
                 last_origin = _REF_ORIGIN_PATTERN.match(res[-1]).group(1)
                 origin = last_origin
             reference = u'%s%s%d' % (y, origin, int(sn))

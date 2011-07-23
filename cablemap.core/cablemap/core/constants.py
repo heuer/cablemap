@@ -68,6 +68,7 @@ _STATIONS = (
     'DOHA', 'DUBAI', 'DUBLIN', 'DUSHANBE', 'DHAHRAN', 'DILI',
     # F
     'FREETOWN', 'FUKUOKA',
+    'FRANKFURT', # Found in cable refs
     # G
     'GABORONE', 'GENEVA', 'GUATEMALA', 'GUADALAJARA', 'GUAYAQUIL',
     'GUANGZHOU',

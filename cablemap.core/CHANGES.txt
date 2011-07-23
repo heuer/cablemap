@@ -5,8 +5,10 @@ Changes
 2011-mm-dd -- 0.3.0
 -------------------
 * Reimplemented cablemap.core.utils.cable_by_id and cable_page_by_id 
-  which rely on <http://www.cablegatesearch.net/> and are *much* faster 
-  than the old functions (still available via the _old suffix)
+  using an API provided by <http://www.cablegatesearch.net/>.
+  The new implementations are *much* faster than the old functions 
+  (still available via the _old suffix). Thanks to Raymond Hill for 
+  providing the web service.
 * Cable reference SECDEF, SECSTATE, and STATE were interpreted as 
   STATE. SECDEF shouldn't be treated as reference to SECSTATE. Fixed.
 * Improved parsing of (malformed) TAGs
@@ -31,7 +33,7 @@ Changes
 * Added support to parse media IRIs to the reader module
 * Added media_uris property to models.Cable which gives information about
   the media coverage
-* Added/updated test cases (now: 360+ test cases)
+* Added/updated test cases (now: 380+ test cases)
 * Removed deprecated functions/modules
 
 

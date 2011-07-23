@@ -149,6 +149,7 @@ _C14N_FIXES = {
     u'SECSTATE': u'STATE',
     u'RIO': u'RIODEJANEIRO',
     u'RIODEJAN': u'RIODEJANEIRO',
+    u'RIODEJANIERO': u'RIODEJANEIRO',
     u'PORT-OF-SPAIN': u'PORTOFSPAIN',
     u'PAUP': u'PORTAUPRINCE',
     u'PAP': u'PORTAUPRINCE',
@@ -157,6 +158,7 @@ _C14N_FIXES = {
     u'USEU': u'BRUSSELS',
     u'USUN': u'USUNNEWYORK',
     u'HALIF': u'HALIFAX',
+    u'KUALALUMP': u'KUALALUMPUR',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

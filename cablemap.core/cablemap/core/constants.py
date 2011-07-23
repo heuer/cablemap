@@ -100,6 +100,7 @@ _STATIONS = (
     'PHNOMPENH', 'PORTAUPRINCE', 'PRAGUE', 'PRETORIA', 'PRISTINA',
     'PORTLOUIS', 'PORTOFSPAIN',
     'PARISFR', # Used for US Mission UNESCO, see also UNESCOPARISFR
+    'PRAIA', # Found in cable references
     # Q
     'QUITO', 'QUEBEC',
     # R
@@ -118,7 +119,9 @@ _STATIONS = (
     # U
     'ULAANBAATAR', 'UNVIEVIENNA', 'USNATO', 'USUNNEWYORK', 'USEUBRUSSELS',
     'USOSCE', 'UNROME',
+    'USDA', # Found in cable references and stands for "U.S. Department of Agriculture"
     'USDOC', # Found in REFerences and stands for "United States Department of Commerce"
+    'USCBP', # Found in refs and stands for "U.S. Customs and Border Protection"
     'UNESCOPARISFR', # Same as PARISFR
     # V
     'VATICAN', 'VIENNA', 'VILNIUS', 'VLADIVOSTOK', 'VALLETTA', 'VANCOUVER',

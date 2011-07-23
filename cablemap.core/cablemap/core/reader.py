@@ -166,6 +166,7 @@ _C14N_FIXES = {
     u'WELLINGOTN': u'WELLINGTON',
     u'BKK': u'BANGKOK',
     u'KINSTON': u'KINGSTON',
+    u'BISHTEK': u'BISHKEK',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

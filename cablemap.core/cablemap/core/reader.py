@@ -665,7 +665,7 @@ _REF_OFFSET_PATTERN = re.compile('\n\-+ header')
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 # "(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?" for "10HAVANA9": A. REF A HAVANA 639
-_REF_PATTERN = re.compile(r'(?:[A-Z](?:\.|\)|:))?(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?\s*\(?([0-9]{2,4})?\)?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-]{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?', re.MULTILINE|re.UNICODE|re.IGNORECASE)
+_REF_PATTERN = re.compile(r'''(?:[A-Z](?:\.|\)|:))?(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?\s*\(?([0-9]{2,4})?\)?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-']{2,})(?:\s+)([0-9]+)(?:\s+\(([0-9]{2,4})\))?''', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
 _REF_STOP_PATTERN = re.compile('(classified by)|summary', re.IGNORECASE|re.UNICODE)
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
@@ -722,7 +722,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             if alt_year and not y:
                 y = alt_year
             y = format_year(y)
-            origin = origin.replace(' ', '').upper()
+            origin = origin.replace(' ', '').replace(u"'", u'').upper()
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:
                 reference = canonicalize_id(reference)

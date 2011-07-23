@@ -504,6 +504,10 @@ Classified By: Ambassador Brenda''',
     ('''SUBJECT: COLLEAGUE CHRONICLES CORRUPTION OF YOURI LATORTUE REF: PORT AU PRINCE 01407 PORT AU PR 00002230 001.2 OF 002 Classified By:''',
      2006,
      [u'06PORTAUPRINCE1407']),
+    # 06MONTREAL436
+    ('''SUBJECT: IPR in Montreal Part 2 - Music Fans and Industry Stakeholders Take IPR Into Their Own Hands Ref: A Montreal 365, B Ottawa 406, C 05 Ottawa 2970 This message is Sensitive but Unclassified ''',
+     2006,
+     [u'06MONTREAL365', u'06OTTAWA406', u'05OTTAWA2970']),
     
      
 )

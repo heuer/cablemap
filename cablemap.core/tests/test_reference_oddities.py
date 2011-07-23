@@ -50,8 +50,6 @@ _TEST_DATA = (
         ('06SANJOSE2734', [u'06STATE19152', u'06SANJOSE2223', u'06SANJOSE1955']),
         ('07LIMA2129', [u'07LIMA1841', u'07LIMA2000', u'07LIMA2009', u'07LIMA2026']),
         ('07LIMA2323', [u'07LIMA2000', u'07LIMA2009', u'07LIMA2126', u'07LIMA2236']),
-        
-        
     )
 
 
@@ -63,6 +61,7 @@ def test_references():
     for cable_id, refs in _TEST_DATA:
         yield check, cable_id, refs
     
+
 if __name__ == '__main__':
     import nose
     nose.core.runmodule()

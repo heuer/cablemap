@@ -68,6 +68,7 @@ _STATIONS = (
     # D
     'DAKAR', 'DAMASCUS', 'DARESSALAAM', 'DHAKA', 'DJIBOUTI', 
     'DOHA', 'DUBAI', 'DUBLIN', 'DUSHANBE', 'DHAHRAN', 'DILI',
+    'DUSSELDORF', # found in cable refs
     # F
     'FREETOWN', 'FUKUOKA',
     'FRANKFURT', # Found in cable refs

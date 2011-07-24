@@ -180,6 +180,7 @@ _C14N_FIXES = {
     u'BRAZIL': u'BRASILIA',
     u'MEXICOCITY': u'MEXICO',
     u'BA': u'BUENOSAIRES',
+    u'USDA': u'USDAFAS',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

@@ -121,7 +121,7 @@ _STATIONS = (
     # U
     'ULAANBAATAR', 'UNVIEVIENNA', 'USNATO', 'USUNNEWYORK', 'USEUBRUSSELS',
     'USOSCE', 'UNROME',
-    'USDA', # Found in cable references and stands for "U.S. Department of Agriculture"
+    'USDAFAS', # Found in cable references and stands for "U.S. Department of Agriculture"
     'USDOC', # Found in REFerences and stands for "United States Department of Commerce"
     'USCBP', # Found in refs and stands for "U.S. Customs and Border Protection"
     'UNESCOPARISFR', # Same as PARISFR

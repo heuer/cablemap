@@ -178,6 +178,7 @@ _C14N_FIXES = {
     u'TRIPOLII': u'TRIPOLI',
     u'BRASILA': u'BRASILIA',
     u'BRAZIL': u'BRASILIA',
+    u'BRASIIA': u'BRASILIA',
     u'MEXICOCITY': u'MEXICO',
     u'BA': u'BUENOSAIRES',
     u'USDA': u'USDAFAS',

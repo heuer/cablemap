@@ -184,6 +184,8 @@ _C14N_FIXES = {
     u'BA': u'BUENOSAIRES',
     u'USDA': u'USDAFAS',
     u'CDCATLANTAGA': u'CDCATLANTA',
+    u'USDOCWASHDC': u'USDOC',
+    u'USCUSTOMSA': u'USCBP',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

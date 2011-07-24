@@ -60,12 +60,13 @@ _CABLES_WITHOUT_TAGS = (
 
 _CABLES_WITHOUT_TO = (
     '08MONTERREY468', '09TIJUANA1116', '08STATE125686', '06WELLINGTON633',
-    '06WELLINGTON652', '08STATE34306', '07SAOPAULO161',
+    '06WELLINGTON652', '08STATE34306', '07SAOPAULO161', '08BRASILIA454',
+    '09PHNOMPENH437',
     )
 
 _CABLES_WITH_MALFORMED_SUMMARY = (
     '09CAIRO2133', '06BUENOSAIRES2711', '08BUENOSAIRES1305', '07ATHENS2386',
-    '09SOFIA716',
+    '09SOFIA716', '09BUCHAREST354',
     )
 
 _CABLE_ID_SUBJECT_PATTERN = re.compile('^([0-9]+[^:]+):\s(.+)$')
@@ -143,13 +144,17 @@ def reference_id_from_filename(filename):
     return reference_id
 
 _C14N_FIXES = {
+    u'ATLANTA': u'ATLANTAGA',
+    u'ATLANGAGA': u'ATLANTAGA',
     u'USUNESCOPARISFR': u'UNESCOPARISFR',
     u'PARISFR': u'UNESCOPARISFR',
     u'UNVIE': u'UNVIEVIENNA',
+    u'STAT': u'STATE',
     u'SECSTATE': u'STATE',
     u'SECTSTATE': u'STATE',
     u'SECTATE': u'STATE',
     u'SECDEFWASH': u'SECDEF',
+    u'USNATOANDUSNATO': u'USNATO', # 07REYKJAVIK85: REFS: Hodgson emails to Duguid/Pulaski/USNATO and USNATO 00184 
     u'RIO': u'RIODEJANEIRO',
     u'RIODEJAN': u'RIODEJANEIRO',
     u'RIODEJANIERO': u'RIODEJANEIRO',
@@ -177,8 +182,12 @@ _C14N_FIXES = {
     u'VAT': u'VATICAN',
     u'SAOPAUO': u'SAOPAULO',
     u'SAOPAUL': u'SAOPAULO',
+    u'SCOPAULO': u'SAOPAULO',
+    u'PAULO': u'SAOPAULO',
+    u'SAOPULO': u'SAOPAULO',
     u'HAGUE': u'THEHAGUE',
     u'PHNOMPEN': u'PHNOMPENH',
+    u'PHNOMPEHN': u'PHNOMPENH',
     u'TRIPOLII': u'TRIPOLI',
     u'BRASILA': u'BRASILIA',
     u'BRAZIL': u'BRASILIA',
@@ -186,11 +195,21 @@ _C14N_FIXES = {
     u'BRAZILIA': u'BRASILIA',
     u'MEXICOCITY': u'MEXICO',
     u'BA': u'BUENOSAIRES',
+    u'BUENSOAIRES': u'BUENOSAIRES',
     u'USDA': u'USDAFAS',
     u'CDCATLANTAGA': u'CDCATLANTA',
     u'USDOCWASHDC': u'USDOC',
     u'USCUSTOMSA': u'USCBP',
     u'BEIJINJG': u'BEIJING',
+    u'BEIJINGCH': u'BEIJING',
+    u'MANAUGUA': u'MANAGUA',
+    u'MANAUGA': u'MANAGUA',
+    u'TGG': u'TEGUCIGALPA',
+    u'QUEBECCITY': u'QUEBEC',
+    u'ASUN': u'ASUNCION',
+    u'BASRA': u'BASRAH',
+    u'TALLIN': u'TALLINN',
+    u'SDO': u'SANTODOMINGO',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 
@@ -763,7 +782,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             if length < 7 or length > 25: # constants.MIN_ORIGIN_LENGTH + constants.MIN_SERIAL_LENGTH + length of year or constants.MAX_ORIGIN_LENGTH + constants.MAX_SERIAL_LENGTH + 2 (for the year) 
                 continue
             if not REFERENCE_ID_PATTERN.match(reference):
-                if 'SECRET' not in reference and 'SECTION' not in reference and 'TODAY' not in reference and 'DAILY' not in reference and 'OUTOF' not in reference and 'PROVIDING' not in reference and 'NUMBER' not in reference and 'APRIL' not in reference and 'OCTOBER' not in reference and 'MAIL' not in reference and 'DECEMBER' not in reference and 'FEBRUAY' not in reference and 'AUGUST' not in reference and 'MARCH' not in reference and 'JULY' not in reference and 'JUNE' not in reference and 'MAIL' not in reference and 'JANUARY' not in reference and '--' not in reference and 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
+                if 'CORRUPTION' not in reference and 'ECRET' not in reference and 'PARISPOINT' not in reference and 'TELCON' not in reference and 'FORTHE' not in reference and 'ZOCT' not in reference and 'ZSEP' not in reference and 'ZMAY' not in reference and 'ZNOV' not in reference and 'ZAUG' not in reference and 'PRIORITY' not in reference and 'ZJAN' not in reference and 'ZFEB' not in reference and 'ZJUN' not in reference and'ZJUL' not in reference and 'PREVIO' not in reference and 'SEPTEMBER' not in reference and 'ZAPR' not in reference and 'ZFEB' not in reference and 'PART' not in reference and 'ONFIDENTIAL' not in reference and 'SECRET' not in reference and 'SECTION' not in reference and 'TODAY' not in reference and 'DAILY' not in reference and 'OUTOF' not in reference and 'PROVIDING' not in reference and 'NUMBER' not in reference and 'APRIL' not in reference and 'OCTOBER' not in reference and 'MAIL' not in reference and 'DECEMBER' not in reference and 'FEBRUAY' not in reference and 'AUGUST' not in reference and 'MARCH' not in reference and 'JULY' not in reference and 'JUNE' not in reference and 'MAIL' not in reference and 'JANUARY' not in reference and '--' not in reference and 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
                     logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
                 continue
             elif reference != reference_id: 

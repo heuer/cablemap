@@ -47,6 +47,12 @@ Other sources:
 * <http://cablegategame.com/>
 * <http://www.ceinquiry.us/2010-11-28-wikileaks-glossary.php>
 * <http://aebr.home.xs4all.nl/wl/aftenposten/>
+* <http://www.spiegel.de/thema/botschaftsberichte_2010/>
+* <http://www.spiegel.de/thema/wikileaks/>
+* <http://www.nytimes.com/statessecrets>
+* <http://www.guardian.co.uk/world/the-us-embassy-cables>
+* <http://www.lemonde.fr/international/article/2010/11/28/wikileaks-dans-les-coulisses-de-la-diplomatie-americaine_1446078_3210.html>
+* <http://www.elpais.com/documentossecretos/>
 
 Software for Cablegate:
 * <https://github.com/hamstar/CableBot>

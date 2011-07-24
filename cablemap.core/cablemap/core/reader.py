@@ -174,6 +174,7 @@ _C14N_FIXES = {
     u'USUNNEYORK': u'USUNNEWYORK',
     u'HALIF': u'HALIFAX',
     u'KUALALUMP': u'KUALALUMPUR',
+    u'KL': : u'KUALALUMPUR',
     u'WELLINGOTN': u'WELLINGTON',
     u'WELLLINGTON': u'WELLINGTON',
     u'BKK': u'BANGKOK',
@@ -193,9 +194,11 @@ _C14N_FIXES = {
     u'BRAZIL': u'BRASILIA',
     u'BRASIIA': u'BRASILIA',
     u'BRAZILIA': u'BRASILIA',
+    u'BRASIILIA': u'BRASILIA',
     u'MEXICOCITY': u'MEXICO',
     u'BA': u'BUENOSAIRES',
     u'BUENSOAIRES': u'BUENOSAIRES',
+    u'BUENOSAIREDS': u'BUENOSAIRES',
     u'USDA': u'USDAFAS',
     u'CDCATLANTAGA': u'CDCATLANTA',
     u'USDOCWASHDC': u'USDOC',
@@ -210,6 +213,7 @@ _C14N_FIXES = {
     u'BASRA': u'BASRAH',
     u'TALLIN': u'TALLINN',
     u'SDO': u'SANTODOMINGO',
+    u'TTAWA': u'OTTAWA',
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))
 

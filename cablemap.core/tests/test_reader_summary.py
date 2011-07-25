@@ -152,6 +152,11 @@ END SUMMARY.
 
 3. [...]''',
     u'''[...] 2. [...]'''),
+    # 08DHAKA856
+    ('''Summary =======
+
+1. (C) Bla bla. End Summary''',
+     '''Bla bla.'''),
 
 )
 

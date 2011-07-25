@@ -33,6 +33,9 @@ List of cable oddities
 <http://www.xs4all.nl/~aebr/wl/wikileaks.html>
 <http://www.xs4all.nl/~aebr/wl/corrupted/corrupted.html>
 
+Websites of U.S. Embassies, Consulates, and Diplomatic Missions
+<http://www.usembassy.gov/>
+
 Other sources:
 * <http://www.dazzlepod.com/cable/>
 * <http://cablegate.onebigarchives.net/>

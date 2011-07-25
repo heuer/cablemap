@@ -138,8 +138,28 @@ opportunities. END SUMMARY AND INTRODUCTION.
 Great Expectations
 ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐''',
      u'''Martin Torrijos's [...] performance, dashed expectations, and squandered opportunities.'''),
+    # 09STATE119085
+    ('''Classified by: David Appleton, Director, 
+INR/CCS, Reason: 1.4 (c, d). 
+ 
+SUMMARY AND TABLE OF CONTENTS 
+ 
+1.  (S/NF) [...]
+
+2. [...]
+
+END SUMMARY.
+
+3. [...]''',
+    u'''[...] 2. [...]'''),
+    # 08DHAKA856
+    ('''Summary =======
+
+1. (C) Bla bla. End Summary''',
+     '''Bla bla.'''),
 
 )
+
 
 def test_summary():
     def check(content, expected):

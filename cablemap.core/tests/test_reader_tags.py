@@ -254,6 +254,17 @@ def test_tags():
     for content, expected in _TEST_DATA:
         yield check, content, expected
 
+_TEST_DATA_NO_C14N = (
+    ('''TAGS: AMEDCASCKFLO TBIO KSAF KPAO PREL PINR, AMGT, TF, BR 
+SUBJECT: XXXX''',
+     [u'AMEDCASCKFLO', u'TBIO', u'KSAF', u'KPAO', u'PREL', u'PINR', u'AMGT', u'TF', u'BR']),
+)
+
+def test_c14n_disabled():
+    def check(content, expected):
+        eq_(expected, parse_tags(content, canonicalize=False))
+    for content, expected in _TEST_DATA_NO_C14N:
+        yield check, content, expected    
 
 if __name__ == '__main__':
     import nose

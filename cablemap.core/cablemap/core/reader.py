@@ -879,7 +879,7 @@ _TAG_FIXES = {
     u'IZPREL': (u'IZ', u'PREL'), # 03ROME2045 and others
 }
 
-def parse_tags(content, reference_id=None):
+def parse_tags(content, reference_id=None, canonicalize=True):
     """\
     Returns the TAGS of a cable.
     
@@ -889,6 +889,11 @@ def parse_tags(content, reference_id=None):
         The content of the cable.
     `reference_id`
         The reference identifier of the cable.
+    `canonicalize`
+        Indicates if duplicates should be removed and malformed
+        TAGs like "ECONEFIN" should be corrected (becomes "ECON", "EFIN").
+        ``False`` indicates that the TAGs should be returned as found in
+        cable.
     """
     m = _TAGS_PATTERN.search(content)
     if not m:
@@ -910,6 +915,8 @@ def parse_tags(content, reference_id=None):
     if m2:
         tags = u' '.join([tags, m2.group(1)])
     res = []
+    if not canonicalize:
+        return [u''.join(tag).upper() for tag in _TAG_PATTERN.findall(tags) if tag]
     for t in _TAG_PATTERN.findall(tags):
         tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
         if tag == u'SIPDIS': # Found in 05OTTAWA3726 and 05OTTAWA3709. I think it's an error

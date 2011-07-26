@@ -426,6 +426,7 @@ _ACRONYMS = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file
 #TODO: This should be automated as well.
 _SPECIAL_WORDS = {
     'UK-BASED': u'UK-Based',
+    'NSC-DIRECTED': u'NSC-Directed',
     'DROC--VATICAN': u'DROC--Vatican',
     'BRAZIL-UNSC:': u'Brazil-UNSC:',
     'NETHERLANDS/EU/TURKEY:': u'Netherlands/EU/Turkey:',

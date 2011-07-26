@@ -140,6 +140,9 @@ _TEST_DATA = (
     # 08PARIS1561
     (u'WORKING WITH FRANCE TO ADVANCE A SOLUTION TO THE CONFLICT IN GEORGIA (UNSCR AND GAERC)',
      u'Working With France to Advance a Solution to the Conflict in Georgia (UNSCR and GAERC)'),
+    # 05PANAMA1205
+    (u'PANAMA AND CUBA: NSC-DIRECTED REVIEW REGARDING SUSPENSION OF TITLE III OF THE LIBERTAD ACT ',
+     u'Panama and Cuba: NSC-Directed Review Regarding Suspension of Title III of the Libertad Act'),
 )
 
 def test_titlefy():

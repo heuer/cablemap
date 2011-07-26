@@ -216,6 +216,7 @@ _C14N_FIXES = {
     u'TTAWA': u'OTTAWA',
     u'DELHI': u'NEWDELHI',
     u'HCMCI': u'HOCHIMINHCITY',
+    u'AITTAIPEI': u'TAIPEI',
               
 }
 _C14N_PATTERN = re.compile(r'[0-9]{2}(%s)[0-9]+' % '|'.join(_C14N_FIXES.keys()))

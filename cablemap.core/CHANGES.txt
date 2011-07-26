@@ -33,8 +33,8 @@ Changes
   <http://aebr.home.xs4all.nl/wl/> 
 * cable_by_id and cable_page_by_id returned None if the release year page
   contains 10 or more pages to walk through. Fixed.
-  (this change became obsolete due to the Cablegatesearch web service, but still available 
-  as cable_by_id_old)
+  (this change became obsolete due to the Cablegatesearch web service, 
+  but it is still available as cable_by_id_old)
 * Added support to parse media IRIs to the reader module
 * Added media_uris property to models.Cable which gives information about
   the media coverage

@@ -78,10 +78,10 @@ def cable_from_html(html, reference_id=None):
 # * BASE/<year>/<month>/<reference-id>
 # * BASE/<year>/<month>/<reference-id>.html
 _WL_CABLE_BASE_URIS = (
-                'http://wikileaks.ch/cable/',
-                'http://wikileaks.org/cable/',
-                'http://cablegate.wikileaks.org/cable/', # Does not work anymore
-                'http://213.251.145.96/cable/' # Seems to work neither
+                u'http://wikileaks.org/cable/',
+                u'http://wikileaks.ch/cable/',
+                u'http://cablegate.wikileaks.org/cable/', # Does not work anymore
+                u'http://213.251.145.96/cable/' # Seems to work neither
                 )
 
 # Source: <https://github.com/mitsuhiko/werkzeug/blob/master/werkzeug/utils.py#L30>
@@ -142,8 +142,8 @@ class _CableBase(object):
         if not self.created:
             raise ValueError('The "created" property must be provided')
         year, month = year_month(self.created)
-        l = '%s/%s/%s' % (year, month, self.reference_id)
-        html = l + '.html'
+        l = u'%s/%s/%s' % (year, month, self.reference_id)
+        html = l + u'.html'
         wl_uris = []
         append = wl_uris.append
         for wl in _WL_CABLE_BASE_URIS:

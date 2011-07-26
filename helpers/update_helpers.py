@@ -48,12 +48,12 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'MDC', u'MEP', u'MFA', u'MOD', u'MI-17', u'MI-6',
              u'MRE', u'MP', u'MONUC', u'MOP-3', u'MEA',
              u'NATO', u'NDP', u'NSA', u'NGO', u'NEA', u'NEA/MAG', u'NTM-I',
-             u'OIC', u'OECD', u'OAS', u'OSCE',
+             u'OIC', u'OECD', u'OAS', u'OSCE', u'OPEC',
              u'PA', u'PD', u'PM', u'PMDB', u'PS', u'PDAS', u'PRT', u'POC', u'PRC/DPRK',
              u'PNG', u'PRC',
              u'ROK', u'RWE', u'RFG', u'RMB', u'RSO', u'RPO', u'RTG',
              u'SLA', u'SLA/U', u'SPD', u'SWIFT', u'S/WCI', u'S/CT', u'S/CRS',
-             u'S/GC', u'SCSL', u'S/SRAP', u'SG',
+             u'S/GC', u'SCSL', u'S/SRAP', u'SG', u'SAS',
              u'TFTP', u'TFTP/SWIFT', u'U.S.-EU', u'U.S.-UK', u'UAE', u'UK', u'UN',
              u'UNHCR', u'UNSC', u'US', u'US-CU', u'US-EU', u'USG', u'USTR', u'UNCHR',
              u'USEB', u'UNGA', u'U.S./UK', u'UNESCO', u'U/SYG', u'US-ROYG', u'UNSCR',
@@ -63,7 +63,7 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'XVI',
              u'ZANU-PF')
 
-_UNWANTED = (u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO', u'CAN', u'SAO')
+_UNWANTED = (u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO', u'CAN', u'SAO', u'IT')
 
 def run_update(in_dir, predicate=None):
     acronyms = set(_ACRONYMS)

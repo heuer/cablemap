@@ -719,14 +719,14 @@ _REF_OFFSET_PATTERN = re.compile('\n\-+ header')
 _REF_START_PATTERN = re.compile(r'(?:[\nPROGRAM ]*REF|REF\(S\):?\s*)([^\n]+(\n\s*[0-9]+[,\s]+[^\n]+)?)', re.IGNORECASE|re.UNICODE)
 _REF_LAST_REF_PATTERN = re.compile(r'(\n[^\n]*\n)|(\n?[ ]*[A-Z](?:\.(?!O\.|S\.)|\))[^\n]+)', re.IGNORECASE|re.UNICODE)
 # "(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?" for "10HAVANA9": A. REF A HAVANA 639
-_REF_PATTERN = re.compile(r'''(?:[A-Z](?:\.|\)|:))?(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?\s*\(?([0-9]{2,4})?\)?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-']{2,})(?:\s+)([0-9]+)(?!\.\.+)(?:\s+\(([0-9]{2,4})\))?''', re.MULTILINE|re.UNICODE|re.IGNORECASE)
+_REF_PATTERN = re.compile(r'''([A-Z])?(?:\.|\)|:)?(?:(?:[ ]*REF)?[ ]+[A-Z][ ]+)?\s*\(?([0-9]{2,4})?\)?(?:\s*)([A-Z ]*[A-Z ]*[A-Z\-']{2,})(?:\s+)([0-9]+)(?!\.\.+)(?:\s+\(([0-9]{2,4})\))?''', re.MULTILINE|re.UNICODE|re.IGNORECASE)
 _REF_NOT_REF_PATTERN = re.compile(r'\n[0-9]\.[ ]*(?:\([A-Z]+\))?', re.IGNORECASE|re.UNICODE)
 _REF_STOP_PATTERN = re.compile('(classified by)|summary|\n1\.?\s*\([SBUC]+\)', re.IGNORECASE|re.UNICODE)
 _REF_ORIGIN_PATTERN = re.compile('[0-9]+([A-Z]+)[0-9]+')
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'(PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+)|([A-Z]+\s+[0-9]+\s+[0-9]+(?:\.[0-9]+)?\s+OF)', re.UNICODE)
 
-def parse_references(content, year, reference_id=None, canonicalize=True):
+def parse_references(content, year, reference_id=None, canonicalize=True, keep_enum=False):
     """\
     Returns the references to other cables as (maybe empty) list.
     
@@ -736,6 +736,15 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
         The year when the cable was created.
     `reference_id`
         The reference identifier of the cable.
+    `canonicalize`
+        Indicates if the reference origin should be canonicalized.
+        (enabled by default)
+    `keep_enum`
+        Indicates if the enumeration char should be returned.
+        (disabled by default)
+        If set to ``True``, the returned list will consist of binary tuples:
+        ``(ENUMERATION, REFERENCE)`` where ``ENUMERATION`` may be an empty
+        string.
     """
     def format_year(y):
         y = str(y)
@@ -773,7 +782,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
         end = last_end or m_start.end()
         refs = content[start:end].replace('\n', ' ')
         refs = _CLEAN_REFS_PATTERN.sub('', refs)
-        for y, origin, sn, alt_year in _REF_PATTERN.findall(refs):
+        for enum, y, origin, sn, alt_year in _REF_PATTERN.findall(refs):
             if alt_year and not y:
                 y = alt_year
             y = format_year(y)
@@ -793,8 +802,10 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
                 if 'CORRUPTION' not in reference and 'ECRET' not in reference and 'PARISPOINT' not in reference and 'TELCON' not in reference and 'FORTHE' not in reference and 'ZOCT' not in reference and 'ZSEP' not in reference and 'ZMAY' not in reference and 'ZNOV' not in reference and 'ZAUG' not in reference and 'PRIORITY' not in reference and 'ZJAN' not in reference and 'ZFEB' not in reference and 'ZJUN' not in reference and'ZJUL' not in reference and 'PREVIO' not in reference and 'SEPTEMBER' not in reference and 'ZAPR' not in reference and 'ZFEB' not in reference and 'PART' not in reference and 'ONFIDENTIAL' not in reference and 'SECRET' not in reference and 'SECTION' not in reference and 'TODAY' not in reference and 'DAILY' not in reference and 'OUTOF' not in reference and 'PROVIDING' not in reference and 'NUMBER' not in reference and 'APRIL' not in reference and 'OCTOBER' not in reference and 'MAIL' not in reference and 'DECEMBER' not in reference and 'FEBRUAY' not in reference and 'AUGUST' not in reference and 'MARCH' not in reference and 'JULY' not in reference and 'JUNE' not in reference and 'MAIL' not in reference and 'JANUARY' not in reference and '--' not in reference and 'PARAGRAPH' not in reference and 'ANDPREVIOUS' not in reference and 'UNCLAS' not in reference and 'ONMARCH' not in reference and 'ONAPRIL' not in reference and 'FEBRUARY' not in reference and 'ONMAY' not in reference and 'ONJULY' not in reference and 'ONJUNE' not in reference and 'NOVEMBER' not in reference and not 'CONFIDENTIAL' in reference:
                     logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
                 continue
-            elif reference != reference_id and reference not in res: 
-                res.append(reference)
+            if reference != reference_id:
+                reference = reference if not keep_enum else (enum, reference)
+                if reference not in res:
+                    res.append(reference)
     return res
 
 

@@ -235,6 +235,9 @@ def cable_to_json(cable, metaonly=False, include_summary=True):
     >>> 'summary' in dct
     False
     """
+    import warnings
+    from warnings import DeprecationWarning
+    warnings.warn('This function will be removed in releases > 0.3.0', DeprecationWarning)
     return _json_or_yaml(json.dumps, cable, metaonly, include_summary)
 
 def cable_from_json(src):
@@ -261,6 +264,10 @@ def cable_from_json(src):
     >>> cable3.reference_id == cable.reference_id
     True
     """
+    import warnings
+    from warnings import DeprecationWarning
+    warnings.warn('This function will be removed in releases > 0.3.0', DeprecationWarning)
+
     dct = hasattr(src, 'read') and json.load(src) or json.loads(src)
     return Cable.from_dict(dct)
 
@@ -292,6 +299,10 @@ def cable_to_yaml(cable, metaonly=False, include_summary=True):
     >>> dct['summary'] == 'Summary'
     True
     """
+    import warnings
+    from warnings import DeprecationWarning
+    warnings.warn('This function will be removed in releases > 0.3.0', DeprecationWarning)
+    
     import yaml
     try:
         from yaml import CDumper as Dumper

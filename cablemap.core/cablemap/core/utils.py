@@ -76,82 +76,6 @@ def _fetch_url(url):
     return resp.read().decode('utf-8')
     
 
-_BASE = 'http://wikileaks.ch/'
-_INDEX = _BASE + 'cablegate.html'
-
-_LINKS_PATTERN = re.compile(r"<a href='(.+?)'\s*>")
-_PAGINATOR_PATTERN = re.compile('''<div\s+class=(?:"|')paginator(?:"|')\s*>.+?<a href=(?:"|')(/date/[0-9]{4}-[0-9]{2}_).+?(?:"|')>([0-9]+)</a><a href=.+?> &gt;&gt;</a></div>''')
-_PAGE_PATTERN = re.compile(r'''<a[ ]+href=(?:"|')([^"']+)(?:"|')>[2-9]+</a>''')
-_BY_DATE_PATTERN = re.compile(r'''<div\s+class=(?:"|')sort(?:"|')\s+id=(?:"|')year_1966(?:"|')>(.+?)<h3>Browse\s+by\s+<a\s+href=(?:"|')#by_A''', re.DOTALL)
-
-def cable_page_by_id_old(reference_id):
-    """\
-    Returns the HTML page of the cable identified by `reference_id`.
-
-    >>> cable_page_by_id('09BERLIN1167') is not None
-    True
-    >>> cable_page_by_id('22BERLIN1167') is None
-    True
-    >>> # Test pagination
-    >>> cable_page_by_id('09MOSCOW3010') is not None
-    True
-    >>> cable_page_by_id('10MADRID87') is not None
-    True
-    >>> cable_page_by_id('10MUSCAT103') is not None
-    True
-    """
-    def wl_id_ref_id(reference_id):
-        if reference_id in INVALID_CABLE_IDS.values():
-            for k, v in INVALID_CABLE_IDS.iteritems():
-                if v == reference_id:
-                    return k, reference_id
-        return reference_id, reference_id
-    def normalize_year(y):
-        year = y
-        try:
-            y = int(y)
-        except TypeError:
-            raise ValueError('Illegal year "%r"' % y)
-        if y < 66:
-            year = 2000 + y
-        elif y < 100:
-            year = 1900 + y
-        return year
-    def get_html_page(link, link_finder):
-        pg = _fetch_url(_BASE + link)
-        pg = pg[pg.rindex('pane big'):pg.rindex('</table>')]
-        m = link_finder(pg)
-        if m:
-            return True, _fetch_url(_BASE + m.group(1))
-        return False, pg
-    wl_id, reference_id = wl_id_ref_id(reference_id)
-    year = normalize_year(reference_id[:2])
-    index = _fetch_url(_INDEX)
-    by_date_m = _BY_DATE_PATTERN.search(index)
-    if by_date_m:
-        index = by_date_m.group(1)
-    else:
-        return None
-    p = re.compile(r"<div.+?id='year_%s'.*?>(.+?)</div>" % year, re.DOTALL)
-    m = p.search(index)
-    if not m:
-        return None
-    get_page = partial(get_html_page, link_finder=re.compile(r'''<a\s+href=(?:"|')(.+?)(?:"|')>%s</a>''' % wl_id).search)
-    for link in _LINKS_PATTERN.findall(m.group(1)):
-        found, page = get_page(link)
-        if found:
-            return page
-        # Walk through the pages
-        m = _PAGINATOR_PATTERN.search(page)
-        if not m:
-            continue
-        link_base, max_page = m.groups()
-        for pg in xrange(1, int(max_page)):
-            found, page = get_page(link_base + str(pg))
-            if found:
-                return page
-    return None
-
 _CGSN_BASE = u'http://www.cablegatesearch.net/cablegate-do.php?command=get_cable_wl_url_from_canonical_id&canonical_id='
 
 def cable_page_by_id(reference_id):
@@ -371,21 +295,6 @@ def cables_from_7z(fileobj, predicate=None):
     pred = predicate or bool
     basename = os.path.basename
     return (cable_from_html(unicode(member.read(), 'utf-8'), refid(basename(member.filename))) for member in a.getmembers() if member.filename.startswith('cable/') and pred(basename(member.filename)))
-
-def cable_by_id_old(reference_id):
-    """\
-    Returns a cable by its reference identifier or ``None`` if
-    the cable does not exist.
-
-    The cable is fetched from the ``wikileaks.ch`` website.
-
-    `reference_id`
-        The reference identifier of the cable.
-    """
-    page = cable_page_by_id_old(reference_id)
-    if page:
-        return cable_from_html(page)
-    return None
 
 def cable_by_id(reference_id):
     """\

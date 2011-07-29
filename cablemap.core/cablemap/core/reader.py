@@ -38,10 +38,12 @@ This module extracts information from cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from __future__ import absolute_import
 import os
 import codecs
 import re
 import logging
+from cablemap.core import constants as const
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 logger = logging.getLogger('cablemap.core.reader')
@@ -144,8 +146,10 @@ def reference_id_from_filename(filename):
     return reference_id
 
 _C14N_FIXES = {
-    u'ATLANTA': u'ATLANTAGA',
-    u'ATLANGAGA': u'ATLANTAGA',
+    u'ATLANTA': u'CDCATLANTAGA',
+    u'ATLANGAGA': u'CDCATLANTAGA',
+    u'ATLANTAGA': u'CDCATLANTAGA',
+    u'CDCATLANTA': u'CDCATLANTAGA',
     u'USUNESCOPARISFR': u'UNESCOPARISFR',
     u'PARISFR': u'UNESCOPARISFR',
     u'UNVIE': u'UNVIEVIENNA',
@@ -433,151 +437,35 @@ def parse_transmission_id(header, reference_id):
     return m.group(1)
 
 
-_NAME2ROUTE = None
-
-_ADDITIONAL_ROUTES = {
-    'USMISSION USNATO': 'RUCNDT', # RUCNDT USMISSION USUN NEW YORK NY
-    'USMISSION USUN NEW YORK': 'RUCNDT', # see above
-    'SECSTATE WASHDC': 'RUEHC',
-    'AMEMBASSY GUATEMALA': 'RUEHGT',
-    'AMCONSUL LAGOS': 'RUEHOS',
-    'AMCONSUL MELBOURNE': 'RUEHBN',
-    'AMEMBASSY PANAMA': 'RUEHZP',
-    'AMEMBASSY MEXICO': 'RUEHME',
-    'AMEMBASSY VATICAN': 'RUEHROV',
-    'AMEMBASSY ALMATY': 'RUEHTA', # Used in cables
-    'AMEMBASSY QUITO': 'RUEHQT', # Used in cables 
-    'AMCONSUL JOHANNESBURG': 'RUEHJO', # "RUEHJO" is used in cables
-    'XMT AMCONSUL JOHANNESBURG': 'RUEHJO', #TODO: XMT?!?
-    'XMT AMCONSUL STRASBOURG': 'RUEHSR', #TODO: XMT?!?
-    'HQ USAFRICOM STUTTGART GE': 'RHWSAFC', # RHWSAFC STR09 SACCS USAFRICOM COMMAND CENTER STUTTGART GE
-    'DEPT OF JUSTICE WASHINGTON DC': 'RUEAWJA', # RUEAWJA THRU RUEAWJD DEPT OF JUSTICE WASHINGTON DC
-    'DEPARTMENT OF JUSTICE WASHINGTON DC': 'RUEAWJA', # RUEAWJA THRU RUEAWJD DEPT OF JUSTICE WASHINGTON DC
-    'NATIONAL SECURITY COUNCIL WASHINGTON DC': 'RHEHNSC',
-    'NSC WASHINGTON DC': 'RHEHNSC',
-    'AMEMBASSY RIO DE JANEIRO': 'RUEHRI', #  AMCONSUL RIO DE JANEIRO'
-    'DIA WASHINGTON DC': 'RHEFJMA', # DIA JMAS WASHINGTON DC
-    'HQ USCENTCOM MACDILL AFB FL': 'RUMICEA', #TODO, see below
-    'CDR USCENTCOM MACDILL AFB FL': 'RUMICEA',  #TODO: "RUMICEA" = USCENTCOM INTEL CEN MACDILL AFB FL
-                                                #      "RUCQSAB" = USSOCOM INTEL MACDILL AFB FL
-    'COMSOCCENT MACDILL AFB FL': 'RHMFIUU',
-    'HQ USSOCOM MACDILL AFB FL': 'RHMFIUU',
-    'USCINCCENT MACDILL AFB FL': 'RUMICEA',  # see above
-    'USEU BRUSSELS': 'RUEHNO', # RUEHNO US MISSIONS BRUSSELS BE
-    'SECDEF': 'RUEKJCS', # "RUEKJCS" is commonly used in the cables RUEKJCS/SECDEF ...
-    'SECDEF WASHINGTON DC': 'RUEKJCS', # "RUEKJCS" is commonly used in the cables RUEKJCS/SECDEF ...
-    'DEPT OF HOMELAND SECURITY WASHINGTON DC': 'RHEFHLC', # used in the cables: RHEFHLC/DEPT OF HOMELAND SECURITY WASHINGTON DC
-    'HOMELAND SECURITY CENTER WASHINGTON DC': 'RHEFHLC',
-    'USMISSION UNVIE VIENNA': 'RUEHUNV', # RUEHUNV USMISSIN UNVIE VIENNA
-    'THE WHITE HOUSE WASHINGTON DC': 'RHEHAAA',
-    'WHITE HOUSE WASHINGTON DC': 'RHEHAAA',
-    'CJCS WASHINGTON DC': 'RUEKJCS',
-    # COMUSKOREA
-    'COMUSKOREA J': 'RUACAAA',
-    'COMUSFK SEOUL KOR': 'RUACAAA',
-    'COMUSKOREA SCJS SEOUL KOR': 'RUACAAA',
-    # Collective routes extracted from other cables:
-    'EUROPEAN POLITICAL COLLECTIVE': 'RUEHZL',
-    'EU MEMBER STATES COLLECTIVE': 'RUCNMEM',
-    'GULF COOPERATION COUNCIL COLLECTIVE': 'RUEHZM',
-    'MERCOSUR COLLECTIVE': 'RUCNMER',
-    'IRAN COLLECTIVE': 'RUCNIRA',
-    'WESTERN HEMISPHERIC AFFAIRS DIPL POSTS': 'RUEHWH',
-    'MOSCOW POLITICAL COLLECTIVE': 'RUEHXD',
-    'IRAQ COLLECTIVE': 'RUCNRAQ',
-    'ECOWAS COLLECTIVE': 'RUEHZK',
-    'ARAB ISRAELI COLLECTIVE': 'RUEHXK',
-    'ARAB LEAGUE COLLECTIVE': 'RUEHEE',
-    'SOUTHERN AFRICAN DEVELOPMENT COMMUNITY': 'RUCNSAD',
-    'SOUTHERN AF DEVELOPMENT COMMUNITY COLLECTIVE': 'RUCNSAD',
-    'DARFUR COLLECTIVE': 'RUCNFUR',
-    'AFRICAN UNION COLLECTIVE': 'RUEHZO',
-    'ALL US CONSULATES IN MEXICO COLLECTIVE': 'RUEHXC',
-    'OPEC COLLECTIVE': 'RUEHHH',
-    'ALL NATO POST COLLECTIVE': 'RUEHXP',
-    'ENVIRONMENT SCIENCE AND TECHNOLOGY COLLECTIVE': 'RUEHZN',
-    'AFGHANISTAN COLLECTIVE': 'RUCNAFG',
-    'WHA CENTRAL AMERICAN COLLECTIVE': 'RUEHZA',
-    'UN SECURITY COUNCIL COLLECTIVE': 'RUEHGG',
-    'IGAD COLLECTIVE': 'RUCNIAD',
-    'DEA HQS WASHINGTON DC': 'RUEABND',
-    'OSD WASHINGTON DC': 'RUEKJCS',
-    'HAITI COLLECTIVE': 'RUEHZH',
-    'NCTC WASHINGTON DC': 'RUEILB',
-    'SOMALIA COLLECTIVE': 'RUCNSOM',
-    'CDR USPACOM HONOLULU HI': 'RHHMUNA',
-    'HQ USAFRICOM STUTTGART GE': 'RUEWMFD', # Also: 'HQ USAFRICOM STUTTGART GE': 'RUZEFAA',
-    'CDR USAFRICOM STUTTGART GE': 'RUEWMFD', # Also: 'HQ USAFRICOM STUTTGART GE': 'RUZEFAA',
-    'EUCOM POLAD VAIHINGEN GE': 'RHMCSUU',
-    'HQ USEUCOM VAIHINGEN GE': 'RHMCSUU',
-    'CDR USEUCOM VAIHINGEN GE': 'RHMCSUU',
-    'HQ USSOUTHCOM MIAMI FL': 'RUMIAAA',
-    'CDR USSOUTHCOM MIAMI FL': 'RHMFIUU',
-    'RWANDA COLLECTIVE': 'RUEHXR',
-    'COMNAVBASE GUANTANAMO BAY CU': 'RUCOGCA',
-    'NAVINTELOFC GUANTANAMO BAY CU': 'RUCOGCA',
-    'MAGHREB COLLECTIVE': 'RUCNMGH',
-}
-
-def _route_for_name(name):
-    NAME2ROUTE = globals().get('_NAME2ROUTE')
-    if not NAME2ROUTE:
-        NAME2ROUTE = {}
-        import os
-        root_dir = os.path.dirname(os.path.abspath(__file__))
-        f = open(root_dir + '/routes.txt')
-        route_pattern = re.compile('^(R[A-Z]+)[ \t]+(.+)$')
-        for l in f:
-            if l.startswith('#'):
-                continue
-            m = route_pattern.match(l)
-            NAME2ROUTE[m.group(2)] = m.group(1)
-        NAME2ROUTE.update(_ADDITIONAL_ROUTES)
-        globals()['_NAME2ROUTE'] = NAME2ROUTE
-    res = NAME2ROUTE.get(name)
-    if not res and name.endswith('WASHDC'):
-        res = NAME2ROUTE.get(name.replace('WASHDC', 'WASHINGTON DC'), None)
-    return res
-
-
-_REC_PATTERN = re.compile(r'([A-Z]+/)?([A-Z -]{2,})(?:.*$)', re.MULTILINE|re.UNICODE)
+_REC_PATTERN = re.compile(r'([A-Z]+(?:/))?([A-Z -]{2,})(?:[ ]+([0-9]+))?', re.MULTILINE|re.UNICODE)
+_REC_CLEAN_PATTERN = re.compile(r'(PAGE [0-9]+\s+[A-Z]+\s+[0-9]+\s+[0-9]+Z)')
+_REC_PRECEDENCE_PATTERN = re.compile(r'FLASH|NIACT IMMEDIATE|IMMEDIATE|PR?IORITY|ROUTINE')
+_EXCLUDED_DEFAULT = ()
 
 def _route_recipient_from_header(header, reference_id):
+    from cablemap.core.models import Recipient
+    header = _REC_CLEAN_PATTERN.sub(u'', header)
     res = []
-    for route, recipient in _REC_PATTERN.findall(header):
-        if route:
-            route = route.replace('/', '')
-        if route == 'RHMFISS':
-            route = None
-        for x in ('PRIORITY', 'IMMEDIATE',
-                  'NIACT', #TODO: NIght ACTion (US government immediate action security classification)
-                  ):
-            recipient = recipient.replace(x, '')
-        if reference_id == '09BAKU179':
-            recipient = recipient.replace('PIORITY', '')
-        recipient = recipient.strip()
-        if recipient in ('PAGE', # 08STATE23763
-                         'RHMFISS', # Unclassified but Sensitive, MFI residing on the DMS NIPRNET
-                         'RHMFIUU', # Secret MFI, residing on the DMS SIPRNET
-                        ):
-            recipient = None
-        if not route and recipient:
-            route = _route_for_name(recipient)
-        if route or recipient:
-            res.append((route, recipient))
+    for route, recipient, mcn in _REC_PATTERN.findall(header):
+        precedence = None
+        m = _REC_PRECEDENCE_PATTERN.search(recipient)
+        if m:
+            precedence = m.group().replace(u'PIOR', u'PRIOR')
+            recipient = recipient[:m.start()].strip()
+        res.append(Recipient(route, recipient, precedence, mcn))
     return res
 
 
 # (?:PAGE [0-9]+ ...) was added because 09STATE15113 contains this pattern
 _TO_PATTERN = re.compile(r'(?:\nTO\s+)(?:PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+Z)?(.+?)(?=INFO|\Z)', re.DOTALL|re.UNICODE)
 
-def parse_recipients(header, reference_id):
+def parse_recipients(header, reference_id=None):
     """\
     Returns the recipients of the cable as (maybe empty) list.
     """
     m = _TO_PATTERN.search(header)
     if not m:
-        if reference_id not in _CABLES_WITHOUT_TO:
+        if reference_id and reference_id not in _CABLES_WITHOUT_TO:
             logger.warn('No TO header found in "%s", header: "%s"' % (reference_id, header))
         return []
     to_header = m.group(1)
@@ -586,7 +474,7 @@ def parse_recipients(header, reference_id):
 
 _INFO_PATTERN = re.compile(r'(?:\nTO\s+.+?\nINFO\s+)(.+?)(?=\Z)', re.DOTALL|re.UNICODE)
 
-def parse_info_recipients(header, reference_id):
+def parse_info_recipients(header, reference_id=None):
     """\
     Returns the informal recipients of the cable as (maybe empty) list.    
     """
@@ -595,35 +483,6 @@ def parse_info_recipients(header, reference_id):
         return []
     to_header = m.group(1)
     return _route_recipient_from_header(to_header, reference_id)
-    res = []
-    for code, recipient in _REC_PATTERN.findall(to_header):
-        for x in ('PRIORITY', 'IMMEDIATE'):
-            recipient = recipient.replace(x, '')
-        if reference_id == '09BAKU179':
-            recipient = recipient.replace('PIORITY', '')
-        recipient = recipient.strip()
-        if recipient:
-            # malformed cables
-            if recipient == 'PAGE':
-                if reference_id =='08STATE50524':
-                    recipient = 'AMEMBASSY BAGHDAD'
-                if reference_id == '09STATE37566':
-                    recipient = None
-            elif recipient == 'XMT AMCONSUL JOHANNESBURG': # '08STATE116943', '09STATE63860', 09STATE67105 
-                recipient = None
-            elif reference_id == '09ANKARA1594' and recipient == 'DET':
-                recipient = None
-            elif reference_id in ('10PRISTINA44', '10PRISTINA84') and recipient in ('RUEOBZB', 'CDR'):
-                recipient = None
-            elif recipient in ('RHMFISS', 'RHMFIUU'): # ANKARA cables like '07ANKARA1091', '07ANKARA1842', '07ANKARA1905', 09ANKARA1594
-                recipient = None
-            elif reference_id == '10SARAJEVO134' and recipient == 'XMT AMCONSUL STRASBOURG':
-                recipient = 'AMCONSUL STRASBOURG'
-            elif reference_id == '09PRISTINA148' and recipient == 'CDR':
-                recipient = None
-        if recipient:
-            res.append(recipient.strip())
-    return res
 
 
 _SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\([^\)]+\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is a?n Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
@@ -656,7 +515,7 @@ def parse_subject(content, reference_id=None, clean=True, fix_subject=True):
         5 FAH-1 H-210 -- HOW TO USE TELEGRAMS; page 2
         <http://www.state.gov/documents/organization/89319.pdf>
     `fix_subject`
-        If no subject can be found in the WikiLeaks cable source, the
+        If the subject cannot be found in the WikiLeaks cable source, the
         subject can be set to another value if the reader has knowledge
         about the subject from 3rd party cable releases like the Aftenposten
         cable releases.

@@ -437,7 +437,7 @@ def parse_transmission_id(header, reference_id):
     return m.group(1)
 
 
-_REC_PATTERN = re.compile(r'([A-Z]+(?:/))?([A-Z -]{2,})(?:[ ]+([0-9]+))?', re.MULTILINE|re.UNICODE)
+_REC_PATTERN = re.compile(r'([A-Z]+(?:/))?([A-Z -]{2,})[ ]*([0-9]*)', re.MULTILINE|re.UNICODE)
 _REC_CLEAN_PATTERN = re.compile(r'(PAGE [0-9]+\s+[A-Z]+\s+[0-9]+\s+[0-9]+Z)')
 _REC_PRECEDENCE_PATTERN = re.compile(r'FLASH|NIACT IMMEDIATE|IMMEDIATE|PR?IORITY|ROUTINE')
 _EXCLUDED_DEFAULT = ()

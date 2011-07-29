@@ -437,22 +437,22 @@ def parse_transmission_id(header, reference_id):
     return m.group(1)
 
 
-_REC_PATTERN = re.compile(r'([A-Z]+(?:/))?([A-Z -]{2,})[ ]*([0-9]*)', re.MULTILINE|re.UNICODE)
+_REC_PATTERN = re.compile(r'(?:([A-Z]+)/)?([A-Z -]{2,})[ ]*([0-9]*)', re.MULTILINE|re.UNICODE)
 _REC_CLEAN_PATTERN = re.compile(r'(PAGE [0-9]+\s+[A-Z]+\s+[0-9]+\s+[0-9]+Z)')
 _REC_PRECEDENCE_PATTERN = re.compile(r'FLASH|NIACT IMMEDIATE|IMMEDIATE|PR?IORITY|ROUTINE')
-_EXCLUDED_DEFAULT = ()
 
 def _route_recipient_from_header(header, reference_id):
     from cablemap.core.models import Recipient
     header = _REC_CLEAN_PATTERN.sub(u'', header)
     res = []
     for route, recipient, mcn in _REC_PATTERN.findall(header):
+        excluded = []
         precedence = None
         m = _REC_PRECEDENCE_PATTERN.search(recipient)
         if m:
             precedence = m.group().replace(u'PIOR', u'PRIOR')
             recipient = recipient[:m.start()].strip()
-        res.append(Recipient(route, recipient, precedence, mcn))
+        res.append(Recipient(route, recipient, precedence, mcn, excluded))
     return res
 
 

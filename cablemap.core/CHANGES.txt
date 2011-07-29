@@ -4,12 +4,17 @@ Changes
 
 2011-mm-dd -- 0.3.0
 -------------------
-* Deprecated the following functions/methods (will be removed in 0.4.0):
-  - models.Cable.from_dict
-  - models.Cable.to_dict
-  - utils.cable_to_json
-  - utils.cable_from_json
-  - utils.cable_to_yaml
+* API breaking changes:
+  - Removed functions/methods:
+    - models.Cable.from_dict
+    - models.Cable.to_dict
+    - utils.cable_to_json
+    - utils.cable_from_json
+    - utils.cable_to_yaml
+  - models.Cable.recipients and info_recipients
+    return models.Recipient objects
+  - models.Cable.references returns models.Reference
+    objects
 * Improved summary extraction
 * Cable references like "09 FOO 12 AND 13" are detected correctly. 
   "09 FOO 12 AND 13" becomes: ['09FOO12', '09FOO13']

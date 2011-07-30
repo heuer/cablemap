@@ -437,27 +437,32 @@ def parse_transmission_id(header, reference_id):
     return m.group(1)
 
 
-_REC_PATTERN = re.compile(r'(?:([A-Z]+)/)?([A-Z -]{2,})[ ]*([0-9]*)', re.MULTILINE|re.UNICODE)
+_REC_PATTERN = re.compile(r'(?:([A-Z]+)/)?([A-Z0-9].+)', re.UNICODE)
 _REC_CLEAN_PATTERN = re.compile(r'(PAGE [0-9]+\s+[A-Z]+\s+[0-9]+\s+[0-9]+Z)')
 _REC_PRECEDENCE_PATTERN = re.compile(r'FLASH|NIACT IMMEDIATE|IMMEDIATE|PR?IORITY|ROUTINE')
+_REC_MCN_PATTERN = re.compile(r'(?:[ ]+)([0-9]{4,})$')
 
 def _route_recipient_from_header(header, reference_id):
     from cablemap.core.models import Recipient
     header = _REC_CLEAN_PATTERN.sub(u'', header)
     res = []
-    for route, recipient, mcn in _REC_PATTERN.findall(header):
+    for route, recipient in _REC_PATTERN.findall(header):
         excluded = []
+        mcn = None
         precedence = None
+        m = _REC_MCN_PATTERN.search(recipient)
+        if m:
+            mcn = m.group(1)
+            recipient = recipient[:m.start()].strip()
         m = _REC_PRECEDENCE_PATTERN.search(recipient)
         if m:
             precedence = m.group().replace(u'PIOR', u'PRIOR')
-            recipient = recipient[:m.start()].strip()
-        res.append(Recipient(route, recipient, precedence, mcn, excluded))
+            recipient = recipient[:m.start()]
+        res.append(Recipient(route, recipient.strip(), precedence, mcn, excluded))
     return res
 
 
-# (?:PAGE [0-9]+ ...) was added because 09STATE15113 contains this pattern
-_TO_PATTERN = re.compile(r'(?:\nTO\s+)(?:PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+Z)?(.+?)(?=INFO|\Z)', re.DOTALL|re.UNICODE)
+_TO_PATTERN = re.compile(r'(?:\nTO\s+)(.+?)(?=INFO|\Z)', re.DOTALL|re.UNICODE)
 
 def parse_recipients(header, reference_id=None):
     """\
@@ -472,7 +477,7 @@ def parse_recipients(header, reference_id=None):
     return _route_recipient_from_header(to_header, reference_id)
 
 
-_INFO_PATTERN = re.compile(r'(?:\nTO\s+.+?\nINFO\s+)(.+?)(?=\Z)', re.DOTALL|re.UNICODE)
+_INFO_PATTERN = re.compile(r'(?:.*?INFO\s+)(.+?)(?=\Z)', re.DOTALL|re.UNICODE)
 
 def parse_info_recipients(header, reference_id=None):
     """\

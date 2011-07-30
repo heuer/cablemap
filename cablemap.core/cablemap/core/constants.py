@@ -45,6 +45,7 @@ MIN_ORIGIN_LENGTH = len(u'ROME')
 MAX_ORIGIN_LENGTH = len(u'BANDARSERIBEGAWAN')
 
 # Reference kind constants
+REF_KIND_UNKNOWN = 0
 REF_KIND_CABLE = 1
 REF_KIND_EMAIL = 2
 REF_KIND_FAM = 3 # Foreign Affairs Manual

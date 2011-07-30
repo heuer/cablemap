@@ -59,7 +59,7 @@ def test_references():
     def check(cable_id, references):
         cable = cable_by_id(cable_id)
         assert cable
-        eq_(references, cable.references)
+        eq_(references, [ref.value for ref in cable.references if ref.is_cable()])
     for cable_id, refs in _TEST_DATA:
         yield check, cable_id, refs
     

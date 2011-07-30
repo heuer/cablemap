@@ -458,6 +458,15 @@ def _route_recipient_from_header(header, reference_id):
         if m:
             precedence = m.group().replace(u'PIOR', u'PRIOR')
             recipient = recipient[:m.start()]
+        if recipient.startswith('XMT'):
+            #TODO: FHM says: "[...] follow the collective address with a comma, space, "XMT," and
+            # the name(s) of the posts in the collective that will not receive the
+            # telegram. [...]"
+            # But some cables like "07PHNOMPENH1341" use XMT as address
+            # Further, some cables like "09STATE63860" use:
+            # XMT AMCONSUL JOHANNESBURG
+            # AMCONSUL JOHANNESBURG
+            continue
         res.append(Recipient(route, recipient.strip(), precedence, mcn, excluded))
     return res
 

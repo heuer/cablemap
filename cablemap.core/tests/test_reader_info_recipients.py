@@ -67,6 +67,8 @@ INFO AMEMBASSY PANAMA''',
 RHMFIUU/39OS INCIRLIK AB TU''',
      [Recipient(u'RUEHTH', u'AMEMBASSY ATHENS', mcn=u'0121'),
       Recipient(u'RHMFIUU', u'39OS INCIRLIK AB TU')]),
+    ('''INFO XMT FOOBAR''',
+     []),
 )
 
 

@@ -43,7 +43,7 @@ import os
 import codecs
 import re
 import logging
-from cablemap.core import constants as const
+from cablemap.core import constants as consts
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 logger = logging.getLogger('cablemap.core.reader')
@@ -599,7 +599,7 @@ _REF_ORIGIN_PATTERN = re.compile('[0-9]+([A-Z]+)[0-9]+')
 #TODO: The following works for all references which contain something like 02ROME1196, check with other cables
 _CLEAN_REFS_PATTERN = re.compile(r'(PAGE [0-9]+ [A-Z]+ [0-9]+ [0-9]+ OF [0-9]+ [A-Z0-9]+)|([A-Z]+\s+[0-9]+\s+[0-9]+(?:\.[0-9]+)?\s+OF)', re.UNICODE)
 
-def parse_references(content, year, reference_id=None, canonicalize=True, keep_enum=False):
+def parse_references(content, year, reference_id=None, canonicalize=True):
     """\
     Returns the references to other cables as (maybe empty) list.
     
@@ -610,15 +610,10 @@ def parse_references(content, year, reference_id=None, canonicalize=True, keep_e
     `reference_id`
         The reference identifier of the cable.
     `canonicalize`
-        Indicates if the reference origin should be canonicalized.
+        Indicates if the cable reference origin should be canonicalized.
         (enabled by default)
-    `keep_enum`
-        Indicates if the enumeration char should be returned.
-        (disabled by default)
-        If set to ``True``, the returned list will consist of binary tuples:
-        ``(ENUMERATION, REFERENCE)`` where ``ENUMERATION`` may be an empty
-        string.
     """
+    from cablemap.core.models import Reference
     def format_year(y):
         y = str(y)
         if not y:
@@ -661,7 +656,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True, keep_e
             y = format_year(y)
             origin = origin.replace(' ', '').replace(u"'", u'').upper()
             if origin == 'AND' and res:
-                last_origin = _REF_ORIGIN_PATTERN.match(res[-1]).group(1)
+                last_origin = _REF_ORIGIN_PATTERN.match(res[-1].value).group(1)
                 origin = last_origin
             elif origin.startswith('AND'): # for references like 09 FOO 1234 AND BAR 1234
                 origin = origin[3:]
@@ -676,7 +671,7 @@ def parse_references(content, year, reference_id=None, canonicalize=True, keep_e
                     logger.debug('Ignore "%s". Not a valid reference identifier (%s)' % (reference, reference_id))
                 continue
             if reference != reference_id:
-                reference = reference if not keep_enum else (enum, reference)
+                reference = Reference(reference, consts.REF_KIND_CABLE, enum)
                 if reference not in res:
                     res.append(reference)
     return res

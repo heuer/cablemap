@@ -39,7 +39,16 @@ Tests references parsing.
 :license:      BSD license
 """
 from nose.tools import eq_
-from cablemap.core.reader import parse_references
+from cablemap.core.reader import parse_references as reader_parse_ref
+
+def parse_references(content, year, reference_id=None):
+    res = []
+    for ref in reader_parse_ref(content, year, reference_id):
+        if not ref.is_cable():
+            continue
+        if ref.value not in res:
+           res.append(ref.value)
+    return res
 
 _TEST_DATA = (
     # input string, year, optional reference_id, expected

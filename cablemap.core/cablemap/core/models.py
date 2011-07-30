@@ -125,9 +125,9 @@ class Reference(tuple):
     def is_email(self):
         return self.kind == consts.REF_KIND_EMAIL
 
-    name = property(itemgetter(0))
-    value = property(itemgetter(1))
-    kind = property(itemgetter(2))
+    value = property(itemgetter(0))
+    kind = property(itemgetter(1))
+    name = property(itemgetter(2))
 
 
 class Recipient(tuple):

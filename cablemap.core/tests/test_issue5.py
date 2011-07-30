@@ -56,8 +56,9 @@ def test_issue5():
     #
     cable = cable_by_id('06SAOPAULO348')
     assert cable
-    assert u'06SAOPAULO319' in cable.references
-    assert u'06SAOPAULO278' in cable.references
+    refs = [ref.value for ref in cable.references if ref.is_cable()]
+    assert u'06SAOPAULO319' in refs
+    assert u'06SAOPAULO278' in refs
     eq_([u'PGOV', u'PHUM', u'KCRM', u'SOCI', u'SNAR', u'ASEC', u'BR'], cable.tags)
 
 

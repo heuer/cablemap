@@ -79,6 +79,12 @@ _TEST_DATA = (
      [cable(u'09STATE122214', u'A'),
       cable(u'09LONDON2649', u'B'),
       cable(u'09LONDON2638', u'C')]),
+    # 04BRASILIA2863
+    ('''REF: A. BRASILIA 2799 AND 2764 ¶B. PORT AU PRINCE 2325 ''',
+     2004,
+     [cable(u'04BRASILIA2799', u'A'),
+      cable(u'04BRASILIA2764', u'A'),
+      cable(u'04PORTAUPRINCE2325', u'B')]),
      
 )
 

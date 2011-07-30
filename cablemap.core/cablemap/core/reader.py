@@ -658,8 +658,10 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
             if origin == 'AND' and res:
                 last_origin = _REF_ORIGIN_PATTERN.match(res[-1].value).group(1)
                 origin = last_origin
+                enum = enum or res[-1].name
             elif origin.startswith('AND'): # for references like 09 FOO 1234 AND BAR 1234
                 origin = origin[3:]
+                enum = enum or res[-1].name
             reference = u'%s%s%d' % (y, origin, int(sn))
             if canonicalize:
                 reference = canonicalize_id(reference)

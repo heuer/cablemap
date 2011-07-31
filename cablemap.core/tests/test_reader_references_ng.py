@@ -59,44 +59,44 @@ _TEST_DATA = (
     # input string, year, expected
 
     # 09DUBLIN524
-    ('''REF: LAKHDHIR E-MAIL 12/01/09 ''',
+    (u'''REF: LAKHDHIR E-MAIL 12/01/09 ''',
      2009,
      [mail(u'LAKHDHIR E-MAIL 12/01/09')]),
     # 08DUBLIN382
-    ('''REF: INGALLS (S/CT) E-MAIL OF 04/15/2008 ''',
+    (u'''REF: INGALLS (S/CT) E-MAIL OF 04/15/2008 ''',
      2008,
      [mail(u'INGALLS (S/CT) E-MAIL OF 04/15/2008')]),
     # 07TALLINN375
-    ('\nREF: A) TALLINN 366 B) LEE-GOLDSTEIN EMAIL 05/11/07 \nB) TALLINN 347 ', 2007,
+    (u'\nREF: A) TALLINN 366 B) LEE-GOLDSTEIN EMAIL 05/11/07 \nB) TALLINN 347 ', 2007,
      [cable(u'07TALLINN366', u'A'),
       mail(u'LEE-GOLDSTEIN EMAIL 05/11/07', u'B'),
       cable(u'07TALLINN347', u'B')]),
     # 07STATE156011
-    ('  REF: LA PAZ 2974', 2007,
+    (u'  REF: LA PAZ 2974', 2007,
      [cable(u'07LAPAZ2974')]),
     #08RIYADH1134
-    ('\nREF: A. SECSTATE 74879 \n     B. RIYADH 43 \n',
+    (u'\nREF: A. SECSTATE 74879 \n     B. RIYADH 43 \n',
      2008,
      [cable(u'08STATE74879', u'A'),
       cable(u'08RIYADH43', u'B')]),
     # 09LONDON2697
-    ('''REF: A. REF A STATE 122214 B. REF B LONDON 2649 C. REF C LONDON 2638 ''',
+    (u'''REF: A. REF A STATE 122214 B. REF B LONDON 2649 C. REF C LONDON 2638 ''',
      2009,
      [cable(u'09STATE122214', u'A'),
       cable(u'09LONDON2649', u'B'),
       cable(u'09LONDON2638', u'C')]),
     # 04BRASILIA2863
-    ('''REF: A. BRASILIA 2799 AND 2764 ¶B. PORT AU PRINCE 2325 ''',
+    (u'''REF: A. BRASILIA 2799 AND 2764 ¶B. PORT AU PRINCE 2325 ''',
      2004,
      [cable(u'04BRASILIA2799', u'A'),
       cable(u'04BRASILIA2764', u'A'),
       cable(u'04PORTAUPRINCE2325', u'B')]),
     # 09SAOPAULO332
-    ('''Ref: 9 FAM Appendix K, 406 (6)''',
+    (u'''Ref: 9 FAM Appendix K, 406 (6)''',
      2009,
      [fam(u'9 FAM Appendix K, 406 (6)')]),
     # 10SANAA317
-    ('''SUBJECT: (S/NF) SPIKE IN NATIONAL SECURITY-RELATED ARREST
+    (u'''SUBJECT: (S/NF) SPIKE IN NATIONAL SECURITY-RELATED ARREST
 CASES STRAINS POST,S RESOURCES
 
 REF: A. SANAA 71

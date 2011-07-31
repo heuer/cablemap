@@ -121,6 +121,15 @@ Classified By: Ambassador
     (u'''REF: A. REF A STATE 122214 B. REF B LONDON 2649 C. REF C LONDON 2638 ''',
      2009,
      [cable(u'09STATE122214', u'A'), cable(u'09LONDON2649', u'B'), cable(u'09LONDON2638', u'C')]),
+    # 86BRASILIA13835
+    (u'''SUBJECT:  THE BRAZILIAN CONNECTION WITH IRAN AND 
+THE CONTRAS 
+ 
+REFS: (A)BRASILIA 13511, (B)BRASILIA 4799 
+ 
+1.  (U)''',
+     1986,
+    [cable(u'86BRASILIA13511', u'A'), cable(u'86BRASILIA4799', u'B')]),
 )
 
 def test_parse_references():

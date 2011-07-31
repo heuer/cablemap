@@ -50,6 +50,7 @@ REF_KIND_CABLE = 1
 REF_KIND_EMAIL = 2
 REF_KIND_FAM = 3 # Foreign Affairs Manual
 REF_KIND_TEL = 4
+REF_KIND_REPORT = 5
 
 # Min/max cable serial number length
 MIN_SERIAL_LENGTH = 1

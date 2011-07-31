@@ -117,7 +117,10 @@ Classified By: Ambassador
       cable(u'10SANAA230', u'D'), cable(u'10SANAA289', u'E'), cable(u'09SANAA720', u'F'),
       cable(u'10SANAA202', u'G'), tel(u'MITCHELL/SIMS TELCON 02/16/2010', u'H'),
       mail(u'MITCHELL/SIMS EMAIL 02/16/2010', u'I'), cable(u'10SANAA214', u'J')]),
-    
+    # 09LONDON2697
+    (u'''REF: A. REF A STATE 122214 B. REF B LONDON 2649 C. REF C LONDON 2638 ''',
+     2009,
+     [cable(u'09STATE122214', u'A'), cable(u'09LONDON2649', u'B'), cable(u'09LONDON2638', u'C')]),
 )
 
 def test_parse_references():

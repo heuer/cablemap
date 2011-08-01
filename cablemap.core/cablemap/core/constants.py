@@ -64,7 +64,6 @@ _STATIONS = (
     'AITTAIPEI', 'ALGIERS', 'AMMAN', 'AMSTERDAM', 'ANKARA', 
     'ASHGABAT', 'ASMARA', 'ASTANA', 'ASUNCION', 'ATHENS',
     'ADANA', 'ALMATY', 'APIA', 'AUCKLAND',
-    'ATLANTAGA', # Found in cable refs
     # B
     'BAGHDAD', 'BAKU', 'BAMAKO', 'BANDARSERIBEGAWAN', 'BANGKOK', 
     'BANJUL', 'BARCELONA', 'BASRAH', 'BEIJING', 'BEIRUT', 
@@ -76,7 +75,7 @@ _STATIONS = (
     'CAIRO', 'CALCUTTA', 'CANBERRA', 'CAPETOWN', 'CARACAS', 
     'CASABLANCA', 'CHENNAI', 'CHISINAU', 'CIUDADJUAREZ', 'COLOMBO', 
     'CONAKRY', 'COPENHAGEN', 'CURACAO', 'CALGARY', 'CHIANGMAI',
-    'CDCATLANTA', # found in cable refs "Centers for Disease Control and Prevention"
+    'CDCATLANTAGA', # found in cable refs "Centers for Disease Control and Prevention"
     # D
     'DAKAR', 'DAMASCUS', 'DARESSALAAM', 'DHAKA', 'DJIBOUTI', 
     'DOHA', 'DUBAI', 'DUBLIN', 'DUSHANBE', 'DHAHRAN', 'DILI',

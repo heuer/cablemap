@@ -130,6 +130,10 @@ REFS: (A)BRASILIA 13511, (B)BRASILIA 4799
 1.  (U)''',
      1986,
     [cable(u'86BRASILIA13511', u'A'), cable(u'86BRASILIA4799', u'B')]),
+    # 09CAIRO2390
+    (u'''REF: E-mails J. Speaks-K. Allen ''',
+     2009,
+     [mail(u'E-mails J. Speaks-K. Allen')]),
 )
 
 def test_parse_references():

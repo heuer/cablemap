@@ -734,6 +734,17 @@ CLASSIFIED BY: ''',
      ¶D. 2005PANAMA2342''',
      2006,
      [u'06PANAMA651', u'06PANAMA1213', u'06PANAMA1293', u'05PANAMA2342']),
+    # 06OTTAWA2420
+    (u'''REF: A. OTTAWA 2258 
+ 
+     ¶B. OTTAWA 1245 
+     ¶C. 05 0TTAWA 3518 ''',
+     2006,
+     [u'06OTTAWA2258', u'06OTTAWA1245', u'05OTTAWA3518']),
+    # 06CHENNAI1497
+    (u'''REF: (A)05 CHENNAI 0121, (B)O4 CHENNAI 0944 ''',
+     2006,
+     [u'05CHENNAI121', u'04CHENNAI944']),
 )
 
 def test_parse_references():

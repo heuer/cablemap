@@ -116,8 +116,8 @@ class Reference(tuple):
     """
     __slots__ = ()
     
-    def __new__(cls, value, kind, name=None):
-        return tuple.__new__(cls, (value, kind, name.upper() if name else None))
+    def __new__(cls, value, kind, name=None, title=None):
+        return tuple.__new__(cls, (value, kind, name.upper() if name else None), title)
 
     def is_cable(self):
         return self.kind == consts.REF_KIND_CABLE
@@ -128,6 +128,7 @@ class Reference(tuple):
     value = property(itemgetter(0))
     kind = property(itemgetter(1))
     name = property(itemgetter(2))
+    title = property(itemgetter(3))
 
 
 class Recipient(tuple):

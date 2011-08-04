@@ -117,7 +117,7 @@ class Reference(tuple):
     __slots__ = ()
     
     def __new__(cls, value, kind, name=None, title=None):
-        return tuple.__new__(cls, (value, kind, name.upper() if name else None), title)
+        return tuple.__new__(cls, (value, kind, name.upper() if name else None, title)
 
     def is_cable(self):
         return self.kind == consts.REF_KIND_CABLE

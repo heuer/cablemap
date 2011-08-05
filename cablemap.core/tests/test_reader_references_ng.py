@@ -134,6 +134,10 @@ REFS: (A)BRASILIA 13511, (B)BRASILIA 4799
     (u'''REF: E-mails J. Speaks-K. Allen ''',
      2009,
      [mail(u'E-mails J. Speaks-K. Allen')]),
+    # 05OTTAWA2105
+    (u'''Ref: [A] State 188314, 259032, [B] Ottawa 2285 ''',
+     2005,
+     [cable(u'05STATE188314', u'A'), cable(u'05OTTAWA2285', u'B')]),
 )
 
 def test_parse_references():

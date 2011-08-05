@@ -781,6 +781,11 @@ CLASSIFIED BY: Mi''',
     (u'''REF: TEHRAN 1091: TEHRAN 263: MOSCOW 1603 ''',
      1972,
      [u'72TEHRAN1091', u'72TEHRAN263', u'72MOSCOW1603']),
+    # 05OTTAWA2105
+    (u'''Ref: [A] State 188314, 259032, [B] Ottawa 2285 ''',
+     2005,
+     [u'05STATE188314', u'05OTTAWA2285']),
+    
 )
 
 def test_parse_references():

@@ -138,6 +138,11 @@ REFS: (A)BRASILIA 13511, (B)BRASILIA 4799
     (u'''Ref: [A] State 188314, 259032, [B] Ottawa 2285 ''',
      2005,
      [cable(u'05STATE188314', u'A'), cable(u'05OTTAWA2285', u'B')]),
+    # No cable
+    (u'''REF: 08 STATE 1234; E-Mail Tralala; 05 STATE 1234; 06 STATE 1234''',
+     2008,
+     [cable(u'08STATE1234'), mail(u'E-Mail Tralala'), cable('05STATE1234'),
+      cable(u'06STATE1234')]),
 )
 
 def test_parse_references():

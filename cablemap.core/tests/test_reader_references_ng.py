@@ -165,7 +165,7 @@ REFS: (A)BRASILIA 13511, (B)BRASILIA 4799
 DE JANEIRO 1291 ''',
      2004,
      [cable(u'04BRASILIA2605', u'A'), cable(u'04BRASILIA2447', u'B'),
-      cable(u'04RIODEJANEIRO1291', u'B')]),
+      cable(u'04RIODEJANEIRO1291', u'C')]),
 )
 
 def test_parse_references():

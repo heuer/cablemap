@@ -785,6 +785,13 @@ CLASSIFIED BY: Mi''',
     (u'''Ref: [A] State 188314, 259032, [B] Ottawa 2285 ''',
      2005,
      [u'05STATE188314', u'05OTTAWA2285']),
+    # 06SANTIAGO439
+    (u'''REF: A. STATE 3836 
+     ¶B. 05 SANTIAG0 465 
+     ¶C. 05 SANTIAGO 466 
+''',
+     2006,
+     [u'06STATE3836', u'05SANTIAGO465', u'05SANTIAGO466']),
     
 )
 

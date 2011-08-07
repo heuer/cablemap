@@ -153,6 +153,19 @@ REFS: (A)BRASILIA 13511, (B)BRASILIA 4799
      2008,
      [cable('05STATE1234'), cable(u'06STATE1234'),
       mail(u'E-Mail Tralala')]),
+    # 03COLOMBO2183
+    (u'''Refs:  (A) State 348254 
+-      (B) State 348253 -      (C) Colombo 2179, and previous ''',
+     2003,
+     [cable(u'03STATE348254', u'A'), cable(u'03STATE348253', u'B'),
+      cable(u'03COLOMBO2179', u'C')]),
+    # 04BRASILIA2680
+    (u'''REF:   A) BRASILIA 2605, B) BRASILIA 2447, C) RIO 
+ 
+DE JANEIRO 1291 ''',
+     2004,
+     [cable(u'04BRASILIA2605', u'A'), cable(u'04BRASILIA2447', u'B'),
+      cable(u'04RIODEJANEIRO1291', u'B')]),
 )
 
 def test_parse_references():

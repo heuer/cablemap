@@ -55,6 +55,9 @@ def fam(value, enum=None):
 def tel(value, enum=None):
     return Reference(value, constants.REF_KIND_TEL, enum)
 
+def report(value, enum=None):
+    return Reference(value, constants.REF_KIND_REPORT, enum)
+
 _TEST_DATA = (
     # input string, year, expected
 
@@ -166,6 +169,34 @@ DE JANEIRO 1291 ''',
      2004,
      [cable(u'04BRASILIA2605', u'A'), cable(u'04BRASILIA2447', u'B'),
       cable(u'04RIODEJANEIRO1291', u'C')]),
+    # 05PANAMA555
+    (u'''REF: A. 04 STATE 273089 
+     ¶B. 04 PANAMA 02153 
+     ¶C. PANAMA 00338 
+     ¶D. 04 PANAMA 00548 
+     ¶E. 04 PANAMA 00148 
+     ¶F. 2004 HUMAN RIGHTS REPORT FOR PANAMA 
+     ¶G. PANAMA 00390 
+     ¶H. 04 PANAMA 02589 
+     ¶I. PANAMA 00088 
+     ¶J. 04 PANAMA 02613 ''',
+     2005,
+     [cable(u'04STATE273089', u'A'),
+      cable(u'04PANAMA2153', u'B'), cable(u'05PANAMA338', u'C'),
+      cable(u'04PANAMA548', u'D'), cable(u'04PANAMA148', u'E'),
+      report(u'2004 HUMAN RIGHTS REPORT FOR PANAMA', u'F'),
+      cable(u'05PANAMA390', u'G'), cable(u'04PANAMA2589', u'H'),
+      cable(u'05PANAMA88', u'I'), cable(u'04PANAMA2613', u'J'),]),
+    # 04BRASILIA1635
+    (u'''REFS :  (A) 03 Brasilia 3939 
+ 
+        (B) 03 Brasilia 3867 
+        (C) 03 Brasilia 3347 
+        (D) 03 Brasilia 1192 ''',
+     2004,
+     [cable(u'03BRASILIA3939', u'A'), cable(u'03BRASILIA3867', u'B'),
+      cable(u'03BRASILIA3347', u'C'), cable(u'03BRASILIA1192', u'D'),]),
+     
 )
 
 def test_parse_references():

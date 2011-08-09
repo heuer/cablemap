@@ -49,8 +49,8 @@ def cable(value, enum=None):
 def mail(value, enum=None):
     return Reference(value, constants.REF_KIND_EMAIL, enum)
 
-def fam(value, enum=None):
-    return Reference(value, constants.REF_KIND_FAM, enum)
+def book(value, enum=None):
+    return Reference(value, constants.REF_KIND_BOOK, enum)
 
 def tel(value, enum=None):
     return Reference(value, constants.REF_KIND_TEL, enum)
@@ -97,7 +97,7 @@ _TEST_DATA = (
     # 09SAOPAULO332
     (u'''Ref: 9 FAM Appendix K, 406 (6)''',
      2009,
-     [fam(u'9 FAM Appendix K, 406 (6)')]),
+     [book(u'9 FAM Appendix K, 406 (6)')]),
     # 10SANAA317
     (u'''SUBJECT: (S/NF) SPIKE IN NATIONAL SECURITY-RELATED ARREST
 CASES STRAINS POST,S RESOURCES

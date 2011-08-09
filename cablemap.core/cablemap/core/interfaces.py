@@ -57,6 +57,36 @@ class ICable(Interface):
 
     This attribute is read-only.
     """
+    origin = Attribute("""\
+    Sets/returns the origin of the cable (a string).
+
+    This attribute is writable.
+    """
+    header = Attribute("""\
+    Sets/returns the header of the cable (a string).
+
+    This attribute is writable.
+    """
+    content  = Attribute("""\
+    Sets/returns the content of the cable (a string).
+
+    This attribute is writable.
+    """
+    created = Attribute("""\
+    Sets/returns the creation date of the cable (a string).
+
+    This attribute is writable.
+    """
+    released = Attribute("""\
+    Sets/returns the WikiLeaks' date of the cable (a string).
+
+    This attribute is writable.
+    """
+    media_uris = Attribute("""\
+    Sets/returns an iterable of media IRIs which cover this cable.
+
+    This attribute is writable.
+    """
     wl_uris = Attribute("""\
     Returns cable IRIs to WikiLeaks (mirrors) (a list).
 
@@ -108,10 +138,14 @@ class ICable(Interface):
     This attribute is read-only.
     """
     content_header = Attribute("""\
+    The "header" part of the cable's content (everything before the
+    first paragraph).
 
     This attribute is read-only.
     """
     content_body = Attribute("""\
+    The "body" part of the cable's content (everything from the
+    first paragraph on).
 
     This attribute is read-only.
     """

@@ -47,108 +47,111 @@ except ImportError:
         def __init__(self, descr): pass
 
 class ICable(Interface):
+    """\
+
+    """
     reference_id = Attribute("""\
     Returns the WikiLeaks reference identifier (a string).
 
     This attribute is read-only.
-    """
+    """)
     canonical_id = Attribute("""\
     Returns the unique canonical identifier of the cable (a string).
 
     This attribute is read-only.
-    """
+    """)
     origin = Attribute("""\
     Sets/returns the origin of the cable (a string).
 
     This attribute is writable.
-    """
+    """)
     header = Attribute("""\
     Sets/returns the header of the cable (a string).
 
     This attribute is writable.
-    """
+    """)
     content  = Attribute("""\
     Sets/returns the content of the cable (a string).
 
     This attribute is writable.
-    """
+    """)
     created = Attribute("""\
     Sets/returns the creation date of the cable (a string).
 
     This attribute is writable.
-    """
+    """)
     released = Attribute("""\
     Sets/returns the WikiLeaks' date of the cable (a string).
 
     This attribute is writable.
-    """
+    """)
     media_uris = Attribute("""\
     Sets/returns an iterable of media IRIs which cover this cable.
 
     This attribute is writable.
-    """
+    """)
     wl_uris = Attribute("""\
     Returns cable IRIs to WikiLeaks (mirrors) (a list).
 
     This attribute is read-only.
-    """
+    """)
     transmission_id = Attribute("""\
     The transmission identifier (a string) of the cable or ``None``.
 
     This attribute is read-only.
-    """
+    """)
     recipients = Attribute("""\
     The recipients of the cable.
 
     Returns a maybe empty iterable of `IRecipient` instances.
 
     This attribute is read-only.
-    """
+    """)
     info_recipients = Attribute("""\
     Returns a maybe empty iterable of `IRecipient` instances.
 
     This attribute is read-only.
-    """
+    """)
     partial = Attribute("""\
     Indicates if this cable is only partially available (a boolean).
 
     This attribute is read-only.
-    """
+    """)
     subject = Attribute("""\
     The (maybe empty string) subject.
 
     This attribute is read-only.
-    """
+    """)
     nondisclosure_deadline = Attribute("""\
     The non-disclosure deadline or ``None`` if it is unknown.
 
     This attribute is read-only.
-    """
+    """)
     references = Attribute("""\
     A maybe empty iterable of `IReference` instances.
-    """
+    """)
     tags = Attribute("""\
     A maybe empty iterable of TAGs (strings).
 
     This attribute is read-only.
-    """
+    """)
     summary = Attribute("""\
     The summary of the cable or ``None``.
 
     This attribute is read-only.
-    """
+    """)
     content_header = Attribute("""\
     The "header" part of the cable's content (everything before the
     first paragraph).
 
     This attribute is read-only.
-    """
+    """)
     content_body = Attribute("""\
     The "body" part of the cable's content (everything from the
     first paragraph on).
 
     This attribute is read-only.
-    """
+    """)
 
 class IReference(Interface):
     """\
@@ -164,14 +167,14 @@ class IReference(Interface):
     The reference, i.e. a cable identifier.
 
     This attribute is read-only.
-    """
+    """)
     kind = Attribute("""\
     An integer.
 
     The type of the reference, i.e. ``CABLE``.
 
     This attribute is read-only.
-    """
+    """)
     name = Attribute("""\
     A string or ``None``.
 
@@ -179,14 +182,14 @@ class IReference(Interface):
     like ``A`` or ``1``.
 
     This attribute is read-only.
-    """
+    """)
     title = Attribute("""\
     A string or ``None``.
 
     Title of the reference or ``None``.
 
     This attribute is read-only.
-    """
+    """)
 
 class IRecipient(Interface):
     """\
@@ -205,12 +208,12 @@ class IRecipient(Interface):
     The name of the recipient.
 
     This attribute is read-only.
-    """
+    """)
     excluded = Attribute("""\
     A list of recipient names which are excluded.
 
     This attribute is read-only.
-    """
+    """)
     precedence = Attribute("""\
     A string or ``None``.
 
@@ -222,7 +225,7 @@ class IRecipient(Interface):
     * ROUTINE
 
     This attribute is read-only.
-    """
+    """)
     mcn = Attribute("""\
     A string or ``None``.
 
@@ -234,5 +237,5 @@ class IRecipient(Interface):
     sent to them, action or info.
 
     This attribute is read-only.
-    """
+    """)
     

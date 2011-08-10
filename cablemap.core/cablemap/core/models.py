@@ -40,7 +40,12 @@ This module provides models to keep data about cables.
 """
 import codecs
 from operator import itemgetter
+try:
+    from zope.interface import implements
+except ImportError:
+    def implements(i): pass
 from cablemap.core import reader, constants as consts
+from cablemap.core.interfaces import ICable, IReference, IRecipient
 
 __all__ = ['cable_from_file', 'cable_from_html']
 
@@ -115,6 +120,7 @@ class Reference(tuple):
     or any other referencable item.
     """
     __slots__ = ()
+    implements(IReference)
     
     def __new__(cls, value, kind, name=None, title=None):
         return tuple.__new__(cls, (value, kind, name.upper() if name else None, title.strip('"') if title else None))
@@ -136,6 +142,7 @@ class Recipient(tuple):
     Represents a recipient of a cable.
     """
     __slots__ = ()
+    implements(IRecipient)
     
     def __new__(cls, route, name, precedence=None, mcn=None, excluded=None):
         return tuple.__new__(cls, (route or None, name, precedence or None, mcn or None, excluded or _EMPTY))
@@ -156,6 +163,8 @@ class Cable(object):
     """\
     Holds data about a cable.
     """
+    implements(ICable)
+
     def __init__(self, reference_id):
         """\
 

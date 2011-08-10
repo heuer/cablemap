@@ -196,7 +196,24 @@ DE JANEIRO 1291 ''',
      2004,
      [cable(u'03BRASILIA3939', u'A'), cable(u'03BRASILIA3867', u'B'),
       cable(u'03BRASILIA3347', u'C'), cable(u'03BRASILIA1192', u'D'),]),
-     
+    # 05BRASILIA1466
+    (u'''REF: A. STATE 43965 
+     ¶B. BRASILIA 1207 
+     ¶C. BRASILIA 1035 
+     ¶D. BRASILIA 1017 
+     ¶E. BRASILIA 660 
+     ¶F. BRASILIA 415 
+     ¶G. BRASILIA 223 
+     ¶H. USDEL SECRETARY TELEGRAMS 000005/000007/00004 
+     ¶I. (S/NF) TD-314/21795-05 11 APRIL 2005 
+     ¶J. (S/NF) TD-314/21753-05 11 APRIL2005. ''',
+    2005,
+     [cable(u'05STATE43965', u'A'), cable(u'05BRASILIA1207', u'B'),
+      cable(u'05BRASILIA1035', u'C'), cable(u'05BRASILIA1017', u'D'),
+      cable(u'05BRASILIA660', u'E'), cable(u'05BRASILIA415', u'F'),
+      cable(u'05BRASILIA223', u'G'),
+      report(u'(S/NF) TD-314/21795-05 11 APRIL 2005', u'I'),
+      report(u'(S/NF) TD-314/21753-05 11 APRIL2005.', u'J'),]),
 )
 
 def test_parse_references():

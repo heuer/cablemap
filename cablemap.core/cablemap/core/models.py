@@ -128,9 +128,6 @@ class Reference(tuple):
     def is_cable(self):
         return self.kind == consts.REF_KIND_CABLE
 
-    def is_email(self):
-        return self.kind == consts.REF_KIND_EMAIL
-
     value = property(itemgetter(0))
     kind = property(itemgetter(1))
     name = property(itemgetter(2))

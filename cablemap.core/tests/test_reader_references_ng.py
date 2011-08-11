@@ -214,6 +214,17 @@ DE JANEIRO 1291 ''',
       cable(u'05BRASILIA223', u'G'),
       report(u'(S/NF) TD-314/21795-05 11 APRIL 2005', u'I'),
       report(u'(S/NF) TD-314/21753-05 11 APRIL2005.', u'J'),]),
+    # 03KATHMANDU2366
+    (u'''SUBJECT: NEPAL:  AMBASSADOR RELAYS CONCERNS ABOUT 
+ACTIVITIES OF INDIAN INTELLIGENCE AGENTS 
+ 
+REF: A. REF: KATHMANDU 2282 
+     ¶B. KATHMANDU 2298 
+
+Classified By: AM''',
+     2003,
+     [cable(u'03KATHMANDU2282', u'A'), cable('03KATHMANDU2298', 'B')]),
+     
 )
 
 def test_parse_references():

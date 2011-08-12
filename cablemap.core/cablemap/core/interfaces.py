@@ -103,12 +103,16 @@ class ICable(Interface):
     recipients = Attribute("""\
     The recipients of the cable.
 
-    Returns a maybe empty iterable of `IRecipient` instances.
+    Returns a maybe empty iterable of action `IRecipient` instances.
+
+    C.f. 5 FAH-2 H-233
 
     This attribute is read-only.
     """)
     info_recipients = Attribute("""\
-    Returns a maybe empty iterable of `IRecipient` instances.
+    Returns a maybe empty iterable of info `IRecipient` instances.
+
+    C.f. 5 FAH-2 H-233
 
     This attribute is read-only.
     """)
@@ -205,7 +209,9 @@ class IRecipient(Interface):
     name = Attribute("""\
     A string or ``None``.
 
-    The name of the recipient.
+    The name of the recipient (PLAD - Plain Language Address Designator).
+
+    C.f. 5 FAH-2 H-321.6
 
     This attribute is read-only.
     """)
@@ -238,4 +244,186 @@ class IRecipient(Interface):
 
     This attribute is read-only.
     """)
+
+
+class ICableHandler(Interface):
+    """\
+    Defines an interface for classes which are capable to process one or more 
+    cables.
+
+    The first event is `start` and the last event must be `end`.
+    Between these events one or more `start_cable`/`end_cable` events
+    must occur. All subsequent events like `handle_subject` assign properties
+    to the cable which was started by `start_cable`.
+
+    ``None`` values are not accepted by handler. If something is ``None`` (like
+    the subject), the event must not be issued.
+    """
+
+    def start():
+        """\
+        First event.
+        """
+
+    def end():
+        """\
+        Last event.
+        """
+
+    def start_cable(reference_id, canonical_id):
+        """\
+        Indicates the start of a cable.
+
+        `reference_id`
+            The WikiLeaks' identifier of the cable
+        `canonical_id`
+            The canonical identifier of the cable.
+        """
+        
+    def end_cable():
+        """\
+        Indicates that the cable which was started by `start_cable`
+        has been processed.
+        """
+
+    def handle_tag(tag):
+        """\
+        Adds a TAG to the cable.
+
+        `tag`
+            A string.
+        """
+   
+    def handle_origin(origin):
+        """\
+        Assigns the cable's origin.
+
+        `origin`
+            A string.
+        """
     
+    def handle_recipient(recipient):
+        """\
+        Assigns a recipient to the cable.
+
+        `recipient`
+            A `IRecipient` instance.
+        """
+
+    def handle_info_recipient(recipient):
+        """\
+        Assigns an info recipient to the cable.
+
+        `recipient`
+            A `IRecipient` instance.
+        """
+
+    def handle_reference(reference):
+        """\
+        Assigns a cable reference. 
+
+        Indicates that the `reference` is referenced by the current cable.
+
+        `reference`
+            A `IReference` instance.
+        """
+    
+    def handle_subject(subject):
+        """\
+        Assigns the subject to the cable.
+
+        `subject`
+            A string.
+        """
+
+    def handle_transmission_id(tid):
+        """\
+        Assigns the transmission id to the cable.
+
+        `tid`
+            A string.
+        """
+
+    def handle_header(header):
+        """\
+        Assigns the header to the cable.
+
+        `header`
+            A string.
+        """
+
+    def handle_body(body):
+        """\
+        Assigns the body to the cable.
+
+        `body`
+            A string.
+        """
+
+    def handle_summary(summary):
+        """\
+        Assigns the summary to the cable.
+
+        `summary`
+            A string.
+        """
+
+    def handle_classification(classification):
+        """\
+        Assigns the classification to the cable.
+
+        `classification`
+            A string.
+        """
+
+    def handle_nondisclosure_deadline(date):
+        """\
+        Assigns the non-disclosure deadline to the cable.
+
+        `date`
+            ISO 8601 formatted date
+        """
+
+    def handle_creation_datetime(self, datetime):
+        """\
+        Assigns the creation datetime to the cable.
+        
+        `datetime`
+            ISO 8601 formatted datetime
+        """
+        pass
+
+    def handle_release_datetime(self, datetime):
+        """\
+        Assigns the WikiLeaks release datetime to the cable.
+
+        `datetime`
+            ISO 8601 formatted datetime
+        """
+        pass
+
+    def handle_partial(self, partial):
+        """\
+        Indicates that the whole cable text is (not) available.
+        
+        `partial`
+            A boolean value, ``True`` indicates that the current cable is
+            only partially available.
+        """
+        pass
+
+    def handle_wikileaks_iri(iri):
+        """\
+        Assigns the provided WikiLeaks IRI to the cable.
+
+        `iri`
+            The IRI to add.
+        """
+
+    def handle_media_iri(iri):
+        """\
+        Assigns the provided IRI to the media coverage IRIs.
+
+        `iri`
+            The IRI to add.
+        """

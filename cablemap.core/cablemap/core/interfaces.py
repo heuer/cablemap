@@ -39,12 +39,13 @@ Documentation interfaces.
 :license:      BSD license
 """
 try:
-    from zope.interface import Interface, Attribute
+    from zope.interface import Interface, Attribute, implements
 except ImportError:
     class Interface(object): 
         def __init__(self, descr): pass
     class Attribute(object):
         def __init__(self, descr): pass
+    def implements(i): pass
 
 class ICable(Interface):
     """\
@@ -391,7 +392,6 @@ class ICableHandler(Interface):
         `datetime`
             ISO 8601 formatted datetime
         """
-        pass
 
     def handle_release_datetime(self, datetime):
         """\
@@ -400,7 +400,6 @@ class ICableHandler(Interface):
         `datetime`
             ISO 8601 formatted datetime
         """
-        pass
 
     def handle_partial(self, partial):
         """\
@@ -410,7 +409,6 @@ class ICableHandler(Interface):
             A boolean value, ``True`` indicates that the current cable is
             only partially available.
         """
-        pass
 
     def handle_wikileaks_iri(iri):
         """\

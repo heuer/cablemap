@@ -40,12 +40,8 @@ This module provides models to keep data about cables.
 """
 import codecs
 from operator import itemgetter
-try:
-    from zope.interface import implements
-except ImportError:
-    def implements(i): pass
 from cablemap.core import reader, constants as consts
-from cablemap.core.interfaces import ICable, IReference, IRecipient
+from cablemap.core.interfaces import ICable, IReference, IRecipient, implements
 
 __all__ = ['cable_from_file', 'cable_from_html']
 

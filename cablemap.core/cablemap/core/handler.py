@@ -40,6 +40,7 @@ This module provides an event handler to emit events from cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+import logging
 from cablemap.core.utils import cables_from_directory
 from cablemap.core.interfaces import ICableHandler, implements
 
@@ -126,6 +127,8 @@ def handle_cable(cable, handler, standalone=True):
 
 def handle_cables(cables, handler):
     """\
+    Issues one ``handler.start()`` event, processes all `cables` and
+    issues a ``handler.end()`` event.
 
     `cables`
         An iterable of Cable objects.
@@ -137,10 +140,12 @@ def handle_cables(cables, handler):
 
 def handle_directory(directory, handler):
     """\
+    Reads all cables from the provided directory and issues events to
+    the `handler`.
 
     `directory`
-        A
+        The directory to process.
     `handler`
-        
+        The handler which should receive the events.
     """
     handle_cables(cables_from_directory(directory), handler)

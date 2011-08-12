@@ -32,9 +32,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 """\
-EXPERIMENTAL!
-
-This module provides an event handler to emit events from cables.
+This module defines a event handlers to process cables.
 
 :author:       Lars Heuer (heuer[at]semagia.com)
 :organization: Semagia - <http://www.semagia.com/>

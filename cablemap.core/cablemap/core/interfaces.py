@@ -374,7 +374,7 @@ class ICableHandler(Interface):
         Assigns the classification to the cable.
 
         `classification`
-            A string.
+            An uppercased string.
         """
 
     def handle_nondisclosure_deadline(date):

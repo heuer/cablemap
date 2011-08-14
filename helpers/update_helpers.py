@@ -29,7 +29,7 @@ _KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON
                 u'MEDIA REACTION', u'UNICEF', u'SPECIALIST', u'POLITICAL PARTIES', u'OFFICIALS', u'UNFICYP',
                 u'ECOSOC', u'MERCOSUR', u'AFGHANISTAN', u'MACEDONIA', u'MQADHAFI', u'GOI EXTERNAL', u'GOI INTERNAL',
                 u'INTERNAL', u'EXTERNAL', u'ISLAMISTS', u'UNCTAD', u'MINUSTAH', u'UNIDROIT', u'CAMBODIA',
-                u'COPUOS', u'UNPUOS', u'ATPDEA',)
+                u'COPUOS', u'UNPUOS', u'ATPDEA', u'AMCHAMS',)
 
 _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT',
              u'AF-PAK', u'AKP', u'ASD', u'AQAP', u'AQIM', u'ARENA',

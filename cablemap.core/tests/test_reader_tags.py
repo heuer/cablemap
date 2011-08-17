@@ -274,6 +274,15 @@ SUBJECT: MADRID WEEKLY ECON/AG/COMMERCIAL UPDATE - NOVEMBER
 
 ''',
      [u'ECON', u'EFIN', u'ELAB', u'ETRD', u'KIPR', u'PTER', u'SOCI', u'TBIO', u'SP', u'EINV']),
+    (u'''E.O. 12958: N/A 
+TAGS: PREL VT
+
+(SBU) Charge d'affaires spoke to Monsignor Marcel Smejkal, the 
+Holy See's directo...
+
+
+SUBJECT: HOLY SEE:  INQUIRIES PENDING ON RADIO MARYJA ''',
+     [u'PREL', u'VT']),
     
 )
 

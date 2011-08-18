@@ -171,7 +171,8 @@ def handle_cable(cable, handler, standalone=True):
     if cable.transmission_id:
         handler.handle_transmission_id(cable.transmission_id)
     handler.handle_classification(cable.classification)
-    handler.handle_partial(cable.partial)
+    if cable.partial:
+        handler.handle_partial(cable.partial)
     for tag in cable.tags:
         handler.handle_tag(tag)
     for iri in cable.wl_uris:

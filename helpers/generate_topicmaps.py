@@ -15,6 +15,7 @@ logger = logging.getLogger('cablemap.core.reader')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler(sys.stdout))
 
+_is_dedicated_page = re.compile(r'http://.+?/.+').match
 
 class DefaultCableHandler(DelegatingCableHandler):
     """\
@@ -26,6 +27,10 @@ class DefaultCableHandler(DelegatingCableHandler):
 
     def handle_subject(self, subject):
         self._handler.handle_subject(titlefy(subject))
+
+    def handle_media_iri(self, iri):
+        if _is_dedicated_page(iri):
+            self._handler.handle_media_iri(iri)
 
     def handle_body(self, body):
         pass

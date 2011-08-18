@@ -130,7 +130,7 @@ class MultipleCableHandler(object):
         `handlers`
             An iterable of ICableMapHandler instances.
         """
-        self._handlers = handlers
+        self._handlers = tuple(handlers)
 
     def __getattr__(self, name):
         def delegate(*args):

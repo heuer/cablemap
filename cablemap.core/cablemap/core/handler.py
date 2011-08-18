@@ -165,14 +165,13 @@ def handle_cable(cable, handler, standalone=True):
     for ref in cable.references:
         handler.handle_reference(ref)
     handler.handle_creation_datetime(date_time(cable.created))
-    handler.handle_release_datetime(date_time(cable.released))
+    handler.handle_release_date(cable.released[:10])
     if cable.nondisclosure_deadline:
         handler.handle_nondisclosure_deadline(cable.nondisclosure_deadline)
     if cable.transmission_id:
         handler.handle_transmission_id(cable.transmission_id)
     handler.handle_classification(cable.classification)
-    if cable.partial:
-        handler.handle_partial(cable.partial)
+    handler.handle_partial(cable.partial)
     for tag in cable.tags:
         handler.handle_tag(tag)
     for iri in cable.wl_uris:

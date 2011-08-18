@@ -393,12 +393,12 @@ class ICableHandler(Interface):
             ISO 8601 formatted datetime
         """
 
-    def handle_release_datetime(self, datetime):
+    def handle_release_date(self, date):
         """\
-        Assigns the WikiLeaks release datetime to the cable.
+        Assigns the WikiLeaks release date to the cable.
 
-        `datetime`
-            ISO 8601 formatted datetime
+        `date`
+            ISO 8601 formatted date
         """
 
     def handle_partial(self, partial):

@@ -224,6 +224,14 @@ REF: A. REF: KATHMANDU 2282
 Classified By: AM''',
      2003,
      [cable(u'03KATHMANDU2282', u'A'), cable('03KATHMANDU2298', 'B')]),
+    # 10TRIPOLI116
+    (u'''TAGS: PGOV EPET ECON LY EFIN
+
+SUBJECT: SHOKRI GHANEM OUTLINES PLANS FOR LIBYA'S NATIONAL OIL CORPORATION REF: 09 TRIPOLI 862 TRIPOLI 00000116 001.2 OF 003 CLASSIFIED BY: Gene Cretz, Ambassador, U.S. Embassy Tripoli, U.S. Department of State. REASON: 1.4 (b), (d)
+
+¶1. (C)''',
+    2010,
+     [cable('09TRIPOLI862')]),
      
 )
 

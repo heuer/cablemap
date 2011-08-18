@@ -75,6 +75,23 @@ class LoggingCableHandler(object):
             getattr(self._handler, name)(*args)
         return logme
 
+class TeeCableHandler(object):
+    """\
+    A `ICableHandler` which delegates the events to two underlying `ICableHandler`
+    instances.
+    """
+    implements(ICableHandler)
+
+    def __init__(self, first, second):
+        self._first = first
+        self._second = second
+
+    def __getattr__(self, name):
+        def delegate(*args):
+            getattr(self._first, name)(*args)
+            getattr(self._second, name)(*args)
+        return delegate
+
 
 def handle_cable(cable, handler, standalone=True):
     """\
@@ -83,7 +100,7 @@ def handle_cable(cable, handler, standalone=True):
     `cable`
         A cable object.
     `handler`
-        A CableHandler instance.
+        A ICableHandler instance.
     `standalone`
         Indicates if a `start` and `end` event should be
         issued (default: ``True``).

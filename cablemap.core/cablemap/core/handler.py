@@ -39,7 +39,7 @@ This module defines a event handlers to process cables.
 :license:      BSD license
 """
 import logging
-from cablemap.core.utils import cables_from_directory, titlefy
+from cablemap.core.utils import cables_from_directory
 from cablemap.core.interfaces import ICableHandler, implements
 
 class NoopCableHandler(object):
@@ -115,6 +115,27 @@ class TeeCableHandler(object):
         def delegate(*args):
             getattr(self._first, name)(*args)
             getattr(self._second, name)(*args)
+        return delegate
+
+class MultipleCableHandler(object):
+    """\
+    A `ICableHandler` which delegates the events to multiple underlying `ICableHandler`
+    instances.
+    """
+    implements(ICableHandler)
+
+    def __init__(self, handlers):
+        """\
+
+        `handlers`
+            An iterable of ICableMapHandler instances.
+        """
+        self._handlers = handlers
+
+    def __getattr__(self, name):
+        def delegate(*args):
+            for handler in self._handlers:
+                getattr(handler, name)(*args)
         return delegate
 
 

@@ -201,7 +201,7 @@ def handle_cables(cables, handler):
         handle_cable(cable, handler, False)
     handler.end()
 
-def handle_directory(directory, handler):
+def handle_directory(directory, handler, predicate=None):
     """\
     Reads all cables from the provided directory and issues events to
     the `handler`.
@@ -210,5 +210,11 @@ def handle_directory(directory, handler):
         The directory to process.
     `handler`
         The handler which should receive the events.
+    `predicate`
+        A predicate that is invoked for each cable filename.
+        If the predicate evaluates to ``False`` the file is ignored.
+        By default, all cable files are used.
+        I.e. ``handle_directory('./cables/', handler, lambda f: f.startswith('09'))``
+        would return cables where the filename starts with ``09``. 
     """
-    handle_cables(cables_from_directory(directory), handler)
+    handle_cables(cables_from_directory(directory, predicate), handler)

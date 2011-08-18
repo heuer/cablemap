@@ -120,7 +120,8 @@ def handle_cable(cable, handler, standalone=True):
         handler.handle_reference(ref)
     handler.handle_creation_datetime(date_time(cable.created))
     handler.handle_release_datetime(date_time(cable.released))
-    handler.handle_nondisclosure_deadline(cable.nondisclosure_deadline)
+    if cable.nondisclosure_deadline:
+        handler.handle_nondisclosure_deadline(cable.nondisclosure_deadline)
     if cable.transmission_id:
         handler.handle_transmission_id(cable.transmission_id)
     handler.handle_classification(cable.classification)

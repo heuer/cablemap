@@ -156,33 +156,33 @@ def handle_cable(cable, handler, standalone=True):
     if standalone:
         handler.start()
     handler.start_cable(cable.reference_id, cable.canonical_id)
-    for rec in cable.recipients:
-        handler.handle_recipient(rec)
-    for rec in cable.info_recipients:
-        handler.handle_info_recipient(rec)
-    for ref in cable.references:
-        handler.handle_reference(ref)
-    handler.handle_origin(cable.origin)
+    for iri in cable.wl_uris:
+        handler.handle_wikileaks_iri(iri)
     handler.handle_creation_datetime(cable.created.replace(u' ', u'T') + u'Z')
     handler.handle_release_date(cable.released[:10])
     if cable.nondisclosure_deadline:
         handler.handle_nondisclosure_deadline(cable.nondisclosure_deadline)
     if cable.transmission_id:
         handler.handle_transmission_id(cable.transmission_id)
-    handler.handle_classification(cable.classification)
-    handler.handle_partial(cable.partial)
-    for tag in cable.tags:
-        handler.handle_tag(tag)
-    for iri in cable.wl_uris:
-        handler.handle_wikileaks_iri(iri)
-    for iri in cable.media_uris:
-        handler.handle_media_iri(iri)
     if cable.subject:
         handler.handle_subject(cable.subject)
     if cable.summary:
         handler.handle_summary(cable.summary)
     handler.handle_header(cable.header)
     handler.handle_body(cable.content)
+    handler.handle_origin(cable.origin)
+    handler.handle_classification(cable.classification)
+    handler.handle_partial(cable.partial)
+    for rec in cable.recipients:
+        handler.handle_recipient(rec)
+    for rec in cable.info_recipients:
+        handler.handle_info_recipient(rec)
+    for ref in cable.references:
+        handler.handle_reference(ref)
+    for tag in cable.tags:
+        handler.handle_tag(tag)
+    for iri in cable.media_uris:
+        handler.handle_media_iri(iri)
     handler.end_cable()
     if standalone:
         handler.end()

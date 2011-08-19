@@ -385,7 +385,7 @@ class ICableHandler(Interface):
             ISO 8601 formatted date
         """
 
-    def handle_creation_datetime(self, datetime):
+    def handle_creation_datetime(datetime):
         """\
         Assigns the creation datetime to the cable.
         
@@ -393,7 +393,7 @@ class ICableHandler(Interface):
             ISO 8601 formatted datetime
         """
 
-    def handle_release_date(self, date):
+    def handle_release_date(date):
         """\
         Assigns the WikiLeaks release date to the cable.
 
@@ -401,7 +401,7 @@ class ICableHandler(Interface):
             ISO 8601 formatted date
         """
 
-    def handle_partial(self, partial):
+    def handle_partial(partial):
         """\
         Indicates that the whole cable text is (not) available.
         

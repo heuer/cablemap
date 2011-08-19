@@ -162,6 +162,7 @@ def handle_cable(cable, handler, standalone=True):
         handler.handle_info_recipient(rec)
     for ref in cable.references:
         handler.handle_reference(ref)
+    handler.handle_origin(cable.origin)
     handler.handle_creation_datetime(cable.created.replace(u' ', u'T') + u'Z')
     handler.handle_release_date(cable.released[:10])
     if cable.nondisclosure_deadline:

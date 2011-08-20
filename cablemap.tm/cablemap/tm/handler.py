@@ -149,7 +149,7 @@ class MIOCableHandler(object):
         reifier = None
         if enum:
             self._ref_counter+=1
-            reifier = None if not enum else (mio.ITEM_IDENTIFIER, u'#%s-ref-%s' % (self._cable_id, self._ref_counter))
+            reifier = mio.ITEM_IDENTIFIER, u'#%s-ref-%s' % (self._cable_id, self._ref_counter)
         processed = True
         ref_kind = reference.kind
         handler = self._handler

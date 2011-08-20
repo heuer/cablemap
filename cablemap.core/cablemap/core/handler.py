@@ -153,12 +153,18 @@ def handle_cable(cable, handler, standalone=True):
         If `standalone` is set to ``False``, no ``handler.start()``
         and ``handler.end()`` event will be issued.
     """
+    def datetime(dt):
+        date, time = dt.split(u' ')
+        if len(time) == 5:
+            time = time + u':00'
+        time = time + u'Z'
+        return u'T'.join([date, time])
     if standalone:
         handler.start()
     handler.start_cable(cable.reference_id, cable.canonical_id)
     for iri in cable.wl_uris:
         handler.handle_wikileaks_iri(iri)
-    handler.handle_creation_datetime(cable.created.replace(u' ', u'T') + u'Z')
+    handler.handle_creation_datetime(datetime(cable.created))
     handler.handle_release_date(cable.released[:10])
     if cable.nondisclosure_deadline:
         handler.handle_nondisclosure_deadline(cable.nondisclosure_deadline)

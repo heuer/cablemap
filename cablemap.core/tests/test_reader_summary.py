@@ -157,6 +157,11 @@ END SUMMARY.
 
 1. (C) Bla bla. End Summary''',
      '''Bla bla.'''),
+    # 04PANAMA715
+    ('''Summary/Comment: bla bla
+bla bla bla.  End Summary/Comment.
+''',
+    '''bla bla bla bla bla.'''),
 
 )
 

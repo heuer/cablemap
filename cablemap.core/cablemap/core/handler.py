@@ -38,7 +38,6 @@ This module defines a event handlers to process cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
-import re
 import logging
 from cablemap.core.utils import cables_from_directory, titlefy
 from cablemap.core.interfaces import ICableHandler, implements
@@ -140,27 +139,31 @@ class MultipleCableHandler(object):
         return delegate
 
 
-_is_dedicated_page = re.compile(r'http://.+?/.+').match
-
 class DefaultMetadataOnlyFilter(DelegatingCableHandler):
     """\
     ICableHandler implementation that acts as filter to omit the
-    header and content of a cable. Further, it generates titlefied
-    subjects, filters media links which refer to a domain rather than
-    to a dedicated page and all WikiLeaks IRIs != http://wikileaks.org/cable/<year>/<month>/<reference-id>.html
+    header and content of a cable. Further, it generates optionally titlefied
+    subjects, and filters WikiLeaks IRIs != http://wikileaks.org/cable/<year>/<month>/<reference-id>.html
     """
     implements(ICableHandler)
+
+    def __init__(self, handler, titlefy_subject=True):
+        """\
+
+        `handler`
+            The ICableHandler which should receive the (filtered) events.
+        `titlefy_subject`
+            Indicates if the subjects should be titlefied (default: ``True``).
+        """
+        super(DefaultMetadataOnlyFilter, self).__init__(handler)
+        self.titlefy_subject = titlefy_subject
 
     def handle_wikileaks_iri(self, iri):
         if iri.startswith(u'http://wikileaks.org') and iri.endswith(u'html'):
             self._handler.handle_wikileaks_iri(iri)
 
     def handle_subject(self, subject):
-        self._handler.handle_subject(titlefy(subject))
-
-    def handle_media_iri(self, iri):
-        if _is_dedicated_page(iri):
-            self._handler.handle_media_iri(iri)
+        self._handler.handle_subject(titlefy(subject) if self.titlefy_subject else subject)
 
     def handle_body(self, body):
         pass

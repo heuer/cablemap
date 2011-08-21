@@ -35,6 +35,7 @@
 This module defines an event handler to process cables.
 """
 from __future__ import absolute_import
+import re
 from mio.ctm.miohandler import CTMHandler
 from mio.xtm.miohandler import XTM21Handler
 from tm.mio.handler import simplify
@@ -86,6 +87,8 @@ def _cablehandler(handler):
     return MIOCableHandler(handler)
 
 
+_is_dedicated_media_page = re.compile(r'https?://.+?/.+').match
+
 class MIOCableHandler(object):
     """\
     Implementation of a `ICableHandler` which translates the events into
@@ -127,7 +130,9 @@ class MIOCableHandler(object):
         self._handler.endTopic()
 
     def handle_tag(self, tag):
-        pass
+        self._assoc(psis.TAGGED_TYPE,
+                    psis.CABLE_TYPE, self._cable,
+                    psis.TAG_TYPE, psis.tag_psi(tag))
    
     def handle_origin(self, origin):
         # Cheating here. The `origin` isn't used but the cable identifier.
@@ -151,10 +156,12 @@ class MIOCableHandler(object):
             self._ref_counter+=1
             reifier = mio.ITEM_IDENTIFIER, u'#%s-ref-%s' % (self._cable_id, self._ref_counter)
         processed = True
-        ref_kind = reference.kind
+        kind = reference.kind
         handler = self._handler
-        if ref_kind == consts.REF_KIND_CABLE:
+        if kind == consts.REF_KIND_CABLE:
             self._handle_reference_cable(reference, handler, reifier)
+        elif kind == consts.REF_KIND_BOOK:
+            processed = self._handle_reference_book(reference, handler, reifier)
         else:
             processed = False
         if processed and reifier:
@@ -176,6 +183,13 @@ class MIOCableHandler(object):
         handler.isa(psis.CABLE_TYPE)
         handler.endTopic()
         self._sent_by(psis.origin_psi_by_cable_id(reference.value), cable_ref)
+
+    def _handle_reference_book(self, reference, handler, reifier):
+        """\
+
+        """
+        return False
+        
     
     def handle_subject(self, subject):
         self._name(subject, psis.SUBJECT_TYPE)
@@ -215,9 +229,14 @@ class MIOCableHandler(object):
         self._handler.subjectLocator(iri)
 
     def handle_media_iri(self, iri):
-        self._assoc(psis.COVERED_BY_TYPE,
-                    psis.CABLE_TYPE, self._cable,
-                    psis.COVERED_BY_RESOURCE_TYPE, (mio.SUBJECT_LOCATOR, iri))
+        if _is_dedicated_media_page(iri):
+            self._assoc(psis.COVERED_BY_TYPE,
+                        psis.CABLE_TYPE, self._cable,
+                        psis.COVERED_BY_RESOURCE_TYPE, (mio.SUBJECT_LOCATOR, iri))
+        else:
+            self._assoc(psis.COVERED_BY_TYPE,
+                        psis.CABLE_TYPE, self._cable,
+                        psis.MEDIA_TYPE, psis.media_psi(iri))
 
     #
     # Private methods

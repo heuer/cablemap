@@ -156,14 +156,15 @@ class DefaultMetadataOnlyFilter(DelegatingCableHandler):
             Indicates if the subjects should be titlefied (default: ``True``).
         """
         super(DefaultMetadataOnlyFilter, self).__init__(handler)
-        self.titlefy_subject = titlefy_subject
+        if titlefy_subject:
+            self.handle_subject = self._handle_subject_titlefy
 
     def handle_wikileaks_iri(self, iri):
         if iri.startswith(u'http://wikileaks.org') and iri.endswith(u'html'):
             self._handler.handle_wikileaks_iri(iri)
 
-    def handle_subject(self, subject):
-        self._handler.handle_subject(titlefy(subject) if self.titlefy_subject else subject)
+    def _handle_subject_titlefy(self, subject):
+        self._handler.handle_subject(titlefy(subject))
 
     def handle_body(self, body):
         pass

@@ -146,8 +146,6 @@ class DefaultMetadataOnlyFilter(DelegatingCableHandler):
     header and content of a cable. Further, it generates optionally titlefied
     subjects, and filters WikiLeaks IRIs != http://wikileaks.org/cable/<year>/<month>/<reference-id>.html
     """
-    implements(ICableHandler)
-
     def __init__(self, handler, titlefy_subject=True):
         """\
 

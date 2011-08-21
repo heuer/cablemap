@@ -41,9 +41,6 @@ def openfile(name):
 
 def generate_topicmaps(cable_directory):
     def tee(files, filename):
-        """\
-
-        """
         ctm = openfile(filename + '.ctm')
         xtm = openfile(filename + '.xtm')
         files.append(ctm)

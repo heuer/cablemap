@@ -3,10 +3,8 @@
 Experimental script to generarte topic maps.
 """
 import os
-import re
 import codecs
-from cablemap.core.utils import titlefy
-from cablemap.core.handler import MultipleCableHandler, DelegatingCableHandler, handle_directory
+from cablemap.core.handler import DefaultMetadataOnlyFilter, MultipleCableHandler, DelegatingCableHandler, handle_directory
 from cablemap.tm.handler import create_ctm_handler, create_xtm_handler
 
 import logging 
@@ -14,30 +12,6 @@ import sys
 logger = logging.getLogger('cablemap.core.reader')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler(sys.stdout))
-
-_is_dedicated_page = re.compile(r'http://.+?/.+').match
-
-class DefaultCableHandler(DelegatingCableHandler):
-    """\
-    
-    """
-    def handle_wikileaks_iri(self, iri):
-        if iri.startswith('http://wikileaks.org') and iri.endswith('html'):
-            self._handler.handle_wikileaks_iri(iri)
-
-    def handle_subject(self, subject):
-        self._handler.handle_subject(titlefy(subject))
-
-    def handle_media_iri(self, iri):
-        if _is_dedicated_page(iri):
-            self._handler.handle_media_iri(iri)
-
-    def handle_body(self, body):
-        pass
-
-    def handle_header(self, header):
-        pass
-
 
 class SubjectLocatorsCableHandler(DelegatingCableHandler):
     """\
@@ -74,8 +48,8 @@ def generate_topicmaps(cable_directory):
     content_xtm = openfile('cable-content.xtm')
     files = [ctm_tm, xtm_tm, slos_ctm, slos_xtm, content_ctm, content_xtm]
     handlers = []
-    handlers.append(DefaultCableHandler(create_ctm_handler(ctm_tm)))
-    handlers.append(DefaultCableHandler(create_xtm_handler(xtm_tm)))
+    handlers.append(DefaultMetadataOnlyFilter(create_ctm_handler(ctm_tm)))
+    handlers.append(DefaultMetadataOnlyFilter(create_xtm_handler(xtm_tm)))
     handlers.append(SubjectLocatorsCableHandler(create_ctm_handler(slos_ctm)))
     handlers.append(SubjectLocatorsCableHandler(create_xtm_handler(slos_xtm)))
     handlers.append(ContentCableHandler(create_ctm_handler(content_ctm)))

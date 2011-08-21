@@ -53,6 +53,8 @@ _TEST_DATA = (
                              u'http://www.haiti-liberte.com/archives/volume4-48/U.S.%20Worried%20about%20International.asp',
                              u'http://www.haiti-liberte.com/archives/volume4-48/After%20Quake.asp']),
     (u'06TELAVIV2787', []), # Appears in these articles: http://not http://yet http://set
+    # Next contains: http://WL: http://This http://URL?
+    (u'08BERLIN1467', [u'http://www.spiegel.de', u'http://www.spiegel.de/international/world/0,1518,732127,00.html']),
     )
 
 def test_media_urls():

@@ -231,9 +231,13 @@ class MIOCableHandler(object):
 
     def handle_media_iri(self, iri):
         if _is_dedicated_media_page(iri):
+            resource = mio.SUBJECT_LOCATOR, iri
             self._assoc(psis.COVERED_BY_TYPE,
                         psis.CABLE_TYPE, self._cable,
-                        psis.COVERED_BY_RESOURCE_TYPE, (mio.SUBJECT_LOCATOR, iri))
+                        psis.COVERED_BY_RESOURCE_TYPE, resource)
+            self._assoc(psis.PUBLISHED_TYPE,
+                        psis.PUBLISHED_RESOURCE_TYPE, resource,
+                        psis.PUBLISHER_TYPE, psis.media_psi(iri))
         else:
             self._assoc(psis.COVERED_BY_TYPE,
                         psis.CABLE_TYPE, self._cable,

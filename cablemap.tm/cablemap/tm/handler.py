@@ -56,6 +56,7 @@ _PREFIXES = {
     u'org': psis.NS_TAG_ORG,
     u'st': psis.NS_STATION,
     u'cls': psis.NS_CLASSIFICATION,
+    u'wp': psis.NS_WP,
 }
 
 def create_ctm_handler(fileobj):

@@ -193,18 +193,14 @@ class DebitlyFilter(DelegatingCableHandler):
             def get_method(self):
                 return 'HEAD'
         if iri.startswith(u'http://bit.ly'):
-            url = self._bitly2url.get(iri)
-            if url:
-                iri = url
-            else:
+            if not iri in self._bitly2url:
                 request = HeadRequest(iri)
                 try:
                     response = urllib2.urlopen(request)
-                    url = response.geturl()
-                    self._bitly2url[iri] = url
-                    iri = url
+                    self._bitly2url[iri] = response.geturl()
                 except urllib2.HTTPError:
                     pass
+            iri = self._bitly2url.get(iri, iri)
         self._handler.handle_media_iri(iri)
 
 

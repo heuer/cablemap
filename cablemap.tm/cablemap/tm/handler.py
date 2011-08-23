@@ -254,11 +254,11 @@ class MIOCableHandler(object):
                         psis.COVERED_BY_RESOURCE_TYPE, resource)
             self._assoc(psis.PUBLISHED_TYPE,
                         psis.PUBLISHED_RESOURCE_TYPE, resource,
-                        psis.PUBLISHER_TYPE, psis.media_psi(iri))
+                        psis.PUBLISHER_TYPE, psis.publisher_psi(iri))
         else:
             self._assoc(psis.COVERED_BY_TYPE,
                         psis.CABLE_TYPE, self._cable,
-                        psis.MEDIA_TYPE, psis.media_psi(iri))
+                        psis.MEDIA_TYPE, psis.publisher_psi(iri))
 
     #
     # Private methods

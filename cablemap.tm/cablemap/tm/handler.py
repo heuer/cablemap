@@ -224,9 +224,10 @@ class MIOCableHandler(object):
         self._occ(summary, psis.SUMMARY_TYPE)
 
     def handle_classification(self, classification):
-        self._assoc(psis.CLASSIFIED_AS_TYPE,
-                    psis.CABLE_TYPE, self._cable,
-                    psis.CLASSIFICATION_TYPE, psis.classification_psi(classification))
+        for cls in psis.classification_psis(classification):
+            self._assoc(psis.CLASSIFIED_AS_TYPE,
+                        psis.CABLE_TYPE, self._cable,
+                        psis.CLASSIFICATION_TYPE, cls)
 
     def handle_nondisclosure_deadline(self, date):
         self._occ(date, psis.NONDISCLOSURE_DEADLINE_TYPE, XSD.date)

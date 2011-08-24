@@ -18,8 +18,6 @@
 05DUSHANBE1702: TAJIKISTAN: AMBASSADOR ZARIPOV COUNSELS NO SHARP RESPONSE TO RUSSIAN PROVOCATIONS
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3965561.ece>
 06COPENHAGEN336: MOHAMMED CARTOONS: DENMARK WILL NOT PROSECUTE THE NEWSPAPER
-# <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3965559.ece>
-06COPENHAGEN352: ANTI-ISRAEL CLAUSES - LESS THAN MEETS THE EYE
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3974066.ece>
 06TELAVIV2301: ALLEGED ISRAELI CORRUPTION AT KARNI IMPEDES U.S. MARKET ACCESS
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3990364.ece>
@@ -54,8 +52,6 @@
 08TELAVIV2447: CASHLESS IN GAZA?
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3972839.ece>
 08TELAVIV2713: GOI CALLS GAZA CASH CRISIS A HAMAS PLOY
-# <http://aebr.home.xs4all.nl/wl/rusrep/08USNATO275.html>
-08USNATO275: GEORGIAN NATO MISSION STATEMENT ON SITUATION IN SOUTH OSSETIA
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3988312.ece>
 09ASTANA2257: KAZAKHSTANS INITIAL RESPONSE TO DEMARCHE TO PREVENT THE TRANSFER OF URANIUM TO IRAN
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3988311.ece>

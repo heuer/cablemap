@@ -232,6 +232,21 @@ SUBJECT: SHOKRI GHANEM OUTLINES PLANS FOR LIBYA'S NATIONAL OIL CORPORATION REF: 
 ¶1. (C)''',
     2010,
      [cable('09TRIPOLI862')]),
+    # 05TAIPEI4305
+    (u'''E.O. 12958:N/A 
+TAGS: EWWT ETRD ECON TW
+SUBJECT: Port of Kaohsiung Sixth Container Terminal Faces 
+New Obstacles 
+ 
+Ref:  Ref A) Taipei 3393 B) Taipei 03793 C) Taipei 03856 D) 
+ 
+Taipei 03196 E) Taipei 03197 F) Taipei 03525 
+ 
+1. (U) ''',
+     2005,
+     [cable('05TAIPEI3393', 'A'), cable('05TAIPEI3793', 'B'),
+      cable('05TAIPEI3856', 'C'), cable('05TAIPEI03196', 'D'),
+      cable('05TAIPEI3197', 'E'), cable('05TAIPEI3525', 'F')]),
      
 )
 

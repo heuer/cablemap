@@ -339,6 +339,9 @@ def _unescape(text):
         return text # leave as is
     return re.sub("&#?\w+;", fixup, text)
 
+def _normalize_ws(text):
+    return re.sub(r'[ ]{2,}', ' ', re.sub(r'[\r\n]+', ' ', text))
+
 class MediaTitleResolver(NoopCableHandler):
     """\
     Creates topics with subject locators from media IRIs and assigns a name to them.
@@ -382,7 +385,7 @@ class MediaTitleResolver(NoopCableHandler):
 
         def find_name(page):
             m = _find_title(page)
-            return _unescape(m.group(1).strip()) if m else None
+            return _normalize_ws(_unescape(m.group(1).strip())) if m else None
             
         if iri in self._seen_iris or not _is_dedicated_media_page(iri):
             return

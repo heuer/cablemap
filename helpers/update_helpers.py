@@ -32,7 +32,9 @@ _KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON
                u'COPUOS', u'UNPUOS', u'ATPDEA', u'AMCHAMS', u'POLITICAL', u'POLINT', u'REGION',
                u'FOREIGN POL', u'MEDIA REACTION REPORT', u'TIP IN TURKEY', u'TURKEY', u'HEBRON', u'KUWAIT-IRAQ RELATIONS',
                u'TERRORISM', u'AGRICULTURE', u'ELECTIONS', u'PHALANAGE PARTY', u'ANACHISTS', u'ECONOMIC', u'ECONOMICS',
-               u'ANARCHISTS',
+               u'ANARCHISTS', u'JOSEPH, ROBERT G.', u'MURRAY, PATTY', 'LOTT, TRENT', u'NELSON, BEN', u'HADLEY, STEPHEN',
+               u'THOMMA, THOMAS', u'QADRI, MOHAMMAD AFZAL', u'SECRETARY OF COMMERCE', u'BURNS, WILLIAM',
+               u'ISRAELI SOCIETY', u'ENVIRONMENT SCIENCE AND TECHNOLOGY',
                )
 
 _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT',
@@ -143,10 +145,10 @@ _FILE_SUBJECTS = _filename('no_subject.txt')
 if __name__ == '__main__':
     if not os.path.isdir('./cable/'):
         raise Exception('Expected a directory "cable"')
-    import pprint
-    pp = pprint.PrettyPrinter(indent=4)
     res = run_update('./cable/')
     update_file(_FILE_ACRONYMS, res['acronyms'])
     update_file(_FILE_SUBJECTS, res['subjects'])
     print('Valid TAGs?')
-    pp.pprint(res['tags'])
+    tags = res['tags']
+    for k in sorted(tags.keys()):
+        print(u'%s:\n    %s' % (k, u', '.join(tags[k])))

@@ -284,6 +284,11 @@ Holy See's directo...
 
 SUBJECT: HOLY SEE:  INQUIRIES PENDING ON RADIO MARYJA ''',
      [u'PREL', u'VT']),
+    # 92IZMIR819
+    ('''E.O. 12356: DECL:  OADR 
+TAGS;  PGOV, TU 
+SUBJ: TERRORIST KILL FOUR POLICEMEN IN ANTALYA ''',
+     [u'PGOV', u'TU']),
     
 )
 

@@ -245,7 +245,7 @@ Taipei 03196 E) Taipei 03197 F) Taipei 03525
 1. (U) ''',
      2005,
      [cable('05TAIPEI3393', 'A'), cable('05TAIPEI3793', 'B'),
-      cable('05TAIPEI3856', 'C'), cable('05TAIPEI03196', 'D'),
+      cable('05TAIPEI3856', 'C'), cable('05TAIPEI3196', 'D'),
       cable('05TAIPEI3197', 'E'), cable('05TAIPEI3525', 'F')]),
      
 )

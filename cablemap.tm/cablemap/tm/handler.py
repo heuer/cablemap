@@ -36,6 +36,7 @@ This module defines an event handler to process cables.
 """
 from __future__ import absolute_import
 import re
+import logging
 import htmlentitydefs
 import urllib2
 import gzip
@@ -47,6 +48,8 @@ from cablemap.core import constants as consts
 from cablemap.core.interfaces import ICableHandler, implements
 from cablemap.core.handler import NoopCableHandler
 from . import psis
+
+logger = logging.getLogger('cablemap.tm.handler')
 
 _PREFIXES = {
     u'onto': psis.NS_ONTO,
@@ -391,7 +394,11 @@ class MediaTitleResolver(NoopCableHandler):
             return
         try:
             page = fetch_url(iri)
-        except urllib2.HTTPError:
+        except urllib2.HTTPError, ex:
+            logger.debug(ex)
+            return
+        except ValueError, ex: # Encoding error
+            logger.debug(ex)
             return
         finally:
             self._seen_iris.add(iri)

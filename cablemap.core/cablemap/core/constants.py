@@ -84,8 +84,7 @@ _STATIONS = (
     u'DURBAN', u'DAMASCCUS',
     'DUSSELDORF', # found in cable refs
     # F
-    'FREETOWN', 'FUKUOKA', u'FSINFATC',
-    'FRANKFURT', # Found in cable refs
+    'FREETOWN', 'FUKUOKA', u'FSINFATC', u'FRANKFURT',
     # G
     'GABORONE', 'GENEVA', 'GUATEMALA', 'GUADALAJARA', 'GUAYAQUIL',
     'GUANGZHOU', u'GEORGETOWN', u'GRENADA',

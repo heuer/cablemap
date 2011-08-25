@@ -77,7 +77,7 @@ class LoggingCableHandler(object):
     """
     implements(ICableHandler)
     
-    def __init__(self, handler, level='info'):
+    def __init__(self, handler, level=u'info'):
         """\
 
         `handler`
@@ -90,7 +90,7 @@ class LoggingCableHandler(object):
 
     def __getattr__(self, name):
         def logme(*args):
-            getattr(logging, self.level)('%s%r' % (name, args))
+            getattr(logging, self.level)(u'%s%r' % (name, args))
             getattr(self._handler, name)(*args)
         return logme
 

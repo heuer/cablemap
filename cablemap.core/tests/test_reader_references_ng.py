@@ -257,6 +257,14 @@ Taipei 03196 E) Taipei 03197 F) Taipei 03525
     (u'''REF: A) USDOC 05667 B)HK05511 ''',
      2007,
      [cable(u'07USDOC5667', 'A'), cable('07HONGKONG5511', 'B')]),
+    # 02HARARE81
+    (u'''REFS: A) STATE (01) 201265, B) STATE (01) 213042,C) 
+ 
+STATE 02034 
+''',
+     2002,
+     [cable(u'01STATE201265', u'A'), cable(u'01STATE213042', 'B'),
+      cable(u'02STATE2034', 'C')]),
      
 )
 

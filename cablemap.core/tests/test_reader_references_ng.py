@@ -253,6 +253,10 @@ Taipei 03196 E) Taipei 03197 F) Taipei 03525
      2007,
      [cable('07USDOC6988', 'A'), cable(u'07HONGKONG3591', 'C'),
       cable(u'07HONGKONG7053', 'D'), cable(u'07HONGKONG4648', 'E')]),
+    # 07HONGKONG2480
+    (u'''REF: A) USDOC 05667 B)HK05511 ''',
+     2007,
+     [cable(u'07USDOC5667', 'A'), cable('07HONGKONG5511', 'B')]),
      
 )
 

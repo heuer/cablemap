@@ -269,6 +269,10 @@ STATE 02034
     (u'''REF: A) HO CHI MINH 10 B) 06 HCMC 1497 AND PREVIOUS ''',
      2007,
      [cable(u'07HOCHIMINHCITY10', u'A'), cable(u'06HOCHIMINHCITY1497', 'B')]),
+    # 07BAGHDAD3708
+    (u'''REF: BAGHDAD #3565 ''',
+     2007,
+     [cable(u'07BAGHDAD3565')]),
      
 )
 

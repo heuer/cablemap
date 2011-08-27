@@ -232,6 +232,43 @@ SUBJECT: SHOKRI GHANEM OUTLINES PLANS FOR LIBYA'S NATIONAL OIL CORPORATION REF: 
 ¶1. (C)''',
     2010,
      [cable('09TRIPOLI862')]),
+    # 05TAIPEI4305
+    (u'''E.O. 12958:N/A 
+TAGS: EWWT ETRD ECON TW
+SUBJECT: Port of Kaohsiung Sixth Container Terminal Faces 
+New Obstacles 
+ 
+Ref:  Ref A) Taipei 3393 B) Taipei 03793 C) Taipei 03856 D) 
+ 
+Taipei 03196 E) Taipei 03197 F) Taipei 03525 
+ 
+1. (U) ''',
+     2005,
+     [cable('05TAIPEI3393', 'A'), cable('05TAIPEI3793', 'B'),
+      cable('05TAIPEI3856', 'C'), cable('05TAIPEI3196', 'D'),
+      cable('05TAIPEI3197', 'E'), cable('05TAIPEI3525', 'F')]),
+    # 07HONGKONG2339
+    (u'''REF: A) USDOC 06988 B) EXP.LIC. D328589 C) HK 
+03591 D) HK 07053 E) HK 04648 ''',
+     2007,
+     [cable('07USDOC6988', 'A'), cable(u'07HONGKONG3591', 'C'),
+      cable(u'07HONGKONG7053', 'D'), cable(u'07HONGKONG4648', 'E')]),
+    # 07HONGKONG2480
+    (u'''REF: A) USDOC 05667 B)HK05511 ''',
+     2007,
+     [cable(u'07USDOC5667', 'A'), cable('07HONGKONG5511', 'B')]),
+    # 02HARARE81
+    (u'''REFS: A) STATE (01) 201265, B) STATE (01) 213042,C) 
+ 
+STATE 02034 
+''',
+     2002,
+     [cable(u'01STATE201265', u'A'), cable(u'01STATE213042', 'B'),
+      cable(u'02STATE2034', 'C')]),
+    # 07HANOI73
+    (u'''REF: A) HO CHI MINH 10 B) 06 HCMC 1497 AND PREVIOUS ''',
+     2007,
+     [cable(u'07HOCHIMINHCITY10', u'A'), cable(u'06HOCHIMINHCITY1497', 'B')]),
      
 )
 

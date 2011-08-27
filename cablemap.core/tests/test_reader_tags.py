@@ -303,7 +303,7 @@ E.O. 12958:N/A
 SUBJECT: EXBS NATIONAL CONTROL LIST WORKSHOP, APRIL 24- 
 26, 2004, WELL RECEIVED IN THE UAE ''',
      [u'ETTC', u'PARM', u'PREL', u'PTER', u'KSTC', u'TC']),
-    
+   
 )
 
 def test_tags():

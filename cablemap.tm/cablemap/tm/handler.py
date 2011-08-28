@@ -36,6 +36,7 @@ This module defines an event handler to process cables.
 """
 from __future__ import absolute_import
 import re
+import logging
 import htmlentitydefs
 import urllib2
 import gzip
@@ -48,6 +49,8 @@ from cablemap.core.interfaces import ICableHandler, implements
 from cablemap.core.handler import NoopCableHandler
 from . import psis
 
+logger = logging.getLogger('cablemap.tm.handler')
+
 _PREFIXES = {
     u'onto': psis.NS_ONTO,
     u'cb': psis.NS_CABLE,
@@ -59,6 +62,8 @@ _PREFIXES = {
     u'st': psis.NS_STATION,
     u'cls': psis.NS_CLASSIFICATION,
     u'wp': psis.NS_WP,
+    u'r': psis.NS_ROUTE,
+    u'p': psis.NS_PRECEDENCE,
     u'ap': u'http://www.aftenposten.no/spesial/wikileaksdokumenter/',
     u'ala': u'http://www.al-akhbar.com/node/',
     u'th': u'http://www.thehindu.com/news/the-india-cables/',
@@ -156,15 +161,28 @@ class MIOCableHandler(object):
         self._sent_by(psis.origin_psi_by_cable_id(self._cable_id), self._cable)
     
     def handle_recipient(self, recipient):
-        pass
+        self._handle_recipient(psis.RECIPIENT_TYPE, recipient)
 
     def handle_info_recipient(self, recipient):
-        pass
+        self._handle_recipient(psis.INFO_RECIPIENT_TYPE, recipient)
 
-    def _handle_recipient(self, recipient, typ):
+    def _handle_recipient(self, typ, recipient):
         """\
 
         """
+        h = self._handler
+        h.startAssociation(typ)
+        route, name, precedence, mcn = recipient.route, recipient.name, recipient.precedence, recipient.mcn
+        if not name:
+            return
+        h.role(psis.RECIPIENT_TYPE, psis.station_psi(name, route))
+        if route:
+            h.role(psis.ROUTE_TYPE, psis.route_psi(route))
+        if precedence:
+            h.role(psis.PRECEDENCE_TYPE, psis.precedence_psi(precedence))
+        if mcn:
+            h.role(psis.MCN_TYPE, psis.mcn_psi(mcn))
+        h.endAssociation()
 
     def handle_reference(self, reference):
         enum = reference.name
@@ -339,6 +357,9 @@ def _unescape(text):
         return text # leave as is
     return re.sub("&#?\w+;", fixup, text)
 
+def _normalize_ws(text):
+    return re.sub(r'[ ]{2,}', ' ', re.sub(r'[\r\n]+', ' ', text))
+
 class MediaTitleResolver(NoopCableHandler):
     """\
     Creates topics with subject locators from media IRIs and assigns a name to them.
@@ -382,13 +403,17 @@ class MediaTitleResolver(NoopCableHandler):
 
         def find_name(page):
             m = _find_title(page)
-            return _unescape(m.group(1).strip()) if m else None
+            return _normalize_ws(_unescape(m.group(1).strip())) if m else None
             
         if iri in self._seen_iris or not _is_dedicated_media_page(iri):
             return
         try:
             page = fetch_url(iri)
-        except urllib2.HTTPError:
+        except urllib2.HTTPError, ex:
+            logger.debug(ex)
+            return
+        except ValueError, ex: # Encoding error
+            logger.debug(ex)
             return
         finally:
             self._seen_iris.add(iri)

@@ -15,6 +15,7 @@ Changes
     return models.Recipient objects
   - models.Cable.references returns models.Reference
     objects
+* (Re-)added cablemap.core.handler
 * Improved summary extraction
 * Cable references like "09 FOO 12 AND 13" are detected correctly. 
   "09 FOO 12 AND 13" becomes: ['09FOO12', '09FOO13']
@@ -41,9 +42,6 @@ Changes
   WikiLeaks identifier anymore)
 * Added ability to reconstruct subjects from sources != WikiLeaks, namely 
   <http://aebr.home.xs4all.nl/wl/> 
-* cable_by_id and cable_page_by_id returned None if the release year page
-  contains 10 or more pages to walk through. Fixed.
-  (this change became obsolete due to the Cablegatesearch web service)
 * Added support to parse media IRIs to the reader module
 * Added media_uris property to models.Cable which gives information about
   the media coverage

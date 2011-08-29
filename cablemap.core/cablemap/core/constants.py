@@ -54,6 +54,7 @@ REF_KIND_REPORT = 5
 REF_KIND_FAX = 6
 REF_KIND_MEMO = 7
 REF_KIND_MEETING = 8
+REF_KIND_WEB = 9
 
 # Min/max cable serial number length
 MIN_SERIAL_LENGTH = 1
@@ -74,17 +75,21 @@ _STATIONS = (
     u'BRASILIA', u'BRATISLAVA', u'BRIDGETOWN', u'BRUSSELS', u'BUCHAREST', 
     u'BUDAPEST', u'BUENOSAIRES', u'BUJUMBURA', u'BRAZZAVILLE', u'BELIZE',
     u'BELFAST', u'BELMOPAN', u'BONN', u'BANGUI',
+    u'BENIN', # found in cable refs
     # C
     u'CAIRO', u'CALCUTTA', u'CANBERRA', u'CAPETOWN', u'CARACAS', 
     u'CASABLANCA', u'CHENNAI', u'CHISINAU', u'CIUDADJUAREZ', u'COLOMBO', 
     u'CONAKRY', u'COPENHAGEN', u'CURACAO', u'CALGARY', u'CHIANGMAI',
     u'CHENGDU', u'COTONOU', u'CDGENEVA',
     u'CDCATLANTAGA', # found in cable refs "Centers for Disease Control and Prevention"
+    u'CHARLESTON', # found in cable refs
+    u'CDC', # found in cable refs
     # D
     u'DAKAR', u'DAMASCUS', u'DARESSALAAM', u'DHAKA', u'DJIBOUTI', 
     u'DOHA', u'DUBAI', u'DUBLIN', u'DUSHANBE', u'DHAHRAN', u'DILI',
     u'DURBAN', u'DAMASCCUS',
     u'DUSSELDORF', # found in cable refs
+    u'USDOJ', # found in cable refs
     # F
     u'FREETOWN', u'FUKUOKA', u'FSINFATC', u'FRANKFURT', u'FLORENCE', u'FESTTWO',
     # G
@@ -110,6 +115,7 @@ _STATIONS = (
     u'MILAN', u'MINSK', u'MONROVIA', u'MONTERREY', u'MONTEVIDEO', u'MONTREAL', 
     u'MOSCOW', u'MUMBAI', u'MUNICH', u'MUSCAT', u'MELBOURNE', u'MANILA',
     u'MATAMOROS', u'MASERU', u'MOGADISHU', u'MARSEILLE', u'MERIDA', u'MAJURO', u'MOSUL',
+    u'MONTEREY', # Found in cable refs
     # N
     u'NAIROBI', u'NAPLES', u'NASSAU', u'NEWDELHI', u'NIAMEY', u'NICOSIA',
     u'NDJAMENA', u'NAHA', u'NUEVOLAREDO', u'NAGOYA', u'NOUAKCHOTT', u'NOGALES',
@@ -148,6 +154,7 @@ _STATIONS = (
     u'VIENTIANE',
     # W
     u'WARSAW', u'WELLINGTON', u'WINDHOEK', u'WASHDC',
+    u'WHITEHOUSE', # Found in cable refs
     # Y
     u'YAOUNDE', u'YEREVAN', u'YEKATERINBURG',
     # Z

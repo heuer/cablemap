@@ -273,6 +273,74 @@ STATE 02034
     (u'''REF: BAGHDAD #3565 ''',
      2007,
      [cable(u'07BAGHDAD3565')]),
+    # 00ATHENS1501
+    (u'''REF: 09 STATE 96625; A. A)STATE 70789; B. B) SEOUL 1144 
+C. C) SINGAPORE 675; D. D) THE HAGUE 4750; E. E) NAIROBI 1812 
+F. F) ADDIS 1556; G. G) STATE 87385; H. H) STATE 58996 
+ ''',
+     2000,
+     [cable(u'09STATE96625'),
+      cable(u'00STATE70789', u'A'), cable(u'00SEOUL1144', u'B'),
+      cable(u'00SINGAPORE675', u'C'), cable(u'00THEHAGUE4750', u'D'),
+      cable(u'00NAIROBI1812', 'E'), cable(u'00ADDIS1556', u'F'),
+      cable(u'00STATE87385', u'G'), cable(u'00STATE58996', u'H')]),
+    # 04DUBLIN1645
+    (u'''REF: SECSTATE 232089 & USUN 2336 ''',
+     2004,
+     [cable(u'04STATE232089'), cable(u'04USUNNEWYORK2336')]),
+    # 05PARIS8123
+    (u'''REF: Paris 7472 and 7677 ''',
+     2005,
+     [cable(u'05PARIS7572'), cable(u'05PARIS7677')]),
+    # 06GUANGZHOU15376
+    (u'''Ref: A) GUANGZHOU 11657 and 7743, 12155, 13381 B) 
+GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 '''
+     2006,
+     [cable(u'06GUANGZHOU11657', u'A'), cable(u'06GUANGZHOU7743', 'A'),
+      cable(u'06GUANGZHOU12155', u'A'), cable(u'06GUANGZHOU13381', u'A'),
+      cable(u'06GUANGZHOU14712', u'B'), cable(u'06BEIJING565', u'C'),
+      cable(u'06GUANGZHOU13381', u'D')]),
+    # 06MANILA3065
+    (u'''REF: A. MANILA 2969 
+     ¶B. 2962 AND PREVIOUS 
+ ''',
+     2006,
+     [cable(u'06MANILA2969', 'A'), cable(u'06MANILA2969', u'B')]),
+    # 06QUITO1920
+    (u'''REF: A. QUITO 4525-91 
+ 
+     B. QUITO 1735 
+     C. QUITO 1905-03 
+     D. QUITO 0579 
+     E. QUITO 1973-91''',
+     2006,
+     [cable(u'91QUITO4525', u'A'), cable(u'06QUITO1735', u'B'),
+      cable(u'03QUITO1905', u'C'), cable(u'06QUITO579', u'D'),
+      cable(u'91QUITO1973', u'E')]),
+    # 06ULAANBAATAR881
+    (u'''Ref: 870 Ulaanbaatar ''',
+     2006,
+     [cable(u'06ULAANBAATAR870')]),
+    # 07AMMAN1801
+    (u'''A. REF AMMAN 222 
+     B. 06 AMMAN 4685 
+     C. 06 AMMAN 2145 ''',
+     2007,
+     [cable(u'07AMMAN222', u'A'), cable(u'06AMMAN4685', u'B'),
+      cable(u'06AMMAN2145', u'C')]),
+    # 07MOSCOW1811
+    (u'''REF: A. ST. PETERSBURG 75 
+      B. MOSCOW 510 ''',
+     2007,
+     [cable(u'07STPETERSBURG75', u'A'), cable(u'07MOSCOW510', u'B')]),
+    # 08STATE1988
+    (u'''REF: PRAGUE 849, PRAGUE, 1228, STATE 1484761 ''',
+     2008,
+     [cable(u'08PRAGUE849'), cable(u'08PRAGUE1228'), cable(u'08STATE1484761')]),
+    # 08COTONOU369
+    (u'''REF: COTON0U 348 ''',
+     2008,
+     [cable(u'08COTONOU348')]),
      
 )
 

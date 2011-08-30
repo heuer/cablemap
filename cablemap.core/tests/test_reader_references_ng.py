@@ -345,6 +345,16 @@ GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 '''
     (u'''Ref: A - Kabul 28 ''',
      2008,
      [cable(u'08KABUL28', u'A')]),
+    # 07KABUL1033
+    (u'''Refs:  A) Kabul 936/935; B) Kabul 692/317/274/162; C) 06 Kabul 
+5353/5194/4319 and previous 
+ ''',
+     2007,
+     [cable(u'07KABUL936', u'A'), cable(u'07KABUL935', u'A'),
+      cable(u'07KABUL692', u'B'), cable(u'07KABUL317', u'B'),
+      cable(u'07KABUL274', u'B'), cable(u'07KABUL162', u'B'),
+      cable(u'06KABUL5353', u'C'), cable(u'06KABUL5194', u'C'),
+      cable(u'06KABUL4319', u'C')]),
      
 )
 

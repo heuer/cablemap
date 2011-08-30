@@ -74,7 +74,7 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'ZANU-PF')
 
 _UNWANTED = (u'AND', u'ITS', u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO',
-             u'CAN', u'SAO', u'IT', u'POSITION', u'AMBASSADOR')
+             u'CAN', u'SAO', u'IT', u'POSITION', u'AMBASSADOR', u'ENLARGEMENT',)
 
 def run_update(in_dir, predicate=None):
     acronyms = set(_ACRONYMS)

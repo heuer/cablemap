@@ -341,6 +341,10 @@ GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 '''
     (u'''REF: COTON0U 348 ''',
      2008,
      [cable(u'08COTONOU348')]),
+    # 08KABUL85
+    (u'''Ref: A - Kabul 28 ''',
+     2008,
+     [cable(u'08KABUL28', u'A')]),
      
 )
 

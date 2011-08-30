@@ -355,6 +355,12 @@ GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 '''
       cable(u'07KABUL274', u'B'), cable(u'07KABUL162', u'B'),
       cable(u'06KABUL5353', u'C'), cable(u'06KABUL5194', u'C'),
       cable(u'06KABUL4319', u'C')]),
+    # 09PANAMA176
+    (u'''REF: A. A: PANAMA 00789/08 
+     B. B: PANAMA 00930/08
+     ''',
+     2009,
+     [cable(u'08PANAMA798', u'A'), cable(u'08PANAMA930', u'B')]),
      
 )
 

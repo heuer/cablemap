@@ -294,7 +294,7 @@ F. F) ADDIS 1556; G. G) STATE 87385; H. H) STATE 58996
      [cable(u'05PARIS7572'), cable(u'05PARIS7677')]),
     # 06GUANGZHOU15376
     (u'''Ref: A) GUANGZHOU 11657 and 7743, 12155, 13381 B) 
-GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 '''
+GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 ''',
      2006,
      [cable(u'06GUANGZHOU11657', u'A'), cable(u'06GUANGZHOU7743', 'A'),
       cable(u'06GUANGZHOU12155', u'A'), cable(u'06GUANGZHOU13381', u'A'),
@@ -363,7 +363,7 @@ GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 '''
      [cable(u'08PANAMA798', u'A'), cable(u'08PANAMA930', u'B')]),
     # 02KATHMANDU496
     (u'''REFS: A) 377 KATHMANDU, B) 01 KATHMANDU 2383, C) 01 
-KATHMANDU 2292 '''
+KATHMANDU 2292 ''',
      2002,
      [cable(u'02KATHMANDU377', u'A'), cable(u'01KATHMANDU2383', u'B'),
       cable(u'01KATHMANDU2292', u'C')]),
@@ -393,7 +393,7 @@ KATHMANDU 2292 '''
     (u'''Refs:  (A) Colomobo 2304 
  
 -      (B) State 240035 
--      (C) State 240015 '''
+-      (C) State 240015 ''',
      2002,
      [cable(u'02COLOMBO2304', u'A'), cable(u'02STATE240035', u'B'),
       cable(u'02STATE240015', u'C')]),

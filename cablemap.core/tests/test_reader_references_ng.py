@@ -361,6 +361,26 @@ GUANGZHOU 14712 C) BEIJING 00565, D) GUANGZHOU 13381 '''
      ''',
      2009,
      [cable(u'08PANAMA798', u'A'), cable(u'08PANAMA930', u'B')]),
+    # 02KATHMANDU496
+    (u'''REFS: A) 377 KATHMANDU, B) 01 KATHMANDU 2383, C) 01 
+KATHMANDU 2292 '''
+     2002,
+     [cable(u'02KATHMANDU377', u'A'), cable(u'01KATHMANDU2383', u'B'),
+      cable(u'01KATHMANDU2292', u'C')]),
+    # 02ABUJA1194
+    (u'''REF: REFERENCE: 01 ABUJA 997 ''',
+     2002,
+     [cable(u'01ABUJA997')]),
+    # 02AMMAN2228
+    (u'''REF: A. SECSTATE 51937 B. AMMAN 5049-01 ''',
+     2002,
+     [cable(u'02STATE51937', u'A'), cable(u'01AMMAN5049', u'B')]),
+    # 02ABUJA2651
+    (u'''REF: (A) LAGOS O1512, (B) LAGOS 01545, (C) LAGOS 
+01583, (D) Lagos 1678 ''',
+     2002,
+     [cable(u'02LAGOS1512', u'A'), cable(u'02LAGOS1545', u'B'),
+      cable(u'02LAGOS1583', u'C'), cable(u'02LAGOS1678', u'D')]),
      
 )
 

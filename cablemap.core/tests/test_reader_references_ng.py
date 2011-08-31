@@ -381,6 +381,34 @@ KATHMANDU 2292 '''
      2002,
      [cable(u'02LAGOS1512', u'A'), cable(u'02LAGOS1545', u'B'),
       cable(u'02LAGOS1583', u'C'), cable(u'02LAGOS1678', u'D')]),
+    # 02AMMAN5966
+    (u'''REF: AMMAN 07718 99, AMMAN 05986 00, AMMAN 07718 01 ''',
+     2002,
+     [cable(u'99AMMAN7718'), cable(u'00AMMAN5986'), cable(u'01AMMAN7718')]),
+    # 02ROME5601
+    (u'''REF: UNCLASS USDA FAS 57863 ''',
+     2002,
+     [cable(u'02USDAFAS57863'),]),
+    # 02COLOMBO2314
+    (u'''Refs:  (A) Colomobo 2304 
+ 
+-      (B) State 240035 
+-      (C) State 240015 '''
+     2002,
+     [cable(u'02COLOMBO2304', u'A'), cable(u'02STATE240035', u'B'),
+      cable(u'02STATE240015', u'C')]),
+    # 03KUWAIT2545
+    (u'''REF: KUWAIT (C)02293 ''',
+     2003,
+     [cable(u'03KUWAIT2293')]),
+    # 03COLOMBO1516
+    (u'''REF: COLOMBO CABLES 0266 AND 02259 (2002)''',
+     2003,
+     [cable(u'03COLOMBO266'), cable(u'02COLOMBO2259')]),
+    # 03ANKARA6322
+    (u'''REF: A) 6307 B) STATE 285773 ''',
+     2003,
+     [cable(u'03ANKARA6307', u'A'), cable(u'03STATE285773')]),
      
 )
 

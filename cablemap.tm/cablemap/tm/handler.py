@@ -175,6 +175,7 @@ class MIOCableHandler(object):
         route, name, precedence, mcn = recipient.route, recipient.name, recipient.precedence, recipient.mcn
         if not name:
             return
+        h.role(psis.CABLE_TYPE, self._cable)
         h.role(psis.RECIPIENT_TYPE, psis.station_psi(name, route))
         if route:
             h.role(psis.ROUTE_TYPE, psis.route_psi(route))

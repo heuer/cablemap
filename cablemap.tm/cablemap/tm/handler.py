@@ -78,6 +78,13 @@ def create_ctm_miohandler(fileobj, title=None, comment=None):
     handler.comment = comment
     for prefix, ns in _PREFIXES.iteritems():
        handler.add_prefix(prefix, str(ns))
+    handler.add_association_template(u'classified', psis.CLASSIFIED_AS_TYPE, psis.CABLE_TYPE, psis.CLASSIFICATION_TYPE)
+    handler.add_association_template(u'origin', psis.SENT_BY_TYPE, psis.CABLE_TYPE, psis.SENDER_TYPE)
+    handler.add_association_template(u'references', psis.REFERENCES_TYPE, psis.SOURCE_TYPE, psis.TARGET_TYPE)
+    handler.add_association_template(u'to', psis.RECIPIENT_TYPE, psis.CABLE_TYPE, psis.RECIPIENT_TYPE)
+    handler.add_association_template(u'info', psis.INFO_RECIPIENT_TYPE, psis.CABLE_TYPE, psis.RECIPIENT_TYPE)
+    handler.add_association_template(u'tagged', psis.TAGGED_TYPE, psis.CABLE_TYPE, psis.TAG_TYPE)
+    handler.add_association_template(u'is-partial', psis.IS_PARTIAL_TYPE, psis.PARTIAL_TYPE)
     return handler
 
 def create_xtm_miohandler(fileobj, title=None, comment=None):

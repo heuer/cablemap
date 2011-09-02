@@ -165,6 +165,11 @@ class DefaultMetadataOnlyFilter(DelegatingCableHandler):
     def _handle_subject_titlefy(self, subject):
         self._handler.handle_subject(titlefy(subject))
 
+    def handle_release_date(self, date):
+        # This info isn't that interesting anymore since the lastest
+        # release uses "2011-08-30" for all cables.
+        pass
+
     def handle_body(self, body):
         pass
 

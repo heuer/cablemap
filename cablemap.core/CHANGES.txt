@@ -16,6 +16,8 @@ Changes
   - models.Cable.references returns models.Reference
     objects
 * (Re-)added cablemap.core.handler
+* Added functions to generate `models.Cable` objects from CSV files and
+  to generate events from CSV files.
 * Improved summary extraction
 * Cable references like "09 FOO 12 AND 13" are detected correctly. 
   "09 FOO 12 AND 13" becomes: ['09FOO12', '09FOO13']

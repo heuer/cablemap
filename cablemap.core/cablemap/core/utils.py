@@ -123,7 +123,6 @@ def cables_from_csv(filename, predicate=None):
         The file must be a CSV file with the following columns:
         <identifier>, <creation-date>, <reference-id>, <origin>, <classification-level>, <references-to-other-cables>, <header>, <body>
         The delimiter must be a comma (``,``) and the content must be enclosed in double quotes (``"``).
-
     `predicate`
         A predicate that is invoked for each cable reference identifier.
         If the predicate evaluates to ``False`` the cable is ignored.

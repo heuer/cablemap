@@ -230,7 +230,8 @@ def handle_cable(cable, handler, standalone=True):
     for iri in cable.wl_uris:
         handler.handle_wikileaks_iri(iri)
     handler.handle_creation_datetime(datetime(cable.created))
-    handler.handle_release_date(cable.released[:10])
+    if cable.released:
+        handler.handle_release_date(cable.released[:10])
     if cable.nondisclosure_deadline:
         handler.handle_nondisclosure_deadline(cable.nondisclosure_deadline)
     if cable.transmission_id:

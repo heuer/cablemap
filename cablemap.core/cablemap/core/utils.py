@@ -38,8 +38,10 @@ Utility functions for cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from __future__ import with_statement
 import os
 import re
+import csv
 import codecs
 import string
 from functools import partial
@@ -47,7 +49,7 @@ from itertools import imap
 from StringIO import StringIO
 import gzip
 import urllib2
-from cablemap.core import cable_from_file, cable_from_html
+from cablemap.core import cable_from_file, cable_from_html, cable_from_row
 from cablemap.core.models import Cable
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 try:
@@ -61,6 +63,9 @@ except ImportError:
             from django.utils import simplejson as json
         except ImportError:
             pass #TODO: Exception?
+import sys
+csv.field_size_limit(sys.maxint)
+del sys
 
 class _Request(urllib2.Request):
     def __init__(self, url):
@@ -106,6 +111,31 @@ def cable_page_by_id(reference_id):
     res = json.loads(_fetch_url(_CGSN_BASE + wikileaks_id(reference_id)))
     wl_url = res['wikileaks_url']
     return _fetch_url(wl_url) if wl_url else None
+
+def cables_from_csv(filename, predicate=None):
+    """\
+    Returns a generator with ``models.Cable`` instances.
+
+    Reads the provided CSV file and returns a cable for each row.
+
+    `filename`
+        Absolute path to a file to read the cables from.
+        The file must be a CSV file with the following columns:
+        <identifier>, <creation-date>, <reference-id>, <origin>, <classification-level>, <references-to-other-cables>, <header>, <body>
+        The delimiter must be a comma (``,``) and the content must be enclosed in double quotes (``"``).
+
+    `predicate`
+        A predicate that is invoked for each cable reference identifier.
+        If the predicate evaluates to ``False`` the cable is ignored.
+        By default, all cables are used.
+        I.e. ``cables_from_csv('cables.csv', lambda r: r.startswith('09'))``
+        would return cables where the reference identifier starts with ``09``. 
+    """
+    pred = predicate or bool
+    with open(filename, 'rb') as f:
+        for row in csv.reader(f, delimiter=',', quotechar='"', escapechar='\\'):
+            if row and pred(row[2]):
+                yield cable_from_row(row)
 
 def cables_from_directory(directory, predicate=None):
     """\

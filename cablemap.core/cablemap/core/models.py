@@ -39,6 +39,7 @@ This module provides models to keep data about cables.
 :license:      BSD license
 """
 import codecs
+from itertools import chain
 from operator import itemgetter
 from cablemap.core import reader, constants as consts
 from cablemap.core.interfaces import ICable, IReference, IRecipient, implements
@@ -76,6 +77,34 @@ def cable_from_html(html, reference_id=None):
     cable.header = reader.get_header_as_text(html, reference_id)
     cable.content = reader.get_content_as_text(html, reference_id)
     return cable
+
+def cable_from_row(row):
+    """\
+    Returns a cable from the provided row (a tuple/list).
+
+    Format of the row:
+
+        <identifier>, <creation-date>, <reference-id>, <origin>, <classification-level>, <references-to-other-cables>, <header>, <body>
+
+    Note:
+        The `<identifier>` and `<references-to-other-cables>` columns are ignored.
+
+    `row`
+        A tuple or list with 8 items.
+    """
+    def format_creation_date(created):
+        date, time = created.split()
+        month, day, year, hour, minute = [u'0' + x if len(x) == 1 else x for x in chain(date.split(u'/'), time.split(u':'))]
+        return u'%s-%s-%s %s:%s' % (year, month, day, hour, minute)
+    _, created, reference_id, origin, classification, _, header, body = row
+    cable = Cable(reference_id)
+    cable.created = format_creation_date(created)
+    cable.origin = origin
+    cable.classification = classification.upper()
+    cable.header = header
+    cable.content = body
+    return cable
+
 
 # Commonly used base URIs for Wikileaks Cablegate
 # Formats: 

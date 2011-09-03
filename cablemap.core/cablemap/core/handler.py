@@ -250,16 +250,16 @@ def handle_cable(cable, handler, standalone=True):
     handler.handle_origin(cable.origin)
     handler.handle_classification(cable.classification)
     handler.handle_partial(cable.partial)
+    for tag in cable.tags:
+        handler.handle_tag(tag)
+    for iri in cable.media_uris:
+        handler.handle_media_iri(iri)
     for rec in cable.recipients:
         handler.handle_recipient(rec)
     for rec in cable.info_recipients:
         handler.handle_info_recipient(rec)
     for ref in cable.references:
         handler.handle_reference(ref)
-    for tag in cable.tags:
-        handler.handle_tag(tag)
-    for iri in cable.media_uris:
-        handler.handle_media_iri(iri)
     handler.end_cable()
     if standalone:
         handler.end()

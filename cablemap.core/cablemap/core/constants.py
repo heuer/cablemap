@@ -80,15 +80,13 @@ _STATIONS = (
     u'CAIRO', u'CALCUTTA', u'CANBERRA', u'CAPETOWN', u'CARACAS', 
     u'CASABLANCA', u'CHENNAI', u'CHISINAU', u'CIUDADJUAREZ', u'COLOMBO', 
     u'CONAKRY', u'COPENHAGEN', u'CURACAO', u'CALGARY', u'CHIANGMAI',
-    u'CHENGDU', u'COTONOU', u'CDGENEVA',
+    u'CHENGDU', u'COTONOU', u'CDGENEVA', u'CHARLESTON',
     u'CDCATLANTAGA', # found in cable refs "Centers for Disease Control and Prevention"
-    u'CHARLESTON', # found in cable refs
     u'CDC', # found in cable refs
     # D
     u'DAKAR', u'DAMASCUS', u'DARESSALAAM', u'DHAKA', u'DJIBOUTI', 
     u'DOHA', u'DUBAI', u'DUBLIN', u'DUSHANBE', u'DHAHRAN', u'DILI',
-    u'DURBAN', u'DAMASCCUS',
-    u'DUSSELDORF', # found in cable refs
+    u'DURBAN', u'DAMASCCUS', u'DUSSELDORF',
     u'USDOJ', # found in cable refs
     # F
     u'FREETOWN', u'FUKUOKA', u'FSINFATC', u'FRANKFURT', u'FLORENCE', u'FESTTWO',
@@ -109,8 +107,7 @@ _STATIONS = (
     # L
     u'LAGOS', u'LAPAZ', u'LAHORE', u'LILONGWE', u'LIMA', u'LISBON', u'LJUBLJANA',
     u'LONDON', u'LUANDA', u'LUXEMBOURG', u'LIBREVILLE', u'LUSAKA', u'LEIPZIG',
-    u'LENINGRAD',
-    u'LOME', # Found in cable refs
+    u'LENINGRAD', u'LOME',
     # M
     u'MALABO', u'MADRID', u'MANAGUA', u'MANAMA', u'MAPUTO', u'MBABANE', u'MEXICO', 
     u'MILAN', u'MINSK', u'MONROVIA', u'MONTERREY', u'MONTEVIDEO', u'MONTREAL', 
@@ -127,9 +124,8 @@ _STATIONS = (
     u'PANAMA', u'PARAMARIBO', u'PARIS', u'PARTO', u'PESHAWAR', 
     u'PHNOMPENH', u'PORTAUPRINCE', u'PRAGUE', u'PRETORIA', u'PRISTINA',
     u'PORTLOUIS', u'PORTOFSPAIN', u'PODGORICA', u'PORTMORESBY', u'PERTH',
-    u'PONTADELGADA',
+    u'PONTADELGADA', u'PRAIA',
     u'PARISFR', # Used for US Mission UNESCO, see also UNESCOPARISFR
-    u'PRAIA', # Found in cable references
     # Q
     u'QUITO', u'QUEBEC',
     # R

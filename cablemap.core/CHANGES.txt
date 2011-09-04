@@ -29,6 +29,7 @@ Changes
   STATE. SECDEF shouldn't be treated as reference to SECSTATE. Fixed.
 * Improved parsing of (malformed) TAGs
 * Improved detection of composite TAGs like "HUMAN RIGHTS", "BUSH GEORGE"
+* Improved parsing of subjects
 * Cleaned-up valid station identifier constants (removed illegal station
   identifiers and added them to the constant INVALID_CABLE_IDS)
 * Cable reference UNVIE an EMBASSY VIENNA were treated the same way (both

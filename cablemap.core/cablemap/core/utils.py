@@ -202,12 +202,22 @@ def cable_by_id(reference_id):
     Returns a cable by its reference identifier or ``None`` if
     the cable does not exist.
 
-    The cable is fetched from the ``wikileaks.ch`` website.
-
     `reference_id`
         The reference identifier of the cable.
     """
     page = cable_page_by_id(reference_id)
+    if page:
+        return cable_from_html(page)
+    return None
+
+def cable_by_url(url):
+    """\
+    Returns a cable read from the provided IRI.
+
+    `url`
+        The IRI to fetch the cable from.
+    """
+    page = _fetch_url(url)
     if page:
         return cable_from_html(page)
     return None

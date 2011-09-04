@@ -96,6 +96,8 @@ def update_acronyms(cable, acronyms):
         acronyms.update((ac for ac in _AC_PATTERN.findall(cable.content) if ac in subject_words))
 
 def update_missing_subjects(cable, cable_refs):
+    if not cable.content:
+        return
     if not parse_subject(cable.content, fix_subject=False):
         cable_refs.add(cable.reference_id)
 

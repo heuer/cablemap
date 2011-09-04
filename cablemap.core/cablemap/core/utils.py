@@ -112,6 +112,31 @@ def cable_page_by_id(reference_id):
     wl_url = res['wikileaks_url']
     return _fetch_url(wl_url) if wl_url else None
 
+def cable_by_id(reference_id):
+    """\
+    Returns a cable by its reference identifier or ``None`` if
+    the cable does not exist.
+
+    `reference_id`
+        The reference identifier of the cable.
+    """
+    page = cable_page_by_id(reference_id)
+    if page:
+        return cable_from_html(page)
+    return None
+
+def cable_by_url(url):
+    """\
+    Returns a cable read from the provided IRI.
+
+    `url`
+        The IRI to fetch the cable from.
+    """
+    page = _fetch_url(url)
+    if page:
+        return cable_from_html(page)
+    return None
+
 def cables_from_csv(filename, predicate=None):
     """\
     Returns a generator with ``models.Cable`` instances.
@@ -196,31 +221,6 @@ def cables_from_7z(fileobj, predicate=None):
     pred = predicate or bool
     basename = os.path.basename
     return (cable_from_html(unicode(member.read(), 'utf-8'), refid(basename(member.filename))) for member in a.getmembers() if member.filename.startswith('cable/') and pred(basename(member.filename)))
-
-def cable_by_id(reference_id):
-    """\
-    Returns a cable by its reference identifier or ``None`` if
-    the cable does not exist.
-
-    `reference_id`
-        The reference identifier of the cable.
-    """
-    page = cable_page_by_id(reference_id)
-    if page:
-        return cable_from_html(page)
-    return None
-
-def cable_by_url(url):
-    """\
-    Returns a cable read from the provided IRI.
-
-    `url`
-        The IRI to fetch the cable from.
-    """
-    page = _fetch_url(url)
-    if page:
-        return cable_from_html(page)
-    return None
 
 
 _CLEAN_PATTERNS = (

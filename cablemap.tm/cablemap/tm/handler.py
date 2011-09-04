@@ -171,6 +171,7 @@ class MIOCableHandler(object):
    
     def handle_origin(self, origin):
         # Cheating here. The `origin` isn't used but the cable identifier.
+        #TODO: <https://github.com/heuer/cablemap/issues/27>
         self._sent_by(psis.origin_psi_by_cable_id(self._cable_id), self._cable)
     
     def handle_recipient(self, recipient):

@@ -47,6 +47,9 @@ Changes
 * Added support to parse media IRIs to the reader module
 * Added media_uris property to models.Cable which gives information about
   the media coverage
+* Cables which have a header but no content were interpreted wrong: The header
+  was set to the ``models.Cable.content`` property and the ``models.Cable.header``
+  was empty. Fixed.
 * Added/updated test cases (now: 620+ test cases)
 * Removed deprecated functions/modules
 

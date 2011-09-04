@@ -69,7 +69,7 @@ del sys
 
 class _Request(urllib2.Request):
     def __init__(self, url):
-        urllib2.Request.__init__(self, url, headers={'User-Agent': 'CablemapBot/1.1', 'Accept-Encoding': 'gzip, identity'})
+        urllib2.Request.__init__(self, url, headers={'User-Agent': 'Cablemap/1.2', 'Accept-Encoding': 'gzip, identity'})
 
 def _fetch_url(url):
     """\

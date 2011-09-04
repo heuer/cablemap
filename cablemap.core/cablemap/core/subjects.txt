@@ -14,16 +14,12 @@
 # # Source
 # cable-id':'<SPACE>subject
 #
-# <http://aebr.home.xs4all.nl/wl/rusrep/05DUSHANBE1702.html>
-05DUSHANBE1702: TAJIKISTAN: AMBASSADOR ZARIPOV COUNSELS NO SHARP RESPONSE TO RUSSIAN PROVOCATIONS
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3965561.ece>
 06COPENHAGEN336: MOHAMMED CARTOONS: DENMARK WILL NOT PROSECUTE THE NEWSPAPER
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3974066.ece>
 06TELAVIV2301: ALLEGED ISRAELI CORRUPTION AT KARNI IMPEDES U.S. MARKET ACCESS
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3990364.ece>
 06TUNIS1622: CORRUPTION IN TUNISIA PART I: AN ECONOMIC SUCCESS?
-# <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3990373.ece>
-06TUNIS1630: CORRUPTION IN TUNISIA PART II: THE ANATOMY OF EXPLOITATION
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3990437.ece>
 06TUNIS1672: CORRUPTION IN TUNISIA PART IV: THE FAMILYS HOLDINGS
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3990393.ece>
@@ -48,20 +44,14 @@
 08STATE1264: SECOND DEMARCHE FOR CHINA REGARDING CHINAS JANUARY 2007 ANTI-SATELLITE TEST
 # <http://aebr.home.xs4all.nl/wl/rusrep/08STATE86603.html>
 08STATE86603: TFGG01: GEORGIA TASK FORCE SITUATION REPORT NO. 9
-# <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3972840.ece>
-08TELAVIV2447: CASHLESS IN GAZA?
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3972839.ece>
 08TELAVIV2713: GOI CALLS GAZA CASH CRISIS A HAMAS PLOY
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3988312.ece>
 09ASTANA2257: KAZAKHSTANS INITIAL RESPONSE TO DEMARCHE TO PREVENT THE TRANSFER OF URANIUM TO IRAN
-# <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3988311.ece>
-09ASTANA2273: KAZAKHSTAN STRONGLY DENIES REPORT OF POTENTIAL URANIUM TRANSER TO IRAN
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3988454.ece>
 09BEIJING724: CHINA URGED TO HALT LIMMTS CONTINUED PROLIFERATION TO IRANS MISSILE PROGRAM
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3969914.ece>
 09BERLIN1080: GERMANY TO FRANCE: STAY OUT OF OUR COMMERCIAL SATELLITE AFFAIRS
-# <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3969915.ece>
-09BERLIN1116: GERMAN INTELLIGENCE VIEWS ON OPTICAL RECONNAISSANCE CAPABILITIES
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3969911.ece>
 09BERLIN1130: GERMAN OPTICAL SATELLITE REMOTE SENSING: THE PATH FORWARD
 # <http://www.aftenposten.no/spesial/wikileaksdokumenter/article3988330.ece>

@@ -49,7 +49,7 @@ Changes
   the media coverage
 * Cables which have a header but no content were interpreted wrong: The header
   was set to the ``models.Cable.content`` property and the ``models.Cable.header``
-  was empty. Fixed.
+  property was an empty string. Fixed.
 * Added/updated test cases (now: 620+ test cases)
 * Removed deprecated functions/modules
 

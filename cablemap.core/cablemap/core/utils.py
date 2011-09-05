@@ -137,7 +137,7 @@ def cable_by_url(url):
         return cable_from_html(page)
     return None
 
-def cables_from_csv(filename, predicate=None):
+def cables_from_csv(filename, predicate=None, encoding='utf-8'):
     """\
     Returns a generator with ``models.Cable`` instances.
 
@@ -157,9 +157,38 @@ def cables_from_csv(filename, predicate=None):
     """
     pred = predicate or bool
     with open(filename, 'rb') as f:
-        for row in csv.reader(f, delimiter=',', quotechar='"', escapechar='\\'):
+        for row in _UnicodeReader(f, encoding=encoding, delimiter=',', quotechar='"', escapechar='\\'):
             if row and pred(row[2]):
                 yield cable_from_row(row)
+
+class _UTF8Recoder:
+    """\
+    Iterator that reads an encoded stream and reencodes the input to UTF-8
+    """
+    def __init__(self, f, encoding):
+        self.reader = codecs.getreader(encoding)(f)
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        return self.reader.next().encode("utf-8")
+
+class _UnicodeReader:
+    """\
+    A CSV reader which will iterate over lines in the CSV file "f",
+    which is encoded in the given encoding.
+    """
+    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
+        f = _UTF8Recoder(f, encoding)
+        self.reader = csv.reader(f, dialect=dialect, **kwds)
+
+    def next(self):
+        row = self.reader.next()
+        return [unicode(s, "utf-8") for s in row]
+
+    def __iter__(self):
+        return self
 
 def cables_from_directory(directory, predicate=None):
     """\

@@ -170,9 +170,7 @@ class MIOCableHandler(object):
                     psis.TAG_TYPE, psis.tag_psi(tag))
    
     def handle_origin(self, origin):
-        # Cheating here. The `origin` isn't used but the cable identifier.
-        #TODO: <https://github.com/heuer/cablemap/issues/27>
-        self._sent_by(psis.origin_psi_by_cable_id(self._cable_id), self._cable)
+        self._sent_by(psis.origin_psi(origin), self._cable)
     
     def handle_recipient(self, recipient):
         self._handle_recipient(psis.RECIPIENT_TYPE, recipient)
@@ -184,11 +182,11 @@ class MIOCableHandler(object):
         """\
 
         """
-        h = self._handler
-        h.startAssociation(typ)
         route, name, precedence, mcn = recipient.route, recipient.name, recipient.precedence, recipient.mcn
         if not name:
             return
+        h = self._handler
+        h.startAssociation(typ)
         h.role(psis.CABLE_TYPE, self._cable)
         h.role(psis.RECIPIENT_TYPE, psis.station_psi(name, route))
         if route:

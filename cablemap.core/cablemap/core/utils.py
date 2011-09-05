@@ -153,7 +153,9 @@ def cables_from_csv(filename, predicate=None, encoding='utf-8'):
         If the predicate evaluates to ``False`` the cable is ignored.
         By default, all cables are used.
         I.e. ``cables_from_csv('cables.csv', lambda r: r.startswith('09'))``
-        would return cables where the reference identifier starts with ``09``. 
+        would return cables where the reference identifier starts with ``09``.
+    `encoding`
+        The file encoding (``UTF-8`` by default).
     """
     pred = predicate or bool
     with open(filename, 'rb') as f:

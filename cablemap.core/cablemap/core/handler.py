@@ -290,7 +290,7 @@ def handle_source(path, handler, predicate=None):
         A predicate that is invoked for each cable reference identifier.
         If the predicate evaluates to ``False`` the cable is ignored.
         By default, all cables are used.
-        I.e. ``handle_csv('cables.csv', handler, lambda r: r.startswith('09'))``
+        I.e. ``handle_source('cables.csv', handler, lambda r: r.startswith('09'))``
         would return cables where the reference identifier starts with ``09``.
     """
     handle_cables(cables_from_source(path, predicate), handler)

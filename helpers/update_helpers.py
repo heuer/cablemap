@@ -7,7 +7,7 @@ import re
 import codecs
 from functools import partial
 from collections import defaultdict
-from cablemap.core import cables_from_directory
+from cablemap.core import cables_from_source
 
 import logging 
 import sys
@@ -81,7 +81,7 @@ def run_update(in_dir, predicate=None):
     acronyms = set(_ACRONYMS)
     subjects = set()
     tags = defaultdict(list)
-    for cable in cables_from_directory(in_dir, predicate):
+    for cable in cables_from_source(in_dir, predicate):
         update_acronyms(cable, acronyms)
         update_missing_subjects(cable, subjects)
         update_tags(cable, tags)

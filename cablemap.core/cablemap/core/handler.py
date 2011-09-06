@@ -40,7 +40,7 @@ This module defines a event handlers to process cables.
 """
 import logging
 import urllib2
-from cablemap.core.utils import cables_from_directory, cables_from_csv, titlefy
+from cablemap.core.utils import cables_from_source, cables_from_directory, cables_from_csv, titlefy
 from cablemap.core.interfaces import ICableHandler, implements
 
 class NoopCableHandler(object):
@@ -276,6 +276,24 @@ def handle_cables(cables, handler):
     for cable in cables:
         handle_cable(cable, handler, False)
     handler.end()
+
+def handle_source(path, handler, predicate=None):
+    """\
+    Reads all cables from the provided source and issues events to
+    the `handler`.
+
+    `path`
+        Either a directory with cable files or a CSV file.
+    `handler`
+        The handler which should receive the events.
+    `predicate`
+        A predicate that is invoked for each cable reference identifier.
+        If the predicate evaluates to ``False`` the cable is ignored.
+        By default, all cables are used.
+        I.e. ``handle_csv('cables.csv', handler, lambda r: r.startswith('09'))``
+        would return cables where the reference identifier starts with ``09``.
+    """
+    handle_cables(cables_from_source(path, predicate), handler)
 
 def handle_directory(directory, handler, predicate=None):
     """\

@@ -101,8 +101,8 @@ def cable_from_row(row):
     cable.created = format_creation_date(created)
     cable.origin = origin
     cable.classification = classification.upper()
-    cable.header = header
-    cable.content = body
+    cable.header = reader.fix_content(header, reference_id)
+    cable.content = reader.fix_content(body, reference_id)
     return cable
 
 

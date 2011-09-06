@@ -137,9 +137,24 @@ def cable_by_url(url):
         return cable_from_html(page)
     return None
 
+def cables_from_source(path, predicate=None):
+    """\
+    Returns a generator with ``ICable`` instances.
+
+    `path`
+        Either an directory or a CSV file.
+    `predicate`
+        A predicate that is invoked for each cable reference identifier.
+        If the predicate evaluates to ``False`` the cable is ignored.
+        By default, all cables are used.
+        I.e. ``cables_from_source('cables.csv', lambda r: r.startswith('09'))``
+        would return cables where the reference identifier starts with ``09``.
+    """
+    return cables_from_directory(path, predicate) if os.path.isdir(path) else cables_from_csv(path, predicate)
+
 def cables_from_csv(filename, predicate=None, encoding='utf-8'):
     """\
-    Returns a generator with ``models.Cable`` instances.
+    Returns a generator with ``ICable`` instances.
 
     Reads the provided CSV file and returns a cable for each row.
 
@@ -194,7 +209,7 @@ class _UnicodeReader:
 
 def cables_from_directory(directory, predicate=None):
     """\
-    Returns a generator with ``models.Cable`` instances.
+    Returns a generator with ``ICable`` instances.
     
     Walks through the provided directory and returns cables from
     the ``.html`` files.
@@ -230,7 +245,7 @@ def cablefiles_from_directory(directory, predicate=None):
 
 def cables_from_7z(fileobj, predicate=None):
     """\
-    Returns a generator with ``models.Cable`` instances.
+    Returns a generator with ``ICable`` instances.
     
     Walks through the provided archive and returns cables from
     the ``.html`` files. This function assumes that the archive uses the 

@@ -7,8 +7,10 @@ import codecs
 from tm.mio import handler
 from mio.ctm.miohandler import CTMHandler
 from mio.xtm.miohandler import XTM21Handler
-from cablemap.core.handler import DefaultMetadataOnlyFilter, DebitlyFilter, TeeCableHandler, MultipleCableHandler, DelegatingCableHandler, handle_directory
-from cablemap.tm.handler import create_ctm_handler, create_xtm_handler, create_ctm_miohandler, create_xtm_miohandler, MediaTitleResolver
+from cablemap.core.handler import DefaultMetadataOnlyFilter, DebitlyFilter, TeeCableHandler, \
+     MultipleCableHandler, DelegatingCableHandler, handle_source
+from cablemap.tm.handler import create_ctm_handler, create_xtm_handler, \
+     create_ctm_miohandler, create_xtm_miohandler, MediaTitleResolver
 
 import logging 
 import sys
@@ -66,7 +68,7 @@ def generate_topicmaps(cable_directory, handle_media=False):
         files.append(xtm)
         h = DebitlyFilter(MediaTitleResolver(handler.TeeMapHandler(create_ctm_miohandler(ctm), create_xtm_miohandler(xtm))))
         handlers.append(h)
-    handle_directory(cable_directory, MultipleCableHandler(handlers))
+    handle_source(cable_directory, MultipleCableHandler(handlers))
     for f in files:
         f.close()
 

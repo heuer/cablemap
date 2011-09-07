@@ -17,7 +17,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 
 _AC_PATTERN = re.compile(r'\(([A-Z\-/\.]{2,}[0-9]*)\)')
 
-_KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON, JOHNNIE", "BUSH, GEORGE",
+_KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON, JOHNNIE", u'BUSH, GEORGE W.',
                "NEW ZEALAND", "ROOD, JOHN", "ECONOMY AND FINANCE", "ECONOMIC AFFAIRS", "HUMAN RIGHTS",
                "ITALY NATIONAL ELECTIONS", "ZOELLICK, ROBERT", "ZANU-PF", "GAZA DISENGAGEMENT",
                "COUNTERTERRORISM", "IRAQI FREEDOM", "MEETINGS WITH AMBASSADOR", "EXTERNAL", "CONSULAR AFFAIRS",
@@ -35,7 +35,10 @@ _KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON
                u'THOMMA, THOMAS', u'QADRI, MOHAMMAD AFZAL', u'SECRETARY OF COMMERCE', u'BURNS, WILLIAM',
                u'ISRAELI SOCIETY', u'ENVIRONMENT SCIENCE AND TECHNOLOGY', u'SETTLEMENTS', u'KUWAIT IRAN RELATIONS',
                u'DEMOCRATIC REFORM', u'RELFREE', u'HUMAN RIGHTS VETTING',  u'SIMS, NICOLE MARIE', u'MAHURIN, PATRICK WARREN',
-               
+               u'HIV AND AIDS', u'U.S.-ISRAEL RELATIONS', u'U.S.-ZIMBABWE BILATERAL RELATIONS', u'CHENEY, RICHARD',
+               u'WELCH, DAVID', u'BOEHNER, JOHN', u'OBAMA, BARACK', u'PELOSI, NANCY', u'RICE, SUSAN', u'SALOPEK, PAUL',
+               u'SIPRNET', u'WEBSITE', u'BORDER PATROL', u'MCLELLAN, ANNE', u'ZACCARDELLI, GIULIANO', u'BUSH, LAURA',
+               u'UNHCR', u'UNHRC-1', u'UNHCR-2',
                )
 
 _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT',
@@ -145,6 +148,7 @@ def update_file(filename, found):
 
 _FILE_ACRONYMS = _file_in_core('acronyms.txt')
 _FILE_SUBJECTS = _filename('no_subject.txt')
+_FILE_TAGS = _filename('tags.txt')
     
 if __name__ == '__main__':
     if not os.path.isdir('./cable/'):
@@ -152,6 +156,7 @@ if __name__ == '__main__':
     res = run_update('./cable/')
     update_file(_FILE_ACRONYMS, res['acronyms'])
     update_file(_FILE_SUBJECTS, res['subjects'])
+    update_file(_FILE_TAGS, set(res['tags'].keys()))
     print('Valid TAGs?')
     tags = res['tags']
     for k in sorted(tags.keys()):

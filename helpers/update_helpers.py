@@ -38,7 +38,8 @@ _KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON
                u'HIV AND AIDS', u'U.S.-ISRAEL RELATIONS', u'U.S.-ZIMBABWE BILATERAL RELATIONS', u'CHENEY, RICHARD',
                u'WELCH, DAVID', u'BOEHNER, JOHN', u'OBAMA, BARACK', u'PELOSI, NANCY', u'RICE, SUSAN', u'SALOPEK, PAUL',
                u'SIPRNET', u'WEBSITE', u'BORDER PATROL', u'MCLELLAN, ANNE', u'ZACCARDELLI, GIULIANO', u'BUSH, LAURA',
-               u'UNHCR', u'UNHRC-1', u'UNHCR-2',
+               u'UNHCR', u'UNHRC-1', u'UNHCR-2', u'FRANCO-GERMAN RELATIONS', u'FRAZER, JENDAYI', u'FRIED, DANIEL',
+               u'MILLENNIUM CHALLENGE ACCOUNT',
                )
 
 _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT',
@@ -78,7 +79,8 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
 _UNWANTED = (u'AND', u'ITS', u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO',
              u'CAN', u'SAO', u'IT', u'POSITION', u'AMBASSADOR', u'ENLARGEMENT',
              u'CHINA', u'ACT', u'GOT', u'LIBERTAD', u'POLITICAL', u'POPULATION',
-             u'ECONOMIC', u'MEXICO', u'AN', u'IS', u'OFFICE', u'WEST', u'YES')
+             u'ECONOMIC', u'MEXICO', u'AN', u'IS', u'OFFICE', u'WEST', u'YES',
+             u'NELSON-LOTT', u'NEGROPONTE', u'PRESIDENT', u'SECRETARY',)
 
 def run_update(in_dir, predicate=None):
     acronyms = set(_ACRONYMS)

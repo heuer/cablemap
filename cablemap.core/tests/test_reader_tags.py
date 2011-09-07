@@ -335,8 +335,7 @@ SUBJECT: PARTNERS FOR PROGRESS - WORKING WITH VATICAN
 DEVELOPMENT AGENCIES 
  
 REF: 02 VATICAN 4217 ''',
-     #TODO: Ideally it should contain 'VTPREL' as well
-     [u'PREL', u'PHUM', u'PREF', u'PGOV', u'EAGR', u'EAID', u'ECON', u'SMIG', u'TBIO']),
+     [u'PREL', u'PHUM', u'PREF', u'PGOV', u'EAGR', u'EAID', u'ECON', u'SMIG', u'TBIO', u'VT']),
     # 02ROME3067
     (u'''E.O. 12958: DECL: X1, X5 
 TAGS: PREL, ETRD, ETTC, PARM, IT                          SECRET       PAGE 02        ROME  03067  211833Z 
@@ -350,11 +349,6 @@ LIABILITIES
  
 REFS:  (A) LIMA 1638 ''',
      [u'PINR', u'PGOV', u'PREL', u'PE']),
-    # 05GUATEMALA152
-    (u'''E.O. 12958:  N/A 
-TAGS: PHUM, ELAB, MASS, EAID, KPAO, KJUS, KDEM, SNAR, HURI, GTREFTEL: SECSTATE 267453 
-SUBJECT:  SUPPORTING HUMAN RIGHTS ''',
-     [u'PHUM', u'ELAB', u'MASS', u'EAID', u'KPAO', u'KJUS', u'KDEM', u'SNAR', u'HURI', u'GT']),
     # 02ROME1059
     (u'''E.O. 12958: N/A 
 TAGS: ECON, EFIN, EFIN, EFIN, EFIN, IT                       UNCLASSIFIED    PAGE 02        ROME  01059  01 OF 04  281501Z ECON, IT                       UNCLASSIFIED    PAGE 02        ROME  01059  02 OF 04  281502Z ECON, IT                       UNCLASSIFIED    PAGE 02        ROME  01059  03 OF 04  281502Z ECON, IT                       UNCLASSIFIED    PAGE 02        ROME  01059  04 OF 04  281503Z 

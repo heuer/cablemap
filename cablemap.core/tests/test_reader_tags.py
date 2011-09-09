@@ -356,6 +356,9 @@ SUBJECT:  THE EURO CHANGEOVER IN ITALY
  
 REF: (A) 2002 MILAN 14''',
      [u'ECON', u'EFIN', u'IT']),
+    # 05MANAMA429
+    (u'TAGS: EAID, ECON, EINV, PREL, BA, TAGS: EFIN ',
+     [u'EAID', u'ECON', u'EINV', u'PREL', u'BA', u'EFIN']),
    
 )
 

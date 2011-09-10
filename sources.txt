@@ -11,6 +11,9 @@ Associates of the American Foreign Service Worldwide (AAFSW): Glossary of Govern
 Glossary of Abbreviations Used in Docs (via The Guardian, Google Docs)
 <https://spreadsheets.google.com/pub?key=0Auo8KSVAc9r8dHdnMGhjOXhhNzY0LTE0M0NqNmNTRHc&hl=en&output=html>
 
+TAGs
+<https://cabletags.wordpress.com/wikileaks-cable-organization-tags/>
+
 Guardian data:
 <http://www.guardian.co.uk/news/datablog/2010/nov/29/wikileaks-cables-data>
 
@@ -32,6 +35,7 @@ Foreign Affairs Handbooks
 List of cable oddities
 <http://www.xs4all.nl/~aebr/wl/wikileaks.html>
 <http://www.xs4all.nl/~aebr/wl/corrupted/corrupted.html>
+<http://aebr.home.xs4all.nl/wl/theleak.html>
 
 Websites of U.S. Embassies, Consulates, and Diplomatic Missions
 <http://www.usembassy.gov/>

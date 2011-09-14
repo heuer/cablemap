@@ -51,6 +51,7 @@ _TEST_DATA = (
     (u'PHUM', consts.TAG_KIND_SUBJECT),
     (u'UNKNOWN', consts.TAG_KIND_UNKNOWN),
     (u'phum', consts.TAG_KIND_UNKNOWN),
+    (u"BA'ATH", consts.TAG_KIND_ORG),
 )
 
 def test_tag_kind():

@@ -98,13 +98,14 @@ _UNWANTED = (u'AND', u'ITS', u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO',
              u'CAN', u'SAO', u'IT', u'POSITION', u'AMBASSADOR', u'ENLARGEMENT',
              u'CHINA', u'ACT', u'GOT', u'LIBERTAD', u'POLITICAL', u'POPULATION',
              u'ECONOMIC', u'MEXICO', u'AN', u'IS', u'OFFICE', u'WEST', u'YES',
-             u'NELSON-LOTT', u'NEGROPONTE', u'PRESIDENT', u'SECRETARY',)
+             u'NELSON-LOTT', u'NEGROPONTE', u'PRESIDENT', u'SECRETARY', u'IRAQ', u'ISN',
+             u'FOOD', u'WOMEN', u'ARMY', u'PLAY',)
 
-def run_update(in_dir, predicate=None):
+def run_update(src, predicate=None):
     acronyms = set(_ACRONYMS)
     subjects = set()
     tags = defaultdict(list)
-    for cable in cables_from_source(in_dir, predicate):
+    for cable in cables_from_source(src, predicate):
         update_acronyms(cable, acronyms)
         update_missing_subjects(cable, subjects)
         update_tags(cable, tags)

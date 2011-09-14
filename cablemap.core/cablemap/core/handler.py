@@ -40,7 +40,7 @@ This module defines a event handlers to process cables.
 """
 import logging
 import urllib2
-from cablemap.core.utils import cables_from_source, cables_from_directory, cables_from_csv, titlefy
+from cablemap.core.utils import cables_from_source, titlefy
 from cablemap.core.interfaces import ICableHandler, implements
 
 class NoopCableHandler(object):

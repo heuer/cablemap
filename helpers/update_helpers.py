@@ -99,7 +99,7 @@ _UNWANTED = (u'AND', u'ITS', u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO',
              u'CHINA', u'ACT', u'GOT', u'LIBERTAD', u'POLITICAL', u'POPULATION',
              u'ECONOMIC', u'MEXICO', u'AN', u'IS', u'OFFICE', u'WEST', u'YES',
              u'NELSON-LOTT', u'NEGROPONTE', u'PRESIDENT', u'SECRETARY', u'IRAQ', u'ISN',
-             u'FOOD', u'WOMEN', u'ARMY', u'PLAY',)
+             u'FOOD', u'WOMEN', u'ARMY', u'PLAY', u'HOPE', u'START',)
 
 def run_update(src, predicate=None):
     acronyms = set(_ACRONYMS)

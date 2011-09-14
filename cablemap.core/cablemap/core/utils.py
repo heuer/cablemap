@@ -51,7 +51,7 @@ import gzip
 import urllib2
 from cablemap.core import cable_from_file, cable_from_html, cable_from_row
 from cablemap.core.models import Cable
-from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
+from cablemap.core import constants as consts
 try:
     import simplejson as json
 except ImportError:
@@ -103,8 +103,8 @@ def cable_page_by_id(reference_id):
     True
     """
     def wikileaks_id(reference_id):
-        if reference_id in INVALID_CABLE_IDS.values():
-            for k, v in INVALID_CABLE_IDS.iteritems():
+        if reference_id in consts.INVALID_CABLE_IDS.values():
+            for k, v in consts.INVALID_CABLE_IDS.iteritems():
                 if v == reference_id:
                     return k
         return reference_id
@@ -267,6 +267,29 @@ def cables_from_7z(fileobj, predicate=None):
     pred = predicate or bool
     basename = os.path.basename
     return (cable_from_html(unicode(member.read(), 'utf-8'), refid(basename(member.filename))) for member in a.getmembers() if member.filename.startswith('cable/') and pred(basename(member.filename)))
+
+_TAGS_SUBJECT = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]
+_TAGS_ORG = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'organization-tags.txt'), 'rb', 'utf-8')]
+_TAGS_GEO = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'geo-tags.txt'), 'rb', 'utf-8')]
+
+def tag_kind(tag):
+    """\
+    Returns the TAG kind.
+
+    `tag`
+        A string (upper-cased).
+    """
+    if u',' in tag:
+        return consts.TAG_KIND_PERSON
+    if tag[0] == u'K' and len(tag) == 4:
+        return consts.TAG_KIND_PROGRAM
+    if tag in _TAGS_SUBJECT:
+        return consts.TAG_KIND_SUBJECT
+    if tag in _TAGS_ORG:
+        return consts.TAG_KIND_ORG
+    if tag in _TAGS_GEO:
+        return consts.TAG_KIND_GEO
+    return consts.TAG_KIND_UNKNOWN
 
 
 _CLEAN_PATTERNS = (

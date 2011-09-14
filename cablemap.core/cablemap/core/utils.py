@@ -50,7 +50,6 @@ from StringIO import StringIO
 import gzip
 import urllib2
 from cablemap.core import cable_from_file, cable_from_html, cable_from_row
-from cablemap.core.models import Cable
 from cablemap.core import constants as consts
 try:
     import simplejson as json

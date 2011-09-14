@@ -49,7 +49,8 @@ except ImportError:
             pass
 
 __all__ = ['cable_from_file', 'cable_from_html', 'cable_from_row',
-           'cables_from_source', 'cables_from_directory', 'cables_from_csv', 'cable_by_id', 'cable_by_url',
+           'cables_from_source', 'cables_from_directory', 'cables_from_csv',
+           'cable_by_id', 'cable_by_url',
            ]
 
 _nh = NullHandler()

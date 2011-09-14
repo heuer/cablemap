@@ -295,38 +295,3 @@ def handle_source(path, handler, predicate=None):
     """
     handle_cables(cables_from_source(path, predicate), handler)
 
-def handle_directory(directory, handler, predicate=None):
-    """\
-    Reads all cables from the provided directory and issues events to
-    the `handler`.
-
-    `directory`
-        The directory to process.
-    `handler`
-        The handler which should receive the events.
-    `predicate`
-        A predicate that is invoked for each cable filename.
-        If the predicate evaluates to ``False`` the file is ignored.
-        By default, all cable files are used.
-        I.e. ``handle_directory('./cables/', handler, lambda f: f.startswith('09'))``
-        would return cables where the filename starts with ``09``. 
-    """
-    handle_cables(cables_from_directory(directory, predicate), handler)
-
-def handle_csv(filename, handler, predicate=None):
-    """\
-    Reads all cables from the provided CSV file and issues events to
-    the `handler`.
-
-    `filename`
-        The CSV file to process.
-    `handler`
-        The handler which should receive the events.
-    `predicate`
-        A predicate that is invoked for each cable reference identifier.
-        If the predicate evaluates to ``False`` the cable is ignored.
-        By default, all cables are used.
-        I.e. ``handle_csv('cables.csv', handler, lambda r: r.startswith('09'))``
-        would return cables where the reference identifier starts with ``09``. 
-    """
-    handle_cables(cables_from_csv(filename, predicate), handler)

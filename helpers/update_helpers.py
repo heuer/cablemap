@@ -99,7 +99,8 @@ _UNWANTED = (u'AND', u'ITS', u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO',
              u'CHINA', u'ACT', u'GOT', u'LIBERTAD', u'POLITICAL', u'POPULATION',
              u'ECONOMIC', u'MEXICO', u'AN', u'IS', u'OFFICE', u'WEST', u'YES',
              u'NELSON-LOTT', u'NEGROPONTE', u'PRESIDENT', u'SECRETARY', u'IRAQ', u'ISN',
-             u'FOOD', u'WOMEN', u'ARMY', u'PLAY', u'HOPE', u'START',)
+             u'FOOD', u'WOMEN', u'ARMY', u'PLAY', u'HOPE', u'START', u'END', u'ENERGY',
+             u'BOMBINGS', u'BUDGET', u'CONVENTION', u'QATAR', u'TERRORISM',)
 
 def run_update(src, predicate=None):
     acronyms = set(_ACRONYMS)
@@ -172,9 +173,7 @@ _FILE_SUBJECTS = _filename('no_subject.txt')
 _FILE_TAGS = _filename('tags.txt')
     
 if __name__ == '__main__':
-    if not os.path.isdir('./cable/'):
-        raise Exception('Expected a directory "cable"')
-    res = run_update('./cable/')
+    res = run_update('cables.csv')
     update_file(_FILE_ACRONYMS, res['acronyms'])
     update_file(_FILE_SUBJECTS, res['subjects'])
     update_file(_FILE_TAGS, set(res['tags'].keys()))

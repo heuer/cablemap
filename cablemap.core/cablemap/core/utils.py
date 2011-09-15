@@ -44,7 +44,6 @@ import re
 import csv
 import codecs
 import string
-from functools import partial
 from itertools import imap
 from StringIO import StringIO
 import gzip
@@ -109,7 +108,7 @@ def cable_page_by_id(reference_id):
         return reference_id
     res = json.loads(_fetch_url(_CGSN_BASE + wikileaks_id(reference_id)))
     wl_url = res['wikileaks_url']
-    return _fetch_url(wl_url) if wl_url else None
+    return cable_by_url(wl_url) if wl_url else None
 
 def cable_by_id(reference_id):
     """\

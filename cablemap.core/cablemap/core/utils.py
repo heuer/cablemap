@@ -242,31 +242,6 @@ def cablefiles_from_directory(directory, predicate=None):
         for name in (n for n in files if '.html' in n and pred(n)):
             yield os.path.join(os.path.abspath(root), name)
 
-def cables_from_7z(fileobj, predicate=None):
-    """\
-    Returns a generator with ``ICable`` instances.
-    
-    Walks through the provided archive and returns cables from
-    the ``.html`` files. This function assumes that the archive uses the 
-    standard cablegate archive layout (it contains a directory "/cables/").
-
-    `fileobj`
-        The file to read the cables from.
-    `predicate`
-        A predicate that is invoked for each cable filename.
-        If the predicate evaluates to ``False`` the file is ignored.
-        By default, all cable files are used.
-        I.e. ``cables_from_7z(fileobj, lambda f: f.startswith('09'))``
-        would return cables where the filename starts with ``09``. 
-    """
-    import py7zlib
-    def refid(name):
-        return name[:name.rindex('.')]
-    a = py7zlib.Archive7z(fileobj)
-    pred = predicate or bool
-    basename = os.path.basename
-    return (cable_from_html(unicode(member.read(), 'utf-8'), refid(basename(member.filename))) for member in a.getmembers() if member.filename.startswith('cable/') and pred(basename(member.filename)))
-
 _TAGS_SUBJECT = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]
 _TAGS_ORG = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'organization-tags.txt'), 'rb', 'utf-8')]
 

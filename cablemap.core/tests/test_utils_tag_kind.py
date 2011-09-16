@@ -44,13 +44,14 @@ from cablemap.core import constants as consts
 
 _TEST_DATA = (
     (u'KIPR', consts.TAG_KIND_PROGRAM),
+    (u'kwww', consts.TAG_KIND_PROGRAM),
     (u'OBAMA, BARACK', consts.TAG_KIND_PERSON),
     (u'GE', consts.TAG_KIND_GEO),
     (u'NASA', consts.TAG_KIND_ORG),
     (u'ECON', consts.TAG_KIND_SUBJECT),
     (u'PHUM', consts.TAG_KIND_SUBJECT),
     (u'UNKNOWN', consts.TAG_KIND_UNKNOWN),
-    (u'phum', consts.TAG_KIND_UNKNOWN),
+    (u'phum', consts.TAG_KIND_SUBJECT),
     (u"BA'ATH", consts.TAG_KIND_ORG),
 )
 

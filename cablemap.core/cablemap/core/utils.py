@@ -241,25 +241,26 @@ def cablefiles_from_directory(directory, predicate=None):
         for name in (n for n in files if '.html' in n and pred(n)):
             yield os.path.join(os.path.abspath(root), name)
 
-_TAGS_SUBJECT = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]
-_TAGS_ORG = [l.rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'organization-tags.txt'), 'rb', 'utf-8')]
+_TAGS_SUBJECT = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]
+_TAGS_ORG = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'organization-tags.txt'), 'rb', 'utf-8')]
 
 def tag_kind(tag):
     """\
     Returns the TAG kind.
 
     `tag`
-        A string (upper-cased).
+        A string.
     """
     if len(tag) == 2:
         return consts.TAG_KIND_GEO
     if u',' in tag:
         return consts.TAG_KIND_PERSON
-    if tag[0] == u'K' and len(tag) == 4:
+    if tag[0] in u'Kk' and len(tag) == 4:
         return consts.TAG_KIND_PROGRAM
-    if tag in _TAGS_SUBJECT:
+    t = tag.upper()
+    if t in _TAGS_SUBJECT:
         return consts.TAG_KIND_SUBJECT
-    if tag in _TAGS_ORG:
+    if t in _TAGS_ORG:
         return consts.TAG_KIND_ORG
     return consts.TAG_KIND_UNKNOWN
 

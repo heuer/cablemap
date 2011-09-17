@@ -38,7 +38,7 @@ Utility functions for cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
-from __future__ import with_statement
+from __future__ import absolute_import, with_statement
 import os
 import re
 import csv
@@ -48,8 +48,7 @@ from itertools import imap
 from StringIO import StringIO
 import gzip
 import urllib2
-from cablemap.core import cable_from_file, cable_from_html, cable_from_row
-from cablemap.core import constants as consts
+from . import cable_from_file, cable_from_html, cable_from_row, constants as consts
 try:
     import simplejson as json
 except ImportError:

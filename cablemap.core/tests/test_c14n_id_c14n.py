@@ -40,7 +40,7 @@ Tests identifier c14n parsing.
 """
 from nose.tools import eq_
 from cablemap.core.constants import INVALID_CABLE_IDS, MALFORMED_CABLE_IDS
-from cablemap.core.reader import canonicalize_id
+from cablemap.core.c14n import canonicalize_id
 
 _TEST_DATA = (
     # input reference, expected id c14n

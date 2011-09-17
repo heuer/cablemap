@@ -243,12 +243,15 @@ def cablefiles_from_directory(directory, predicate=None):
 _TAGS_SUBJECT = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]
 _TAGS_ORG = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'organization-tags.txt'), 'rb', 'utf-8')]
 
-def tag_kind(tag):
+def tag_kind(tag, default=consts.TAG_KIND_UNKNOWN):
     """\
     Returns the TAG kind.
 
     `tag`
         A string.
+    `default`
+        A value to return if the TAG kind is unknown
+        (set to ``constants.TAG_KIND_UNKNOWN`` by default)
     """
     if len(tag) == 2:
         return consts.TAG_KIND_GEO
@@ -261,7 +264,7 @@ def tag_kind(tag):
         return consts.TAG_KIND_SUBJECT
     if t in _TAGS_ORG:
         return consts.TAG_KIND_ORG
-    return consts.TAG_KIND_UNKNOWN
+    return default
 
 
 _CLEAN_PATTERNS = (

@@ -38,10 +38,11 @@ This module defines a event handlers to process cables.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
+from __future__ import absolute_import
 import logging
 import urllib2
-from cablemap.core.utils import cables_from_source, titlefy
-from cablemap.core.interfaces import ICableHandler, implements
+from .utils import cables_from_source, titlefy
+from .interfaces import ICableHandler, implements
 
 class NoopCableHandler(object):
     """\

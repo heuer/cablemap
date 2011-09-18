@@ -69,14 +69,15 @@ _PREFIXES = {
     u'th': u'http://www.thehindu.com/news/the-india-cables/',
 }
 
-def create_ctm_miohandler(fileobj, title=None, comment=None, register_templates=True):
+def create_ctm_miohandler(fileobj, title=None, comment=None, register_prefixes=True, register_templates=True):
     """\
 
     """
     handler = CTMHandler(fileobj)
     handler.title = title
     handler.comment = comment
-    register_default_prefixes(handler)
+    if register_prefixes:
+        register_default_prefixes(handler)
     if register_templates:
         handler.add_association_template(u'classified', psis.CLASSIFIED_AS_TYPE, psis.CABLE_TYPE, psis.CLASSIFICATION_TYPE)
         handler.add_association_template(u'origin', psis.SENT_BY_TYPE, psis.CABLE_TYPE, psis.SENDER_TYPE)

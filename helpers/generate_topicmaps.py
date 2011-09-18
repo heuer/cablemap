@@ -9,8 +9,9 @@ from mio.ctm.miohandler import CTMHandler
 from mio.xtm.miohandler import XTM21Handler
 from cablemap.core.handler import DefaultMetadataOnlyFilter, DebitlyFilter, TeeCableHandler, \
      MultipleCableHandler, DelegatingCableHandler, handle_source
+from cablemap.tm import psis
 from cablemap.tm.handler import create_ctm_handler, create_xtm_handler, \
-     create_ctm_miohandler, create_xtm_miohandler, MediaTitleResolver
+     create_ctm_miohandler, create_xtm_miohandler, MediaTitleResolver, BaseMIOCableHandler
 
 import logging 
 import sys
@@ -18,16 +19,23 @@ logger = logging.getLogger('cablemap.core.reader')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler(sys.stdout))
 
-class SubjectLocatorsCableHandler(DelegatingCableHandler):
+_CGS_BASE = u'http://www.cablegatesearch.net/cable.php?id='
+
+class SubjectLocatorsCableHandler(BaseMIOCableHandler):
     """\
     
     """
-    def __getattr__(self, name):
-        def noop(*args):
-            pass
-        if 'start' not in name and 'end' not in name and 'wikileaks' not in name:
-            return noop
-        return getattr(self._handler, name)
+    def start_cable(self, rid, c14n_id):
+        super(SubjectLocatorsCableHandler, self).start_cable(rid, c14n_id)
+        self._start_cable()
+
+    def end_cable(self):
+        self.handle_wikileaks_iri(_CGS_BASE + self._cable_reference_id)
+        super(SubjectLocatorsCableHandler, self).end_cable()
+        self._end_cable()
+
+    def handle_wikileaks_iri(self, iri):
+        self._handler.subjectLocator(iri)
 
 class ContentCableHandler(DelegatingCableHandler):
     """\
@@ -40,12 +48,15 @@ class ContentCableHandler(DelegatingCableHandler):
             return noop
         return getattr(self._handler, name)
 
-
-def mediatitle_resolver_ctm(fileobj):
-    return MediaTitleResolver(CTMHandler(fileobj))
-
-def mediatitle_resolver_xtm(fileobj):
-    return MediaTitleResolver(XTM21Handler(fileobj=fileobj))
+def slo_handler(files, filename='cable-subject-locators'):
+    ctm, xtm = openfile(filename + '.ctm'), openfile(filename + '.xtm')
+    files.append(ctm)
+    files.append(xtm)
+    ctm_miohandler = create_ctm_miohandler(ctm, register_prefixes=False, register_templates=False)
+    ctm_miohandler.add_prefix(u'cb', str(psis.NS_CABLE))
+    ctm_miohandler.add_prefix(u'cgs', _CGS_BASE)
+    mio_handler = handler.TeeMapHandler(ctm_miohandler, create_xtm_miohandler(xtm))
+    return SubjectLocatorsCableHandler(mio_handler)
 
 def openfile(name):
     return open(os.path.join(os.path.dirname(__file__), name), 'wb')
@@ -60,7 +71,7 @@ def generate_topicmaps(cable_directory, handle_media=False):
     files = []
     handlers = []
     handlers.append(DefaultMetadataOnlyFilter(DebitlyFilter(tee(files, 'cables'))))
-    handlers.append(SubjectLocatorsCableHandler(tee(files, 'cable-subject-locators')))
+    handlers.append(slo_handler(files))
     handlers.append(ContentCableHandler(tee(files, 'cable-content')))
     if handle_media:
         ctm, xtm = openfile('media-iris.ctm'), openfile('media-iris.xtm')
@@ -72,9 +83,6 @@ def generate_topicmaps(cable_directory, handle_media=False):
     for f in files:
         f.close()
 
-
    
 if __name__ == '__main__':
-    if not os.path.isdir('./cable/'):
-        raise Exception('Expected a directory "cable"')
-    generate_topicmaps('./cable/')
+    generate_topicmaps('cables.csv')

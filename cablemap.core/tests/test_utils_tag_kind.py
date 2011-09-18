@@ -61,6 +61,9 @@ def test_tag_kind():
     for tag, expected in _TEST_DATA:
         yield check, tag, expected
 
+def test_tag_kind_default():
+    eq_(consts.TAG_KIND_UNKNOWN, tag_kind('THIS IS UNKNOWN'))
+    eq_(consts.TAG_KIND_SUBJECT, tag_kind('THIS IS UNKNOWN', consts.TAG_KIND_SUBJECT))
 
 if __name__ == '__main__':
     import nose

@@ -234,14 +234,13 @@ class MIOCableHandler(BaseMIOCableHandler):
     #
     def start_cable(self, reference_id, canonical_id):
         super(MIOCableHandler, self).start_cable(reference_id, canonical_id)
-        h = self._start_cable()
+        self._start_cable().isa(psis.CABLE_TYPE)
         self._name(canonical_id)
         self._name(reference_id, psis.REFERENCE_TYPE)
-        h.isa(psis.CABLE_TYPE)
 
     def end_cable(self):
         super(MIOCableHandler, self).end_cable()
-        self._handler.endTopic()
+        self._end_cable()
 
     def handle_tag(self, tag):
         self._assoc(psis.TAGGED_TYPE,
@@ -306,8 +305,8 @@ class MIOCableHandler(BaseMIOCableHandler):
                     psis.TARGET_TYPE, cable_ref,
                     reifier)
         handler.startTopic(cable_ref)
-        self._name(reference.value)
         handler.isa(psis.CABLE_TYPE)
+        self._name(reference.value)
         handler.endTopic()
         self._sent_by(psis.origin_psi_by_cable_id(reference.value), cable_ref)
 

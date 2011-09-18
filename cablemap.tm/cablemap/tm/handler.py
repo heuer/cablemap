@@ -76,8 +76,7 @@ def create_ctm_miohandler(fileobj, title=None, comment=None, register_templates=
     handler = CTMHandler(fileobj)
     handler.title = title
     handler.comment = comment
-    for prefix, ns in _PREFIXES.iteritems():
-       handler.add_prefix(prefix, str(ns))
+    register_default_prefixes(handler)
     if register_templates:
         handler.add_association_template(u'classified', psis.CLASSIFIED_AS_TYPE, psis.CABLE_TYPE, psis.CLASSIFICATION_TYPE)
         handler.add_association_template(u'origin', psis.SENT_BY_TYPE, psis.CABLE_TYPE, psis.SENDER_TYPE)
@@ -93,6 +92,13 @@ def create_ctm_miohandler(fileobj, title=None, comment=None, register_templates=
         handler.add_association_template(u'tagged', psis.TAGGED_TYPE, psis.CABLE_TYPE, psis.TAG_TYPE)
         handler.add_association_template(u'is-partial', psis.IS_PARTIAL_TYPE, psis.PARTIAL_TYPE)
     return handler
+
+def register_default_prefixes(handler):
+    """\
+
+    """
+    for prefix, ns in _PREFIXES.iteritems():
+       handler.add_prefix(prefix, str(ns))
 
 def create_xtm_miohandler(fileobj, title=None, comment=None):
     """\
@@ -122,16 +128,13 @@ def create_xtm_handler(fileobj, title=u'Cablegate Topic Map', comment=u'Generate
     return MIOCableHandler(create_xtm_miohandler(fileobj, title, comment))
     
 
-
-_is_dedicated_media_page = re.compile(r'https?://.+?/.+').match
-
-class MIOCableHandler(object):
+class BaseMIOCableHandler(NoopCableHandler):
     """\
-    Implementation of a `ICableHandler` which translates the events into
-    MIO events (c.f. <https://mappa.googlecode.com/hg/tm/tm/mio/handler.py>_)
-    """
-    implements(ICableHandler)
+    Common base class for `ICableHandler` implementations which issue MIO events.
 
+    This class keeps track of the currently processed cable and provides some utility
+    methods to issue MIO events.
+    """
     def __init__(self, handler):
         """\
 
@@ -139,9 +142,9 @@ class MIOCableHandler(object):
             MIO event handler.
         """
         self._handler = simplify(handler)
-        self._cable = None
-        self._cable_id = None
-        self._ref_counter = 0
+        self._cable_psi = None
+        self._cable_canonical_id = None
+        self._cable_reference_id = None
 
     #
     # ICableHandler methods.
@@ -153,25 +156,100 @@ class MIOCableHandler(object):
         self._handler.endTopicMap()
 
     def start_cable(self, reference_id, canonical_id):
+        self._cable_psi = psis.cable_psi(canonical_id)
+        self._cable_reference_id = reference_id
+        self._cable_canonical_id = canonical_id
+
+    def end_cable(self):
+        self._cable_psi, self._cable_reference_id, self._cable_canonical_id = None, None, None
+
+    #
+    # Protected methods
+    #
+    def _start_cable(self):
         h = self._handler
-        self._cable = psis.cable_psi(canonical_id)
-        self._cable_id = canonical_id
-        h.startTopic(self._cable)
+        h.startTopic(self._cable_psi)
+        return h
+
+    def _end_cable(self):
+        self._handler.endTopic()
+    
+    def _name(self, value, typ=None):
+        """\
+        Issues events to create a name.
+
+        `value`
+            The name.
+        `typ`
+            Optional identity of the name type. If type is ``None`` (default)
+            the default name type will be used.
+        """
+        self._handler.name(value, typ)
+
+    def _occ(self, value, typ, datatype=None):
+        """\
+        Issues events to create an occurrence.
+
+        `value`
+            The string value
+        `typ`
+            The occurrence type
+        `datatype`
+            The datatype (default: xsd:string)
+        """
+        self._handler.occurrence(typ, value, datatype)
+
+    def _assoc(self, typ, role1, player1, role2=None, player2=None, reifier=None):
+        """\
+
+        """
+        h = self._handler
+        h.startAssociation(typ)
+        h.role(role1, player1)
+        if role2:
+            h.role(role2, player2)
+        if reifier:
+            h.reifier(reifier)
+        h.endAssociation()
+
+
+_is_dedicated_media_page = re.compile(r'https?://.+?/.+').match
+
+class MIOCableHandler(BaseMIOCableHandler):
+    """\
+    Implementation of a `ICableHandler` which translates the events into
+    MIO events (c.f. <https://mappa.googlecode.com/hg/tm/tm/mio/handler.py>_)
+    """
+    def __init__(self, handler):
+        """\
+
+        `handler`
+            MIO event handler.
+        """
+        super(MIOCableHandler, self).__init__(handler)
+        self._ref_counter = 0
+
+    #
+    # ICableHandler methods.
+    #
+    def start_cable(self, reference_id, canonical_id):
+        super(MIOCableHandler, self).start_cable(reference_id, canonical_id)
+        h = self._start_cable()
         self._name(canonical_id)
         self._name(reference_id, psis.REFERENCE_TYPE)
         h.isa(psis.CABLE_TYPE)
 
     def end_cable(self):
-        self._cable, self._cable_id = None, None
+        super(MIOCableHandler, self).end_cable()
         self._handler.endTopic()
 
     def handle_tag(self, tag):
         self._assoc(psis.TAGGED_TYPE,
-                    psis.CABLE_TYPE, self._cable,
+                    psis.CABLE_TYPE, self._cable_psi,
                     psis.TAG_TYPE, psis.tag_psi(tag))
    
     def handle_origin(self, origin):
-        self._sent_by(psis.origin_psi(origin), self._cable)
+        self._sent_by(psis.origin_psi(origin), self._cable_psi)
     
     def handle_recipient(self, recipient):
         self._handle_recipient(psis.RECIPIENT_TYPE, recipient)
@@ -188,7 +266,7 @@ class MIOCableHandler(object):
             return
         h = self._handler
         h.startAssociation(typ)
-        h.role(psis.CABLE_TYPE, self._cable)
+        h.role(psis.CABLE_TYPE, self._cable_psi)
         h.role(psis.RECIPIENT_TYPE, psis.station_psi(name, route))
         if route:
             h.role(psis.ROUTE_TYPE, psis.route_psi(route))
@@ -203,7 +281,7 @@ class MIOCableHandler(object):
         reifier = None
         if enum:
             self._ref_counter+=1
-            reifier = mio.ITEM_IDENTIFIER, u'#%s-ref-%s' % (self._cable_id, self._ref_counter)
+            reifier = mio.ITEM_IDENTIFIER, u'#%s-ref-%s' % (self._cable_canonical_id, self._ref_counter)
         processed = True
         kind = reference.kind
         handler = self._handler
@@ -224,7 +302,7 @@ class MIOCableHandler(object):
         """
         cable_ref = psis.cable_psi(reference.value)
         self._assoc(psis.REFERENCES_TYPE,
-                    psis.SOURCE_TYPE, self._cable,
+                    psis.SOURCE_TYPE, self._cable_psi,
                     psis.TARGET_TYPE, cable_ref,
                     reifier)
         handler.startTopic(cable_ref)
@@ -258,7 +336,7 @@ class MIOCableHandler(object):
     def handle_classification(self, classification):
         for cls in psis.classification_psis(classification):
             self._assoc(psis.CLASSIFIED_AS_TYPE,
-                        psis.CABLE_TYPE, self._cable,
+                        psis.CABLE_TYPE, self._cable_psi,
                         psis.CLASSIFICATION_TYPE, cls)
 
     def handle_nondisclosure_deadline(self, date):
@@ -273,7 +351,7 @@ class MIOCableHandler(object):
     def handle_partial(self, partial):
         if partial:
             self._assoc(psis.IS_PARTIAL_TYPE,
-                        psis.PARTIAL_TYPE, self._cable)
+                        psis.PARTIAL_TYPE, self._cable_psi)
 
     def handle_wikileaks_iri(self, iri):
         self._handler.subjectLocator(iri)
@@ -282,44 +360,19 @@ class MIOCableHandler(object):
         if _is_dedicated_media_page(iri):
             resource = mio.SUBJECT_LOCATOR, iri
             self._assoc(psis.COVERED_BY_TYPE,
-                        psis.CABLE_TYPE, self._cable,
+                        psis.CABLE_TYPE, self._cable_psi,
                         psis.COVERED_BY_RESOURCE_TYPE, resource)
             self._assoc(psis.PUBLISHED_TYPE,
                         psis.PUBLISHED_RESOURCE_TYPE, resource,
                         psis.PUBLISHER_TYPE, psis.publisher_psi(iri))
         else:
             self._assoc(psis.COVERED_BY_TYPE,
-                        psis.CABLE_TYPE, self._cable,
+                        psis.CABLE_TYPE, self._cable_psi,
                         psis.MEDIA_TYPE, psis.publisher_psi(iri))
 
     #
     # Private methods
     #
-    def _name(self, value, typ=None):
-        """\
-        Issues events to create a name.
-
-        `value`
-            The name.
-        `typ`
-            Optional identity of the name type. If type is ``None`` (default)
-            the default name type will be used.
-        """
-        self._handler.name(value, typ)
-
-    def _occ(self, value, typ, datatype=None):
-        """\
-        Issues events to create an occurrence.
-
-        `value`
-            The string value
-        `typ`
-            The occurrence type
-        `datatype`
-            The datatype (default: xsd:string)
-        """
-        self._handler.occurrence(typ, value, datatype)
-
     def _sent_by(self, origin, cable):
         """\
 
@@ -331,19 +384,6 @@ class MIOCableHandler(object):
         self._assoc(psis.SENT_BY_TYPE,
                     psis.SENDER_TYPE, origin,
                     psis.CABLE_TYPE, cable)
-
-    def _assoc(self, typ, role1, player1, role2=None, player2=None, reifier=None):
-        """\
-
-        """
-        h = self._handler
-        h.startAssociation(typ)
-        h.role(role1, player1)
-        if role2:
-            h.role(role2, player2)
-        if reifier:
-            h.reifier(reifier)
-        h.endAssociation()
 
 
 _find_title = re.compile(r'<title>(.+?)</title>', re.DOTALL).search
@@ -374,29 +414,24 @@ def _unescape(text):
 def _normalize_ws(text):
     return re.sub(r'[ ]{2,}', ' ', re.sub(r'[\r\n]+', ' ', text))
 
-class MediaTitleResolver(NoopCableHandler):
+class MediaTitleResolver(BaseMIOCableHandler):
     """\
     Creates topics with subject locators from media IRIs and assigns a name to them.
 
     Requires an Internet connection.
     """
-    implements(ICableHandler)
-
     def __init__(self, handler):
         """\
 
         `handler`
             MIO event handler.
         """
-        self._handler = simplify(handler)
+        super(MediaTitleResolver, self).__init__(handler)
         self._seen_iris = set()
 
-    def start(self):
-        self._handler.startTopicMap()
-
     def end(self):
+        super(MediaTitleResolver, self).end()
         self._seen_iris = None
-        self._handler.endTopicMap()
 
     def handle_media_iri(self, iri):
         def fetch_url(url):

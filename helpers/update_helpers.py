@@ -61,7 +61,7 @@ _KNOWN_TAGS = ('BIDEN, JOSEPH', "RICE, CONDOLEEZZA", "CLINTON, HILLARY", "CARSON
                )
 
 _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT',
-             u'AF-PAK', u'AKP', u'ASD', u'AQAP', u'AQIM', u'ARENA',
+             u'AF-PAK', u'AKP', u'ASD', u'AQAP', u'AQIM', u'ARENA', u'APRA',
              u'BBC', u'BP', u'BR-3',
              u'CMC', u'CNP', u'CODEL', u'CJCS', u'CT', u'CWS/BWC', u'CW', u'CENTCOM',
              u'CDR', u'CFE', u'CISMOA', u'CN', u'CIA', u'CTJWG', u'CG', u'CL', u'CBD',
@@ -85,14 +85,15 @@ _ACRONYMS = (u'AA/S', u'ADC', u'AFM', u'AG', u'ASD/ISA', u'AU', u'AK', u'APHSCT'
              u'ROK', u'RWE', u'RFG', u'RMB', u'RSO', u'RPO', u'RTG',
              u'SLA', u'SLA/U', u'SPD', u'SWIFT', u'S/WCI', u'S/CT', u'S/CRS',
              u'S/GC', u'SCSL', u'S/SRAP', u'SG', u'SAS',
-             u'TFTP', u'TFTP/SWIFT', u'U.S.-EU', u'U.S.-UK', u'UAE', u'UK', u'UN',
+             u'TWA', u'TFTP', u'TFTP/SWIFT', u'U.S.-EU', u'U.S.-UK', u'UAE', u'UK', u'UN',
              u'UNHCR', u'UNSC', u'US', u'US-CU', u'US-EU', u'USG', u'USTR', u'UNCHR',
              u'USEB', u'UNGA', u'U.S./UK', u'UNESCO', u'U/SYG', u'US-ROYG', u'UNSCR',
              u'USG-GOB', u'USD/P', u'USS', u'UNDP',
              u'VFM', u'VP', u'VI', u'VARIG', u'VOA',
              u'WEF', u'WTO',
              u'XVI',
-             u'ZANU-PF')
+             u'ZANU-PF',
+             )
 
 _UNWANTED = (u'AND', u'ITS', u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO',
              u'CAN', u'SAO', u'IT', u'POSITION', u'AMBASSADOR', u'ENLARGEMENT',
@@ -100,7 +101,9 @@ _UNWANTED = (u'AND', u'ITS', u'SAVE', u'CITES', u'SHARIA', u'IRAN', u'WHO',
              u'ECONOMIC', u'MEXICO', u'AN', u'IS', u'OFFICE', u'WEST', u'YES',
              u'NELSON-LOTT', u'NEGROPONTE', u'PRESIDENT', u'SECRETARY', u'IRAQ', u'ISN',
              u'FOOD', u'WOMEN', u'ARMY', u'PLAY', u'HOPE', u'START', u'END', u'ENERGY',
-             u'BOMBINGS', u'BUDGET', u'CONVENTION', u'QATAR', u'TERRORISM',)
+             u'BOMBINGS', u'BUDGET', u'CONVENTION', u'QATAR', u'TERRORISM', u'KURDISH',
+             u'BAZARGAN', u'SOUTHERN', u'SYRIA', u'ISRAEL', u'LABOR', u'PLAN', u'WAR',
+             u'ISLAMIZATION', u'PALESTINE', u'EUROPEAN', u'BIT', u'SAFE',)
 
 def run_update(src, predicate=None):
     acronyms = set(_ACRONYMS)

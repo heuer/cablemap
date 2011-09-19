@@ -334,6 +334,7 @@ _SPECIAL_WORDS = {
     'Ex-IM': u'Ex-IM',
     'GOH': u'GoH',
     'US-LIBYAN': u'US-Libyan',
+    u'FAO/WHO': u'FAO/WHO',
 }
 
 _TITLEFY_SMALL_PATTERN = re.compile(r'^(([0-9]+(th|st|rd|nd))|(a)|(an)|(and)|(as)|(at)|(but)|(by)|(en)|(for)|(if)|(in)|(of)|(on)|(or)|(the)|(to)|(v\.?)|(via)|(vs\.?))$', re.IGNORECASE)

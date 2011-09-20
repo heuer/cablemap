@@ -95,7 +95,7 @@ def cable_from_row(row):
     """
     def format_creation_date(created):
         date, time = created.split()
-        month, day, year, hour, minute = [u'0' + x if len(x) == 1 else x for x in chain(date.split(u'/'), time.split(u':'))]
+        month, day, year, hour, minute = [x.rjust(2, '0') for x in chain(date.split(u'/'), time.split(u':'))]
         return u'%s-%s-%s %s:%s' % (year, month, day, hour, minute)
     _, created, reference_id, origin, classification, _, header, body = row
     cable = Cable(reference_id)

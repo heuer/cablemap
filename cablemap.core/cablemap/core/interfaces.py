@@ -145,6 +145,16 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
+    comment = Attribute("""\
+    The comment of the author of the cable or ``None``.
+
+    This attribute is read-only.
+    """)
+    author = Attribute("""\
+    The author of the cable or ``None``.
+
+    This attribute is read-only.
+    """)
     content_header = Attribute("""\
     The "header" part of the cable's content (everything before the
     first paragraph).

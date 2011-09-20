@@ -246,11 +246,15 @@ def handle_cable(cable, handler, standalone=True):
         handler.handle_subject(cable.subject)
     if cable.summary:
         handler.handle_summary(cable.summary)
+    if cable.comment:
+        handler.handle_comment(cable.comment)
     handler.handle_header(cable.header)
     handler.handle_body(cable.content)
     handler.handle_origin(cable.origin)
     handler.handle_classification(cable.classification)
     handler.handle_partial(cable.partial)
+    if cable.author:
+        handler.handle_author(cable.author)
     for tag in cable.tags:
         handler.handle_tag(tag)
     for iri in cable.media_uris:

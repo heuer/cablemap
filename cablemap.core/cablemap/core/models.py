@@ -278,6 +278,14 @@ class Cable(object):
         return reader.parse_summary(self.content, self.reference_id)
 
     @cached_property
+    def comment(self):
+        return reader.parse_comment(self.content, self.reference_id)
+
+    @cached_property
+    def author(self):
+        return reader.parse_author(self.content, self.reference_id)
+
+    @cached_property
     def content_header(self):
         return reader.header_body_from_content(self.content)[0]
 

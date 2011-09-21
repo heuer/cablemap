@@ -42,7 +42,7 @@ from __future__ import absolute_import
 import re
 from . constants import MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
-_C14N_FIXES = {
+_STATION_C14N_FIXES = {
     u'AUBJA': u'ABUJA',
     u'RANGON': u'RANGOON',
     u'TEGUC': u'TEGUCIGALPA',
@@ -204,7 +204,7 @@ def canonicalize_origin(origin):
     origin = origin.replace(u'USMISSION', u'') \
                      .replace(u'AMEMBASSY', u'') \
                      .replace(u'EMBASSY', u'').strip()
-    return _C14N_FIXES.get(origin, origin)
+    return _STATION_C14N_FIXES.get(origin, origin)
 
 def canonicalize_id(reference_id):
     """\
@@ -230,3 +230,27 @@ def canonicalize_id(reference_id):
         origin = m.group(1)
         return reference_id.replace(origin, canonicalize_origin(origin))
     return reference_id
+
+_AUTHOR_C14N = {
+    u'ADDELTON': u'ADDLETON',
+    u'ALLGEIR': u'ALLGEIER',
+    u'BURGUARDT': u'BURGHARDT',
+    u'BURHGARDT': u'BURGHARDT',
+    u'AEASTHAM': u'EASTHAM',
+    u'ZUNIA-BROWN': u'ZUNIGA-BROWN',
+    u'RICCIARONDE': u'RICCIARDONE',
+    u'RICCIARDNE': u'RICCIARDONE',
+    u'RICCIARDON': u'RICCIARDONE',
+    u'RICCARDONE': u'RICCIARDONE',
+    u'RANNENBERGER': u'RANNEBERGER',
+}
+
+def canonicalize_author(author):
+    """\
+    Returns the canonicalized form of the provided author's name.
+
+    `author`
+        The author (a string) to canonicalize
+    """
+    author = author.upper()
+    return _AUTHOR_C14N.get(author, author)

@@ -243,6 +243,14 @@ _AUTHOR_C14N = {
     u'RICCIARDON': u'RICCIARDONE',
     u'RICCARDONE': u'RICCIARDONE',
     u'RANNENBERGER': u'RANNEBERGER',
+    u'DERSQ': u'DERSE',
+    u'YOVANOVICTCH': u'YOVANOVITCH',
+    u'YAVANOVITCH': u'YOVANOVITCH',
+    u'YAMAMOT': u'YAMAMOTO',
+    u'YAMAMATO': u'YAMAMOTO',
+    u'ROONEYF': u'ROONEY',
+    u'DGTEITELBAUM': u'TEITELBAUM',
+    u'FOLMSBEEPA': u'FOLMSBEE',
 }
 
 def canonicalize_author(author):

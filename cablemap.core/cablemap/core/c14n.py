@@ -258,6 +258,13 @@ _AUTHOR_C14N = {
     u'SCBEY': u'SCOBEY',
     u'SOBEY': u'SCOBEY',
     u'GUTMQ': u'GUTMAN',
+    u'SULLVIAN': u'SULLIVAN',
+    u'JSMITH': u'SMITH',
+    u'STAPELTON': u'STAPLETON',
+    u'ERNANDEZ': u'FERNANDEZ',
+    u'FENRNANDEZ': u'FERNANDEZ',
+    u'FERNANDEJ': u'FERNANDEZ',
+
 }
 
 def canonicalize_author(author):

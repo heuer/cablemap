@@ -264,6 +264,9 @@ _AUTHOR_C14N = {
     u'ERNANDEZ': u'FERNANDEZ',
     u'FENRNANDEZ': u'FERNANDEZ',
     u'FERNANDEJ': u'FERNANDEZ',
+    u'FREELEY': u'FEELEY',
+    u'JEWEL': u'JEWELL',
+    u'DANILOVICH',
 
 }
 

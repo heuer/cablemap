@@ -266,8 +266,12 @@ _AUTHOR_C14N = {
     u'FERNANDEJ': u'FERNANDEZ',
     u'FREELEY': u'FEELEY',
     u'JEWEL': u'JEWELL',
-    u'DANILOVICH',
-
+    u'DANILOVIH': u'DANILOVICH',
+    u'RWANG': u'WANG',
+    u'SYOUNG': u'YOUNG',
+    u'SHLICHER': u'SCHLICHER',
+    u'BERYLE': u'BEYRLE',
+    u'BYERLE': u'BEYRLE',
 }
 
 def canonicalize_author(author):

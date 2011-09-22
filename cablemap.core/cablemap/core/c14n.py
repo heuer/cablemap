@@ -251,6 +251,13 @@ _AUTHOR_C14N = {
     u'ROONEYF': u'ROONEY',
     u'DGTEITELBAUM': u'TEITELBAUM',
     u'FOLMSBEEPA': u'FOLMSBEE',
+    u'MCCORMIC': u'MCCORMICK',
+    u'MCCOMICK': u'MCCORMICK',
+    u'WAR': u'WARE',
+    u'SCOBY': u'SCOBEY',
+    u'SCBEY': u'SCOBEY',
+    u'SOBEY': u'SCOBEY',
+    u'GUTMQ': u'GUTMAN',
 }
 
 def canonicalize_author(author):

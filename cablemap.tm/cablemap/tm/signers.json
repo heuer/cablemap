@@ -135,9 +135,8 @@
     "DUSHANBE": "", 
     "VLADIVOSTOK": ""
   }, 
-  "ARNALL": {
-    "THEHAGUE": ""
-  }, 
+  "ARNALL": "Roland E. Arnall",
+
   "ARNETT": {
     "ISTANBUL": ""
   }, 
@@ -1075,12 +1074,11 @@
   "CSMCGANN": {
     "SUVA": ""
   }, 
-  "CULBERSTON": {
+  "CULBERSTON": "James B. Culbertson"
     "THEHAGUE": ""
   }, 
-  "CULBERTSON": {
-    "THEHAGUE": ""
-  }, 
+  "CULBERTSON": "James B. Culbertson",
+
   "CUMMINS": {
     "KOLKATA": ""
   }, 
@@ -1551,11 +1549,7 @@
     "FREETOWN": ""
   }, 
   "FEELEY": "John D. Feeley",
-
-  "FEIERSTEIN": {
-    "BEIRUT": "", 
-    "ISLAMABAD": ""
-  }, 
+  "FEIERSTEIN": "Gerald Michael Feierstein",
   "FEINSTEIN": "Lee A. Feinstein",
 
   "FELTMAN": {
@@ -4667,9 +4661,8 @@
 
   "SCHNABEL": "Rockwell A. Schnabel",
 
-  "SCHNEIDER": {
-    "THEHAGUE": ""
-  }, 
+  "SCHNEIDER": "Cynthia Perrin Schneider",
+
   "SCHOFER": {
     "THEHAGUE": ""
   }, 

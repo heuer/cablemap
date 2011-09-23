@@ -52,7 +52,7 @@ setup(
       platforms = 'any',
       zip_safe = False,
       include_package_data = True,
-      package_data = {'': ['*.txt']},
+      package_data = {'': ['*.txt', '*.json']},
       install_requires=['cablemap.core>=0.3.0', 'tm>=0.1.7', 'mio.ctm>=0.1.3', 'mio.xtm>=0.1.7'],
       keywords = ['WikiLeaks', 'Cablegate', 'Topic Maps'],
       classifiers = [

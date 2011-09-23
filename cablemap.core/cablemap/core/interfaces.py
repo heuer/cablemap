@@ -150,8 +150,8 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
-    author = Attribute("""\
-    The author of the cable or ``None``.
+    signers = Attribute("""\
+    A maybe empty iterable of signers of the cable.
 
     This attribute is read-only.
     """)
@@ -347,6 +347,14 @@ class ICableHandler(Interface):
             A string.
         """
 
+    def handle_signer(signer):
+        """\
+        Assigns a signer to the cable.
+
+        `signer`
+            A string.
+        """
+
     def handle_transmission_id(tid):
         """\
         Assigns the transmission id to the cable.
@@ -376,6 +384,14 @@ class ICableHandler(Interface):
         Assigns the summary to the cable.
 
         `summary`
+            A string.
+        """
+
+    def handle_comment(comment):
+        """\
+        Assigns the comment to the cable.
+
+        `comment`
             A string.
         """
 

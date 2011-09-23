@@ -253,8 +253,8 @@ def handle_cable(cable, handler, standalone=True):
     handler.handle_origin(cable.origin)
     handler.handle_classification(cable.classification)
     handler.handle_partial(cable.partial)
-    if cable.author:
-        handler.handle_author(cable.author)
+    for signer in cable.signers:
+        handler.handle_signer(signer)
     for tag in cable.tags:
         handler.handle_tag(tag)
     for iri in cable.media_uris:

@@ -282,8 +282,8 @@ class Cable(object):
         return reader.parse_comment(self.content)
 
     @cached_property
-    def author(self):
-        return reader.parse_author(self.content)
+    def signers(self):
+        return reader.parse_signers(self.content)
 
     @cached_property
     def content_header(self):

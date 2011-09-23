@@ -231,7 +231,7 @@ def canonicalize_id(reference_id):
         return reference_id.replace(origin, canonicalize_origin(origin))
     return reference_id
 
-_AUTHOR_C14N = {
+_SIGNER_C14N = {
     u'ADDELTON': u'ADDLETON',
     u'ALLGEIR': u'ALLGEIER',
     u'BURGUARDT': u'BURGHARDT',
@@ -274,12 +274,12 @@ _AUTHOR_C14N = {
     u'BYERLE': u'BEYRLE',
 }
 
-def canonicalize_author(author):
+def canonicalize_signer(signer):
     """\
-    Returns the canonicalized form of the provided author's name.
+    Returns the canonicalized form of the provided signer's name.
 
-    `author`
-        The author (a string) to canonicalize
+    `signer`
+        The signer (a string) to canonicalize
     """
-    author = author.upper()
-    return _AUTHOR_C14N.get(author, author)
+    signer = signer.upper()
+    return _SIGNER_C14N.get(signer, signer)

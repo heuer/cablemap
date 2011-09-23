@@ -280,7 +280,7 @@ class MIOCableHandler(BaseMIOCableHandler):
         h.endAssociation()
 
     def handle_reference(self, reference):
-        enum = reference.name
+        enum = reference.bullet
         reifier = None
         if enum:
             self._ref_counter+=1

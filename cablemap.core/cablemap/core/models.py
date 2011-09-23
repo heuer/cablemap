@@ -148,15 +148,15 @@ class Reference(tuple):
     __slots__ = ()
     implements(IReference)
     
-    def __new__(cls, value, kind, name=None, title=None):
-        return tuple.__new__(cls, (value, kind, name.upper() if name else None, title.strip('"') if title else None))
+    def __new__(cls, value, kind, bullet=None, title=None):
+        return tuple.__new__(cls, (value, kind, bullet.upper() if bullet else None, title.strip('"') if title else None))
 
     def is_cable(self):
         return self.kind == consts.REF_KIND_CABLE
 
     value = property(itemgetter(0))
     kind = property(itemgetter(1))
-    name = property(itemgetter(2))
+    bullet = property(itemgetter(2))
     title = property(itemgetter(3))
 
 

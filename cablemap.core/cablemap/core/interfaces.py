@@ -190,7 +190,7 @@ class IReference(Interface):
 
     This attribute is read-only.
     """)
-    name = Attribute("""\
+    bullet = Attribute("""\
     A string or ``None``.
 
     If the reference is part of an enumeration, it should return something

@@ -801,9 +801,8 @@
   "CASSEL": {
     "GENEVA": ""
   }, 
-  "CATTO": {
-    "LONDON": ""
-  }, 
+  "CATTO": "Henry Edward Catto, Jr.",
+
   "CAULFIELD": {
     "LIMA": "",
     "LONDON": "",
@@ -1055,15 +1054,14 @@
     "ACCRA": ""
   }, 
   "CROUCH": {
-    "BUCHAREST": "",
+    "BUCHAREST": "Jack Dyer Crouch II",
     "BARCELONA": ""
   }, 
   "CROUCHG": {
     "BARCELONA": ""
   }, 
-  "CROWE": {
-    "LONDON": ""
-  }, 
+  "CROWE": "William James Crowe, Jr. ",
+
   "CROWLEY": {
     "ASTANA": ""
   }, 
@@ -1520,9 +1518,7 @@
   "FANNIN": {
     "SANTODOMINGO": ""
   }, 
-  "FARISH": {
-    "LONDON": ""
-  }, 
+  "FARISH": "William Stamps Farish III",
   "FARLAND": "Joseph Simpson Farland",
 
   "FARRAR": {
@@ -1834,12 +1830,8 @@
   "GIRARD-DICRLO": {
     "VIENNA": ""
   }, 
-  "GITENSTEIN": {
-    "BUCHAREST": ""
-  }, 
-  "GITENSTIEN": {
-    "BUCHAREST": ""
-  }, 
+  "GITENSTEIN": "Mark Henry Gitenstein",
+
   "GLAGPIE": {
     "DAMASCUS": ""
   }, 
@@ -2908,9 +2900,8 @@
   "KYLNER": {
     "VIENNA": ""
   }, 
-  "LADER": {
-    "LONDON": ""
-  }, 
+  "LADER": "Philip Lader",
+  
   "LAEUCHLI": {
     "USOSCE": "",
     "OUAGADOUGOU": ""
@@ -4197,9 +4188,8 @@
   "PRECHT": {
     "CAIRO": ""
   }, 
-  "PRICE": {
-    "LONDON": ""
-  }, 
+  "PRICE": "Charles H. Price II",
+
   "PRIVATE": {
     "NEWDELHI": ""
   }, 
@@ -4717,9 +4707,8 @@
   "SEIBEL": {
     "HALIFAX": ""
   }, 
-  "SEITZ": {
-    "LONDON": ""
-  }, 
+  "SEITZ": "Raymond George Hardenbergh Seitz",
+
   "SELDOWITZ": {
     "USNATO": "",
     "RIGA": ""
@@ -5116,9 +5105,8 @@
   "SURAMPUDI": {
     "KOLKATA": ""
   }, 
-  "SUSMAN": {
-    "LONDON": ""
-  }, 
+  "SUSMAN": "Louis B. Susman",
+
   "SUTPHIN": {
     "DUBAI": ""
   }, 
@@ -5183,9 +5171,8 @@
   "TARNOFF": {
     "STATE": ""
   }, 
-  "TAUBMAN": {
-    "BUCHAREST": ""
-  }, 
+  "TAUBMAN": "Nicholas Frank Taubman",
+
   "TAYLOR": {
     "HAVANA": "",
     "KIEV": "",
@@ -5347,12 +5334,8 @@
     "KINGSTON": "",
     "GUANGZHOU": ""
   }, 
-  "TUTTLE": {
-    "LONDON": ""
-  }, 
-  "TUTTTLE": {
-    "LONDON": ""
-  }, 
+  "TUTTLE": "Robert Holmes Tuttle",
+
   "TUTWILER": {
     "RABAT": ""
   }, 

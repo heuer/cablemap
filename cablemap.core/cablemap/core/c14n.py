@@ -274,6 +274,8 @@ _SIGNER_C14N = {
     u'BYERLE': u'BEYRLE',
     u'CULBERSTON': u'CULBERTSON',
     u'MICHALK': u'MICHALAK',
+    u'GITENSTIEN': u'GITENSTEIN',
+    u'TUTTTLE': u'TUTTLE',
 }
 
 def canonicalize_signer(signer):

@@ -188,9 +188,6 @@
   "BACHMAN": {
     "BANJUL": ""
   }, 
-  "BAGHDAD": {
-    "BAGHDAD": ""
-  }, 
   "BAILEY": {
     "RIGA": ""
   }, 
@@ -259,9 +256,8 @@
   "BARTOLETTI": {
     "VALLETTA": ""
   }, 
-  "BARZUN": {
-    "STOCKHOLM": ""
-  }, 
+  "BARZUN": "Matthew Winthrop Barzun",
+
   "BASHOR": {
     "PORTLOUIS": ""
   }, 
@@ -665,7 +661,7 @@
     "SEOUL": "",
     "MANILA": "",
     "AITTAIPEI": "Raymond Burghardt",
-    "HANOI": ""
+    "HANOI": "Raymond Burghardt"
   }, 
   "BURLEIGH": {
     "COLOMBO": "",
@@ -1074,9 +1070,7 @@
   "CSMCGANN": {
     "SUVA": ""
   }, 
-  "CULBERSTON": "James B. Culbertson"
-    "THEHAGUE": ""
-  }, 
+
   "CULBERTSON": "James B. Culbertson",
 
   "CUMMINS": {
@@ -3240,7 +3234,7 @@
   }, 
   "MARINE": {
     "BEIJING": "",
-    "HANOI": ""
+    "HANOI": "Michael W. Marine"
   }, 
   "MARINEBOARDMAN": {
     "HANOI": ""
@@ -3508,13 +3502,9 @@
   "MGRANDFIELD": {
     "MONTERREY": ""
   }, 
-  "MICHALAK": {
-    "TOKYO": "",
-    "HANOI": ""
-  }, 
-  "MICHALK": {
-    "HANOI": ""
-  }, 
+  "MICHALAK": "Michael W. Michalak"
+
+
   "MICHELI": {
     "CHISINAU": ""
   }, 
@@ -3971,7 +3961,7 @@
   }, 
   "PALMER": {
     "TEGUCIGALPA": "",
-    "HANOI": ""
+    "HANOI": "Virginia E. Palmer"
   }, 
   "PALMERALMER": {
     "TEGUCIGALPA": ""
@@ -4085,7 +4075,7 @@
     "BRIDGETOWN": ""
   }, 
   "PETERSON": {
-    "HANOI": "",
+    "HANOI": "Douglas Brian Peterson",
     "YAOUNDE": ""
   }, 
   "PETTERSON": {
@@ -5753,7 +5743,7 @@
   }, 
   "WOOD": {
     "BOGOTA": "William Braucher Wood",
-    "STOCKHOLM": "",
+    "STOCKHOLM": "Michael Melville Wood",
     "KABUL": "William Braucher Wood"
   }, 
   "WOS": {

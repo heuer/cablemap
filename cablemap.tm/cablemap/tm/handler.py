@@ -337,7 +337,7 @@ class MIOCableHandler(BaseMIOCableHandler):
         self._occ(summary, psis.SUMMARY_TYPE)
 
     def handle_comment(self, comment):
-        self._occ(summary, psis.COMMENT_TYPE)
+        self._occ(comment, psis.COMMENT_TYPE)
 
     def handle_classification(self, classification):
         for cls in psis.classification_psis(classification):

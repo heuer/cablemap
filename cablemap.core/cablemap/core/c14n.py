@@ -294,6 +294,13 @@ _SIGNER_C14N = {
     u'GAREVELINK': u'GARVELINK',
     u'GAVELINK': u'GARVELINK',
     u'MEESE': u'MEECE',
+    u'SCHEIFFER': u'SCHIEFFER',
+    u'PRAHARB': u'PRAHAR',
+    u'HUGHESMK': u'HUGHES',
+    u'PRUNELL': u'PURNELL',
+    u'RNORLAND': u'NORLAND',
+    u'SEMBLE': u'SEMBLER',
+    u'SPOLGI': u'SPOGLI',
 }
 
 def canonicalize_signer(signer):

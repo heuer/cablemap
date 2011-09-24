@@ -1340,8 +1340,8 @@
     "VILNIUS": ""
   }, 
   "DUNN": {
-    "LUSAKA": "",
-    "LOME": "",
+    "LUSAKA": "David B. Dunn",
+    "LOME": "David B. Dunn",
     "CURACAO": "",
     "PRAIA": ""
   }, 
@@ -1437,10 +1437,8 @@
   }, 
   "ERELI": "Joseph Adam Ereli",
 
-  "ESCUDERO": {
-    "DUSHANBE": "", 
-    "TASHKENT": ""
-  }, 
+  "ESCUDERO": "Stanley Tuemler Escudero",
+
   "EVANS": {
     "YEREVAN": "", 
     "LUXEMBOURG": ""
@@ -2061,7 +2059,7 @@
   "HAWKINS": {
     "BANDARSERIBEGAWAN": "", 
     "LUANDA": "", 
-    "LOME": ""
+    "LOME": "Patricia McMahon Hawkins"
   }, 
   "HAYKIN": {
     "KINSHASA": ""
@@ -2135,11 +2133,8 @@
     "BEIRUT": ""
   }, 
   "HERBOLD": "Patricia L. Herbold",
+  "HERBST": "John Edward Herbst",
 
-  "HERBST": {
-    "TASHKENT": "", 
-    "KIEV": ""
-  }, 
   "HERRMAN": {
     "FRANKFURT": ""
   }, 
@@ -2307,12 +2302,8 @@
     "ISTANBUL": "", 
     "GABORONE": ""
   }, 
-  "HUGHES": {
-    "KOLONIA": ""
-  }, 
-  "HUGHESMK": {
-    "KOLONIA": ""
-  }, 
+  "HUGHES": "Miriam K. Hughes",
+
   "HUGINS": {
     "KATHMANDU": ""
   }, 
@@ -2320,8 +2311,8 @@
     "KUALALUMPUR": ""
   }, 
   "HULL": {
-    "SANAA": "", 
-    "FREETOWN": ""
+    "SANAA": "Edmund James Hull", 
+    "FREETOWN": "Thomas Neil Hull"
   }, 
   "HUME": "Cameron R. Hume",
 
@@ -3124,7 +3115,7 @@
     "THEHAGUE": ""
   }, 
   "MANSFIELD": {
-    "TOKYO": "",
+    "TOKYO": "Michael Joseph Mansfield",
     "KIGALI": ""
   }, 
   "MANSON": {
@@ -3723,10 +3714,8 @@
   "NORDBERG": {
     "TALLINN": ""
   }, 
-  "NORLAND": {
-    "KABUL": "",
-    "TASHKENT": ""
-  }, 
+  "NORLAND": "Richard Boyce Norland",
+
   "NORTH": {
     "JAKARTA": ""
   }, 
@@ -3947,7 +3936,7 @@
   "PERRY": {
     "MASERU": "",
     "TBILISI": "",
-    "FREETOWN": ""
+    "FREETOWN": "June Carter Perry"
   }, 
   "PERRYJC": {
     "MASERU": ""
@@ -4067,9 +4056,8 @@
   "PPATIN": {
     "CAPETOWN": ""
   }, 
-  "PRAHARP": {
-    "KOLONIA": ""
-  }, 
+  "PRAHAR": "Peter A. Prahar",
+
   "PRATT": {
     "GUANGZHOU": "",
     "FREETOWN": "",
@@ -4090,12 +4078,9 @@
     "KOLONIA": "",
     "SUVA": ""
   }, 
-  "PRUNELL": {
-    "TASHKENT": ""
-  }, 
-  "PURNELL": {
-    "TASHKENT": ""
-  }, 
+
+  "PURNELL": "Jon Robert Purnell"
+
   "PUTNAM": {
     "ISLAMABAD": "",
     "PESHAWAR": ""
@@ -4126,9 +4111,8 @@
     "ABUDHABI": "",
     "JEDDAH": ""
   }, 
-  "RABB": {
-    "ROME": ""
-  }, 
+  "RABB": "Maxwell M. Rabb",
+
   "RACKMALES": {
     "KADUNA": ""
   }, 
@@ -4282,9 +4266,7 @@
   "RNOLAN": {
     "MASERU": ""
   }, 
-  "RNORLAND": {
-    "TASHKENT": ""
-  }, 
+
   "ROBERTS": {
     "ABUJA": "",
     "HILLAH": ""
@@ -4358,9 +4340,8 @@
     "DUBLIN": "Daniel Milton Rooney"
   }, 
 
-  "ROOS": {
-    "TOKYO": ""
-  }, 
+  "ROOS": "John Victor Roos",
+
   "ROPE": {
     "ANKARA": ""
   }, 
@@ -4493,9 +4474,7 @@
   "SCHANDLBAUER": {
     "MONTEVIDEO": ""
   }, 
-  "SCHEIFFER": {
-    "TOKYO": ""
-  }, 
+
   "SCHELAND": {
     "LEIPZIG": ""
   }, 
@@ -4592,12 +4571,9 @@
     "USNATO": "",
     "RIGA": ""
   }, 
-  "SEMBLE": {
-    "ROME": ""
-  }, 
-  "SEMBLER": {
-    "ROME": ""
-  }, 
+
+  "SEMBLER": "Melvin Floyd Sembler",
+
   "SEMILOTA": {
     "PORTLOUIS": "",
     "WELLINGTON": ""
@@ -4646,9 +4622,8 @@
     "LJUBLJANA": "",
     "HAMILTON": ""
   }, 
-  "SHIEFFER": {
-    "TOKYO": ""
-  }, 
+  "SHIEFFER": "John Thomas Schieffer",
+
   "SHIELDS": {
     "SINGAPORE": ""
   }, 
@@ -4814,13 +4789,8 @@
     "ATHENS": ""
   }, 
   "SPIERS": "Ronald Ian Spiers",
+  "SPOGLI": "Ronald P. Spogli",
 
-  "SPOGLI": {
-    "ROME": ""
-  }, 
-  "SPOLGI": {
-    "ROME": ""
-  }, 
   "SPRATLEN": {
     "ASTANA": ""
   }, 
@@ -5038,7 +5008,7 @@
 
   "TAYLOR": {
     "HAVANA": "John J. Taylor",
-    "KIEV": "",
+    "KIEV": "William B. Taylor, Jr.",
     "KYIV": "",
     "LAHORE": "",
     "KOLKATA": "",
@@ -5098,9 +5068,8 @@
   "THORBURN": {
     "LOME": ""
   }, 
-  "THORNE": {
-    "ROME": ""
-  }, 
+  "THORNE": "David Thorne",
+
   "THUAN": {
     "HANOI": ""
   }, 
@@ -5629,9 +5598,9 @@
     "LILONGWE": ""
   }, 
   "YOUNG": {
-    "FREETOWN": "", 
+    "FREETOWN": "Johnny Young", 
     "OTTAWA": "", 
-    "LJUBLJANA": "", 
+    "LJUBLJANA": "Johnny Young", 
     "AITTAIPEI": "Stephen M. Young", 
     "TAIPEI": "Stephen M. Young", 
     "DUBLIN": "", 

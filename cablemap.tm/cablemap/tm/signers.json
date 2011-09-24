@@ -93,9 +93,8 @@
   "ANDRESEN": {
     "KADUNA": ""
   }, 
-  "ANDREW": {
-    "SANJOSE": ""
-  }, 
+  "ANDREW": "Anne S. Andrew",
+
   "ANDREWS": {
     "ABUJA": ""
   }, 
@@ -247,10 +246,7 @@
     "CHIANGMAI": ""
   }, 
   "BARRETT": "Barbara McConnell Barrett",
-
-  "BARRY": {
-    "JAKARTA": ""
-  }, 
+  "BARRY": "Robert L. Barry",
   "BARTHOLOMEW": "Reginald Bartholomew",
 
   "BARTOLETTI": {
@@ -560,7 +556,7 @@
   "BRENNAN": {
     "ADDISABABA": "",
     "MANAGUA": "",
-    "SANJOSE": ""
+    "SANJOSE": "Peter M. Brennan"
   }, 
   "BRIDGES": "Peter Scott Bridges",
 
@@ -888,9 +884,8 @@
     "KAMPALA": "",
     "QUITO": ""
   }, 
-  "CIANCHETTE": {
-    "SANJOSE": ""
-  }, 
+  "CIANCHETTE": "Peter Cianchette", 
+
   "CLAPP": {
     "PRETORIA": "",
     "RANGOON": ""
@@ -1710,9 +1705,8 @@
   "GEHNEM": {
     "AMMAN": ""
   }, 
-  "GELBARD": {
-    "JAKARTA": ""
-  }, 
+  "GELBARD": "Robert S. Gelbard",
+
   "GENNATIEMPO": {
     "CARACAS": ""
   }, 
@@ -2343,11 +2337,8 @@
     "SANAA": "", 
     "FREETOWN": ""
   }, 
-  "HUME": {
-    "PRETORIA": "", 
-    "KHARTOUM": "",
-    "JAKARTA": ""
-  }, 
+  "HUME": "Cameron R. Hume",
+
   "HUMPHREYS": {
     "DUSSELDORF": ""
   }, 
@@ -2885,9 +2876,8 @@
   "LANG": {
     "GUANGZHOU": ""
   }, 
-  "LANGDALE": {
-    "SANJOSE": ""
-  }, 
+  "LANGDALE": "Mark Langdale",
+
   "LANGE": {
     "GABORONE": ""
   }, 
@@ -3513,10 +3503,8 @@
     "BUJUMBURA": "",
     "CONAKRY": ""
   }, 
-  "MONJO": {
-    "JAKARTA": "",
-    "ISLAMABAD": "John Cameron Monjo"
-  }, 
+  "MONJO": "John Cameron Monjo",
+
   "MONROE": {
     "MANAMA": "William T. Monroe",
     "KHARTOUM": "",
@@ -3907,10 +3895,7 @@
     "KINGSTON": ""
   }, 
   "PARRIS": "Mark Robert Parris",
-
-  "PASCOE": {
-    "JAKARTA": ""
-  }, 
+  "PASCOE": "B. Lynn Pascoe",
   "PASCUAL": "Carlos Pascual",
 
   "PASI": {
@@ -4440,10 +4425,8 @@
   "ROWLAND": {
     "KOLKATA": ""
   }, 
-  "ROY": {
-    "BEIJING": "",
-    "JAKARTA": ""
-  }, 
+  "ROY": "J. Stapleton Roy",
+
   "RPOWERS": {
     "KHARTOUM": ""
   }, 
@@ -4527,9 +4510,7 @@
   "SCANDOLA": {
     "VANCOUVER": ""
   }, 
-  "SCANLAN": {
-    "MINSK": ""
-  }, 
+  "SCANLAN": "Michael Scanlan",
 
   "SCHAFFER": {
     "DHAKA": "Howard Bruner Schaffer",
@@ -4824,11 +4805,7 @@
   "SNOWDEN": {
     "MUSCAT": ""
   }, 
-  "SOBEL": {
-    "THEHAGUE": "Clifford M. Sobel",
-    "BRASILIA": "Clifford M. Sobel",
-    "SAOPAULO": ""
-  }, 
+  "SOBEL": "Clifford M. Sobel",
 
   "SOLBERG": {
     "THEHAGUE": ""
@@ -4952,7 +4929,7 @@
   "STEWART": {
     "MUSCAT": "",
     "FREETOWN": "",
-    "MINSK": "",
+    "MINSK": "Karen B. Stewart",
     "PRAIA": ""
   }, 
   "STEWARTBALTIMORE": {

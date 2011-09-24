@@ -237,7 +237,7 @@ def cablefiles_from_directory(directory, predicate=None):
     """
     pred = predicate or bool
     for root, dirs, files in os.walk(directory):
-        for name in (n for n in files if '.html' in n and pred(n)):
+        for name in (n for n in files if '.html' in n and pred(n[:n.rindex(u'.')])):
             yield os.path.join(os.path.abspath(root), name)
 
 _TAGS_SUBJECT = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]

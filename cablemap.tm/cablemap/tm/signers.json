@@ -473,11 +473,8 @@
   "BOSSHART": {
     "ALGIERS": ""
   }, 
-  "BOST": {
-    "PRETORIA": "",
-    "JOHANNESBURG": "",
-    "CAPETOWN": ""
-  }, 
+  "BOST": "Eric M. Bost",
+
   "BOSWORTH": {
     "SEOUL": ""
   }, 
@@ -1606,9 +1603,8 @@
   "FRANK": {
     "ZAGREB": ""
   }, 
-  "FRAZER": {
-    "PRETORIA": ""
-  }, 
+  "FRAZER": "Jendayi Elizabeth Frazer",
+
   "FRAZIER": {
     "YEREVAN": ""
   }, 
@@ -1667,18 +1663,13 @@
     "THEHAGUE": ""
   }, 
   "GARBER": "Judith G. Garber",
-
   "GARDNER": "Richard Newton Gardner",
 
-  "GAREVELINK": {
-    "KINSHASA": ""
-  }, 
   "GARNER": {
     "BUCHAREST": ""
   }, 
-  "GARVELINK": {
-    "KINSHASA": ""
-  }, 
+  "GARVELINK": "William John Garvelink",
+
   "GARVERICK": {
     "BAKU": ""
   }, 
@@ -1693,9 +1684,7 @@
   "GASTALDO": {
     "BASRAH": ""
   }, 
-  "GAVELINK": {
-    "KINSHASA": ""
-  }, 
+
   "GAVITO": {
     "DUBAI": ""
   }, 
@@ -1765,9 +1754,7 @@
   "GILROY": {
     "BRIDGETOWN": ""
   }, 
-  "GIPS": {
-    "PRETORIA": ""
-  }, 
+  "GIPS": "Donald H. Gips",
   "GIRARD-DICARLO": "David F. Girard-diCarlo",
   "GITENSTEIN": "Mark Henry Gitenstein",
 
@@ -2042,9 +2029,8 @@
   "HARRIS": {
     "SHENYANG": ""
   }, 
-  "HARROP": {
-    "KINSHASA": ""
-  }, 
+  "HARROP": "William Caldwell Harrop",
+
   "HARSHA": {
     "DILI": ""
   }, 
@@ -2256,8 +2242,8 @@
 
   "HOOKS": {
     "HARARE": "", 
-    "KINSHASA": "", 
-    "ABIDJAN": ""
+    "KINSHASA": "Aubrey Hooks", 
+    "ABIDJAN": "Aubrey Hooks"
   }, 
   "HOOVER": {
     "NAIROBI": "", 
@@ -2522,9 +2508,8 @@
     "LAHORE": "",
     "ALGIERS": ""
   }, 
-  "JOSEPH": {
-    "PRETORIA": ""
-  }, 
+  "JOSEPH": "James A. Joseph", 
+
   "JOYCE": {
     "HAVANA": ""
   }, 
@@ -2986,9 +2971,8 @@
   "LEWELLEN": {
     "LILONGWE": ""
   }, 
-  "LEWIS": {
-    "PRETORIA": ""
-  }, 
+  "LEWIS": "Delano Eugene Lewis",
+
   "LIBERI": {
     "ABUJA": ""
   }, 
@@ -3086,10 +3070,8 @@
   "LUOMA-OVERSTREET": {
     "JOHANNESBURG": ""
   }, 
-  "LYMAN": {
-    "LAGOS": "",
-    "PRETORIA": ""
-  }, 
+  "LYMAN": "Princeton Nathan Lyman",
+
   "LYNE": {
     "BEIRUT": "",
     "ACCRA": ""
@@ -3376,14 +3358,8 @@
   "MCWILLIAMS": {
     "DUSHANBE": ""
   }, 
-  "MEECE": {
-    "ABUJA": "",
-    "KINSHASA": "",
-    "ADDISABABA": ""
-  }, 
-  "MEESE": {
-    "ABUJA": ""
-  }, 
+  "MEECE": "Roger Allen Meece",
+
   "MEIGS": {
     "SANTODOMINGO": ""
   }, 
@@ -3966,10 +3942,8 @@
   "PERKALA": {
     "PARIS": ""
   }, 
-  "PERKINS": {
-    "PRETORIA": "",
-    "USUNNEWYORK": ""
-  }, 
+  "PERKINS": "Edward Joseph Perkins",
+
   "PERRY": {
     "MASERU": "",
     "TBILISI": "",
@@ -4754,7 +4728,7 @@
   }, 
   "SIMPSON": {
     "BEIRUT": "",
-    "KINSHASA": ""
+    "KINSHASA": "Daniel Howard Simpson"
   }, 
   "SISON": {
     "ABUDHABI": "",
@@ -5022,10 +4996,8 @@
   }, 
   "SWINDELLS": "Charles J. Swindells",
 
-  "SWING": {
-    "CAPETOWN": "",
-    "KINSHASA": ""
-  }, 
+  "SWING": "William Lacy Swing",
+
   "SYKES": {
     "DURBAN": ""
   }, 
@@ -5639,7 +5611,7 @@
     "VIENNA": ""
   }, 
   "YATES": {
-    "KINSHASA": "", 
+    "KINSHASA": "John M. Yates", 
     "ACCRA": "", 
     "ADDISABABA": ""
   }, 

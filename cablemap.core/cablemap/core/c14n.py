@@ -291,6 +291,9 @@ _SIGNER_C14N = {
     u'URISMAN': u'OURISMAN',
     u'MOOR': u'MOORE',
     u'ROL': u'KROL',
+    u'GAREVELINK': u'GARVELINK',
+    u'GAVELINK': u'GARVELINK',
+    u'MEESE': u'MEECE',
 }
 
 def canonicalize_signer(signer):

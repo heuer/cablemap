@@ -385,10 +385,8 @@
   "BLAIR": {
     "LAGOS": ""
   }, 
-  "BLAKE": {
-    "NEWDELHI": "",
-    "COLOMBO": ""
-  }, 
+  "BLAKE": "Robert Orris Blake, Jr.",
+
   "BLAKEMAN": {
     "THEHAGUE": ""
   }, 
@@ -663,10 +661,8 @@
     "AITTAIPEI": "Raymond Burghardt",
     "HANOI": "Raymond Burghardt"
   }, 
-  "BURLEIGH": {
-    "COLOMBO": "",
-    "NEWDELHI": ""
-  }, 
+  "BURLEIGH": "Albert Peter Burleigh",
+
   "BURNETT": {
     "WELLINGTON": ""
   }, 
@@ -699,12 +695,8 @@
     "HAMBURG": "",
     "TASHKENT": ""
   }, 
-  "BUTENIS": {
-    "BOGOTA": "",
-    "DHAKA": "Patricia A. Butenis",
-    "BAGHDAD": "",
-    "COLOMBO": ""
-  }, 
+  "BUTENIS": "Patricia A. Butenis",
+
   "BUTLER": {
     "SANSALVADOR": "",
     "HELSINKI": "Michael Butler"
@@ -1023,9 +1015,8 @@
   "CREAMER": {
     "LAPAZ": ""
   }, 
-  "CREEKMORE": {
-    "COLOMBO": ""
-  }, 
+  "CREEKMORE": "Marion V. Creekmore, Jr.",
+
   "CRETZ": {
     "DAMASCUS": "",
     "TELAVIV": "",
@@ -1296,9 +1287,8 @@
   "DONNALLY": {
     "HILLAH": ""
   }, 
-  "DONNELLY": {
-    "COLOMBO": ""
-  }, 
+  "DONNELLY": "Shaun E. Donnelly",
+
   "DONOVAN": {
     "TOKYO": "",
     "HONGKONG": "Joseph R Donovan Jr."
@@ -1347,9 +1337,7 @@
   "DUBEL": {
     "NASSAU": ""
   }, 
-  "DUBLIN": {
-    "DUBLIN": ""
-  }, 
+
   "DUDDY": {
     "SAOPAULO": "",
     "BRASILIA": "",
@@ -2472,7 +2460,7 @@
   "JACOBSON": {
     "ASHGABAT": "", 
     "DUSHANBE": "", 
-    "OTTAWA": ""
+    "OTTAWA": "David Cary Jacobson"
   }, 
   "JAMES": {
     "NDJAMENA": ""
@@ -3121,9 +3109,8 @@
   "LUKENS": {
     "VANCOUVER": ""
   }, 
-  "LUNSTEAD": {
-    "COLOMBO": ""
-  }, 
+  "LUNSTEAD": "Jeffrey Lunstead", 
+
   "LUOMA-OVERSTREET": {
     "JOHANNESBURG": ""
   }, 
@@ -4381,7 +4368,7 @@
     "HILLAH": ""
   }, 
   "ROBINSON": {
-    "OTTAWA": "",
+    "OTTAWA": "Paul Heron Robinson, Jr.",
     "KINGSTON": "",
     "LAPAZ": "",
     "GENEVA": "",
@@ -4579,7 +4566,7 @@
 
   "SCHAFFER": {
     "DHAKA": "Howard Bruner Schaffer",
-    "COLOMBO": ""
+    "COLOMBO": "Teresita Currie Schaffer"
   }, 
   "SCHANDLBAUER": {
     "MONTEVIDEO": ""
@@ -4820,12 +4807,6 @@
   "SIMPSON": {
     "BEIRUT": "",
     "KINSHASA": ""
-  }, 
-  "SINCERELY": {
-    "OTTAWA": ""
-  }, 
-  "SIPDIS": {
-    "ACCRA": ""
   }, 
   "SISON": {
     "ABUDHABI": "",
@@ -5574,14 +5555,8 @@
   "WILGUS": {
     "ADDISABABA": ""
   }, 
-  "WILKENS": {
-    "OTTAWA": ""
-  }, 
-  "WILKINDS": {
-    "OTTAWA": ""
-  }, 
   "WILKINS": {
-    "OTTAWA": ""
+    "OTTAWA": "David Horton Wilkins"
   }, 
   "WILKINSON": {
     "MAPUTO": ""
@@ -5617,7 +5592,7 @@
     "MONTERREY": ""
   }, 
   "WILLS": {
-    "COLOMBO": "", 
+    "COLOMBO": "E. Ashley Wills", 
     "PORTLOUIS": ""
   }, 
   "WILSON": {

@@ -1467,9 +1467,7 @@
     "ALGIERS": "", 
     "RIYADH": ""
   }, 
-  "ERELI": {
-    "MANAMA": ""
-  }, 
+  "ERELI": "Joseph Adam Ereli",
 
   "ESCUDERO": {
     "DUSHANBE": "", 
@@ -3552,7 +3550,7 @@
     "ISLAMABAD": "John Cameron Monjo"
   }, 
   "MONROE": {
-    "MANAMA": "",
+    "MANAMA": "William T. Monroe",
     "KHARTOUM": "",
     "PARIS": ""
   }, 
@@ -5657,9 +5655,6 @@
   }, 
   "WLEE": {
     "BASRAH": ""
-  }, 
-  "WMONROE": {
-    "MANAMA": ""
   }, 
   "WOERNER": {
     "HARARE": ""

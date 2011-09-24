@@ -281,6 +281,7 @@ _SIGNER_C14N = {
     u'EIKENBERRRY': u'EIKENBERRY',
     u'EIKENBERY': u'EIKENBERRY',
     u'KHALILZHAD': u'KHALILZAD',
+    u'WMONROE': u'MONROE',
 }
 
 def canonicalize_signer(signer):

@@ -2032,7 +2032,7 @@
   "HARDT": {
     "VATICAN": "", 
     "NASSAU": "", 
-    "BRIDGETOWN": ""
+    "BRIDGETOWN": "Brent Hardt"
   }, 
   "HARNISH": {
     "CAIRO": "", 
@@ -2507,10 +2507,19 @@
   }, 
   "JONES": {
     "ISLAMABAD": "",
-    "KUWAIT": "",
+    "KUWAIT": {
+      "01": "Richard Henry Jones",
+      "02": "Richard Henry Jones",
+      "03": "Richard Henry Jones",
+      "04": "Richard Henry Jones",
+      "08": "Deborah K. Jones",
+      "09": "Deborah K. Jones",
+      "10": "Deborah K. Jones",
+      "11": "Deborah K. Jones"
+    },
     "CAIRO": "",
     "ISTANBUL": "",
-    "TELAVIV": "",
+    "TELAVIV": "Richard Henry Jones",
     "MANILA": "",
     "MAPUTO": "",
     "GEORGETOWN": "",
@@ -2801,16 +2810,14 @@
   }, 
   "KRAMER": {
     "LAGOS": "",
-    "BRIDGETOWN": "",
+    "BRIDGETOWN": "Mary E. Kramer",
     "TIJUANA": "",
     "MONTERREY": ""
   }, 
   "KREUTNER": {
     "DHAHRAN": ""
   }, 
-  "KROL": {
-    "MINSK": ""
-  }, 
+  "KROL": "George Albert Krol",
   "KRUEGER": {
     "GABORONE": ""
   }, 
@@ -2942,7 +2949,7 @@
     "COPENHAGEN": ""
   }, 
   "LEBARON": {
-    "KUWAIT": "",
+    "KUWAIT": "Richard LeBaron",
     "NOUAKCHOTT": "",
     "LONDON": "",
     "DOHA": "Joseph Evan LeBaron"
@@ -3523,9 +3530,6 @@
     "ZAGREB": "",
     "KATHMANDU": ""
   }, 
-  "MOOR": {
-    "MINSK": ""
-  }, 
   "MOORE": {
     "BANDARSERIBEGAWAN": "",
     "BOGOTA": "",
@@ -3533,7 +3537,7 @@
     "MANAGUA": "",
     "ANKARA": "",
     "BELGRADE": "",
-    "MINSK": "",
+    "MINSK": "Jonathan M. Moore",
     "COLOMBO": "",
     "CHIANGMAI": "",
     "PODGORICA": "",
@@ -3858,12 +3862,9 @@
   "OUDKIRK": {
     "ISTANBUL": ""
   }, 
-  "OUISMAN": {
-    "BRIDGETOWN": ""
-  }, 
-  "OURISMAN": {
-    "BRIDGETOWN": ""
-  }, 
+
+  "OURISMAN": "Mary Martin Ourisman",
+
   "OWEN": {
     "DARESSALAAM": "",
     "MUMBAI": ""
@@ -4313,9 +4314,6 @@
   }, 
   "RIVKIN": "Charles Hammerman Rivkin",
 
-  "RJONES": {
-    "KUWAIT": ""
-  }, 
   "RLANE": {
     "MAPUTO": ""
   }, 
@@ -4380,9 +4378,7 @@
   "ROHN": {
     "BANJUL": ""
   }, 
-  "ROL": {
-    "MINSK": ""
-  }, 
+
   "ROLLINS": {
     "DHAKA": ""
   }, 
@@ -5287,9 +5283,6 @@
   "URBANCIC": {
     "KUWAIT": "",
     "NICOSIA": "Frank C. Urbancic, Jr."
-  }, 
-  "URISMAN": {
-    "BRIDGETOWN": ""
   }, 
   "URS": {
     "LAPAZ": ""

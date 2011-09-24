@@ -286,6 +286,11 @@ _SIGNER_C14N = {
     u'WILKINDS': u'WILKINS',
     u'GIRARD-DICRLO': u'GIRARD-DICARLO',
     u'FRRAR': u'FARRAR',
+    u'RJONES': u'JONES',
+    u'OUISMAN': u'OURISMAN',
+    u'URISMAN': u'OURISMAN',
+    u'MOOR': u'MOORE',
+    u'ROL': u'KROL',
 }
 
 def canonicalize_signer(signer):

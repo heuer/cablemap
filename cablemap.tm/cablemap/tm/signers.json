@@ -456,10 +456,8 @@
   "BONO": {
     "BASRAH": ""
   }, 
-  "BOOTH": {
-    "MONROVIA": "",
-    "LUSAKA": ""
-  }, 
+  "BOOTH": "Donald E. Booth",
+
   "BORDEN": {
     "SYDNEY": ""
   }, 
@@ -1241,9 +1239,9 @@
     "BELMOPAN": ""
   }, 
   "DINGER": {
-    "ULAANBAATAR": "",
-    "SUVA": "",
-    "RANGOON": ""
+    "ULAANBAATAR": "John R. Dinger",
+    "SUVA": "Larry Miles Dinger",
+    "RANGOON": "Larry Miles Dinger"
   }, 
   "DINKELMAN": {
     "NOGALES": ""
@@ -1361,10 +1359,7 @@
   "EAGLETON": "William Lester Eagleton",
   "EASON": "Richard M. Eason",
   "EASTHAM": "Alan W. Eastham",
-
-  "EATON": {
-    "PANAMA": ""
-  }, 
+  "EATON": "William A. Eaton",
   "EBERT-GRAY": "Catherine Ebert-Gray",
   
   "ECKSTROM": {
@@ -1467,9 +1462,7 @@
   "FAKAN": {
     "KARACHI": ""
   }, 
-  "FANNIN": {
-    "SANTODOMINGO": ""
-  }, 
+  "FANNIN": "P. Robert Fannin",
   "FARISH": "William Stamps Farish III",
   "FARLAND": "Joseph Simpson Farland",
   "FARRAR": "Jonathan D. Farrar",
@@ -2138,9 +2131,8 @@
   "HERRMAN": {
     "FRANKFURT": ""
   }, 
-  "HERTELL": {
-    "SANTODOMINGO": ""
-  }, 
+  "HERTELL": "Hans Helmut Hertell",
+
   "HHOWARD": {
     "BASRAH": ""
   }, 
@@ -2838,7 +2830,7 @@
   }, 
   "LAMBERT": {
     "LAPAZ": "",
-    "SANTODOMINGO": ""
+    "SANTODOMINGO": "Christopher Lambert"
   }, 
   "LANCIA": {
     "DUBAI": ""
@@ -3161,9 +3153,9 @@
     "MERIDA": ""
   }, 
   "MARTINEZ": {
-    "RANGOON": "",
+    "RANGOON": "Carmen Maria Martinez",
     "RIODEJANEIRO": "",
-    "LUSAKA": "",
+    "LUSAKA": "Carmen Maria Martinez",
     "BUENOSAIRES": ""
   }, 
   "MARUT": "Christopher J. Marut",
@@ -4405,7 +4397,7 @@
     "TOKYO": ""
   }, 
   "RUSSELL": {
-    "PRAGUE": "",
+    "PRAGUE": "Theodore Russell",
     "YEKATERINBURG": "",
     "MOSCOW": ""
   }, 
@@ -4861,7 +4853,7 @@
   }, 
   "STEPHENSON": {
     "LISBON": "",
-    "PANAMA": ""
+    "PANAMA": "Barbara J. Stephenson"
   }, 
   "STETTENBAUER": {
     "CANBERRA": ""
@@ -5059,12 +5051,8 @@
   "THOMPSON": {
     "FESTTWO": ""
   }, 
-  "THOMPSON-JONES": {
-    "PRAGUE": ""
-  }, 
-  "THOMPSONJONES": {
-    "PRAGUE": ""
-  }, 
+  "THOMPSON-JONES": "Mary Thompson-Jones",
+
   "THORBURN": {
     "LOME": ""
   }, 
@@ -5322,9 +5310,8 @@
     "LIMA": "Alexander Fletcher Watson",
     "REYKJAVIK": ""
   }, 
-  "WATT": {
-    "PANAMA": ""
-  }, 
+  "WATT": "Linda Ellen Watt",
+
   "WAYNE": {
     "BUENOSAIRES": ""
   }, 

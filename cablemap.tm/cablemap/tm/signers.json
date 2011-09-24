@@ -1482,10 +1482,8 @@
   }, 
   "FARISH": "William Stamps Farish III",
   "FARLAND": "Joseph Simpson Farland",
+  "FARRAR": "Jonathan D. Farrar",
 
-  "FARRAR": {
-    "HAVANA": ""
-  }, 
   "FAUCHER": {
     "PARAMARIBO": "",
     "DUBLIN": "Robert J. Faucher"
@@ -1552,9 +1550,8 @@
     "MADRID": "", 
     "ASUNCION": ""
   }, 
-  "FLANIGAN": {
-    "HAVANA": ""
-  }, 
+  "FLANIGAN": "Alan H. Flanigan",
+
   "FLATEN": {
     "TELAVIV": ""
   }, 
@@ -1638,9 +1635,6 @@
   }, 
   "FRISBIE": {
     "SANJOSE": ""
-  }, 
-  "FRRAR": {
-    "HAVANA": ""
   }, 
   "FRY": {
     "CHENNAI": ""
@@ -2793,9 +2787,8 @@
   "KOVACSICS": {
     "VLADIVOSTOK": ""
   }, 
-  "KOZAK": {
-    "HAVANA": ""
-  }, 
+  "KOZAK": "Michael Kozak",
+
   "KRAFT": {
     "LUXEMBOURG": "",
     "DUSSELDORF": ""
@@ -3907,9 +3900,8 @@
   "PARKER": {
     "MBABANE": ""
   }, 
-  "PARMLY": {
-    "HAVANA": ""
-  }, 
+  "PARMLY": "Michael E. Parmly",
+
   "PARNELL": {
     "KINGSTON": ""
   }, 
@@ -5020,7 +5012,7 @@
   }, 
   "SULLIVAN": {
     "TEHRAN": "William Healy Sullivan",
-    "HAVANA": "",
+    "HAVANA": "Joseph Sullivan",
     "HARARE": "",
     "LILONGWE": ""
   }, 
@@ -5100,7 +5092,7 @@
   "TAUBMAN": "Nicholas Frank Taubman",
 
   "TAYLOR": {
-    "HAVANA": "",
+    "HAVANA": "John J. Taylor",
     "KIEV": "",
     "KYIV": "",
     "LAHORE": "",

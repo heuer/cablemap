@@ -721,12 +721,8 @@
   "CABRERA": {
     "PORTLOUIS": ""
   }, 
-  "CAIN": {
-    "COPENHAGEN": ""
-  }, 
-  "CAINE": {
-    "COPENHAGEN": ""
-  }, 
+  "CAIN": "James P. Cain",
+
   "CALLAGHAN": {
     "BOGOTA": ""
   }, 
@@ -1426,15 +1422,8 @@
   "EHRENDREICH": {
     "SINGAPORE": ""
   }, 
-  "EIKENBERRRY": {
-    "KABUL": ""
-  }, 
-  "EIKENBERRY": {
-    "KABUL": ""
-  }, 
-  "EIKENBERY": {
-    "KABUL": ""
-  }, 
+  "EIKENBERRY": "Karl Winfrid Eikenberry",
+
   "EINIK": {
     "ZAGREB": "", 
     "BUCHAREST": ""
@@ -1573,10 +1562,8 @@
   "FINLEY": {
     "USOSCE": ""
   }, 
-  "FINN": {
-    "ZAGREB": "", 
-    "KABUL": ""
-  }, 
+  "FINN": "Robert Patrick John Finn",
+
   "FISHBEIN": {
     "ALEXANDRIA": ""
   }, 
@@ -1691,9 +1678,8 @@
   "FULLER": {
     "USOSCE": ""
   }, 
-  "FULTON": {
-    "COPENHAGEN": ""
-  }, 
+  "FULTON": "Laurie S. Fulton",
+
   "FUREY": {
     "ABUJA": ""
   }, 
@@ -2743,14 +2729,8 @@
   "KHAHILZAD": {
     "USUNNEWYORK": ""
   }, 
-  "KHALILZAD": {
-    "KABUL": "",
-    "BAGHDAD": "",
-    "USUNNEWYORK": ""
-  }, 
-  "KHALILZHAD": {
-    "BAGHDAD": ""
-  }, 
+  "KHALILZAD": "Zalmay Mamozy Khalilzad",
+
   "KHOURY": {
     "SANAA": ""
   }, 
@@ -3763,16 +3743,13 @@
   "NEUBERT": {
     "ANTANANARIVO": ""
   }, 
-  "NEUMANN": {
-    "ALGIERS": "",
-    "MANAMA": "",
-    "KABUL": ""
+  "NEUMANN": "Ronald E. Neumann"
   }, 
   "NEWELL": {
     "KABUL": ""
   }, 
   "NEWMANN": {
-    "KABUL": ""
+    "KABUL": "Ronald E. Neumann"
   }, 
   "NEWTON": {
     "BAGHDAD": ""
@@ -5576,21 +5553,18 @@
     "SAOPAULO": "",
     "PORTLOUIS": "",
     "MONROVIA": "",
-    "OSLO": ""
+    "OSLO": "Barry B. White"
   }, 
   "WHITEHEAD": {
     "STATE": "",
     "HARARE": "",
     "KHARTOUM": ""
   }, 
-  "WHITEY": {
-    "OSLO": ""
-  }, 
   "WHITMAN": {
     "DILI": ""
   }, 
   "WHITNEY": {
-    "OSLO": ""
+    "OSLO": "Benson Kelley Whitney"
   }, 
   "WHITSON": {
     "SURABAYA": ""

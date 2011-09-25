@@ -302,6 +302,10 @@ _SIGNER_C14N = {
     u'SEMBLE': u'SEMBLER',
     u'SPOLGI': u'SPOGLI',
     u'THOMPSONJONES': u'THOMPSON-JONES',
+    u'KIRY': u'KIRBY',
+    u'CHAUDRY': u'CHAUDHRY',
+    u'CHAUHDRY': u'CHAUDHRY',
+    u'RADSDALE': u'RAGSDALE',
 }
 
 def canonicalize_signer(signer):

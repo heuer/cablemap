@@ -217,7 +217,7 @@
     "CAPETOWN": ""
   }, 
   "BARCLAY": {
-    "SANSALVADOR": "", 
+    "SANSALVADOR": "Hugh Douglas Barclay", 
     "HAVANA": ""
   }, 
   "BARD": {
@@ -397,7 +397,7 @@
   }, 
   "BLAU": {
     "HAVANA": "",
-    "SANSALVADOR": ""
+    "SANSALVADOR": "Robert I. Blau"
   }, 
   "BLEICH": {
     "CANBERRA": ""
@@ -418,7 +418,7 @@
   "BODDE": {
     "FRANKFURT": "",
     "ISLAMABAD": "",
-    "LILONGWE": ""
+    "LILONGWE": "Peter Bodde"
   }, 
   "BODINE": {
     "SANAA": ""
@@ -827,15 +827,8 @@
     "DAMASCUS": "",
     "BRUSSELS": ""
   }, 
-  "CHAUDHRY": {
-    "CHISINAU": ""
-  }, 
-  "CHAUDRY": {
-    "CHISINAU": ""
-  }, 
-  "CHAUHDRY": {
-    "CHISINAU": ""
-  }, 
+  "CHAUDHRY": "Asif J. Chaudhry",
+
   "CHAVEAS": {
     "JOHANNESBURG": ""
   }, 
@@ -1756,9 +1749,7 @@
     "DAMASCUS": "",
     "BAGHDAD": ""
   }, 
-  "GLAZER": {
-    "SANSALVADOR": ""
-  }, 
+  "GLAZER": "Charles L. Glazer",
   "GLENDON": "Mary Ann Glendon",
   
   "GLOVER": {
@@ -1843,7 +1834,7 @@
   "GRAY": {
     "CAIRO": "", 
     "BRUSSELS": "", 
-    "DILI": "", 
+    "DILI": "W. Gary Gray", 
     "USEUBRUSSELS": "C. Boyden Gray",
     "TUNIS": ""
   }, 
@@ -2680,15 +2671,12 @@
   "KINGMAN": {
     "OSAKAKOBE": ""
   }, 
-  "KIRBY": {
-    "CHISINAU": ""
-  }, 
+  "KIRBY": "Michael D. Kirby",
+
   "KIRKCONNELL": {
     "STOCKHOLM": ""
   }, 
-  "KIRY": {
-    "CHISINAU": ""
-  }, 
+
   "KJARRETT": {
     "SHANGHAI": ""
   }, 
@@ -2990,7 +2978,7 @@
   }, 
   "LINO": {
     "DAMASCUS": "",
-    "TIRANA": ""
+    "TIRANA": "Marisa R. Lino"
   }, 
   "LIST": {
     "RIODEJANEIRO": "",
@@ -3386,10 +3374,7 @@
     "MONTERREY": ""
   }, 
   "MICHALAK": "Michael W. Michalak",
-
-  "MICHELI": {
-    "CHISINAU": ""
-  }, 
+  "MICHELI": "Marcus Micheli", 
   "MILAM": "William Bryant Milam",
 
   "MILAS": {
@@ -3918,7 +3903,7 @@
   }, 
   "PERINA": {
     "YEREVAN": "",
-    "CHISINAU": ""
+    "CHISINAU": "Rudolf V. Perina"
   }, 
   "PERKALA": {
     "PARIS": ""
@@ -4108,12 +4093,10 @@
   "RACKMALES": {
     "KADUNA": ""
   }, 
-  "RADSDALE": {
-    "DJIBOUTI": ""
-  }, 
+
   "RAGSDALE": {
     "KHARTOUM": "",
-    "DJIBOUTI": ""
+    "DJIBOUTI": "Marguerita Dianne Ragsdale"
   }, 
   "RAMADAN": {
     "NASSAU": ""
@@ -4186,9 +4169,8 @@
     "BUDAPEST": "",
     "SKOPJE": ""
   }, 
-  "REES": {
-    "DILI": ""
-  }, 
+  "REES": "Grover Joseph Rees, III",
+
   "REICH": {
     "CARACAS": "",
     "NAHA": ""
@@ -4239,8 +4221,8 @@
     "SOFIA": ""
   }, 
   "RIES": {
-    "ATHENS": "",
-    "TIRANA": "",
+    "ATHENS": "Marcie Berman Ries",
+    "TIRANA": "Marcie Berman Ries",
     "PORTOFSPAIN": ""
   }, 
   "RILEY": {
@@ -4942,7 +4924,7 @@
   }, 
   "SWAN": {
     "KINSHASA": "",
-    "DJIBOUTI": ""
+    "DJIBOUTI": "James C. Swan"
   }, 
   "SWAVELY": {
     "RECIFE": ""
@@ -4964,7 +4946,7 @@
     "DURBAN": ""
   }, 
   "SYMINGTON": {
-    "DJIBOUTI": "",
+    "DJIBOUTI": "W. Stuart Symington",
     "KIGALI": ""
   }, 
 
@@ -5490,9 +5472,8 @@
   "WITAJEWSKI": {
     "NASSAU": ""
   }, 
-  "WITHERS": {
-    "TIRANA": ""
-  }, 
+  "WITHERS": "John L. Withers, II",
+
   "WITT": {
     "HILLAH": ""
   }, 

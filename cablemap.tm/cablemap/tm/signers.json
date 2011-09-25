@@ -1862,7 +1862,7 @@
   }, 
   "GROSS": {
     "BASRAH": "", 
-    "DUSHANBE": ""
+    "DUSHANBE": "Kenneth E. Gross, Jr."
   }, 
   "GROSSMAN": {
     "ANKARA": "Marc Grossman",
@@ -2130,9 +2130,9 @@
 
   "HOAGLAND": {
     "ISLAMABAD": "", 
-    "DUSHANBE": "", 
+    "DUSHANBE": "Richard Eugene Hoagland", 
     "ASHGABAT": "", 
-    "ASTANA": ""
+    "ASTANA": "Richard Eugene Hoagland"
   }, 
   "HOBBS": {
     "BOGOTA": ""
@@ -2255,9 +2255,8 @@
   "HUGINS": {
     "KATHMANDU": ""
   }, 
-  "HUHTALA": {
-    "KUALALUMPUR": ""
-  }, 
+  "HUHTALA": "Marie T. Huhtala",
+
   "HULL": {
     "SANAA": "Edmund James Hull", 
     "FREETOWN": "Thomas Neil Hull"
@@ -2349,7 +2348,7 @@
   }, 
   "JACOBSON": {
     "ASHGABAT": "", 
-    "DUSHANBE": "", 
+    "DUSHANBE": "Tracey Ann Jacobson", 
     "OTTAWA": "David Cary Jacobson"
   }, 
   "JAMES": {
@@ -2551,7 +2550,7 @@
   "KEITH": {
     "DOHA": "",
     "HONGKONG": "James R. Keith",
-    "KUALALUMPUR": ""
+    "KUALALUMPUR": "James P. Keith"
   }, 
   "KELLER": {
     "MADRID": "",
@@ -2761,9 +2760,7 @@
     "USOSCE": "",
     "OUAGADOUGOU": ""
   }, 
-  "LAFLEUR": {
-    "KUALALUMPUR": ""
-  }, 
+  "LAFLEUR": "Christopher L. LaFleur",
   "LAINGEN": "Lowell Bruce Laingen",
 
   "LAKE": {
@@ -3042,9 +3039,8 @@
   "MALINOWSKI": {
     "KATHMANDU": ""
   }, 
-  "MALOTT": {
-    "KUALALUMPUR": ""
-  }, 
+  "MALOTT": "John R. Malott",
+
   "MANDEL": {
     "AMMAN": ""
   }, 
@@ -3283,9 +3279,7 @@
   "MCNICHOLAS": {
     "BELFAST": ""
   }, 
-  "MCWILLIAMS": {
-    "DUSHANBE": ""
-  }, 
+  "MCWILLIAMS": "Edmund McWilliams",
   "MEECE": "Roger Allen Meece",
 
   "MEIGS": {

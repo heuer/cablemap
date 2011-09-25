@@ -923,9 +923,7 @@
     "ADANA": "",
     "CASABLANCA": ""
   }, 
-  "COLEMAN": {
-    "LJUBLJANA": ""
-  }, 
+  "COLEMAN": "Maryruth Coleman ",
   "COLLINS": "James Franklin Collins",
 
   "COLVIN": {
@@ -1014,9 +1012,6 @@
 
   "CROWLEY": {
     "ASTANA": ""
-  }, 
-  "CSMCGANN": {
-    "SUVA": ""
   }, 
 
   "CULBERTSON": "James B. Culbertson",
@@ -1149,13 +1144,9 @@
     "BUCHAREST": ""
   }, 
   "DELAURENTIS": "Jeffrey DeLaurentis",
-
   "DELAWIE": "Greg Delawie",
+  "DELISI": "Scott H. DeLisi"
 
-  "DELISI": {
-    "GABORONE": "",
-    "ASMARA": ""
-  }, 
   "DELL": {
     "HARARE": "",
     "KABUL": "",
@@ -1685,9 +1676,8 @@
     "RIYADH": "", 
     "BISHKEK": ""
   }, 
-  "GHAFARI": {
-    "LJUBLJANA": ""
-  }, 
+  "GHAFARI": Yousif Boutrous Ghafari",
+
   "GHEHM": {
     "AMMAN": ""
   }, 
@@ -3241,9 +3231,8 @@
     "GUATEMALA": "",
     "CARACAS": ""
   }, 
-  "MCGANN": {
-    "SUVA": ""
-  }, 
+  "MCGANN": "C. Steven McGann",
+
   "MCGEE": {
     "MBABANE": "James David McGee",
     "ANTANANARIVO": "James David McGee",
@@ -3293,10 +3282,10 @@
   "MCMILLION": "Margaret K. McMillion",
 
   "MCMULLEN": {
-    "RANGOON": "",
+    "RANGOON": "Ronald K. McMullen",
     "PANAMA": "",
     "SAOPAULO": "",
-    "ASMARA": ""
+    "ASMARA": "Ronald K. McMullen"
   }, 
   "MCNAMARA": {
     "BEIRUT": "",
@@ -3304,9 +3293,6 @@
   }, 
   "MCNICHOLAS": {
     "BELFAST": ""
-  }, 
-  "MCOLEMAN": {
-    "LJUBLJANA": ""
   }, 
   "MCWILLIAMS": {
     "DUSHANBE": ""

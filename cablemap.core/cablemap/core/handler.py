@@ -143,7 +143,9 @@ class MultipleCableHandler(object):
 
 class CableYearOriginFilter(DelegatingCableHandler):
     """\
-
+    `DelegatingCableHandler` which extracts the year and origin of a cable and
+    delegates the cable events to the underlying `ICableHandler` iff a year
+    predicate and a origin predicate evaluates to ``True``.
     """
     def __init__(self, handler, year_filter=None, origin_filter=None):
         super(CableYearOriginFilter, self).__init__(handler)
@@ -154,7 +156,7 @@ class CableYearOriginFilter(DelegatingCableHandler):
         elif origin_filter:
             self._filter = lambda y, o: origin_filter(o)
         else:
-            self._filter = bool
+            self._filter = lambda y, o: return True
         self._process = False
 
     def start(self):

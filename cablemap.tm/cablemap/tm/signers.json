@@ -1409,7 +1409,7 @@
   "ESCUDERO": "Stanley Tuemler Escudero",
 
   "EVANS": {
-    "YEREVAN": "", 
+    "YEREVAN": "John Marshall Evans", 
     "LUXEMBOURG": ""
   }, 
   "EWHITAKER": {
@@ -1696,9 +1696,8 @@
   "GILMER": {
     "ASTANA": ""
   }, 
-  "GILMORE": {
-    "YEREVAN": ""
-  }, 
+  "GILMORE": "Harry J. Gilmore",
+
   "GILMOUR": {
     "LILONGWE": "", 
     "GENEVA": "",
@@ -3529,9 +3528,6 @@
   "MYLES": {
     "PRAIA": ""
   }, 
-  "MYOVANOVITCH": {
-    "YEREVAN": ""
-  }, 
   "NAGY": {
     "ADDISABABA": "",
     "DILI": ""
@@ -3728,14 +3724,7 @@
   "ORDONEZ": {
     "CASABLANCA": ""
   }, 
-  "ORDWAY": {
-    "YEREVAN": "",
-    "ALMATY": "",
-    "ASTANA": "",
-    "VIENNA": "",
-    "SOFIA": "",
-    "KATHMANDU": ""
-  }, 
+  "ORDWAY": "John Malcom Ordway"
   "ORECK": "Bruce J. Oreck",
 
   "ORESTE": {
@@ -3857,10 +3846,8 @@
   "PERGL": {
     "ACCRA": ""
   }, 
-  "PERINA": {
-    "YEREVAN": "",
-    "CHISINAU": "Rudolf V. Perina"
-  }, 
+  "PERINA": "Rudolf V. Perina",
+
   "PERKALA": {
     "PARIS": ""
   }, 

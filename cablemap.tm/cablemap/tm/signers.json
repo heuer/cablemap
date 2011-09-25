@@ -2001,10 +2001,8 @@
   "HASKELL": {
     "JOHANNESBURG": ""
   }, 
-  "HASLACH": {
-    "VIENTIANE": "", 
-    "BAGHDAD": ""
-  }, 
+  "HASLACH": "Patricia M. Haslach",
+
   "HATCHER": {
     "PRAGUE": ""
   }, 
@@ -2293,9 +2291,8 @@
   "HUSHEK": {
     "DUSHANBE": ""
   }, 
-  "HUSO": {
-    "VIENTIANE": ""
-  }, 
+  "HUSO": "Ravic R. Huso",
+
   "HUTCHINSON": {
     "LAGOS": ""
   }, 
@@ -2975,9 +2972,8 @@
   "LOCKARD": {
     "OUAGADOUGOU": ""
   }, 
-  "LOFTIS": {
-    "MASERU": ""
-  }, 
+  "LOFTIS": "Robert Geers Loftis",
+
   "LOGSDON": {
     "TBILISI": ""
   }, 
@@ -3646,7 +3642,7 @@
     "STOCKHOLM": ""
   }, 
   "NOLAN": {
-    "MASERU": "",
+    "MASERU": "Robert B. Nolan",
     "GABORONE": "",
     "THEHAGUE": ""
   }, 
@@ -3871,13 +3867,11 @@
   "PERKINS": "Edward Joseph Perkins",
 
   "PERRY": {
-    "MASERU": "",
+    "MASERU": "June Carter Perry",
     "TBILISI": "",
     "FREETOWN": "June Carter Perry"
   }, 
-  "PERRYJC": {
-    "MASERU": ""
-  }, 
+
   "PETERS": {
     "BRIDGETOWN": ""
   }, 
@@ -4196,9 +4190,6 @@
   }, 
   "RMOORE": {
     "PODGORICA": ""
-  }, 
-  "RNOLAN": {
-    "MASERU": ""
   }, 
 
   "ROBERTS": {

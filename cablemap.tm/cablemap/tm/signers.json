@@ -502,12 +502,10 @@
   "BRADFORD": {
     "KIRKUK": ""
   }, 
-  "BRADKTE": {
-    "ZAGREB": ""
-  }, 
+
   "BRADTKE": {
-    "LONDON": "",
-    "ZAGREB": "",
+    "LONDON": "Robert Anthony Bradtke",
+    "ZAGREB": "Robert Anthony Bradtke",
     "BERLIN": ""
   }, 
   "BRADY": {
@@ -1529,11 +1527,11 @@
     "ROME": ""
   }, 
   "FOLEY": {
-    "PORTAUPRINCE": "", 
+    "PORTAUPRINCE": "James B. Foley", 
     "BUDAPEST": "", 
     "DUBLIN": "Thomas C. Foley",
     "VATICAN": "", 
-    "ZAGREB": ""
+    "ZAGREB": "James B. Foley"
   }, 
   "FOLMSBEE": "Paul Folmsbee",
 
@@ -1576,9 +1574,7 @@
     "RIYADH": "Ford M. Fraker", 
     "JEDDAH": ""
   }, 
-  "FRANK": {
-    "ZAGREB": ""
-  }, 
+  "FRANK": "Ralph Frank",
   "FRAZER": "Jendayi Elizabeth Frazer",
 
   "FRAZIER": {
@@ -1625,12 +1621,8 @@
   "GABRIELSON": {
     "ADANA": ""
   }, 
-  "GALBRAITH": {
-    "ZAGREB": ""
-  }, 
-  "GALBRATIH": {
-    "ZAGREB": ""
-  }, 
+  "GALBRAITH": "Peter Woodard Galbraith",
+
   "GALLAGER": {
     "THEHAGUE": ""
   }, 
@@ -4324,11 +4316,8 @@
     "HAMILTON": ""
   }, 
   "ROSS": "Christopher W.S. Ross",
+  "ROSSIN": "Lawrence G. Rossin",
 
-  "ROSSIN": {
-    "MADRID": "",
-    "ZAGREB": ""
-  }, 
   "ROTERING": {
     "VLADIVOSTOK": ""
   }, 
@@ -4664,10 +4653,8 @@
     "BEIRUT": "",
     "KINSHASA": "Daniel Howard Simpson"
   }, 
-  "SISON": {
-    "ABUDHABI": "",
-    "BEIRUT": ""
-  }, 
+  "SISON": "Michele J. Sison",
+
   "SKODON": "Emil Skodon",
 
   "SKONTOS": {
@@ -5218,7 +5205,7 @@
     "ABUDHABI": ""
   }, 
   "WALKER": {
-    "ABUDHABI": "",
+    "ABUDHABI": "Edward S. Walker",
     "CAIRO": "Edward S. Walker",
     "TELAVIV": "Edward S. Walker",
     "YEREVAN": "",
@@ -5507,9 +5494,7 @@
   "WURR": {
     "HYDERABAD": ""
   }, 
-  "WWAHBA": {
-    "ABUDHABI": ""
-  }, 
+
   "WYSHAM": {
     "MAPUTO": ""
   }, 

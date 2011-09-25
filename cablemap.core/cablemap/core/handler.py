@@ -43,6 +43,7 @@ import logging
 import urllib2
 from .utils import cables_from_source, titlefy
 from .interfaces import ICableHandler, implements
+from .constants import REFERENCE_ID_PATTERN
 
 class NoopCableHandler(object):
     """\
@@ -140,6 +141,39 @@ class MultipleCableHandler(object):
                 getattr(handler, name)(*args)
         return delegate
 
+class CableYearOriginFilter(DelegatingCableHandler):
+    """\
+
+    """
+    def __init__(self, handler, year_filter=None, origin_filter=None):
+        super(CableYearOriginFilter, self).__init__(handler)
+        if year_filter and origin_filter:
+            self._filter = lambda y, o: year_filter(y) and origin_filter(o)
+        elif year_filter:
+            self._filter = lambda y, o: year_filter(y)
+        elif origin_filter:
+            self._filter = lambda y, o: origin_filter(o)
+        else:
+            self._filter = bool
+        self._process = False
+
+    def start(self):
+        self._handler.start()
+
+    def end(self):
+        self._handler.end()
+
+    def start_cable(self, reference_id, canonical_id):
+        year, origin, _ = REFERENCE_ID_PATTERN.match(canonical_id).groups()
+        self._process = self._filter(year, origin)
+        if self._process:
+            self._handler.start_cable(reference_id, canonical_id)
+
+    def __getattr__(self, name):
+        def noop(*args): pass
+        if self._process:
+            return super(CableYearOriginFilter, self).__getattr__(name)
+        return noop
 
 class DefaultMetadataOnlyFilter(DelegatingCableHandler):
     """\

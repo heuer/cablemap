@@ -39,7 +39,6 @@ This module defines a event handlers to process cables.
 :license:      BSD license
 """
 from __future__ import absolute_import
-import re
 import logging
 import urllib2
 from .utils import cables_from_source, titlefy
@@ -141,26 +140,17 @@ class MultipleCableHandler(object):
                 getattr(handler, name)(*args)
         return delegate
 
-
-_YEAR_ORIGIN_PATTERN = re.compile(r'([0-9]{2})([A-Z\-]+)[0-9]+')
-
-class CableYearOriginFilter(DelegatingCableHandler):
+class CableIdFilter(DelegatingCableHandler):
     """\
-    `DelegatingCableHandler` which extracts the year and origin of a cable and
-    delegates the cable events to the underlying `ICableHandler` iff a year
-    predicate and a origin predicate evaluates to ``True``.
+    `DelegatingCableHandler` which delegates those `ICableHandler` events to the
+    underlying handler where the filter returns ``True``.
+
+    Cables are filtered by their canonical identifier.
     """
-    def __init__(self, handler, year_filter=None, origin_filter=None):
-        super(CableYearOriginFilter, self).__init__(handler)
-        if year_filter and origin_filter:
-            self._filter = lambda y, o: year_filter(y) and origin_filter(o)
-        elif year_filter:
-            self._filter = lambda y, o: year_filter(y)
-        elif origin_filter:
-            self._filter = lambda y, o: origin_filter(o)
-        else:
-            self._filter = lambda y, o: True
-        self._process = False
+    def __init__(self, handler, predicate):
+        super(CableIdFilter, self).__init__(handler)
+        self._predicate = predicate
+        self._accept = False
 
     def start(self):
         self._handler.start()
@@ -169,15 +159,14 @@ class CableYearOriginFilter(DelegatingCableHandler):
         self._handler.end()
 
     def start_cable(self, reference_id, canonical_id):
-        year, origin = _YEAR_ORIGIN_PATTERN.match(canonical_id).groups()
-        self._process = self._filter(year, origin)
-        if self._process:
+        self._accept = self._predicate(canonical_id)
+        if self._accept:
             self._handler.start_cable(reference_id, canonical_id)
 
     def __getattr__(self, name):
         def noop(*args): pass
-        if self._process:
-            return super(CableYearOriginFilter, self).__getattr__(name)
+        if self._accept:
+            return super(CableIdFilter, self).__getattr__(name)
         return noop
 
 class DefaultMetadataOnlyFilter(DelegatingCableHandler):

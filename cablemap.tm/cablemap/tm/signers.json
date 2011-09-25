@@ -717,8 +717,8 @@
     "SHANGHAI": ""
   }, 
   "CAMPBELL": {
-    "ABUJA": "",
-    "LAGOS": "",
+    "ABUJA": "John Campbell",
+    "LAGOS": "John Campbell",
     "PHNOMPENH": "",
     "REYKJAVIK": "",
     "GEORGETOWN": "",
@@ -2377,7 +2377,7 @@
 
   "JETER": {
     "GABORONE": "", 
-    "ABUJA": ""
+    "ABUJA": "Howard Franklin Jeter"
   }, 
   "JETT": "Dennis Coleman Jett",
 
@@ -4330,9 +4330,9 @@
     "BRUSSELS": ""
   }, 
   "SANDERS": {
-    "ABUJA": "",
+    "ABUJA": "Robin Renee Sanders",
     "MANAGUA": "",
-    "LAGOS": ""
+    "LAGOS": "Robin Renee Sanders"
   }, 
   "SANDERSO": {
     "PORTAUPRINCE": ""
@@ -4621,7 +4621,7 @@
     "BRATISLAVA": ""
   }, 
   "SMITH": {
-    "LAGOS": "",
+    "LAGOS": "Thomas W. M. Smith",
     "DJIBOUTI": "",
     "ISTANBUL": "",
     "CALCUTTA": "",

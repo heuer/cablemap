@@ -1670,12 +1670,7 @@
   "GETTINGER": {
     "MOSUL": ""
   }, 
-  "GFOELLER": {
-    "ASHGABAT": "", 
-    "JEDDAH": "", 
-    "RIYADH": "", 
-    "BISHKEK": ""
-  }, 
+  "GFOELLER": "Tatiana C. Gfoeller", 
   "GHAFARI": Yousif Boutrous Ghafari",
 
   "GHEHM": {
@@ -1916,9 +1911,8 @@
     "KATHMANDU": "", 
     "AMMAN": ""
   }, 
-  "HALEY": {
-    "BANJUL": ""
-  }, 
+  "HALEY": "George W. Haley",
+
   "HALL": {
     "ROME": "", 
     "KRAKOW": ""
@@ -4481,7 +4475,7 @@
   }, 
  
   "SCOTT": {
-    "BANJUL": "",
+    "BANJUL": "Gerald W. Scott",
     "KINSHASA": "",
     "BRUSSELS": "",
     "USOSCE": "",
@@ -4740,7 +4734,7 @@
   }, 
   "STAFFORD": {
     "ALGIERS": "",
-    "BANJUL": ""
+    "BANJUL": "Joseph D. Stafford III"
   }, 
   "STANFIELD": "Sylvia Gaye Stanfield",
   
@@ -5297,9 +5291,8 @@
   "WELLER": {
     "KIGALI": ""
   }, 
-  "WELLS": {
-    "BANJUL": ""
-  }, 
+  "WELLS": "Barry L. Wells",
+
   "WELTON": {
     "SAPPORO": ""
   }, 
@@ -5417,9 +5410,7 @@
   "WINSTEAD": {
     "BISHKEK": ""
   }, 
-  "WINTER": {
-    "BANJUL": ""
-  }, 
+  "WINTER": "Andrew J. Winter",
   "WISNER": "Frank George Wisner II",
 
   "WITAJEWSKI": {

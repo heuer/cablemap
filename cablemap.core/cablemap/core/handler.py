@@ -39,11 +39,11 @@ This module defines a event handlers to process cables.
 :license:      BSD license
 """
 from __future__ import absolute_import
+import re
 import logging
 import urllib2
 from .utils import cables_from_source, titlefy
 from .interfaces import ICableHandler, implements
-from .constants import REFERENCE_ID_PATTERN
 
 class NoopCableHandler(object):
     """\
@@ -141,6 +141,9 @@ class MultipleCableHandler(object):
                 getattr(handler, name)(*args)
         return delegate
 
+
+_YEAR_ORIGIN_PATTERN = re.compile(r'([0-9]{2})([A-Z\-]+)[0-9]+')
+
 class CableYearOriginFilter(DelegatingCableHandler):
     """\
     `DelegatingCableHandler` which extracts the year and origin of a cable and
@@ -156,7 +159,7 @@ class CableYearOriginFilter(DelegatingCableHandler):
         elif origin_filter:
             self._filter = lambda y, o: origin_filter(o)
         else:
-            self._filter = lambda y, o: return True
+            self._filter = lambda y, o: True
         self._process = False
 
     def start(self):
@@ -166,7 +169,7 @@ class CableYearOriginFilter(DelegatingCableHandler):
         self._handler.end()
 
     def start_cable(self, reference_id, canonical_id):
-        year, origin, _ = REFERENCE_ID_PATTERN.match(canonical_id).groups()
+        year, origin = _YEAR_ORIGIN_PATTERN.match(canonical_id).groups()
         self._process = self._filter(year, origin)
         if self._process:
             self._handler.start_cable(reference_id, canonical_id)
@@ -212,7 +215,6 @@ class DefaultMetadataOnlyFilter(DelegatingCableHandler):
 
     def handle_header(self, header):
         pass
-
 
 class DebitlyFilter(DelegatingCableHandler):
     """\

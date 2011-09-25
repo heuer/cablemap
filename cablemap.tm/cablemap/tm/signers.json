@@ -937,7 +937,7 @@
 
   "CONNELLY": {
     "JERUSALEM": "",
-    "DAMASCUS": ""
+    "DAMASCUS": "Maura Connelly"
   }, 
   "CONNERS": {
     "PRETORIA": ""
@@ -956,10 +956,8 @@
   "COOKE": {
     "HILLAH": ""
   }, 
-  "CORBIN": {
-    "CAIRO": "",
-    "DAMASCUS": ""
-  }, 
+  "CORBIN": "Michael H. Corbin",
+
   "COUNTRYMAN": {
     "ROME": "",
     "ATHENS": "",
@@ -1236,9 +1234,8 @@
   "DINKELMAN": {
     "NOGALES": ""
   }, 
-  "DJEREJIAN": {
-    "DAMASCUS": ""
-  }, 
+  "DJEREJIAN": "Edward Peter Djerejian",
+
   "DODMAN": {
     "PRAGUE": ""
   }, 
@@ -2536,8 +2533,8 @@
   }, 
   "KATTOUF": {
     "RIYADH": "",
-    "ABUDHABI": "",
-    "DAMASCUS": ""
+    "ABUDHABI": "Theodore H. Kattouf",
+    "DAMASCUS": "Theodore H. Kattouf"
   }, 
   "KATZ": {
     "ASMARA": ""
@@ -4326,9 +4323,8 @@
   "ROSHOLT": {
     "HAMILTON": ""
   }, 
-  "ROSS": {
-    "DAMASCUS": ""
-  }, 
+  "ROSS": "Christopher W.S. Ross",
+
   "ROSSIN": {
     "MADRID": "",
     "ZAGREB": ""
@@ -4520,10 +4516,8 @@
   "SCURRAN": {
     "ASHGABAT": ""
   }, 
-  "SECHE": {
-    "DAMASCUS": "",
-    "SANAA": ""
-  }, 
+  "SECHE": "Stephen A. Seche",
+
   "SEDNEY": {
     "BEIJING": ""
   }, 

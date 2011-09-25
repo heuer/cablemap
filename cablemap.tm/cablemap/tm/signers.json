@@ -125,9 +125,7 @@
   "ARIAS": {
     "CARACAS": ""
   }, 
-  "ARIETTI": {
-    "KIGALI": ""
-  }, 
+  "ARIETTI": "Michael R. Arietti",
   "ARMACOST": "Michael Hayden Armacost",
 
   "ARMBRUSTER": {
@@ -2175,7 +2173,7 @@
   "HODGES": "Heather M. Hodges",
 
   "HOFFMAN": {
-    "LISBON": "", 
+    "LISBON": "Alfred Hoffman, Jr.", 
     "PARIS": ""
   }, 
   "HOFMANN": {
@@ -3307,9 +3305,8 @@
   "MCMCULLEN": {
     "SAOPAULO": ""
   }, 
-  "MCMILLION": {
-    "KIGALI": ""
-  }, 
+  "MCMILLION": "Margaret K. McMillion",
+
   "MCMULLEN": {
     "RANGOON": "",
     "PANAMA": "",
@@ -4826,15 +4823,13 @@
   "STEMPEL": {
     "MADRAS": ""
   }, 
-  "STEPHENON": {
-    "LISBON": ""
-  }, 
+
   "STEPHENS": {
     "ZAGREB": "",
     "SEOUL": ""
   }, 
   "STEPHENSON": {
-    "LISBON": "",
+    "LISBON": "Thomas F. Stephenson",
     "PANAMA": "Barbara J. Stephenson"
   }, 
   "STETTENBAUER": {
@@ -4945,10 +4940,7 @@
   "SYKES": {
     "DURBAN": ""
   }, 
-  "SYMINGTON": {
-    "DJIBOUTI": "W. Stuart Symington",
-    "KIGALI": ""
-  }, 
+  "SYMINGTON": "W. Stuart Symington",
 
   "SZSYKES": {
     "DURBAN": ""
@@ -5327,7 +5319,7 @@
   }, 
   "WEISBERG": {
     "HELSINKI": "",
-    "BRAZZAVILLE": ""
+    "BRAZZAVILLE": "Robert Weisberg"
   }, 
   "WEISENFELD": {
     "HARARE": ""

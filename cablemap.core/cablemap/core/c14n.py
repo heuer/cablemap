@@ -306,6 +306,7 @@ _SIGNER_C14N = {
     u'CHAUDRY': u'CHAUDHRY',
     u'CHAUHDRY': u'CHAUDHRY',
     u'RADSDALE': u'RAGSDALE',
+    u'STEPHENON': u'STEPHENSON',
 }
 
 def canonicalize_signer(signer):

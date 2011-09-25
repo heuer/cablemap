@@ -322,9 +322,8 @@
   "BERG": {
     "PORTMORESBY": ""
   }, 
-  "BERNICAT": {
-    "DAKAR": ""
-  }, 
+  "BERNICAT": "Marcia S. B. Bernicat",
+
   "BERNSTEIN": {
     "KHARTOUM": ""
   }, 
@@ -1381,9 +1380,7 @@
     "ZAGREB": "", 
     "BUCHAREST": ""
   }, 
-  "ELAM-THOMAS": {
-    "DAKAR": ""
-  }, 
+  "ELAM-THOMAS": "Harriet Elam-Thomas",
   "ELIOT": "Theodore Lyman Eliot",
 
   "ELIZONDO-HERRERA": {
@@ -2359,7 +2356,7 @@
   "IRVING": {
     "HARARE": "", 
     "MELBOURNE": "", 
-    "MBABANE": ""
+    "MBABANE": "Earl M. Irving"
   }, 
   "ITOH": "William H. Itoh",
 
@@ -2375,9 +2372,8 @@
     "RABAT": "", 
     "BRASILIA": ""
   }, 
-  "JACOBS": {
-    "DAKAR": ""
-  }, 
+  "JACOBS": "Janice Lee Jacobs",
+
   "JACOBSEN": {
     "ASHGABAT": "", 
     "GUANGZHOU": ""
@@ -2429,7 +2425,7 @@
 
   "JOHNSON": {
     "ULAANBAATAR": "",
-    "DAKAR": "",
+    "DAKAR": "Mark Johnson",
     "AITTAIPEI": "Darryl N. Johnson",
     "BANGKOK": "Darryl N. Johnson",
     "ASUNCION": "",
@@ -3260,8 +3256,8 @@
     "SUVA": ""
   }, 
   "MCGEE": {
-    "MBABANE": "",
-    "ANTANANARIVO": "",
+    "MBABANE": "James David McGee",
+    "ANTANANARIVO": "James David McGee",
     "HARARE": "",
     "SANSALVADOR": ""
   }, 
@@ -3825,9 +3821,7 @@
   "PARDEW": {
     "SOFIA": ""
   }, 
-  "PARKER": {
-    "MBABANE": ""
-  }, 
+  "PARKER": "Maurice S. Parker",
   "PARMLY": "Michael E. Parmly",
 
   "PARNELL": {
@@ -4699,7 +4693,7 @@
     "ISTANBUL": "",
     "CALCUTTA": "",
     "PORTAUPRINCE": "",
-    "DAKAR": "",
+    "DAKAR": "Dane Farnsworth Smith",
     "ASMARA": "",
     "MALABO": "",
     "RIYADH": "James B. Smith",
@@ -5548,9 +5542,8 @@
   "YAZDGERDI": {
     "PRISTINA": ""
   }, 
-  "YEAGER": {
-    "APIA": ""
-  }, 
+  "YEAGER": "Robin Yeager",
+
   "YEE": {
     "THESSALONIKI": ""
   }, 

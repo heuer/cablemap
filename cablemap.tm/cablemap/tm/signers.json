@@ -635,7 +635,7 @@
     "BUJUMBURA": ""
   }, 
   "BULLEN": {
-    "GEORGETOWN": "",
+    "GEORGETOWN": "Roland W. Bullen",
     "SANTODOMINGO": ""
   }, 
   "BURGHARDT": {
@@ -2418,7 +2418,7 @@
     "TELAVIV": "Richard Henry Jones",
     "MANILA": "",
     "MAPUTO": "",
-    "GEORGETOWN": "",
+    "GEORGETOWN": "George Fleming Jones",
     "TIRANA": ""
   }, 
   "JORDAN": {
@@ -3376,8 +3376,8 @@
     "GENEVA": ""
   }, 
   "MOLLER": {
-    "BUJUMBURA": "Patricia N. Moller",
-    "CONAKRY": ""
+    "BUJUMBURA": "Patricia Newton Moller",
+    "CONAKRY": "Patricia Newton Moller"
   }, 
   "MONJO": "John Cameron Monjo",
 
@@ -4159,7 +4159,7 @@
     "KINGSTON": "",
     "LAPAZ": "",
     "GENEVA": "",
-    "GEORGETOWN": "",
+    "GEORGETOWN": "David M. Robinson",
     "BARCELONA": "",
     "HERMOSILLO": "",
     "MONROVIA": "",
@@ -4285,10 +4285,6 @@
 
   "RVIRDEN": {
     "BRASILIA": ""
-  }, 
-
-  "RWBULLEN": {
-    "GEORGETOWN": ""
   }, 
   "RYDE": {
     "PORTLOUIS": ""
@@ -4904,7 +4900,7 @@
   }, 
   "THOMAS": {
     "DHAKA": "Harry K. Thomas, Jr.",
-    "GEORGETOWN": ""
+    "GEORGETOWN": "Gerald Eustis Thomas"
   }, 
   "THOMAS-GREENFIELD": {
     "MONROVIA": ""

@@ -320,6 +320,9 @@ _SIGNER_C14N = {
     u'DRSE': u'DERSE',
     u'SSUTTON': u'SUTTON',
     u'JACKSN': u'JACKSON',
+    u'MUSOMELLI': u'MUSSOMELI',
+    u'MUSSOMELLI': u'MUSSOMELI',
+    u'JMUSSOMELI': u'MUSSOMELI',
 }
 
 def canonicalize_signer(signer):

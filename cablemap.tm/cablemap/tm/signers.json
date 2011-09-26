@@ -258,7 +258,7 @@
   "BASORA": "Adrian A. Basora",
 
   "BASS": {
-    "TBILISI": ""
+    "TBILISI": "John R. Bass"
   }, 
   "BASSET": {
     "MANILA": ""
@@ -520,7 +520,7 @@
     "RIYADH": ""
   }, 
   "BRAZEAL": {
-    "ADDISABABA": ""
+    "ADDISABABA": "Aurelia E. Brazeal"
   }, 
   "BREEDEN": {
     "MARSEILLE": ""
@@ -551,7 +551,7 @@
   "BRIDGES": "Peter Scott Bridges",
 
   "BRIDGEWATER": {
-    "ACCRA": ""
+    "ACCRA": "Pamela E. Bridgewater"
   }, 
   "BRINEMAN": {
     "SANTODOMINGO": ""
@@ -573,7 +573,7 @@
   }, 
   "BROWN": {
     "TELAVIV": "",
-    "ACCRA": "",
+    "ACCRA": "Kenneth Lee Brown",
     "VIENNA": "Lyons Brown, Jr.",
     "QUITO": "",
     "COTONOU": "Gayleatha Beatrice Brown",
@@ -620,7 +620,7 @@
     "SANAA": ""
   }, 
   "BRYNN": {
-    "ACCRA": ""
+    "ACCRA": "Edward Brynn"
   }, 
   "BRYS": {
     "DUBAI": ""
@@ -830,7 +830,7 @@
     "MUMBAI": ""
   }, 
   "CHEEK": {
-    "ADDISABABA": "",
+    "ADDISABABA": "James Richard Cheek",
     "KHARTOUM": "James Richard Cheek",
     "BUENOSAIRES": "James Richard Cheek"
   }, 
@@ -1409,7 +1409,7 @@
     "KHARTOUM": ""
   }, 
   "EWING": {
-    "ACCRA": ""
+    "ACCRA": "Raymond Charles Ewing"
   }, 
   "EYRE": {
     "RPODUBAI": ""
@@ -1897,7 +1897,7 @@
   }, 
   "HALE": {
     "BEIRUT": "", 
-    "KATHMANDU": "", 
+    "3": "", 
     "AMMAN": ""
   }, 
   "HALEY": "George W. Haley",
@@ -2083,7 +2083,7 @@
     "BASRAH": ""
   }, 
   "HICKS": {
-    "ADDISABABA": ""
+    "ADDISABABA": "Irvin Hicks"
   }, 
   "HIGH": {
     "ACCRA": ""
@@ -2193,7 +2193,7 @@
   }, 
   "HOUDEK": {
     "KAMPALA": "", 
-    "ADDISABABA": ""
+    "ADDISABABA": "Robert G. Houdek"
   }, 
   "HOWARD": {
     "BRIDGETOWN": "", 
@@ -2224,7 +2224,7 @@
     "RANGOON": "Franklin Pierce Huddle, Jr."
   }, 
   "HUDDLESTON": {
-    "ADDISABABA": "", 
+    "ADDISABABA": "Vicki J. Huddleston", 
     "ABIDJAN": ""
   }, 
   "HUDSON": {
@@ -2852,7 +2852,7 @@
     "QUITO": ""
   }, 
   "LEDESMA": {
-    "LIBREVILLE": ""
+    "LIBREVILLE": "James V. Ledesma"
   }, 
   "LEE": {
     "KADUNA": "",
@@ -2985,8 +2985,8 @@
   "LYMAN": "Princeton Nathan Lyman",
 
   "LYNE": {
-    "BEIRUT": "",
-    "ACCRA": ""
+    "BEIRUT": "Stephen R. Lyne",
+    "ACCRA": "Stephen R. Lyne"
   }, 
   "MABUS": "Raymond Edwin Mabus, Jr.",
   "MACK": {
@@ -3903,7 +3903,7 @@
     "BERLIN": ""
   }, 
   "POLT": {
-    "BELGRADE": "",
+    "BELGRADE": "Michael C. Polt",
     "TALLINN": "Michael C. Polt"
   }, 
   "POMPER": {
@@ -3923,10 +3923,10 @@
   }, 
   "POWELL": {
     "STATE": "Colin Powell",
-    "ACCRA": "",
+    "ACCRA": "Nancy Jo Powell",
     "PARTO": "",
     "FRANKFURT": "",
-    "KATHMANDU": "",
+    "KATHMANDU": "Nancy Jo Powell",
     "BERLIN": ""
   }, 
   "POWER": {
@@ -4066,7 +4066,7 @@
     "DILI": ""
   }, 
   "REDDICK": {
-    "LIBREVILLE": ""
+    "LIBREVILLE": "Eunice S. Reddick"
   }, 
   "REED": {
     "HILLAH": ""
@@ -4495,7 +4495,7 @@
     "SINGAPORE": ""
   }, 
   "SHINN": {
-    "ADDISABABA": ""
+    "ADDISABABA": "David H. Shinn"
   }, 
   "SHIRATORI": {
     "DILI": ""
@@ -4878,8 +4878,8 @@
     "PORTAUPRINCE": ""
   }, 
   "TEFFT": {
-    "TBILISI": "",
-    "KYIV": ""
+    "TBILISI": "John F. Tefft",
+    "KYIV": "John F. Tefft"
   }, 
   "TEITELBAUM": "Donald G. Teitelbaum",
 
@@ -5129,7 +5129,7 @@
   }, 
   "WALKLEY": {
     "KINSHASA": "",
-    "LIBREVILLE": "",
+    "LIBREVILLE": "R. Barrie Walkley",
     "PORTLOUIS": ""
   }, 
   "WALL": {
@@ -5431,7 +5431,7 @@
   }, 
   "YATES": {
     "KINSHASA": "John M. Yates", 
-    "ACCRA": "", 
+    "ACCRA": "Mary Carlin Yates", 
     "ADDISABABA": ""
   }, 
 

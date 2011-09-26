@@ -1897,7 +1897,6 @@
   }, 
   "HALE": {
     "BEIRUT": "", 
-    "3": "", 
     "AMMAN": ""
   }, 
   "HALEY": "George W. Haley",
@@ -1921,7 +1920,7 @@
   }, 
   "HAMILTON": {
     "LIMA": "John Hamilton",
-    "GUATEMALA": "", 
+    "GUATEMALA": "John Randle Hamilton", 
     "GABORONE": ""
   }, 
   "HAMMOND": {
@@ -3195,8 +3194,8 @@
   "MCELVEEN-HUNTER": "Bonnie McElveen-Hunter",
 
   "MCFARLAND": {
-    "GUATEMALA": "",
-    "CARACAS": ""
+    "GUATEMALA": "Stephen George McFarland",
+    "CARACAS": "Stephen George McFarland"
   }, 
   "MCGANN": "C. Steven McGann",
 

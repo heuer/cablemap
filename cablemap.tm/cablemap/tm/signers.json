@@ -1813,7 +1813,7 @@
   }, 
   "GREEN": {
     "ADANA": "", 
-    "DARESSALAAM": ""
+    "DARESSALAAM": "Mark Andrew Green"
   }, 
   "GREENBERG": {
     "STPETERSBURG": ""
@@ -2877,7 +2877,7 @@
     "KUWAIT": ""
   }, 
   "LENHARDT": {
-    "DARESSALAAM": ""
+    "DARESSALAAM": "Alfonso E. Lenhardt"
   }, 
   "LEONARD": {
     "NDJAMENA": "",
@@ -3736,7 +3736,7 @@
   "OURISMAN": "Mary Martin Ourisman",
 
   "OWEN": {
-    "DARESSALAAM": "",
+    "DARESSALAAM": "Michael S. Owen",
     "MUMBAI": ""
   }, 
   "OWENS": {
@@ -4118,7 +4118,7 @@
     "LILONGWE": ""
   }, 
   "RETZER": {
-    "DARESSALAAM": ""
+    "DARESSALAAM": "Michael Retzer"
   }, 
   "REYNOLDS": {
     "BANGUI": ""
@@ -5295,7 +5295,12 @@
   "WHITEHEAD": {
     "STATE": "",
     "HARARE": "",
-    "KHARTOUM": ""
+    "KHARTOUM": {
+      "04": "Robert Whitehead",
+      "05": "Robert Whitehead",
+      "09": "Robert E. Whitehead",
+      "10": "Robert E. Whitehead"
+    }
   }, 
   "WHITMAN": {
     "DILI": ""

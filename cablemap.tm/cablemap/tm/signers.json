@@ -57,7 +57,7 @@
     "ADANA": ""
   }, 
   "ALMAGUER": {
-    "TEGUCIGALPA": ""
+    "TEGUCIGALPA": "Frank Almaguer"
   }, 
   "ALOISI": {
     "HANOI": ""
@@ -168,7 +168,7 @@
     "BRASILIA": ""
   }, 
   "AUSTIN": {
-    "PORTOFSPAIN": ""
+    "PORTOFSPAIN": "Roy Leslie Austin"
   }, 
   "AVANT": {
     "NASSAU": ""
@@ -1400,7 +1400,7 @@
     "BANGKOK": ""
   }, 
   "ERDMAN": {
-    "ALGIERS": "", 
+    "ALGIERS": "Richard W. Erdman", 
     "RIYADH": ""
   }, 
   "ERELI": "Joseph Adam Ereli",
@@ -1536,10 +1536,10 @@
     "TUNIS": ""
   }, 
   "FORD": {
-    "MANAMA": "", 
-    "TEGUCIGALPA": "", 
-    "ALGIERS": "", 
-    "BAGHDAD": ""
+    "MANAMA": "Robert Stephen Ford", 
+    "TEGUCIGALPA": "Charles Arthur Ford", 
+    "ALGIERS": "Robert Stephen Ford", 
+    "BAGHDAD": "Robert Stephen Ford"
   }, 
   "FORDEN": {
     "AITTAIPEI": ""
@@ -2415,7 +2415,7 @@
     "ASUNCION": ""
   }, 
   "JOHNSTONE": {
-    "ALGIERS": ""
+    "ALGIERS": "L. Craig Johnstone"
   }, 
   "JONES": {
     "ISLAMABAD": "",
@@ -2441,7 +2441,7 @@
     "LIMA": "David C. Jordan",
     "RIYADH": "Robert W. Jordan",
     "LAHORE": "",
-    "ALGIERS": ""
+    "ALGIERS": "W. William Jordan"
   }, 
   "JOSEPH": "James A. Joseph", 
 
@@ -2954,9 +2954,9 @@
     "BISHKEK": ""
   }, 
   "LLORENS": {
-    "BUENOSAIRES": "",
-    "MADRID": "",
-    "TEGUCIGALPA": ""
+    "BUENOSAIRES": "Hugo Llorens",
+    "MADRID": "Hugo Llorens",
+    "TEGUCIGALPA": "Hugo Llorens"
   }, 
   "LNIGRO": {
     "NDJAMENA": ""
@@ -3753,15 +3753,10 @@
     "RIYADH": ""
   }, 
   "PALMER": {
-    "TEGUCIGALPA": "",
+    "TEGUCIGALPA": "Larry Leon Palmer",
     "HANOI": "Virginia E. Palmer"
   }, 
-  "PALMERALMER": {
-    "TEGUCIGALPA": ""
-  }, 
-  "PAMLER": {
-    "TEGUCIGALPA": ""
-  }, 
+
   "PANOS": {
     "BANGUI": ""
   }, 
@@ -3808,7 +3803,7 @@
     "DAMASCUS": "",
     "JERUSALEM": "",
     "ROME": "",
-    "ALGIERS": ""
+    "ALGIERS": "David D. Pearce"
   }, 
   "PEARSON": "W. Robert Pearson",
 
@@ -4337,7 +4332,7 @@
     "PORTAUPRINCE": ""
   }, 
   "SANDERSON": {
-    "ALGIERS": "",
+    "ALGIERS": "Janet A. Sanderson",
     "PORTAUPRINCE": ""
   }, 
   "SANDROLINI": {

@@ -577,7 +577,7 @@
     "VIENNA": "Lyons Brown, Jr.",
     "QUITO": "",
     "COTONOU": "Gayleatha Beatrice Brown",
-    "OUAGADOUGOU": "",
+    "OUAGADOUGOU": "Gayleatha Beatrice Brown",
     "PRETORIA": "Gayleatha Beatrice Brown",
     "AMMAN": "",
     "CHENGDU": "",
@@ -870,7 +870,7 @@
 
   "CLAPP": {
     "PRETORIA": "",
-    "RANGOON": ""
+    "RANGOON": "Priscilla A. Clapp"
   }, 
   "CLARK": {
     "TOKYO": ""
@@ -2227,7 +2227,7 @@
     "STPETERSBURG": ""
   }, 
   "HUDDLE": {
-    "RANGOON": ""
+    "RANGOON": "Franklin Pierce Huddle, Jr."
   }, 
   "HUDDLESTON": {
     "ADDISABABA": "", 
@@ -2327,12 +2327,9 @@
   "IVECK": {
     "PORTMORESBY": ""
   }, 
-  "JACKSN": {
-    "OUAGADOUGOU": ""
-  }, 
   "JACKSON": {
     "DAKAR": "", 
-    "OUAGADOUGOU": "", 
+    "OUAGADOUGOU": "Jeanine E. Jackson", 
     "RABAT": "", 
     "BRASILIA": ""
   }, 
@@ -5118,7 +5115,7 @@
     "HILLAH": ""
   }, 
   "VILLAROSA": {
-    "RANGOON": ""
+    "RANGOON": "Shari Villarosa"
   }, 
   "VIRDEN": {
     "BRASILIA": ""

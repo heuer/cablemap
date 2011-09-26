@@ -1271,9 +1271,6 @@
   "DROUIN": {
     "GABORONE": ""
   }, 
-  "DRSE": {
-    "BAKU": ""
-  }, 
   "DRUCKER": {
     "BUENOSAIRES": "",
     "BOGOTA": ""
@@ -1518,7 +1515,7 @@
   }, 
   "FOLEY": {
     "PORTAUPRINCE": "James B. Foley", 
-    "BUDAPEST": "", 
+    "BUDAPEST": "April H. Foley", 
     "DUBLIN": "Thomas C. Foley",
     "VATICAN": "", 
     "ZAGREB": "James B. Foley"
@@ -1964,9 +1961,9 @@
     "BRIDGETOWN": "Brent Hardt"
   }, 
   "HARNISH": {
-    "CAIRO": "", 
-    "PRISTINA": "", 
-    "BAKU": ""
+    "CAIRO": "Reno L. Harnish III", 
+    "PRISTINA": "Reno L. Harnish III", 
+    "BAKU": "Reno L. Harnish III"
   }, 
   "HARPOLE": {
     "MALABO": ""
@@ -2696,7 +2693,7 @@
     "PARIS": ""
   }, 
   "KOUNALAKIS": {
-    "BUDAPEST": ""
+    "BUDAPEST": "Eleni Tsakopoulos Kounalakis"
   }, 
   "KOUTSIS": {
     "NOUAKCHOTT": ""
@@ -2985,8 +2982,8 @@
     "PODGORICA": ""
   }, 
   "LU": {
-    "BISHKEK": "",
-    "BAKU": ""
+    "BISHKEK": "Donald Lu",
+    "BAKU": "Donald Lu"
   }, 
   "LUCAS": {
     "PRAGUE": ""

@@ -171,7 +171,7 @@
     "PORTOFSPAIN": "Roy Leslie Austin"
   }, 
   "AVANT": {
-    "NASSAU": ""
+    "NASSAU": "Nicole A. Avant"
   }, 
   "AYALDE": {
     "ASUNCION": ""
@@ -387,7 +387,7 @@
     "PRETORIA": ""
   }, 
   "BLANKENSHIP": {
-    "NASSAU": ""
+    "NASSAU": "J. Richard Blankenship"
   }, 
   "BLASER": {
     "PORTLOUIS": ""
@@ -438,7 +438,7 @@
   }, 
   "BOHLEN": {
     "PARIS": "",
-    "SOFIA": ""
+    "SOFIA": "Avis Thayer Bohlen"
   }, 
   "BOLTON": {
     "USUNNEWYORK": ""
@@ -576,9 +576,9 @@
     "ACCRA": "",
     "VIENNA": "Lyons Brown, Jr.",
     "QUITO": "",
-    "COTONOU": "",
+    "COTONOU": "Gayleatha Beatrice Brown",
     "OUAGADOUGOU": "",
-    "PRETORIA": "",
+    "PRETORIA": "Gayleatha Beatrice Brown",
     "AMMAN": "",
     "CHENGDU": "",
     "PRAIA": ""
@@ -669,7 +669,7 @@
 
   "BUSH": {
     "RABAT": "",
-    "BRUSSELS": ""
+    "BRUSSELS": "Wayne Bush"
   }, 
   "BUSHNELL": {
     "PANAMA": ""
@@ -728,7 +728,7 @@
     "SHANGHAI": ""
   }, 
   "CANAVAN": {
-    "GABORONE": ""
+    "GABORONE": "Katherine Hubay Peterson Canavan"
   }, 
   "CANDADAI": {
     "CHENNAI": ""
@@ -971,10 +971,10 @@
     "ROME": ""
   }, 
   "CREAGAN": {
-    "LAPAZ": ""
+    "LAPAZ": "James F. Creagan"
   }, 
   "CREAMER": {
-    "LAPAZ": ""
+    "LAPAZ": "John S. Creamer"
   }, 
   "CREEKMORE": "Marion V. Creekmore, Jr.",
 
@@ -1210,9 +1210,9 @@
   "DIETER": "Robert Johann Dieter",
 
   "DIFFILY": {
-    "LOME": "",
+    "LOME": "J.A. Diffily",
     "COTONOU": "",
-    "BELMOPAN": ""
+    "BELMOPAN": "J.A. Diffily"
   }, 
   "DINGER": {
     "ULAANBAATAR": "John R. Dinger",
@@ -1346,7 +1346,7 @@
     "MONTERREY": ""
   }, 
   "EFIRD": {
-    "LUANDA": ""
+    "LUANDA": "Cynthia Grissom Efird"
   }, 
   "EGAN": {
     "CAIRO": "", 
@@ -1387,7 +1387,7 @@
     "UNESCOPARISFR": ""
   }, 
   "ENGLISH": {
-    "SARAJEVO": ""
+    "SARAJEVO": "Charles L. English"
   }, 
   "ENTWISTLE": {
     "COLOMBO": "", 
@@ -1744,10 +1744,10 @@
     "GUANGZHOU": ""
   }, 
   "GOLDBERG": {
-    "SANTIAGO": "", 
-    "PRISTINA": "", 
+    "SANTIAGO": "Philip S. Goldberg", 
+    "PRISTINA": "Philip S. Goldberg", 
     "GUANGZHOU": "", 
-    "LAPAZ": "", 
+    "LAPAZ": "Philip S. Goldberg", 
     "BEIJING": ""
   }, 
   "GOLDRICH": {
@@ -1797,9 +1797,9 @@
   }, 
   "GRAY": {
     "CAIRO": "", 
-    "BRUSSELS": "", 
+    "BRUSSELS": "Clayland Boyden Gray", 
     "DILI": "W. Gary Gray", 
-    "USEUBRUSSELS": "C. Boyden Gray",
+    "USEUBRUSSELS": "Clayland Boyden Gray",
     "TUNIS": ""
   }, 
   "GRAZE": {
@@ -1826,7 +1826,7 @@
     "MONROVIA": ""
   }, 
   "GREENLEE": {
-    "LAPAZ": ""
+    "LAPAZ": "David N. Greenlee"
   }, 
   "GREGG": {
     "SEOUL": "", 
@@ -2244,7 +2244,7 @@
   }, 
   "HUGGINS": {
     "ISTANBUL": "", 
-    "GABORONE": ""
+    "GABORONE": "Joseph Huggins"
   }, 
   "HUGHES": "Miriam K. Hughes",
 
@@ -2372,7 +2372,7 @@
   "JEFFREY": "James F. Jeffrey",
 
   "JETER": {
-    "GABORONE": "", 
+    "GABORONE": "Howard Franklin Jeter", 
     "ABUJA": "Howard Franklin Jeter"
   }, 
   "JETT": "Dennis Coleman Jett",
@@ -2569,7 +2569,8 @@
     "SINGAPORE": ""
   }, 
   "KENNARD": {
-    "BRUSSELS": ""
+    "BRUSSELS": "William E. Kennard "
+    "USEUBRUSSELS": "William E. Kennard "
   }, 
   "KENNEDY-IRAHETA": {
     "SANSALVADOR": ""
@@ -2660,8 +2661,8 @@
     "BOGOTA": ""
   }, 
   "KNIGHT": {
-    "LUANDA": "",
-    "COTONOU": ""
+    "LUANDA": "James Knight",
+    "COTONOU": "James Knight"
   }, 
   "KNOWLES": {
     "DUSSELDORF": ""
@@ -2724,7 +2725,7 @@
   }, 
   "KROL": "George Albert Krol",
   "KRUEGER": {
-    "GABORONE": ""
+    "GABORONE": "Robert Charles Krueger"
   }, 
   "KRUGER": {
     "STPETERSBURG": ""
@@ -2791,7 +2792,7 @@
   "LANGDALE": "Mark Langdale",
 
   "LANGE": {
-    "GABORONE": ""
+    "GABORONE": "John E. Lange"
   }, 
   "LANIER": {
     "ACCRA": "",
@@ -3199,12 +3200,12 @@
     "CONAKRY": ""
   }, 
   "MCELDOWNEY": {
-    "ANKARA": "",
-    "SOFIA": ""
+    "ANKARA": "Nancy E. McEldowney",
+    "SOFIA": "Nancy E. McEldowney"
   }, 
   "MCELHANEY": {
-    "MILAN": "",
-    "SARAJEVO": ""
+    "MILAN": "Douglas L. McElhaney",
+    "SARAJEVO": "Douglas L. McElhaney"
   }, 
   "MCELVEEN-HUNTER": "Bonnie McElveen-Hunter",
 
@@ -3329,9 +3330,9 @@
     "ASTANA": ""
   }, 
   "MILES": {
-    "BERLIN": "",
-    "SOFIA": "",
-    "ASHGABAT": ""
+    "BERLIN": "Richard Monroe Miles",
+    "SOFIA": "Richard Monroe Miles",
+    "ASHGABAT": "Richard Monroe Miles"
   }, 
   "MILLARD": {
     "KATHMANDU": "",
@@ -3402,7 +3403,7 @@
     "PARIS": ""
   }, 
   "MONTGOMERY": {
-    "SOFIA": "",
+    "SOFIA": "William Dale Montgomery",
     "BELGRADE": ""
   }, 
   "MOON": {
@@ -3452,7 +3453,7 @@
     "COPENHAGEN": ""
   }, 
   "MOZENA": {
-    "LUANDA": ""
+    "LUANDA": "Dan Mozena"
   }, 
   "MUENCH": {
     "RIYADH": ""
@@ -3559,7 +3560,7 @@
     "USOSCE": ""
   }, 
   "NEILL": {
-    "COTONOU": ""
+    "COTONOU": "Wayne E. Neill"
   }, 
   "NEITZKE": {
     "ZAGREB": ""
@@ -3629,7 +3630,7 @@
   }, 
   "NOLAN": {
     "MASERU": "Robert B. Nolan",
-    "GABORONE": "",
+    "GABORONE": "Stephen J. Nolan",
     "THEHAGUE": ""
   }, 
   "NORDBERG": {
@@ -3758,7 +3759,7 @@
     "BANGUI": ""
   }, 
   "PARDEW": {
-    "SOFIA": ""
+    "SOFIA": "James W. Pardew"
   }, 
   "PARKER": "Maurice S. Parker",
   "PARMLY": "Michael E. Parmly",
@@ -4229,7 +4230,7 @@
   "ROMERO": "Edward L. Romero",
 
   "ROOD": {
-    "NASSAU": ""
+    "NASSAU": "John D. Rood"
   }, 
   "ROONEY": {
     "VATICAN": "L. Francis Rooney III",
@@ -4256,7 +4257,7 @@
     "PARIS": ""
   }, 
   "ROSHOLT": {
-    "HAMILTON": ""
+    "HAMILTON": "Jacquelyn B. Rosholt"
   }, 
   "ROSS": "Christopher W.S. Ross",
   "ROSSIN": "Lawrence G. Rossin",
@@ -4510,8 +4511,8 @@
     "AITTAIPEI": ""
   }, 
   "SHELTON": {
-    "LJUBLJANA": "",
-    "HAMILTON": ""
+    "LJUBLJANA": "Grace W. Shelton",
+    "HAMILTON": "Grace W. Shelton"
   }, 
   "SHIEFFER": "John Thomas Schieffer",
 
@@ -4539,7 +4540,7 @@
     "ANTANANARIVO": ""
   }, 
   "SIEGEL": {
-    "NASSAU": ""
+    "NASSAU": "Ned Siegel"
   }, 
   "SIEKERT": {
     "SANJOSE": ""
@@ -4692,9 +4693,6 @@
   "SSOUDKIRK": {
     "ISTANBUL": ""
   }, 
-  "SSUTTON": {
-    "SOFIA": ""
-  }, 
   "STAFFORD": {
     "ALGIERS": "",
     "BANJUL": "Joseph D. Stafford III"
@@ -4733,7 +4731,7 @@
     "USNATO": ""
   }, 
   "STEINBERG": {
-    "LUANDA": ""
+    "LUANDA": "Donald K. Steinberg"
   }, 
   "STEINFELD": {
     "KHARTOUM": ""
@@ -4833,7 +4831,7 @@
     "DUBAI": ""
   }, 
   "SUTTON": {
-    "SOFIA": ""
+    "SOFIA": "Susan M. Sutton"
   }, 
   "SWAN": {
     "KINSHASA": "",
@@ -4954,7 +4952,7 @@
     "HANOI": ""
   }, 
   "THUMMALAPALLY": {
-    "BELMOPAN": ""
+    "BELMOPAN": "Vinai K. Thummalapally"
   }, 
   "THURSTON": {
     "KIGALI": "",
@@ -5082,7 +5080,7 @@
     "NICOSIA": "Frank C. Urbancic, Jr."
   }, 
   "URS": {
-    "LAPAZ": ""
+    "LAPAZ": "Krishna R. Urs"
   }, 
   "USSERY": {
     "RABAT": ""
@@ -5184,7 +5182,7 @@
   "WARE": "Marilyn Ware",
 
   "WARLICK": {
-    "SOFIA": "",
+    "SOFIA": "James B. Warlick, Jr.",
     "BELGRADE": ""
   }, 
   "WARNER": {
@@ -5381,7 +5379,7 @@
   "WISNER": "Frank George Wisner II",
 
   "WITAJEWSKI": {
-    "NASSAU": ""
+    "NASSAU": "Robert M. Witajewski"
   }, 
   "WITHERS": "John L. Withers, II",
 

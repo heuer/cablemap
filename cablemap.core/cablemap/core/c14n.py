@@ -324,6 +324,7 @@ _SIGNER_C14N = {
     u'MUSSOMELLI': u'MUSSOMELI',
     u'JMUSSOMELI': u'MUSSOMELI',
     u'FBCOOK': u'COOK',
+    u'LNIGRO': u'NIGRO',
 }
 
 def canonicalize_signer(signer):

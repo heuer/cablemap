@@ -285,7 +285,7 @@
     "COLOMBO": ""
   }, 
   "BEECROFT": {
-    "AMMAN": ""
+    "AMMAN": "Robert Stephen Beecroft"
   }, 
   "BEEDE": {
     "SHANGHAI": ""
@@ -424,7 +424,7 @@
     "ROME": ""
   }, 
   "BOEKER": {
-    "AMMAN": ""
+    "AMMAN": "Paul H. Boeker"
   }, 
   "BOGGS": {
     "VATICAN": "",
@@ -647,7 +647,7 @@
     "WELLINGTON": ""
   }, 
   "BURNS": {
-    "AMMAN": "",
+    "AMMAN": "William Joseph Burns",
     "ATHENS": "R. Nicholas Burns",
     "USNATO": "R. Nicholas Burns",
     "DUBAI": "",
@@ -900,7 +900,7 @@
   }, 
   "COATS": "Daniel Ray Coats", 
   "COBB": {
-    "KINGSTON": ""
+    "KINGSTON": "Sue McCourt Cobb"
   }, 
   "COCKBURN": {
     "SANSALVADOR": ""
@@ -1336,7 +1336,7 @@
   }, 
   "EGAN": {
     "CAIRO": "", 
-    "AMMAN": "", 
+    "AMMAN": "Wesley William Egan, Jr.", 
     "PARIS": ""
   }, 
   "EHRENDREICH": {
@@ -1651,13 +1651,6 @@
   }, 
   "GFOELLER": "Tatiana C. Gfoeller",
   "GHAFARI": "Yousif Boutrous Ghafari",
-
-  "GHEHM": {
-    "AMMAN": ""
-  }, 
-  "GHENM": {
-    "AMMAN": ""
-  }, 
   "GIBBONS": {
     "MANILA": ""
   }, 
@@ -1700,8 +1693,8 @@
     "UNROME": "Michael P. Glover"
   }, 
   "GNEHM": {
-    "AMMAN": "", 
-    "KUWAIT": ""
+    "AMMAN": "Edward William Gnehm, Jr.", 
+    "KUWAIT": "Edward William Gnehm, Jr."
   }, 
   "GODARD": {
     "BUENOSAIRES": ""
@@ -1879,8 +1872,8 @@
     "MANAMA": ""
   }, 
   "HALE": {
-    "BEIRUT": "", 
-    "AMMAN": ""
+    "BEIRUT": "David Hale", 
+    "AMMAN": "David Hale"
   }, 
   "HALEY": "George W. Haley",
 
@@ -2991,7 +2984,7 @@
   "MALOTT": "John R. Malott",
 
   "MANDEL": {
-    "AMMAN": ""
+    "AMMAN": "Lawrence C. Mandel"
   }, 
   "MANGANIELLO": {
     "BRASILIA": ""
@@ -4056,10 +4049,6 @@
   "REYNOLDS": {
     "BANGUI": ""
   }, 
-  "RGREENE": {
-    "NAHA": ""
-  }, 
-
   "RICCIARDONE": "Francis J. Ricciardone, Jr.",
 
   "RICE": {
@@ -4735,8 +4724,8 @@
     "QUEBEC": ""
   }, 
   "SUDDARTH": {
-    "RIYADH": "",
-    "AMMAN": ""
+    "RIYADH": "Roscoe Seldon Suddarth",
+    "AMMAN": "Roscoe Seldon Suddarth"
   }, 
   "SUL": {
     "HARARE": ""

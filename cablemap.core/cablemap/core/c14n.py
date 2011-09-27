@@ -344,6 +344,9 @@ _SIGNER_C14N = {
     u'BRUDVIGLA': u'BRUDVIG',
     u'COUSINE': u'COUSIN',
     u'GLOVERMP': u'GLOVER',
+    u'RGREENE': u'GREENE',
+    u'GHEHM': u'GHNEHM',
+    u'GHENM': u'GHNEHM',
 }
 
 def canonicalize_signer(signer):

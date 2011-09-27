@@ -1700,12 +1700,9 @@
   "GIRARD-DICARLO": "David F. Girard-diCarlo",
   "GITENSTEIN": "Mark Henry Gitenstein",
 
-  "GLAGPIE": {
-    "DAMASCUS": ""
-  }, 
   "GLASPIE": {
-    "DAMASCUS": "",
-    "BAGHDAD": ""
+    "DAMASCUS": "April Catherine Glaspie",
+    "BAGHDAD": "April Catherine Glaspie"
   }, 
   "GLAZER": "Charles L. Glazer",
   "GLENDON": "Mary Ann Glendon",
@@ -2093,7 +2090,7 @@
     "BELMOPAN": "", 
     "CHENGDU": "", 
     "ULAANBAATAR": "", 
-    "BAGHDAD": "", 
+    "BAGHDAD": "Christopher Robert Hill", 
     "VANCOUVER": ""
   }, 
   "HILLAS": {
@@ -2586,12 +2583,6 @@
   "KEUR": {
     "BANGKOK": "",
     "HYDERABAD": ""
-  }, 
-  "KHAHILIZAD": {
-    "BAGHDAD": ""
-  }, 
-  "KHAHILZAD": {
-    "USUNNEWYORK": ""
   }, 
   "KHALILZAD": "Zalmay Mamozy Khalilzad",
 
@@ -3530,8 +3521,8 @@
     "BASRAH": ""
   }, 
   "NEGROPONTE": {
-    "USUNNEWYORK": "",
-    "BAGHDAD": ""
+    "USUNNEWYORK": "John Dimitri Negroponte",
+    "BAGHDAD": "John Dimitri Negroponte"
   }, 
   "NEIGHBOUR": {
     "KINGSTON": "",
@@ -3566,7 +3557,7 @@
     "KABUL": "Ronald E. Neumann"
   }, 
   "NEWTON": {
-    "BAGHDAD": ""
+    "BAGHDAD": "David George Newton"
   }, 
   "NICHOLAS": {
     "DJIBOUTI": ""
@@ -3973,9 +3964,6 @@
   }, 
   "PYOTT": "Rob Pyott",
 
-  "QBUTENIS": {
-    "BAGHDAD": ""
-  }, 
   "QMOTO": {
     "ADDISABABA": ""
   }, 
@@ -4401,7 +4389,7 @@
   "SCOBEY": {
     "RIYADH": "Margaret Scobey",
     "DAMASCUS": "Margaret Scobey",
-    "BAGHDAD": "",
+    "BAGHDAD": "Margaret Scobey",
     "CAIRO": "Margaret Scobey"
   }, 
  
@@ -5321,7 +5309,7 @@
     "PORTLOUIS": ""
   }, 
   "WILSON": {
-    "BAGHDAD": "", 
+    "BAGHDAD": "Joseph Charles Wilson IV", 
     "ANKARA": "", 
     "DUSHANBE": "", 
     "ADANA": "", 

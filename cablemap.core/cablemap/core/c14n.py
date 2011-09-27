@@ -329,7 +329,11 @@ _SIGNER_C14N = {
     u'DUNNTJ': u'DUNN',
     u'RWBULLEN': u'BULLEN',
     u'SANDERSO': u'SANDERSON',
-    u'TCARNEY': u'CARNEY'
+    u'TCARNEY': u'CARNEY',
+    u'GLAGPIE': u'GLASPIE',
+    u'KHAHILIZAD': u'KHALILZAD',
+    u'KHAHILZAD': u'KHALILZAD',
+    u'QBUTENIS': u'BUTENIS',
 }
 
 def canonicalize_signer(signer):

@@ -334,6 +334,10 @@ _SIGNER_C14N = {
     u'KHAHILIZAD': u'KHALILZAD',
     u'KHAHILZAD': u'KHALILZAD',
     u'QBUTENIS': u'BUTENIS',
+    u'MFMARRANO': u'MARRANO',
+    u'HILLASK': u'HILLAS',
+    u'HILLASKM': u'HILLAS',
+    u'JBIGUS': u'BIGUS',
 }
 
 def canonicalize_signer(signer):

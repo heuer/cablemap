@@ -355,7 +355,7 @@
     "GENEVA": ""
   }, 
   "BIGUS": {
-    "KIRKUK": ""
+    "KIRKUK": "James Bigus"
   }, 
   "BIGUSBELL": {
     "KIRKUK": ""
@@ -1240,7 +1240,7 @@
   "DONNALLY": {
     "HILLAH": ""
   }, 
-  "DONNELLY": "Shaun E. Donnelly",
+  "DONNELLY": "Shaun Edward Donnelly",
 
   "DONOVAN": {
     "TOKYO": "",
@@ -2094,14 +2094,8 @@
     "VANCOUVER": ""
   }, 
   "HILLAS": {
-    "PRAGUE": "", 
-    "WARSAW": "", 
-    "HILLAH": ""
-  }, 
-  "HILLASK": {
-    "HILLAH": ""
-  }, 
-  "HILLASKM": {
+    "PRAGUE": "Kenneth MacLean Hillas, Jr.", 
+    "WARSAW": "Kenneth MacLean Hillas, Jr.", 
     "HILLAH": ""
   }, 
   "HILLON": {
@@ -2349,9 +2343,6 @@
   }, 
   "JARRETT": {
     "SHANGHAI": ""
-  }, 
-  "JBIGUS": {
-    "KIRKUK": ""
   }, 
   "JDUDLEY": {
     "MAPUTO": ""
@@ -3056,7 +3047,7 @@
     "STATE": ""
   }, 
   "MARRANO": {
-    "BASRAH": ""
+    "BASRAH": "Mark F. Marrano"
   }, 
   "MARSHAL": {
     "SANTODOMINGO": ""
@@ -3290,9 +3281,6 @@
   "MEURS": {
     "HILLAH": ""
   }, 
-  "MFMARRANO": {
-    "BASRAH": ""
-  }, 
   "MGRANDFIELD": {
     "MONTERREY": ""
   }, 
@@ -3450,9 +3438,9 @@
     "HONGKONG": ""
   }, 
   "MUNTER": {
-    "WARSAW": "",
-    "PRAGUE": "",
-    "MOSUL": "",
+    "WARSAW": "Cameron Phelps Munter",
+    "PRAGUE": "Cameron Phelps Munter",
+    "MOSUL": "Cameron Phelps Munter",
     "BELGRADE": "",
     "ZAGREB": ""
   }, 

@@ -462,8 +462,8 @@
     "VALLETTA": ""
   }, 
   "BORG": {
-    "ROME": "",
-    "PARIS": ""
+    "ROME": "Anna Borg",
+    "PARIS": "Anna Borg"
   }, 
   "BOSSHART": {
     "ALGIERS": ""
@@ -603,10 +603,7 @@
     "LEIPZIG": ""
   }, 
   "BRUDVIG": {
-    "UNROME": ""
-  }, 
-  "BRUDVIGLA": {
-    "UNROME": ""
+    "UNROME": "Lee A. Brudvig"
   }, 
   "BRUSH": {
     "ASHGABAT": "",
@@ -888,7 +885,7 @@
     "PORTMORESBY": ""
   }, 
   "CLEVERLEY": {
-    "ROME": ""
+    "ROME": "J. Michael Cleverley"
   }, 
   "CLINTON": "Hillary Rodham Clinton",
 
@@ -959,10 +956,7 @@
     "FLORENCE": "Thomas M. Countryman"
   }, 
   "COUSIN": {
-    "UNROME": ""
-  }, 
-  "COUSINE": {
-    "UNROME": ""
+    "UNROME": "Ertharin Cousin"
   }, 
   "COWHIG": {
     "CHENGDU": ""
@@ -1703,10 +1697,7 @@
   "GLENDON": "Mary Ann Glendon",
   
   "GLOVER": {
-    "UNROME": ""
-  }, 
-  "GLOVERMP": {
-    "UNROME": ""
+    "UNROME": "Michael P. Glover"
   }, 
   "GNEHM": {
     "AMMAN": "", 

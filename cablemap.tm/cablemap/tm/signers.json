@@ -954,9 +954,9 @@
   "CORBIN": "Michael H. Corbin",
 
   "COUNTRYMAN": {
-    "ROME": "",
-    "ATHENS": "",
-    "FLORENCE": ""
+    "ROME": "Thomas M. Countryman",
+    "ATHENS": "Thomas M. Countryman",
+    "FLORENCE": "Thomas M. Countryman"
   }, 
   "COUSIN": {
     "UNROME": ""
@@ -1156,7 +1156,7 @@
     "TUNIS": ""
   }, 
   "DEMPSEY": {
-    "FLORENCE": ""
+    "FLORENCE": "David B. Dempsey"
   }, 
   "DERDERIAN": {
     "DURBAN": ""
@@ -1183,9 +1183,6 @@
   }, 
   "DEWITT": {
     "SHENYANG": ""
-  }, 
-  "DGRAZE": {
-    "MILAN": ""
   }, 
   "DHANANI": {
     "LIBREVILLE": "",
@@ -1792,7 +1789,7 @@
     "TUNIS": ""
   }, 
   "GRAZE": {
-    "MILAN": ""
+    "MILAN": "Deborah E. Graze"
   }, 
   "GREEENE": {
     "CASABLANCA": ""
@@ -1904,7 +1901,7 @@
     "BEIJING": ""
   }, 
   "HALLIBURTON": {
-    "NAPLES": ""
+    "NAPLES": "Suneta L. Halliburton"
   }, 
   "HALSTED": {
     "NDJAMENA": "David C. Halsted"
@@ -4951,7 +4948,7 @@
     "ASHGABAT": ""
   }, 
   "TRUHN": {
-    "NAPLES": ""
+    "NAPLES": "J. Patrick Truhn"
   }, 
   "TSMITH": {
     "DJIBOUTI": ""
@@ -5198,7 +5195,7 @@
     "HELSINKI": ""
   }, 
   "WEYGANDT": {
-    "MILAN": ""
+    "MILAN": "A. Daniel Weygandt"
   }, 
   "WHARTON": {
     "STATE": "",

@@ -186,7 +186,7 @@
     "BANJUL": ""
   }, 
   "BAILEY": {
-    "RIGA": ""
+    "RIGA": "Catherine Todd Bailey"
   }, 
   "BAILY": {
     "THEHAGUE": ""
@@ -268,8 +268,8 @@
     "MANILA": ""
   }, 
   "BATTLE": {
-    "CAIRO": "",
-    "BEIRUT": ""
+    "CAIRO": "Vincent M. Battle",
+    "BEIRUT": "Vincent M. Battle"
   }, 
   "BAUER": {
     "VIENTIANE": "", 
@@ -739,7 +739,7 @@
     "FUKUOKA": ""
   }, 
   "CARSON": {
-    "HARARE": "",
+    "HARARE": "Johnnie Carson",
     "PARIS": ""
   }, 
   "CARTER": {
@@ -1439,8 +1439,8 @@
   "FEINSTEIN": "Lee A. Feinstein",
 
   "FELTMAN": {
-    "JERUSALEM": "", 
-    "BEIRUT": ""
+    "JERUSALEM": "Jeffrey D. Feltman", 
+    "BEIRUT": "Jeffrey D. Feltman"
   }, 
   "FENDRICK": {
     "THEHAGUE": ""
@@ -2172,7 +2172,7 @@
     "LAGOS": ""
   }, 
   "HOWELL": {
-    "KUWAIT": ""
+    "KUWAIT": "Wilson Nathaniel Howell"
   }, 
   "HOZA": {
     "NAIROBI": ""
@@ -2402,9 +2402,6 @@
   "JPOLASCHIK": {
     "TRIPOLI": ""
   }, 
-  "JSULLIVAN": {
-    "HARARE": ""
-  }, 
   "JUNGE": {
     "KOLKATA": ""
   }, 
@@ -2510,7 +2507,7 @@
     "HOCHIMINHCITY": ""
   }, 
   "KELLY": {
-    "BEIRUT": "",
+    "BEIRUT": "John Hubert Kelly",
     "OTTAWA": "",
     "VILNIUS": "",
     "SANTIAGO": "Craig A. Kelly",
@@ -2747,7 +2744,7 @@
     "KAMPALA": ""
   }, 
   "LANPHER": {
-    "HARARE": ""
+    "HARARE": "Edward G. Lanpher"
   }, 
   "LAPENN": {
     "JERUSALEM": ""
@@ -2761,7 +2758,7 @@
   "LARSON": {
     "STATE": "",
     "BUDAPEST": "",
-    "RIGA": "",
+    "RIGA": "Charles W. Larson, Jr.",
     "CDGENEVA": ""
   }, 
   "LASKARIS": {
@@ -3107,7 +3104,7 @@
   }, 
   "MCCARTHY": {
     "ISLAMABAD": "",
-    "BEIRUT": "",
+    "BEIRUT": "John Thomas McCarthy",
     "ATHENS": ""
   }, 
   "MCCAW": "Susan Rasinski McCaw",
@@ -3137,11 +3134,8 @@
   "MCCULLOUGH": {
     "ABUJA": ""
   }, 
-  "MCDNALD": {
-    "HARARE": ""
-  }, 
   "MCDONALD": {
-    "HARARE": "",
+    "HARARE": "Tom McDonald",
     "CONAKRY": ""
   }, 
   "MCELDOWNEY": {
@@ -3163,7 +3157,7 @@
   "MCGEE": {
     "MBABANE": "James David McGee",
     "ANTANANARIVO": "James David McGee",
-    "HARARE": "",
+    "HARARE": "James David McGee",
     "SANSALVADOR": ""
   }, 
   "MCGEEHAN": {
@@ -3316,7 +3310,7 @@
   }, 
   "MISENHEIMER": {
     "SANAA": "",
-    "KUWAIT": ""
+    "KUWAIT": "Alan Misenheimer"
   }, 
   "MMERANTE": {
     "VATICAN": ""
@@ -3606,7 +3600,7 @@
     "BRATISLAVA": ""
   }, 
   "ODONOHUE": {
-    "KUWAIT": ""
+    "KUWAIT": "Daniel Anthony O'Donohue"
   }, 
   "OFRIEL": {
     "BUDAPEST": ""
@@ -4002,8 +3996,8 @@
     "ISTANBUL": ""
   }, 
   "RAWLINGS": {
-    "HARARE": "",
-    "COTONOU" : "James W. Rawlings "
+    "HARARE": "James Wilson Rawlings",
+    "COTONOU" : "James Wilson Rawlings"
   }, 
   "RAY": {
     "HOCHIMINHCITY": "Charles Aaron Ray",
@@ -4379,7 +4373,7 @@
 
   "SELDOWITZ": {
     "USNATO": "",
-    "RIGA": ""
+    "RIGA": "Stuart M. Seldowitz"
   }, 
 
   "SEMBLER": "Melvin Floyd Sembler",
@@ -4483,9 +4477,6 @@
     "AMMAN": "",
     "ANKARA": ""
   }, 
-  "SILLIVAN": {
-    "HARARE": ""
-  }, 
   "SILVER": {
     "JAKARTA": ""
   }, 
@@ -4546,9 +4537,6 @@
   "SMOLIK": {
     "PARIS": "",
     "BRIDGETOWN": ""
-  }, 
-  "SMSELDOWITZ": {
-    "RIGA": ""
   }, 
   "SMYTH": {
     "COLOMBO": ""
@@ -4732,8 +4720,8 @@
   }, 
   "SULLIVAN": {
     "TEHRAN": "William Healy Sullivan",
-    "HAVANA": "Joseph Sullivan",
-    "HARARE": "",
+    "HAVANA": "Joseph Gerard Sullivan",
+    "HARARE": "Joseph Gerard Sullivan",
     "LILONGWE": ""
   }, 
  
@@ -4940,7 +4928,7 @@
     "TEGUCIGALPA": ""
   }, 
   "TUELLER": {
-    "KUWAIT": "",
+    "KUWAIT": "Matthew H. Tueller",
     "CAIRO": "Matthew H. Tueller"
   }, 
   "TULL": {
@@ -4991,7 +4979,7 @@
     "SANTIAGO": ""
   }, 
   "URBANCIC": {
-    "KUWAIT": "",
+    "KUWAIT": "Frank C. Urbancic, Jr.",
     "NICOSIA": "Frank C. Urbancic, Jr."
   }, 
   "URS": {

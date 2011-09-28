@@ -360,6 +360,8 @@ _SIGNER_C14N = {
     u'DBOOTH': u'BOOTH',
     u'DDARNELL': u'DARNELL',
     u'ENWISTLE': u'ENTWISTLE',
+    u'SCHREIBER-HUGHES': u'SCHREIBERHUGHES',
+    u'LBSCHREIBERHUGHES': u'SCHREIBERHUGHES',
 }
 
 def canonicalize_signer(signer):

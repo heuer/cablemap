@@ -371,6 +371,7 @@ _SIGNER_C14N = {
     u'BASSET': u'BASSETT',
     u'TAYLORCD': u'TAYLOR',
     u'TRACYLM': u'TRACY',
+    u'LAKHDHIRK': u'LAKHDHIR',
 }
 
 def canonicalize_signer(signer):

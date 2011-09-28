@@ -771,9 +771,9 @@
   "CATTO": "Henry Edward Catto, Jr.",
 
   "CAULFIELD": {
-    "LIMA": "",
-    "LONDON": "",
-    "CARACAS": ""
+    "LIMA": "John Caulfield",
+    "LONDON": "John Caulfield",
+    "CARACAS": "John Caulfield"
   }, 
   "CECIL": {
     "NIAMEY": "",
@@ -1068,7 +1068,7 @@
     "BEIRUT": ""
   }, 
   "DAVIDOW": {
-    "CARACAS": ""
+    "CARACAS": "Jeffrey Davidow"
   }, 
   "DAVIDSON": {
     "BAKU": ""
@@ -1280,7 +1280,7 @@
   "DUDDY": {
     "SAOPAULO": "",
     "BRASILIA": "",
-    "CARACAS": ""
+    "CARACAS": "Patrick Duddy"
   }, 
   "DUDLEY": {
     "MAPUTO": "",
@@ -2967,7 +2967,7 @@
   "MAINO": "Theodore C. Maino",
 
   "MAISTO": {
-    "CARACAS": ""
+    "CARACAS": "John Francis Maisto"
   }, 
   "MALAC": {
     "ADDISABABA": ""
@@ -4026,7 +4026,7 @@
   "REES": "Grover Joseph Rees, III",
 
   "REICH": {
-    "CARACAS": "",
+    "CARACAS": "Otto Juan Reich",
     "NAHA": ""
   }, 
   "REID": {
@@ -4392,12 +4392,8 @@
     "ASUNCION": ""
   }, 
   "SHANNON": "Thomas A. Shannon, Jr.",
-
-  "SHAPIR": {
-    "CARACAS": ""
-  }, 
   "SHAPIRO": {
-    "CARACAS": "",
+    "CARACAS": "Charles Samuel Shapiro",
     "PORTOFSPAIN": ""
   }, 
   "SHARK": {

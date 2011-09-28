@@ -145,7 +145,7 @@
   }, 
   "ARREAGA": {
     "VANCOUVER": "", 
-    "PANAMA": ""
+    "PANAMA": "Luis Arreaga-Rodas"
   }, 
   "ARVIZU": {
     "PHNOMPENH": "", 
@@ -206,7 +206,7 @@
     "MONTREAL": ""
   }, 
   "BALTIMORE": {
-    "MUSCAT": ""
+    "MUSCAT": "Richard Lewis Baltimore III"
   }, 
   "BANKS": {
     "YEREVAN": ""
@@ -410,9 +410,9 @@
     "BASRAH": ""
   }, 
   "BODDE": {
-    "FRANKFURT": "",
-    "ISLAMABAD": "",
-    "LILONGWE": "Peter Bodde"
+    "FRANKFURT": "Peter W. Bodde",
+    "ISLAMABAD": "Peter W. Bodde",
+    "LILONGWE": "Peter W. Bodde"
   }, 
   "BODINE": {
     "SANAA": ""
@@ -1743,8 +1743,8 @@
     "MELBOURNE": ""
   }, 
   "GRAPPO": {
-    "RIYADH": "", 
-    "MUSCAT": "", 
+    "RIYADH": "Gary A. Grappo", 
+    "MUSCAT": "Gary A. Grappo", 
     "BAGHDAD": ""
   }, 
   "GRAY": {
@@ -2070,7 +2070,7 @@
   "HINTON": "Deane Roesch Hinton",
 
   "HOAGLAND": {
-    "ISLAMABAD": "", 
+    "ISLAMABAD": "Richard Eugene Hoagland", 
     "DUSHANBE": "Richard Eugene Hoagland", 
     "ASHGABAT": "Richard Eugene Hoagland", 
     "ASTANA": "Richard Eugene Hoagland"
@@ -2738,7 +2738,7 @@
     "LAGOS": ""
   }, 
   "LATTIMER": {
-    "PANAMA": ""
+    "PANAMA": "Timothy P. Lattimer"
   }, 
   "LAUTERBACH": {
     "COTONOU": ""
@@ -3212,7 +3212,7 @@
     "ASUNCION": ""
   }, 
   "MESA": {
-    "PANAMA": ""
+    "PANAMA": "Thomas Mesa"
   }, 
   "MESERVE": {
     "TOKYO": ""
@@ -4492,7 +4492,7 @@
     "TEGUCIGALPA": ""
   }, 
   "SNOWDEN": {
-    "MUSCAT": ""
+    "MUSCAT": "Michael Snowden"
   }, 
   "SOBEL": "Clifford M. Sobel",
 
@@ -4606,13 +4606,10 @@
     "TRIPOLI": ""
   }, 
   "STEWART": {
-    "MUSCAT": "",
+    "MUSCAT": "William R. Stewart",
     "FREETOWN": "",
     "MINSK": "Karen B. Stewart",
     "PRAIA": ""
-  }, 
-  "STEWARTBALTIMORE": {
-    "MUSCAT": ""
   }, 
   "STILLMAN": {
     "DARESSALAAM": ""
@@ -4746,9 +4743,6 @@
     "KOLKATA": "",
     "PORTMORESBY": "Teddy Bernard Taylor"
   }, 
-  "TAYLORCD": {
-    "LAHORE": ""
-  }, 
   "TEFFT": {
     "TBILISI": "John F. Tefft",
     "KYIV": "John F. Tefft"
@@ -4838,9 +4832,6 @@
   }, 
   "TRACY": {
     "ASTANA": "",
-    "PESHAWAR": ""
-  }, 
-  "TRACYLM": {
     "PESHAWAR": ""
   }, 
   "TRAUB": {

@@ -362,6 +362,7 @@ _SIGNER_C14N = {
     u'ENWISTLE': u'ENTWISTLE',
     u'SCHREIBER-HUGHES': u'SCHREIBERHUGHES',
     u'LBSCHREIBERHUGHES': u'SCHREIBERHUGHES',
+    u'SMBALL': u'BALL',
 }
 
 def canonicalize_signer(signer):

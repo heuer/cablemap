@@ -367,7 +367,7 @@
     "BELFAST": ""
   }, 
   "BISHOP": {
-    "MOGADISHU": "",
+    "MOGADISHU": "James Keough Bishop",
     "MAJURO": ""
   }, 
   "BLACK": "Shirley Temple Black",
@@ -471,7 +471,7 @@
   "BOST": "Eric M. Bost",
 
   "BOSWORTH": {
-    "SEOUL": ""
+    "SEOUL": "Stephen Warren Bosworth"
   }, 
   "BOUGHNER": {
     "CHENGDU": ""
@@ -978,7 +978,7 @@
     "TRIPOLI": ""
   }, 
   "CRIGLER": {
-    "MOGADISHU": ""
+    "MOGADISHU": "Trusten Frank Crigler"
   }, 
   "CRISS": {
     "FREETOWN": ""
@@ -1174,7 +1174,7 @@
     "HARARE": ""
   }, 
   "DIAZ": {
-    "VATICAN": "Miguel Humberto Díaz"
+    "VATICAN": "Miguel Humberto DÃ­az"
   }, 
   "DIBBLE": "Elizabeth Dibble",
 
@@ -1315,7 +1315,7 @@
     "ASHGABAT": ""
   }, 
   "EDDINS": {
-    "BRATISLAVA": ""
+    "BRATISLAVA": "Keith A. Eddins"
   }, 
   "EDELMAN": "Eric S. Edelman",
 
@@ -1787,7 +1787,7 @@
     "LAPAZ": "David N. Greenlee"
   }, 
   "GREGG": {
-    "SEOUL": "", 
+    "SEOUL": "Donald Phinney Gregg", 
     "BRAZZAVILLE": ""
   }, 
   "GREGIRE": {
@@ -2225,7 +2225,7 @@
     "BANJUL": ""
   }, 
   "HURLBERT": {
-    "BRATISLAVA": ""
+    "BRATISLAVA": "Robert Hurlbert"
   }, 
   "HURLEY": {
     "BUDAPEST": ""
@@ -2714,7 +2714,7 @@
     "TIRANA": ""
   }, 
   "LANEY": {
-    "SEOUL": ""
+    "SEOUL": "James T. Laney"
   }, 
   "LANG": {
     "GUANGZHOU": ""
@@ -2838,7 +2838,7 @@
     "SOFIA": ""
   }, 
   "LILLEY": {
-    "SEOUL": "",
+    "SEOUL": "James Roderick Lilley",
     "BEIJING": "James Roderick Lilley"
   }, 
   "LINDBORG": {
@@ -3573,7 +3573,7 @@
   "OBERWETTER": "James C. Oberwetter",
 
   "OBSITNIK": {
-    "BRATISLAVA": ""
+    "BRATISLAVA": "Vincent Obsitnik"
   }, 
   "ODONOHUE": {
     "KUWAIT": "Daniel Anthony O'Donohue"
@@ -4484,9 +4484,6 @@
     "NAIROBI": "Pamela Jo Howell Slutz",
     "BUJUMBURA": "Pamela Jo Howell Slutz"
   }, 
-  "SMBALL": {
-    "BRATISLAVA": ""
-  }, 
   "SMITH": {
     "LAGOS": "Thomas W. M. Smith",
     "DJIBOUTI": "",
@@ -4613,8 +4610,8 @@
   }, 
 
   "STEPHENS": {
-    "ZAGREB": "",
-    "SEOUL": ""
+    "ZAGREB": "Kathleen Stephens",
+    "SEOUL": "Kathleen Stephens"
   }, 
   "STEPHENSON": {
     "LISBON": "Thomas F. Stephenson",
@@ -4661,7 +4658,7 @@
     "SAOPAULO": ""
   }, 
   "STRAUSZ-HUPE": {
-    "ANKARA": "Robert Strausz-Hupé"
+    "ANKARA": "Robert Strausz-HupÃ©"
   }, 
   "STREEB": {
     "NEWDELHI": ""
@@ -4854,9 +4851,9 @@
   "TODD": "William E. Todd", 
 
   "TOKOLA": {
-    "THEHAGUE": "",
-    "LONDON": "",
-    "SEOUL": ""
+    "THEHAGUE": "Mark Tokola",
+    "LONDON": "Mark Tokola",
+    "SEOUL": "Mark Tokola"
   }, 
   "TONEY": {
     "JEDDAH": ""
@@ -4967,7 +4964,7 @@
     "ABIDJAN": ""
   }, 
   "VALLEE": {
-    "BRATISLAVA": ""
+    "BRATISLAVA": "Rodolphe M. Vallee"
   }, 
   "VANDREAL": {
     "USOSCE": ""
@@ -5109,7 +5106,7 @@
     "HARARE": ""
   }, 
   "WEISER": {
-    "BRATISLAVA": ""
+    "BRATISLAVA": "Ronald Weiser"
   }, 
   "WEITZENKORN": {
     "SANJOSE": "",

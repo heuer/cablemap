@@ -238,7 +238,7 @@
     "PODGORICA": ""
   }, 
   "BARR": {
-    "WINDHOEK": ""
+    "WINDHOEK": "Joyce Anne Barr"
   }, 
   "BARRASSO": {
     "CHIANGMAI": "Alexander L. Barrasso"
@@ -799,7 +799,7 @@
     "GENEVA": ""
   }, 
   "CHAPMAN": {
-    "MAPUTO": "",
+    "MAPUTO": "Todd C. Chapman",
     "GUAYAQUIL": ""
   }, 
   "CHARBONNET": {
@@ -1568,7 +1568,7 @@
   "FURUTA-TOY": "Julie Furuta-Toy",
 
   "GABRIEL": {
-    "RABAT": ""
+    "RABAT": "Edward M. Gabriel"
   }, 
   "GABRIELSON": {
     "ADANA": ""
@@ -1756,9 +1756,6 @@
   }, 
   "GRAZE": {
     "MILAN": "Deborah E. Graze"
-  }, 
-  "GREEENE": {
-    "CASABLANCA": ""
   }, 
   "GREEN": {
     "ADANA": "", 
@@ -2247,9 +2244,6 @@
   "IENER": {
     "ISTANBUL": ""
   }, 
-  "ILEY": {
-    "RABAT": ""
-  }, 
   "ILOVANOVIC": {
     "BAMAKO": ""
   }, 
@@ -2305,9 +2299,6 @@
   "JARRETT": {
     "SHANGHAI": ""
   }, 
-  "JDUDLEY": {
-    "MAPUTO": ""
-  }, 
   "JEFFREY": "James F. Jeffrey",
 
   "JETER": {
@@ -2320,7 +2311,7 @@
   "JOHN": "Eric G. John",
 
   "JOHNSON": {
-    "ULAANBAATAR": "",
+    "ULAANBAATAR": "Donald C. Johnson",
     "DAKAR": "Mark Johnson",
     "AITTAIPEI": "Darryl N. Johnson",
     "BANGKOK": "Darryl N. Johnson",
@@ -2409,7 +2400,7 @@
   "KAPLAN": {
     "SANJOSE": "",
     "CHENNAI": "",
-    "RABAT": ""
+    "RABAT": "Samuel L. Kaplan"
   }, 
   "KARAGIANNIS": {
     "SOFIA": ""
@@ -2587,7 +2578,7 @@
     "STOCKHOLM": ""
   }, 
   "KONTOS": {
-    "PODGORICA": ""
+    "PODGORICA": "Stephen L. Kontos"
   }, 
   "KOPLOVSKY": {
     "LUSAKA": ""
@@ -2675,13 +2666,13 @@
   "LAINGEN": "Lowell Bruce Laingen",
 
   "LAKE": {
-    "ULAANBAATAR": ""
+    "ULAANBAATAR": "Joseph Edward Lake"
   }, 
   "LAKHDHIR": {
     "BELFAST": "Kamala S. Lakhdhir"
   }, 
   "LALIME": {
-    "MAPUTO": "",
+    "MAPUTO": "Helen R. Meagher La Lime",
     "PRETORIA": ""
   }, 
   "LAMBERT": {
@@ -3018,7 +3009,7 @@
     "BUENOSAIRES": ""
   }, 
   "MATHIEU": {
-    "WINDHOEK": ""
+    "WINDHOEK": "Gail Dennise Thomas Mathieu"
   }, 
   "MATINEZ": {
     "BUENOSAIRES": ""
@@ -3057,7 +3048,7 @@
     "BEIJING": ""
   }, 
   "MCCALLIE": {
-    "WINDHOEK": ""
+    "WINDHOEK": "Marshall Fletcher McCallie"
   }, 
   "MCCALLLUM": {
     "CANBERRA": ""
@@ -3265,8 +3256,8 @@
     "WARSAW": "Phillip Min"
   }, 
   "MINTON": {
-    "SEOUL": "",
-    "ULAANBAATAR": ""
+    "SEOUL": "Mark C. Minton",
+    "ULAANBAATAR": "Mark C. Minton"
   }, 
   "MIRE": {
     "FRANKFURT": ""
@@ -3309,13 +3300,13 @@
     "SOFIA": "",
     "MANAGUA": "Barbara Calandra Moore",
     "ANKARA": "",
-    "BELGRADE": "",
+    "BELGRADE": "Roderick W. Moore",
     "MINSK": "Jonathan M. Moore",
     "COLOMBO": "",
     "CHIANGMAI": "",
-    "PODGORICA": "",
-    "PORTAUPRINCE": "",
-    "SARAJEVO": ""
+    "PODGORICA": "Roderick W. Moore",
+    "PORTAUPRINCE": "Roderick W. Moore",
+    "SARAJEVO": "Roderick W. Moore"
   }, 
   "MORALES": {
     "JEDDAH": ""
@@ -4030,7 +4021,7 @@
     "PORTOFSPAIN": ""
   }, 
   "RILEY": {
-    "RABAT": "",
+    "RABAT": "Thomas Thomas Riley",
     "MARSEILLE": ""
   }, 
   "RIVKIN": "Charles Hammerman Rivkin",
@@ -4038,10 +4029,6 @@
   "RLANE": {
     "MAPUTO": ""
   }, 
-  "RMOORE": {
-    "PODGORICA": ""
-  }, 
-
   "ROBERTS": {
     "ABUJA": "",
     "HILLAH": ""
@@ -4453,10 +4440,6 @@
   "SISON": "Michele J. Sison",
 
   "SKODON": "Emil Skodon",
-
-  "SKONTOS": {
-    "PODGORICA": ""
-  }, 
   "SLUTZ": {
     "ULAANBAATAR": "Pamela Jo Howell Slutz",
     "NAIROBI": "Pamela Jo Howell Slutz",
@@ -4877,7 +4860,7 @@
   "TUTTLE": "Robert Holmes Tuttle",
 
   "TUTWILER": {
-    "RABAT": ""
+    "RABAT": "Margaret DeBardeleben Tutwiler"
   }, 
   "TWINING": {
     "PHNOMPENH": "Charles H. Twining",
@@ -5153,7 +5136,7 @@
     "OTTAWA": "David Horton Wilkins"
   }, 
   "WILKINSON": {
-    "MAPUTO": ""
+    "MAPUTO": "Sharon P. Wilkinson"
   }, 
   "WILLEFORD": "Pamela P. Willeford",
 

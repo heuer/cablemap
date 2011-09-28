@@ -174,7 +174,7 @@
     "NASSAU": "Nicole A. Avant"
   }, 
   "AYALDE": {
-    "ASUNCION": ""
+    "ASUNCION": "Liliana Ayalde"
   }, 
   "AYNE": {
     "BUENOSAIRES": ""
@@ -260,12 +260,9 @@
   "BASS": {
     "TBILISI": "John R. Bass"
   }, 
-  "BASSET": {
-    "MANILA": ""
-  }, 
   "BASSETT": {
-    "MEXICO": "", 
-    "MANILA": ""
+    "MEXICO": "Leslie A. Bassett", 
+    "MANILA": "Leslie A. Bassett"
   }, 
   "BATTLE": {
     "CAIRO": "Vincent M. Battle",
@@ -757,7 +754,7 @@
     "TUNIS": "Mary Ann Casey"
   }, 
   "CASON": {
-    "ASUNCION": ""
+    "ASUNCION": "James Cason"
   }, 
   "CASPER": {
     "KIGALI": ""
@@ -1462,14 +1459,14 @@
   }, 
   "FITTS": {
     "MANILA": "", 
-    "PORTMORESBY": ""
+    "PORTMORESBY": "Robert W. Fitts"
   }, 
   "FITZGIBBON": {
     "LIBREVILLE": ""
   }, 
   "FITZPATRICK": {
     "MADRID": "", 
-    "ASUNCION": ""
+    "ASUNCION": "Michael J. Fitzpatrick"
   }, 
   "FLANIGAN": "Alan H. Flanigan",
 
@@ -2327,8 +2324,8 @@
     "DAKAR": "Mark Johnson",
     "AITTAIPEI": "Darryl N. Johnson",
     "BANGKOK": "Darryl N. Johnson",
-    "ASUNCION": "",
-    "MANILA": "",
+    "ASUNCION": "Kevin M. Johnson",
+    "MANILA": "Darryl N. Johnson",
     "GUAYAQUIL": "",
     "KINGSTON": "",
     "LONDON": "",
@@ -2342,9 +2339,6 @@
   }, 
   "JOHNSON-CASARES": {
     "DAMASCUS": ""
-  }, 
-  "JOHNSONKEANE": {
-    "ASUNCION": ""
   }, 
   "JOHNSTONE": {
     "ALGIERS": "L. Craig Johnstone"
@@ -2451,7 +2445,7 @@
     "THESSALONIKI": ""
   }, 
   "KEANE": {
-    "ASUNCION": ""
+    "ASUNCION": "John F. Keane"
   }, 
   "KEDDINS": {
     "BRATISLAVA": ""
@@ -3438,7 +3432,7 @@
   "NEALON": {
     "MADRID": "",
     "MONTEVIDEO": "",
-    "LIMA": ""
+    "LIMA": "James D. Nealon"
   }, 
   "NEARY": {
     "BANGUI": ""
@@ -4750,7 +4744,7 @@
     "KYIV": "William B. Taylor, Jr.",
     "LAHORE": "",
     "KOLKATA": "",
-    "PORTMORESBY": ""
+    "PORTMORESBY": "Teddy Bernard Taylor"
   }, 
   "TAYLORCD": {
     "LAHORE": ""

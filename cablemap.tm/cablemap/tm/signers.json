@@ -330,7 +330,7 @@
   "BERRY": {
     "BEIRUT": "", 
     "AMMAN": "", 
-    "TRIPOLI": "", 
+    "TRIPOLI": "Gregory L. Berry", 
     "CAPETOWN": "", 
     "KATHMANDU": "", 
     "PARIS": ""
@@ -768,7 +768,7 @@
   }, 
   "CECIL": {
     "NIAMEY": "Charles O. Cecil",
-    "TRIPOLI": ""
+    "TRIPOLI": "Charles O. Cecil"
   }, 
   "CEFKIN": {
     "SARAJEVO": "",
@@ -881,9 +881,9 @@
   "CLINTON": "Hillary Rodham Clinton",
 
   "CLOUD": {
-    "BERLIN": "",
+    "BERLIN": "John Albert Cloud",
     "LILONGWE": "",
-    "VILNIUS": "",
+    "VILNIUS": "John Albert Cloud",
     "KINSHASA": ""
   }, 
   "CLUNE": {
@@ -964,9 +964,9 @@
   "CREEKMORE": "Marion V. Creekmore, Jr.",
 
   "CRETZ": {
-    "DAMASCUS": "",
-    "TELAVIV": "",
-    "TRIPOLI": ""
+    "DAMASCUS": "Gene A. Cretz",
+    "TELAVIV": "Gene A. Cretz",
+    "TRIPOLI": "Gene A. Cretz"
   }, 
   "CRIGLER": {
     "MOGADISHU": "Trusten Frank Crigler"
@@ -2359,9 +2359,6 @@
   "JOYCE": {
     "HAVANA": ""
   }, 
-  "JPOLASCHIK": {
-    "TRIPOLI": ""
-  }, 
   "JUNGE": {
     "KOLKATA": ""
   }, 
@@ -3342,8 +3339,8 @@
     "KUWAIT": ""
   }, 
   "MULL": {
-    "JAKARTA": "",
-    "VILNIUS": ""
+    "JAKARTA": "Stephen D. Mull",
+    "VILNIUS": "Stephen D. Mull"
   }, 
   "MULLALLY": {
     "KIGALI": "",
@@ -3784,10 +3781,7 @@
     "ROME": ""
   }, 
   "POLASCHIK": {
-    "TRIPOLI": ""
-  }, 
-  "POLASCHIKJA": {
-    "TRIPOLI": ""
+    "TRIPOLI": "Joan Polaschik"
   }, 
   "POLLARD": {
     "BERLIN": ""
@@ -4619,7 +4613,7 @@
     "ANTANANARIVO": "Eric W. Stromayer"
   }, 
   "STROUM": {
-    "LUXEMBOURG": ""
+    "LUXEMBOURG": "Cynthia Stroum"
   }, 
   "STRUBLE": "James Curtis Struble",
 
@@ -4791,9 +4785,6 @@
   "TITUS": {
     "BANJUL": ""
   }, 
-  "TKELLY": {
-    "VILNIUS": ""
-  }, 
   "TODD": "William E. Todd", 
 
   "TOKOLA": {
@@ -4942,7 +4933,7 @@
     "ADANA": ""
   }, 
   "WAGNER": {
-    "LUXEMBOURG": "",
+    "LUXEMBOURG": "Ann Louise Wagner",
     "BUJUMBURA": ""
   }, 
   "WAGONER": {

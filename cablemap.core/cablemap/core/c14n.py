@@ -42,7 +42,7 @@ from __future__ import absolute_import
 import re
 from . constants import MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
-_STATION_C14N_FIXES = {
+_STATION_C14N = {
     u'AUBJA': u'ABUJA',
     u'RANGON': u'RANGOON',
     u'TEGUC': u'TEGUCIGALPA',
@@ -204,7 +204,7 @@ def canonicalize_origin(origin):
     origin = origin.replace(u'USMISSION', u'') \
                      .replace(u'AMEMBASSY', u'') \
                      .replace(u'EMBASSY', u'').strip()
-    return _STATION_C14N_FIXES.get(origin, origin)
+    return _STATION_C14N.get(origin, origin)
 
 def canonicalize_id(reference_id):
     """\

@@ -351,6 +351,11 @@ _SIGNER_C14N = {
     u'MCDNALD': u'MCDONALD',
     u'JSULLIVAN': u'SULLIVAN',
     u'SILLIVAN': u'SULLIVAN',
+    u'SHAPIR': u'SHAPIRO',
+    u'MMERANTE': u'MERANTE',
+    u'NICKOLSON': u'NICHOLSON',
+    u'SANDROLONI': u'SANDROLINI',
+    u'JVNOYES': u'NOYES',
 }
 
 def canonicalize_signer(signer):

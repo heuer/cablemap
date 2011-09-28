@@ -607,10 +607,7 @@
   }, 
   "BRUSH": {
     "ASHGABAT": "",
-    "BELGRADE": ""
-  }, 
-  "BRUSHJ": {
-    "BELGRADE": ""
+    "BELGRADE": "Jennifer Brush"
   }, 
   "BRYAN": {
     "PARIS": "",
@@ -1031,7 +1028,7 @@
     "ASHGABAT": ""
   }, 
   "CURTIN": {
-    "WARSAW": ""
+    "WARSAW": "Mary Curtin"
   }, 
   "CURTIS": {
     "HARARE": ""
@@ -1530,7 +1527,7 @@
   }, 
   "FRAKER": {
     "RIYADH": "Ford M. Fraker", 
-    "JEDDAH": ""
+    "JEDDAH": "Ford M. Fraker"
   }, 
   "FRANK": "Ralph Frank",
   "FRAZER": "Jendayi Elizabeth Frazer",
@@ -1781,7 +1778,7 @@
     "NAHA": ""
   }, 
   "GREENFIELD": {
-    "MONROVIA": ""
+    "MONROVIA": "Linda Thomas-Greenfield"
   }, 
   "GREENLEE": {
     "LAPAZ": "David N. Greenlee"
@@ -1840,9 +1837,9 @@
     "MUNICH": ""
   }, 
   "GWALTNEY": {
-    "KIEV": "", 
-    "KYIV": "", 
-    "STPETERSBURG": ""
+    "KIEV": "Sheila S. Gwaltney", 
+    "KYIV": "Sheila S. Gwaltney", 
+    "STPETERSBURG": "Sheila S. Gwaltney"
   }, 
   "HAAS": {
     "LJUBLJANA": "", 
@@ -1867,7 +1864,7 @@
 
   "HALL": {
     "ROME": "", 
-    "KRAKOW": ""
+    "KRAKOW": "Anne Hall"
   }, 
   "HALLFORD": {
     "BEIJING": ""
@@ -2323,10 +2320,6 @@
   "JETT": "Dennis Coleman Jett",
 
   "JEWELL": "Linda Jewell",
-
-  "JKENNY": {
-    "DHAHRAN": ""
-  }, 
   "JOHN": "Eric G. John",
 
   "JOHNSON": {
@@ -2435,7 +2428,7 @@
     "KYIV": ""
   }, 
   "KATTOUF": {
-    "RIYADH": "",
+    "RIYADH": "Theodore H. Kattouf",
     "ABUDHABI": "Theodore H. Kattouf",
     "DAMASCUS": "Theodore H. Kattouf"
   }, 
@@ -2515,9 +2508,6 @@
 
   "KENNY": {
     "DUBLIN": "James Casey Kenny",
-    "DHAHRAN": ""
-  }, 
-  "KENNYJA": {
     "DHAHRAN": ""
   }, 
   "KEOGH": {
@@ -2668,7 +2658,7 @@
     "ISTANBUL": ""
   }, 
   "KULAKOWSKI": {
-    "WARSAW": ""
+    "WARSAW": "Edward J. Kulakowski"
   }, 
   "KURTZER": "Daniel Charles Kurtzer",
 
@@ -3281,7 +3271,7 @@
     "BAMAKO": ""
   }, 
   "MIN": {
-    "WARSAW": ""
+    "WARSAW": "Phillip Min"
   }, 
   "MINTON": {
     "SEOUL": "",
@@ -3293,9 +3283,6 @@
   "MISENHEIMER": {
     "SANAA": "",
     "KUWAIT": "Alan Misenheimer"
-  }, 
-  "MMILLER": {
-    "VLADIVOSTOK": ""
   }, 
   "MOBLEY": {
     "SURABAYA": ""
@@ -3319,7 +3306,7 @@
   }, 
   "MONTGOMERY": {
     "SOFIA": "William Dale Montgomery",
-    "BELGRADE": ""
+    "BELGRADE": "William Dale Montgomery"
   }, 
   "MOON": {
     "ZAGREB": "",
@@ -3393,7 +3380,7 @@
     "WARSAW": "Cameron Phelps Munter",
     "PRAGUE": "Cameron Phelps Munter",
     "MOSUL": "Cameron Phelps Munter",
-    "BELGRADE": "",
+    "BELGRADE": "Cameron Phelps Munter",
     "ZAGREB": ""
   }, 
   "MURPHY": {
@@ -4199,8 +4186,8 @@
   }, 
   "RUSSELL": {
     "PRAGUE": "Theodore Russell",
-    "YEKATERINBURG": "",
-    "MOSCOW": ""
+    "YEKATERINBURG": "Daniel A. Russell",
+    "MOSCOW": "Daniel A. Russell"
   }, 
   "RUTERBORIES": "Julie A. Ruterbories",
 
@@ -4799,10 +4786,7 @@
     "GEORGETOWN": "Gerald Eustis Thomas"
   }, 
   "THOMAS-GREENFIELD": {
-    "MONROVIA": ""
-  }, 
-  "THOMAS-GREENFLELD": {
-    "MONROVIA": ""
+    "MONROVIA": "Linda Thomas-Greenfield"
   }, 
   "THOMPSON": {
     "FESTTWO": ""
@@ -4899,7 +4883,7 @@
     "BANDARSERIBEGAWAN": "Theresa Anne Tull"
   }, 
   "TULLEY": {
-    "WARSAW": ""
+    "WARSAW": "Michael Tulley"
   }, 
   "TUNIS": {
     "TORONTO": ""
@@ -5049,7 +5033,7 @@
 
   "WARLICK": {
     "SOFIA": "James B. Warlick, Jr.",
-    "BELGRADE": ""
+    "BELGRADE": "Mary Burce Warlick"
   }, 
   "WARNER": {
     "LILONGWE": ""

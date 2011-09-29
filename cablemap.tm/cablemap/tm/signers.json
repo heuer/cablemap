@@ -219,7 +219,7 @@
     "HAVANA": ""
   }, 
   "BARD": {
-    "JOHANNESBURG": ""
+    "JOHANNESBURG": "Doron Bard"
   }, 
   "BARKELL": {
     "KOROR": ""
@@ -1135,10 +1135,7 @@
     "FLORENCE": "David B. Dempsey"
   }, 
   "DERDERIAN": {
-    "DURBAN": ""
-  }, 
-  "DERDERIANJ": {
-    "DURBAN": ""
+    "DURBAN": "Jill Derderian"
   }, 
   "DERHAM": {
     "GUATEMALA": ""
@@ -2664,7 +2661,7 @@
   }, 
   "LALIME": {
     "MAPUTO": "Helen R. Meagher La Lime",
-    "PRETORIA": ""
+    "PRETORIA": "Helen R. Meagher La Lime"
   }, 
   "LAMBERT": {
     "LAPAZ": "",
@@ -2882,7 +2879,7 @@
   "LUNSTEAD": "Jeffrey Lunstead", 
 
   "LUOMA-OVERSTREET": {
-    "JOHANNESBURG": ""
+    "JOHANNESBURG": "Charles Luoma-Overstreet"
   }, 
   "LYMAN": "Princeton Nathan Lyman",
 
@@ -3017,7 +3014,7 @@
     "DAMASCUS": ""
   }, 
   "MAYBERRY": {
-    "CAPETOWN": ""
+    "CAPETOWN": "Alberta Mayberry"
   }, 
   "MAYER": {
     "MONTREAL": ""
@@ -3643,7 +3640,7 @@
   }, 
   "PASSEN": {
     "LUSAKA": "",
-    "JOHANNESBURG": ""
+    "JOHANNESBURG": "Andrew Passen"
   }, 
   "PATIN": {
     "CAPETOWN": ""
@@ -3819,9 +3816,6 @@
   "POWERS": {
     "LIMA": "",
     "KHARTOUM": ""
-  }, 
-  "PPATIN": {
-    "CAPETOWN": ""
   }, 
   "PRAHAR": "Peter A. Prahar",
 
@@ -4672,10 +4666,6 @@
     "DURBAN": ""
   }, 
   "SYMINGTON": "W. Stuart Symington",
-
-  "SZSYKES": {
-    "DURBAN": ""
-  }, 
   "TABLER-STONE": {
     "ASMARA": ""
   }, 

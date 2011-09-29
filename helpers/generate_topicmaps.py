@@ -7,8 +7,9 @@ import codecs
 from tm.mio import handler
 from mio.ctm.miohandler import CTMHandler
 from mio.xtm.miohandler import XTM21Handler
+from cablemap.core import predicates as pred
 from cablemap.core.handler import DefaultMetadataOnlyFilter, DebitlyFilter, TeeCableHandler, \
-     MultipleCableHandler, DelegatingCableHandler, handle_source
+     MultipleCableHandler, DelegatingCableHandler, CableIdFilter, handle_source
 from cablemap.tm import psis
 from cablemap.tm.handler import create_ctm_handler, create_xtm_handler, \
      create_ctm_miohandler, create_xtm_miohandler, MediaTitleResolver, BaseMIOCableHandler
@@ -61,7 +62,7 @@ def slo_handler(files, filename='cable-subject-locators'):
 def openfile(name):
     return open(os.path.join(os.path.dirname(__file__), name), 'wb')
 
-def generate_topicmaps(cable_directory, handle_media=False):
+def generate_topicmaps(src, handle_media=False):
     def tee(files, filename):
         ctm = openfile(filename + '.ctm')
         xtm = openfile(filename + '.xtm')
@@ -70,7 +71,9 @@ def generate_topicmaps(cable_directory, handle_media=False):
         return TeeCableHandler(create_ctm_handler(ctm), create_xtm_handler(xtm))
     files = []
     handlers = []
-    handlers.append(DefaultMetadataOnlyFilter(DebitlyFilter(tee(files, 'cables'))))
+    european_handler = CableIdFilter(tee(files, 'european-cables'), pred.year_origin_predicate(origin_predicate=pred.origin_europe))
+    all_cables_handler = tee(files, 'cables')
+    handlers.append(DefaultMetadataOnlyFilter(DebitlyFilter(TeeCableHandler(european_handler, all_cables_handler))))
     handlers.append(slo_handler(files))
     handlers.append(ContentCableHandler(tee(files, 'cable-content')))
     if handle_media:
@@ -79,7 +82,7 @@ def generate_topicmaps(cable_directory, handle_media=False):
         files.append(xtm)
         h = DebitlyFilter(MediaTitleResolver(handler.TeeMapHandler(create_ctm_miohandler(ctm), create_xtm_miohandler(xtm))))
         handlers.append(h)
-    handle_source(cable_directory, MultipleCableHandler(handlers))
+    handle_source(src, MultipleCableHandler(handlers))
     for f in files:
         f.close()
 

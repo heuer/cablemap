@@ -45,16 +45,16 @@ from .c14n import canonicalize_id
 
 _YEAR_ORIGIN_PATTERN = re.compile(r'([0-9]{2})([A-Z\-]+)[0-9]+')
 
-def year_origin_filter(year_filter=None, origin_filter=None):
+def year_origin_predicate(year_predicate=None, origin_predicate=None):
     def accept(cable_id, predicate):
         year, origin = _YEAR_ORIGIN_PATTERN.match(canonicalize_id(cable_id)).groups()
         return predicate(year, origin)
-    if year_filter and origin_filter:
-        return partial(accept, predicate=lambda y, o: year_filter(y) and origin_filter(o))
-    elif year_filter:
-        return partial(accept, predicate=lambda y, o: year_filter(y))
-    elif origin_filter:
-        return partial(accept, predicate=lambda y, o: origin_filter(o))
+    if year_predicate and origin_predicate:
+        return partial(accept, predicate=lambda y, o: year_predicate(y) and origin_predicate(o))
+    elif year_predicate:
+        return partial(accept, predicate=lambda y, o: year_predicate(y))
+    elif origin_predicate:
+        return partial(accept, predicate=lambda y, o: origin_predicate(o))
     return lambda cable_id: True
 
 

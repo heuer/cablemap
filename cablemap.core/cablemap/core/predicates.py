@@ -225,6 +225,12 @@ def origin_west_asia(origin):
            or origin_qatar(origin) or origin_saudi_arabia(origin) or origin_syria(origin) \
            or origin_turkey(origin) or origin_united_arab_emirates(origin) or origin_yemen(origin)
 
+def origin_usdel(origin):
+    """\
+    Returns if the origin is a U.S. Delegation.
+    """
+    return origin == u'PARTO'
+
 def origin_afghanistan(origin):
     """\
 

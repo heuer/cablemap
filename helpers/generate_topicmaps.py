@@ -71,7 +71,7 @@ def generate_topicmaps(src, handle_media=False):
         return TeeCableHandler(create_ctm_handler(ctm), create_xtm_handler(xtm))
     files = []
     handlers = []
-    european_handler = CableIdFilter(tee(files, 'european-cables'), pred.year_origin_predicate(origin_predicate=pred.origin_europe))
+    european_handler = CableIdFilter(tee(files, 'european-cables'), pred.origin_filter(pred.origin_europe))
     all_cables_handler = tee(files, 'cables')
     handlers.append(DefaultMetadataOnlyFilter(DebitlyFilter(TeeCableHandler(european_handler, all_cables_handler))))
     handlers.append(slo_handler(files))

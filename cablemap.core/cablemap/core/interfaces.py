@@ -153,6 +153,8 @@ class ICable(Interface):
     signers = Attribute("""\
     A maybe empty iterable of signers of the cable.
 
+    The signers are represented as string, i.e. ``'CLINTON'``
+
     This attribute is read-only.
     """)
     content_header = Attribute("""\
@@ -352,7 +354,7 @@ class ICableHandler(Interface):
         Assigns a signer to the cable.
 
         `signer`
-            A string.
+            A string, like ``'CLINTON'``
         """
 
     def handle_transmission_id(tid):

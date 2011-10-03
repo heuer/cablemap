@@ -15,6 +15,8 @@ Changes
     return models.Recipient objects
   - models.Cable.references returns models.Reference
     objects
+* models.Cable.summary does not convert newlines into one whitespace 
+  character anymore
 * Added (experimental) predicate module to filter cables by their identifier
 * Added (experimental) support to extract the signer(s) of a cable
 * Added (experimental) support to extract the comment of the ambassador

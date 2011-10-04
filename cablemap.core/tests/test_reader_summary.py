@@ -119,7 +119,7 @@ Summary.
 THE CIVIL SOCIETY PERSPECTIVE
 -----------------------------
 ''',
-     u'On 28 July 2008 [...].'),
+     u'On 28 July 2008\n[...].'),
     # 05PANAMA1729
     (u'''Classified By: Charge d'Affaires Luis Arreaga for reasons 1.4 (B) AND (
 D).
@@ -137,7 +137,7 @@ opportunities. END SUMMARY AND INTRODUCTION.
 
 Great Expectations
 ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐''',
-     u'''Martin Torrijos's [...] performance, dashed expectations, and squandered opportunities.'''),
+     u'''Martin Torrijos's [...]\nperformance, dashed expectations, and squandered\nopportunities.'''),
     # 09STATE119085
     ('''Classified by: David Appleton, Director, 
 INR/CCS, Reason: 1.4 (c, d). 
@@ -161,7 +161,7 @@ END SUMMARY.
     ('''Summary/Comment: bla bla
 bla bla bla.  End Summary/Comment.
 ''',
-    '''bla bla bla bla bla.'''),
+    '''bla bla\nbla bla bla.'''),
 
 )
 

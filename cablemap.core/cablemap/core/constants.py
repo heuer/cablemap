@@ -56,12 +56,24 @@ REF_KIND_MEMO = 7
 REF_KIND_MEETING = 8
 REF_KIND_WEB = 9
 
+# TAG constants
 TAG_KIND_UNKNOWN = 0
 TAG_KIND_SUBJECT = 1
 TAG_KIND_PERSON = 2
 TAG_KIND_PROGRAM = 3
 TAG_KIND_GEO = 4
 TAG_KIND_ORG = 5
+
+# Classification category constants
+# C.f. 5 FAH-3 H-700
+CLS_CAT_A = ord('A')
+CLS_CAT_B = ord('B')
+CLS_CAT_C = ord('C')
+CLS_CAT_D = ord('D')
+CLS_CAT_E = ord('E')
+CLS_CAT_F = ord('F')
+CLS_CAT_G = ord('G')
+CLS_CAT_H = ord('H')
 
 # Min/max cable serial number length
 MIN_SERIAL_LENGTH = 1

@@ -280,6 +280,8 @@ def handle_cable(cable, handler, standalone=True):
     handler.handle_origin(cable.origin)
     handler.handle_classification(cable.classification)
     handler.handle_partial(cable.partial)
+    for cat in cable.classification_categories:
+        handler.handle_classification_category(cat)
     for signer in cable.signers:
         handler.handle_signer(signer)
     for tag in cable.tags:

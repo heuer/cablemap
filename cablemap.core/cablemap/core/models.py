@@ -262,6 +262,10 @@ class Cable(object):
         return reader.parse_subject(self.content, self.reference_id)
 
     @cached_property
+    def classification_categories(self):
+        return reader.parse_classification_categories(self.content)
+
+    @cached_property
     def nondisclosure_deadline(self):
         return reader.parse_nondisclosure_deadline(self.content)
 

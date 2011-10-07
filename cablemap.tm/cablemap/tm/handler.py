@@ -319,7 +319,6 @@ class MIOCableHandler(BaseMIOCableHandler):
 
         """
         return False
-        
     
     def handle_subject(self, subject):
         self._name(subject, psis.SUBJECT_TYPE)
@@ -344,6 +343,9 @@ class MIOCableHandler(BaseMIOCableHandler):
             self._assoc(psis.CLASSIFIED_AS_TYPE,
                         psis.CABLE_TYPE, self._cable_psi,
                         psis.CLASSIFICATION_TYPE, cls)
+
+    def handle_classification_category(self, category):
+        pass #TODO
 
     def handle_nondisclosure_deadline(self, date):
         self._occ(date, psis.NONDISCLOSURE_DEADLINE_TYPE, XSD.date)

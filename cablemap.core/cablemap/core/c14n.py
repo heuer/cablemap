@@ -386,6 +386,7 @@ _SIGNER_C14N = {
     u'DERDERIANJ': u'DERDERIAN',
     u'SZSYKES': u'SYKES',
     u'KEOGH': u'KEOGH-FISHER',
+    u'MCCLELLANDCR': u'MCCLELLAND',
 }
 
 def canonicalize_signer(signer):

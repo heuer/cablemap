@@ -127,6 +127,33 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
+    classification = Attribute("""\
+    The classification level.
+
+    This attribute is writable.
+    """)
+    classification_categories = Attribute("""\
+    Returns a maybe empty iterable of classification categories.
+
+    A classification level is represented as an uppercased char (A-H)
+
+    C.f. 5 FAH-3 H-700:
+
+    1.4(a) military plans, weapons systems, or operations;
+    1.4(b) foreign government information*;
+    1.4(c) intelligence activities, sources, or methods, or cryptology;
+    1.4(d) foreign relations or foreign activities of the United States,
+           including confidential sources;
+    1.4(e) scientific, technological or economic matters relating to national security;
+           which includes defense against transnational terrorism;
+    1.4(f) USG programs for safeguarding nuclear materials or facilities;
+    1.4(g) vulnerabilities or capabilities of systems, installations, infrastructures,
+           projects or plans, or protection services relating to the national security,
+           which includes defense against transnational terrorism; and
+    1.4(h) weapons of mass destruction.
+
+    This attribute is read only.
+    """)
     nondisclosure_deadline = Attribute("""\
     The non-disclosure deadline or ``None`` if it is unknown.
 
@@ -306,7 +333,7 @@ class ICableHandler(Interface):
         `tag`
             A string.
         """
-   
+
     def handle_origin(origin):
         """\
         Assigns the cable's origin.
@@ -403,6 +430,14 @@ class ICableHandler(Interface):
 
         `classification`
             An uppercased string.
+        """
+
+    def handle_classification_category(category):
+        """\
+        Assigns the classification category.
+
+        `category`
+            An uppercased char (A-H)
         """
 
     def handle_nondisclosure_deadline(date):

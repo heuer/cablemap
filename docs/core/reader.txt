@@ -1,0 +1,6 @@
+:mod:`reader` -- Cablemap Reader
+================================
+
+.. automodule:: cablemap.core.reader
+    :members:
+    :inherited-members:

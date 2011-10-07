@@ -71,13 +71,13 @@ _TEST_DATA = (
      u'Continuing violent unrest in[...].'),
     # 09BERLIN1548
     ('''1. (C/NF) Summary: In separate December 1 meetings [...] following way forward:\n\n-- the Interior Ministry [...]\n\nrelationship with Chancellor Merkel. End summary''',
-     u'In separate December 1 meetings [...] following way forward: -- the Interior Ministry [...] relationship with Chancellor Merkel.'),
+     u'In separate December 1 meetings [...] following way forward:\n-- the Interior Ministry [...]\nrelationship with Chancellor Merkel.'),
     # 10BERLIN164
     ('''Classified By: Classified by Political M-C George Glass for reasons 1.4\n(b,d).\n\n1. (C) German FM Westerwelle told [...]. END SUMMARY.''',
      u'German FM Westerwelle told [...].'),
     # 09BRUSSELS536
     ('''Classified By: USEU EconMinCouns Peter Chase for reasons 1.4 (b), (d), (e).\n\n1. (S//NF) SUMMARY AND COMMENT: During a March 2-3 visit to\n\n2. (C) EU Member States and officials uniformly praised the\n\n3. (C) The content[...]. END SUMMARY AND COMMENT. ''',
-     u'During a March 2-3 visit to EU Member States and officials uniformly praised the The content[...].'),
+     u'During a March 2-3 visit to\nEU Member States and officials uniformly praised the\nThe content[...].'),
     # 10BRASILIA61
     ('''CLASSIFIED BY: Thomas A. Shannon, Ambassador, State, Embassy Brasilia; REASON: 1.4(B), (D)\n1. (C) Summary. During separate [...]. End summary.''',
      u'During separate [...].'),
@@ -151,7 +151,7 @@ SUMMARY AND TABLE OF CONTENTS
 END SUMMARY.
 
 3. [...]''',
-    u'''[...] 2. [...]'''),
+    u'''[...]\n[...]'''),
     # 08DHAKA856
     ('''Summary =======
 

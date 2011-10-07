@@ -1,0 +1,10 @@
+:mod:`interfaces` -- Cablemap Interfaces
+========================================
+
+.. autointerface:: cablemap.core.interfaces.ICable
+    :members:
+    :inherited-members:
+
+.. autointerface:: cablemap.core.interfaces.ICableHandler
+    :members:
+    :inherited-members:

@@ -1,0 +1,11 @@
+.. _apiref:
+API Reference
+=============
+
+Modules:
+
+.. toctree::
+    :maxdepth: 0
+
+    core/interfaces
+    core/handler

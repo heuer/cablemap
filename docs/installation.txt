@@ -1,0 +1,12 @@
+.. _installation:
+
+Installation
+============
+
+Cablemap was tested with Python 2.5 and upwards (it was not tested against
+Python 3.x) and has no further dependencies. Simply install ``cablemap.core`` 
+via::
+
+    easy_install -U cablemap.core
+
+and you're done.

@@ -132,8 +132,8 @@ class ICable(Interface):
     """)
     classification_categories = Attribute("""\
     Returns a maybe empty iterable of classification categories.
-    The classification categories are represented as integer constants,
-    see `cablemap.core.constants`.
+
+    A classification level is represented as an uppercased char (A-H)
 
     C.f. 5 FAH-3 H-700:
 
@@ -431,7 +431,7 @@ class ICableHandler(Interface):
         Assigns the classification category.
 
         `category`
-            An integer constant, see `cablemap.constants`
+            An uppercased char (A-H)
         """
 
     def handle_nondisclosure_deadline(date):

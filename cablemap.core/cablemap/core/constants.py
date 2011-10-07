@@ -64,17 +64,6 @@ TAG_KIND_PROGRAM = 3
 TAG_KIND_GEO = 4
 TAG_KIND_ORG = 5
 
-# Classification category constants
-# C.f. 5 FAH-3 H-700
-CLS_CAT_A = ord('A')
-CLS_CAT_B = ord('B')
-CLS_CAT_C = ord('C')
-CLS_CAT_D = ord('D')
-CLS_CAT_E = ord('E')
-CLS_CAT_F = ord('F')
-CLS_CAT_G = ord('G')
-CLS_CAT_H = ord('H')
-
 # Min/max cable serial number length
 MIN_SERIAL_LENGTH = 1
 MAX_SERIAL_LENGTH = 7

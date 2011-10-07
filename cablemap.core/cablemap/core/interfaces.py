@@ -104,16 +104,16 @@ class ICable(Interface):
     recipients = Attribute("""\
     The recipients of the cable.
 
-    Returns a maybe empty iterable of action `IRecipient` instances.
+    Returns a maybe empty iterable of action `cablemap.core.interfaces.IRecipient` instances.
 
-    C.f. 5 FAH-2 H-233
+    C.f. `5 FAH-2 H-233 <http://www.state.gov/documents/organization/89293.pdf>`_
 
     This attribute is read-only.
     """)
     info_recipients = Attribute("""\
-    Returns a maybe empty iterable of info `IRecipient` instances.
+    Returns a maybe empty iterable of info `cablemap.core.interfaces.IRecipient` instances.
 
-    C.f. 5 FAH-2 H-233
+    C.f. `5 FAH-2 H-233 <http://www.state.gov/documents/organization/89293.pdf>`_
 
     This attribute is read-only.
     """)
@@ -137,20 +137,20 @@ class ICable(Interface):
 
     A classification level is represented as an uppercased char (A-H)
 
-    C.f. 5 FAH-3 H-700:
+    C.f. `5 FAH-3 H-700 <http://www.state.gov/documents/organization/89254.pdf>`_:
 
-    1.4(a) military plans, weapons systems, or operations;
-    1.4(b) foreign government information*;
-    1.4(c) intelligence activities, sources, or methods, or cryptology;
-    1.4(d) foreign relations or foreign activities of the United States,
-           including confidential sources;
-    1.4(e) scientific, technological or economic matters relating to national security;
-           which includes defense against transnational terrorism;
-    1.4(f) USG programs for safeguarding nuclear materials or facilities;
-    1.4(g) vulnerabilities or capabilities of systems, installations, infrastructures,
-           projects or plans, or protection services relating to the national security,
-           which includes defense against transnational terrorism; and
-    1.4(h) weapons of mass destruction.
+        * 1.4(a) military plans, weapons systems, or operations;
+        * 1.4(b) foreign government information*;
+        * 1.4(c) intelligence activities, sources, or methods, or cryptology;
+        * 1.4(d) foreign relations or foreign activities of the United States,
+          including confidential sources;
+        * 1.4(e) scientific, technological or economic matters relating to national security;
+          which includes defense against transnational terrorism;
+        * 1.4(f) USG programs for safeguarding nuclear materials or facilities;
+        * 1.4(g) vulnerabilities or capabilities of systems, installations, infrastructures,
+          projects or plans, or protection services relating to the national security,
+          which includes defense against transnational terrorism; and
+        * 1.4(h) weapons of mass destruction.
 
     This attribute is read only.
     """)
@@ -251,7 +251,7 @@ class IRecipient(Interface):
 
     The name of the recipient (PLAD - Plain Language Address Designator).
 
-    C.f. 5 FAH-2 H-321.6
+    C.f. `5 FAH-2 H-321.6 <http://www.state.gov/documents/organization/89289.pdf>`_
 
     This attribute is read-only.
     """)
@@ -263,24 +263,25 @@ class IRecipient(Interface):
     precedence = Attribute("""\
     A string or ``None``.
 
-    Should be (acc. to 5 FAH-1 H-221):
-    * FLASH
-    * NIACT IMMEDIATE
-    * IMMEDIATE
-    * PRIORITY
-    * ROUTINE
+    Should be (acc. to `5 FAH-1 H-221 <http://www.state.gov/documents/organization/89318.pdf>`_):
+
+        * FLASH
+        * NIACT IMMEDIATE
+        * IMMEDIATE
+        * PRIORITY
+        * ROUTINE
 
     This attribute is read-only.
     """)
     mcn = Attribute("""\
     A string or ``None``.
 
-    5 FAH-2 H-321.7, 5 FAH-2 H-321.8:
+    C.f. `5 FAH-2 H-321.7, 5 FAH-2 H-321.8 <http://www.state.gov/documents/organization/89289.pdf>`_:
 
-    Message continuity number (MCN). An MCN is a
-    consecutive number from a series dedicated to each Department of State
-    activity. You assign an MCN to the Department activity on each telegram
-    sent to them, action or info.
+        Message continuity number (MCN). An MCN is a
+        consecutive number from a series dedicated to each Department of State
+        activity. You assign an MCN to the Department activity on each telegram
+        sent to them, action or info.
 
     This attribute is read-only.
     """)
@@ -445,7 +446,7 @@ class ICableHandler(Interface):
         Assigns the non-disclosure deadline to the cable.
 
         `date`
-            ISO 8601 formatted date
+            `ISO 8601 <http://en.wikipedia.org/wiki/ISO_8601>`_ formatted date
         """
 
     def handle_creation_datetime(datetime):
@@ -453,7 +454,7 @@ class ICableHandler(Interface):
         Assigns the creation datetime to the cable.
         
         `datetime`
-            ISO 8601 formatted datetime
+            `ISO 8601 <http://en.wikipedia.org/wiki/ISO_8601>`_ formatted datetime
         """
 
     def handle_release_date(date):
@@ -461,7 +462,7 @@ class ICableHandler(Interface):
         Assigns the WikiLeaks release date to the cable.
 
         `date`
-            ISO 8601 formatted date
+            `ISO 8601 <http://en.wikipedia.org/wiki/ISO_8601>`_ formatted date
         """
 
     def handle_partial(partial):

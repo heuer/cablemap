@@ -129,6 +129,8 @@ class ICable(Interface):
     """)
     classification = Attribute("""\
     The classification level.
+
+    This attribute is writable.
     """)
     classification_categories = Attribute("""\
     Returns a maybe empty iterable of classification categories.
@@ -140,10 +142,14 @@ class ICable(Interface):
     1.4(a) military plans, weapons systems, or operations;
     1.4(b) foreign government information*;
     1.4(c) intelligence activities, sources, or methods, or cryptology;
-    1.4(d) foreign relations or foreign activities of the United States, including confidential sources;
-    1.4(e) scientific, technological or economic matters relating to national security; which includes defense against transnational terrorism;
+    1.4(d) foreign relations or foreign activities of the United States,
+           including confidential sources;
+    1.4(e) scientific, technological or economic matters relating to national security;
+           which includes defense against transnational terrorism;
     1.4(f) USG programs for safeguarding nuclear materials or facilities;
-    1.4(g) vulnerabilities or capabilities of systems, installations, infrastructures, projects or plans, or protection services relating to the national security, which includes defense against transnational terrorism; and
+    1.4(g) vulnerabilities or capabilities of systems, installations, infrastructures,
+           projects or plans, or protection services relating to the national security,
+           which includes defense against transnational terrorism; and
     1.4(h) weapons of mass destruction.
 
     This attribute is read only.

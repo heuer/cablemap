@@ -8,3 +8,11 @@
 .. autointerface:: cablemap.core.interfaces.ICableHandler
     :members:
     :inherited-members:
+
+.. autointerface:: cablemap.core.interfaces.IReference
+    :members:
+    :inherited-members:
+
+.. autointerface:: cablemap.core.interfaces.IRecipient
+    :members:
+    :inherited-members:

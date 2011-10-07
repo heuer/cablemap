@@ -9,3 +9,4 @@ Modules:
 
     core/interfaces
     core/handler
+    core/reader

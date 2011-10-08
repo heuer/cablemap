@@ -43,6 +43,7 @@ It is also possible to process the cables with an `cablemap.core.interfaces.ICab
             print("Cable's subject: %s" % subject)
 
 
+    # handle_source('/path/to/directory/', MyCableHandler()) is also possible
     handle_source('cables.csv', MyCableHandler())
 
 

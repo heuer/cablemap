@@ -21,4 +21,56 @@ should follow the directory layout of the WikiLeaks Cablegate archive::
     for cable in cables_from_source('./cables/'):
         print(cable.subject)
 
+The returned objects are `cablemap.core.interfaces.ICable` instances.
+
+
+Process cables with an event handler
+====================================
+It is also possible to process the cables with an `cablemap.core.interfaces.ICableHandler`::
+
+    from cablemap.core import handle_source
+    from cablemap.core.handler import NoopCableHandler
+    
+    class MyEventHandler(NoopCableHandler):
+    
+        def start_cable(self, reference_id, canonical_id):
+            print("Start processing #%s" % canonical_id)
+
+        def end_cable(self):
+            print("Done with the current cable")
+
+        def handle_subject(self, subject):
+            print("Cable's subject: %s" % subject)
+
+
+    handle_source('cables.csv', MyEventHandler())
+
+
+The module ``cablemap.core.handler`` provides some `ICableHandler` implementations to pre-process
+and filter cables::
+
+    from cablemap.core import handle_source
+    from cablemap.core.handler import NoopCableHandler, \
+                                      DefaultMetadataOnlyFilter, TeeCableHandler
+    
+    class MyEventHandler(NoopCableHandler):
+    
+        def start_cable(self, reference_id, canonical_id):
+            print("Start processing #%s" % canonical_id)
+
+        def end_cable(self):
+            print("Done with the current cable")
+
+        def handle_subject(self, subject):
+            print("Cable's subject: %s" % subject)
+
+    # The DefaultMetadataOnlyFilter swallows events like "handle_content" or "handle_header"
+    handler = DefaultMetadataOnlyFilter(MyEventHandler())
+    handle_source('cables.csv', handler)
+
+    # The TeeCableHandler delegates the events to two `ICableHandler` instances
+    # The following example is a bit useless since it uses two MyEventHandler instances
+    tee_handler = TeeCableHandler(MyEventHandler(), MyEventHandler())
+    handle_source('cables.csv', tee_handler)
+
 

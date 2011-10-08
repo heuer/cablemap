@@ -131,7 +131,7 @@ def cables_from_source(path, predicate=None):
     Returns a generator with ``ICable`` instances.
 
     `path`
-        Either an directory or a CSV file.
+        Either a directory or a CSV file.
     `predicate`
         A predicate that is invoked for each cable reference identifier.
         If the predicate evaluates to ``False`` the cable is ignored.

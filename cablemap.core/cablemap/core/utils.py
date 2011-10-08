@@ -84,14 +84,10 @@ def cable_page_by_id(reference_id):
     """\
     Experimental: Returns the HTML page of the cable identified by `reference_id`.
 
-    This function should be faster since it is using <http://www.cablegatesearch.net>
-    and the direct cable adressing function of cablegatesearch
-
     >>> cable_page_by_id('09BERLIN1167') is not None
     True
     >>> cable_page_by_id('22BERLIN1167') is None
     True
-    >>> # Test pagination
     >>> cable_page_by_id('09MOSCOW3010') is not None
     True
     >>> cable_page_by_id('10MADRID87') is not None
@@ -107,7 +103,7 @@ def cable_page_by_id(reference_id):
         return reference_id
     res = json.loads(_fetch_url(_CGSN_BASE + wikileaks_id(reference_id)))
     wl_url = res['wikileaks_url']
-    return cable_by_url(wl_url) if wl_url else None
+    return _fetch_url(wl_url) if wl_url else None
 
 def cable_by_id(reference_id):
     """\
@@ -118,9 +114,7 @@ def cable_by_id(reference_id):
         The reference identifier of the cable.
     """
     page = cable_page_by_id(reference_id)
-    if page:
-        return cable_from_html(page)
-    return None
+    return cable_from_html(page) if page else None
 
 def cable_by_url(url):
     """\
@@ -130,9 +124,7 @@ def cable_by_url(url):
         The IRI to fetch the cable from.
     """
     page = _fetch_url(url)
-    if page:
-        return cable_from_html(page)
-    return None
+    return cable_from_html(page) if page else None
 
 def cables_from_source(path, predicate=None):
     """\

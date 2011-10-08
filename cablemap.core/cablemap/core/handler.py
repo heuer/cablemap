@@ -316,6 +316,8 @@ def handle_cables(cables, handler):
 
     `cables`
         An iterable of Cable objects.
+    `handler`
+        The `ICableHandler` instance which should receive the events.
     """
     handler.start()
     for cable in cables:
@@ -330,7 +332,7 @@ def handle_source(path, handler, predicate=None):
     `path`
         Either a directory with cable files or a CSV file.
     `handler`
-        The handler which should receive the events.
+        The `ICableHandler` instance which should receive the events.
     `predicate`
         A predicate that is invoked for each cable reference identifier.
         If the predicate evaluates to ``False`` the cable is ignored.

@@ -49,7 +49,7 @@ except ImportError:
 
 class ICable(Interface):
     """\
-
+    Represents a diplomatic cable.
     """
     reference_id = Attribute("""\
     Returns the WikiLeaks reference identifier (a string).

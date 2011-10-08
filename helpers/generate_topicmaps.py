@@ -45,7 +45,7 @@ class ContentCableHandler(DelegatingCableHandler):
     def __getattr__(self, name):
         def noop(*args):
             pass
-        if 'start' not in name and 'end' not in name and 'body' not in name and 'header' not in name:
+        if 'start' not in name and 'end' not in name and 'content' not in name and 'header' not in name:
             return noop
         return getattr(self._handler, name)
 

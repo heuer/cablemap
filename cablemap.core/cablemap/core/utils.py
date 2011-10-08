@@ -308,6 +308,7 @@ _SPECIAL_WORDS = {
     'US-IRAN': u'US-Iran',
     'DUTCH/EU:': u'Dutch/EU:',
     'DoD': 'DoD',
+    'DOD': 'DoD',
     'SPAIN/CT:': u'Spain/CT:',
     'SPAIN/CIA': u'Spain/CIA',
     'SPAIN/ETA:': u'Spain/ETA:',

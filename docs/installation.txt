@@ -10,3 +10,10 @@ via::
     easy_install -U cablemap.core
 
 and you're done.
+
+To convert the cables into Topic Maps, install the ``cablemap.tm`` package via::
+
+    easy_install -U cablemap.tm
+
+The ``cablemap.tm`` package has dependencies to other packages like 
+`tm <http://pypi.python.org/pypi/tm>`_ which are installed automatically.

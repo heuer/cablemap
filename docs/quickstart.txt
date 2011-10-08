@@ -1,0 +1,24 @@
+.. _quickstart:
+
+Quickstart
+==========
+
+Process all cables
+==================
+``cablemap.core`` provides a utility function which returns an iterable over
+all cables::
+
+    from cablemap.core import cables_from_source
+    
+    for cable in cables_from_source('cables.csv'):
+        print(cable.subject)
+
+This function accepts a directory, too. The directory must contain HTML files and
+should follow the directory layout of the WikiLeaks Cablegate archive::
+
+    from cablemap.core import cables_from_source
+    
+    for cable in cables_from_source('./cables/'):
+        print(cable.subject)
+
+

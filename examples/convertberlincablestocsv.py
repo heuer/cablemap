@@ -13,7 +13,7 @@ and saves the cables into './cables.csv'
 import csv
 import codecs
 import cStringIO
-from cablemap.core import cables_from_directory
+from cablemap.core import cables_from_source
 from cablemap.core.utils import titlefy
 
 # Source: <http://docs.python.org/library/csv.html>
@@ -47,15 +47,15 @@ class UnicodeWriter:
             self.writerow(row)
 
 
-def generate_csv(in_dir, out):
+def generate_csv(path, out):
     """\
-    Walks through the `in_dir` and generates the CSV file `out`
+    Walks through the `path` and generates the CSV file `out`
     """
     def is_berlin_cable(filename):
         return 'BERLIN' in filename
     writer = UnicodeWriter(open(out, 'wb'), delimiter=';')
     writer.writerow(('Reference ID', 'Created', 'Origin', 'Subject'))
-    for cable in cables_from_directory(in_dir, predicate=is_berlin_cable):
+    for cable in cables_from_source(path, predicate=is_berlin_cable):
         writer.writerow((cable.reference_id, cable.created, cable.origin, titlefy(cable.subject)))
 
 

@@ -13,7 +13,7 @@ all cables::
     for cable in cables_from_source('cables.csv'):
         print(cable.subject)
 
-This function accepts a directory, too. The directory must contain HTML files and
+This function accepts also a directory which must contain HTML files and
 should follow the directory layout of the WikiLeaks Cablegate archive::
 
     from cablemap.core import cables_from_source

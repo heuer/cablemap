@@ -7,9 +7,9 @@ import codecs
 from tm.mio import handler
 from mio.ctm.miohandler import CTMHandler
 from mio.xtm.miohandler import XTM21Handler
-from cablemap.core import predicates as pred
+from cablemap.core import handle_source, predicates as pred
 from cablemap.core.handler import DefaultMetadataOnlyFilter, DebitlyFilter, TeeCableHandler, \
-     MultipleCableHandler, DelegatingCableHandler, CableIdFilter, handle_source
+     MultipleCableHandler, DelegatingCableHandler, CableIdFilter
 from cablemap.tm import psis
 from cablemap.tm.handler import create_ctm_handler, create_xtm_handler, \
      create_ctm_miohandler, create_xtm_miohandler, MediaTitleResolver, BaseMIOCableHandler

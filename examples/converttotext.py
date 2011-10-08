@@ -7,7 +7,7 @@ and saves the cables as text (the filename is the reference
 id of the cable).
 """
 import codecs
-from cablemap.core import cables_from_directory
+from cablemap.core import cables_from_source
 
 def cable_to_text(cable, include_header):
     """\
@@ -22,7 +22,7 @@ def generate_text_files(in_dir, out_dir, include_header=False):
     Walks through the `in_dir` and generates text versions of
     the cables in the `out_dir`.
     """
-    for cable in cables_from_directory(in_dir):
+    for cable in cables_from_source(in_dir):
         out = codecs.open(out_dir + '/' + cable.reference_id + '.txt', 'wb', encoding='utf-8')
         out.write(cable_to_text(cable, include_header))
         out.close()

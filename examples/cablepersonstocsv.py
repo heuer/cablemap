@@ -14,7 +14,7 @@ from __future__ import with_statement
 import csv
 import codecs
 import cStringIO
-from cablemap.core import cables_from_directory
+from cablemap.core import cables_from_source
 
 # Source: <http://docs.python.org/library/csv.html>
 class UnicodeWriter:
@@ -47,15 +47,15 @@ class UnicodeWriter:
             self.writerow(row)
 
 
-def generate_csv(in_dir, out):
+def generate_csv(path, out):
     """\
-    Walks through the `in_dir` and generates the CSV file `out`
+    Walks through the `path` and generates the CSV file `out`
     """
     known_persons = ()
     with codecs.open(os.path.join(os.path.dirname(__file__), 'person_names.txt'), 'rb', 'utf-8') as f:
         known_persons = set((l.rstrip() for l in f))
     writer = UnicodeWriter(open(out, 'wb'), delimiter=';')
-    for cable in cables_from_directory(in_dir):
+    for cable in cables_from_source(path):
         content = cable.content_body
         if not content:
             continue

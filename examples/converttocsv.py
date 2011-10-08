@@ -10,7 +10,7 @@ and saves the cables into './cables.csv'
 import csv
 import codecs
 import cStringIO
-from cablemap.core import cables_from_directory
+from cablemap.core import cables_from_source
 from cablemap.core.utils import titlefy
 
 # Source: <http://docs.python.org/library/csv.html>
@@ -50,7 +50,7 @@ def generate_csv(in_dir, out):
     """
     writer = UnicodeWriter(open(out, 'wb'), delimiter=';')
     writer.writerow(('Reference ID', 'Created', 'Origin', 'Subject'))
-    for cable in cables_from_directory(in_dir):
+    for cable in cables_from_source(in_dir):
         writer.writerow((cable.reference_id, cable.created, cable.origin, titlefy(cable.subject)))
 
 

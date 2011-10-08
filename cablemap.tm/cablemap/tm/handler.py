@@ -329,8 +329,8 @@ class MIOCableHandler(BaseMIOCableHandler):
     def handle_header(self, header):
         self._occ(header, psis.HEADER_TYPE)
 
-    def handle_body(self, body):
-        self._occ(body, psis.BODY_TYPE)
+    def handle_content(self, content):
+        self._occ(content, psis.CONTENT_TYPE)
 
     def handle_summary(self, summary):
         self._occ(summary, psis.SUMMARY_TYPE)

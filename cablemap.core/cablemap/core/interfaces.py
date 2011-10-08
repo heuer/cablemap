@@ -389,11 +389,11 @@ class ICableHandler(Interface):
             A string.
         """
 
-    def handle_body(body):
+    def handle_content(content):
         """\
-        Assigns the body to the cable.
+        Assigns the content to the cable.
 
-        `body`
+        `content`
             A string.
         """
 

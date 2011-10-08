@@ -210,7 +210,7 @@ class DefaultMetadataOnlyFilter(DelegatingCableHandler):
         # release uses "2011-08-30" for all cables.
         pass
 
-    def handle_body(self, body):
+    def handle_content(self, content):
         pass
 
     def handle_header(self, header):
@@ -287,7 +287,7 @@ def handle_cable(cable, handler, standalone=True):
     if cable.comment:
         handler.handle_comment(cable.comment)
     handler.handle_header(cable.header)
-    handler.handle_body(cable.content)
+    handler.handle_content(cable.content)
     handler.handle_origin(cable.origin)
     handler.handle_classification(cable.classification)
     handler.handle_partial(cable.partial)

@@ -40,6 +40,7 @@ Provides access to commonly used functions.
 """
 import logging
 from cablemap.core.models import cable_from_file, cable_from_html, cable_from_row
+from cablemap.core.handler import handle_source
 from cablemap.core.utils import cables_from_source, cables_from_directory, cables_from_csv, cable_by_id, cable_by_url
 try:
     from logging import NullHandler # Python >= 2.7
@@ -50,7 +51,7 @@ except ImportError:
 
 __all__ = ['cable_from_file', 'cable_from_html', 'cable_from_row',
            'cables_from_source', 'cables_from_directory', 'cables_from_csv',
-           'cable_by_id', 'cable_by_url',
+           'cable_by_id', 'cable_by_url', 'handle_source'
            ]
 
 _nh = NullHandler()

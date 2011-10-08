@@ -8,6 +8,7 @@ Modules:
     :maxdepth: 0
 
     core/interfaces
+    core/core
     core/handler
     core/reader
     core/utils

@@ -1,0 +1,6 @@
+:mod:`core` -- Cablemap Core
+============================
+
+.. automodule:: cablemap.core
+    :members:
+    :inherited-members:

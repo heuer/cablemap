@@ -143,11 +143,22 @@ class MultipleCableHandler(object):
 class CableIdFilter(DelegatingCableHandler):
     """\
     `DelegatingCableHandler` which delegates those `ICableHandler` events to the
-    underlying handler where the filter returns ``True``.
+    underlying handler where a predicate returns ``True``.
 
     Cables are filtered by their canonical identifier.
     """
     def __init__(self, handler, predicate):
+        """\
+        Creates the `CableIdFilter` handler.
+
+        `handler`
+            The `ICableHandler` which should receive the events.
+        `predicate`
+            A function which accepts a canonical cable identifier and
+            returns either ``True`` or ``False``. If the predicate returns
+            ``True``, the `handler` receives all events for the current
+            cable.
+        """
         super(CableIdFilter, self).__init__(handler)
         self._predicate = predicate
         self._accept = False
@@ -207,7 +218,7 @@ class DefaultMetadataOnlyFilter(DelegatingCableHandler):
 
 class DebitlyFilter(DelegatingCableHandler):
     """\
-    `DelegatingCableHandler` implementation that expands bit.ly media IRIs
+    `DelegatingCableHandler` implementation that expands `bit.ly <http://bit.ly>`_ media IRIs
     """
     def __init__(self, handler):
         """\

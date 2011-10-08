@@ -73,4 +73,15 @@ and filter cables::
     tee_handler = TeeCableHandler(MyCableHandler(), MyCableHandler())
     handle_source('cables.csv', tee_handler)
 
+    # Combine the TeeCableHandler and the DefaultMetadataOnlyFilter
+    # Result: The underlying MyCableHandler instances will not receive 
+    # "handle_header"/"handle_content" events
+    handler = DefaultMetadataOnlyFilter(TeeCableHandler(MyCableHandler(), MyCableHandler()))
+    handle_source('cables.csv', handler)
+
+    # Another possibility: One MyCableHandler receives no "handle_header"/"handle_content" 
+    # events while the other receives all events:
+    handler = TeeCableHandler(DefaultMetadataOnlyFilter(MyCableHandler()), MyCableHandler())
+    handle_source('cables.csv', handler)
+
 

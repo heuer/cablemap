@@ -9,7 +9,7 @@ Changes
     - models.Cable.from_dict
     - models.Cable.to_dict
     - models.Cable.content_header
-    - model.Cable.content_body
+    - models.Cable.content_body
     - utils.cable_to_json
     - utils.cable_from_json
     - utils.cable_to_yaml

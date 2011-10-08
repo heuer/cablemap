@@ -31,7 +31,7 @@ It is also possible to process the cables with an `cablemap.core.interfaces.ICab
     from cablemap.core import handle_source
     from cablemap.core.handler import NoopCableHandler
     
-    class MyEventHandler(NoopCableHandler):
+    class MyCableHandler(NoopCableHandler):
     
         def start_cable(self, reference_id, canonical_id):
             print("Start processing #%s" % canonical_id)
@@ -43,7 +43,7 @@ It is also possible to process the cables with an `cablemap.core.interfaces.ICab
             print("Cable's subject: %s" % subject)
 
 
-    handle_source('cables.csv', MyEventHandler())
+    handle_source('cables.csv', MyCableHandler())
 
 
 The module ``cablemap.core.handler`` provides some `ICableHandler` implementations to pre-process
@@ -53,7 +53,7 @@ and filter cables::
     from cablemap.core.handler import NoopCableHandler, \
                                       DefaultMetadataOnlyFilter, TeeCableHandler
     
-    class MyEventHandler(NoopCableHandler):
+    class MyCableHandler(NoopCableHandler):
     
         def start_cable(self, reference_id, canonical_id):
             print("Start processing #%s" % canonical_id)
@@ -65,12 +65,12 @@ and filter cables::
             print("Cable's subject: %s" % subject)
 
     # The DefaultMetadataOnlyFilter swallows events like "handle_content" or "handle_header"
-    handler = DefaultMetadataOnlyFilter(MyEventHandler())
+    handler = DefaultMetadataOnlyFilter(MyCableHandler())
     handle_source('cables.csv', handler)
 
     # The TeeCableHandler delegates the events to two `ICableHandler` instances
-    # The following example is a bit useless since it uses two MyEventHandler instances
-    tee_handler = TeeCableHandler(MyEventHandler(), MyEventHandler())
+    # The following example is a bit useless since it uses two MyCableHandler instances
+    tee_handler = TeeCableHandler(MyCableHandler(), MyCableHandler())
     handle_source('cables.csv', tee_handler)
 
 

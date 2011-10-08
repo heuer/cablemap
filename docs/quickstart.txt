@@ -4,7 +4,7 @@ Quickstart
 ==========
 
 Process all cables
-==================
+------------------
 ``cablemap.core`` provides a utility function which returns an iterable over
 all cables::
 
@@ -25,7 +25,7 @@ The returned objects are `cablemap.core.interfaces.ICable` instances.
 
 
 Process cables with an event handler
-====================================
+------------------------------------
 It is also possible to process the cables with an `cablemap.core.interfaces.ICableHandler`::
 
     from cablemap.core import handle_source

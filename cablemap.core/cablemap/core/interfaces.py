@@ -135,7 +135,7 @@ class ICable(Interface):
     classification_categories = Attribute("""\
     Returns a maybe empty iterable of classification categories.
 
-    A classification level is represented as an uppercased char (A-H)
+    A classification level is represented as an uppercased char (``[A-H]``)
 
     C.f. `5 FAH-3 H-700 <http://www.state.gov/documents/organization/89254.pdf>`_:
 
@@ -184,18 +184,6 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
-    content_header = Attribute("""\
-    The "header" part of the cable's content (everything before the
-    first paragraph).
-
-    This attribute is read-only.
-    """)
-    content_body = Attribute("""\
-    The "body" part of the cable's content (everything from the
-    first paragraph on).
-
-    This attribute is read-only.
-    """)
 
 class IReference(Interface):
     """\
@@ -205,7 +193,7 @@ class IReference(Interface):
     def is_cable():
         """\
         Returns if this reference instance represents a reference to
-        a cable.
+        a cable (``True``) or not (``False``).
         """
     value = Attribute("""\
     The reference, i.e. a cable identifier.
@@ -438,7 +426,7 @@ class ICableHandler(Interface):
         Assigns the classification category.
 
         `category`
-            An uppercased char (A-H)
+            An uppercased char (``[A-H]``)
         """
 
     def handle_nondisclosure_deadline(date):

@@ -289,14 +289,6 @@ class Cable(object):
     def signers(self):
         return reader.parse_signers(self.content)
 
-    @cached_property
-    def content_header(self):
-        return reader.header_body_from_content(self.content)[0]
-
-    @cached_property
-    def content_body(self):
-        return reader.header_body_from_content(self.content)[1]
-
 
 if __name__ == '__main__':
     import doctest

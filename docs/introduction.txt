@@ -1,0 +1,16 @@
+.. _introduction:
+
+Introduction
+============
+Cablemap can be used to parse the `WikiLeaks Cablegate <http://wikileaks.org/cablegate.html>`_
+dataset. 
+
+Cablemap works with the dataset provided by WikiLeaks (the .torrent files) and 
+with the unofficial "cables.csv" distribution (see `Wikipedia <http://en.wikipedia.org/wiki/United_States_diplomatic_cables_leak#September_2011_release_of_unredacted_cables>`_).
+
+Since the official dataset contains some oddities (see 
+`Unredacted Wikileaks archive leaked <http://aebr.home.xs4all.nl/wl/theleak.html>`_) 
+it is recommended to use the "cables.csv" file to parse the cables. Parsing the
+CSV file outperforms reading the directory structure, too. Note that the CSV file 
+does not contain any information about the media coverage of the cables. If this
+information is required, the official WikiLeaks dataset is required.

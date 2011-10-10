@@ -47,7 +47,39 @@ from .utils import IncrementalMmWriter
 
 class CableCorpus(object):
     """\
+    The cable corpus consists of several files which are written into a directory.
 
+    * a dictionary with a ``<word id> <word> <frequency>`` mapping safed under "wordids.txt"
+    * a JSON file with a ``<cable reference id> <document number>`` mapping under "id2docid.json"
+    * a `Market Matrix format <http://math.nist.gov/MatrixMarket/formats.html>` vector space file "bow.mm"
+
+    CAUTION: The corpus overrides any existing files with the same file name in the specified directory.
+
+    By default, the corpus creates the word dictionary and the document/word vector together which
+    may lead into an unuseful vector space. To filter certain words, the corpus may be initialized
+    with a pre-generated word dictionary. To make the dictionary immutable, the property ``allow_dict_updates``
+    should be set to ``False`` (updates are allowed by default). The resulting document word vector space
+    contains only words which are already in the word dictionary then.
+
+    Example to reduce the clutter::
+
+        corpus = CableCorpus('/my/directory/')
+        # Add some texts here
+        corpus.add_text('ref-1', u'bla bla bla')
+        corpus.add_text('ref-2', u'bla bla blub')
+        ...
+        corpus.dct.filter_extremes()
+        corpus.close()
+
+        from gensim.corpora.dictionary import Dictionary
+
+        # Load previously created dict
+        dct = Dictionary.load_from_text('/my/directory/cables_wordids.txt')
+        # Create another corpus with the previously word dict
+        corpus = CableCorpus('/my/directory/', dct, allow_dict_updates=False)
+        # Add some texts
+        ....
+        corpus.close()
     """
     def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True):
         """\

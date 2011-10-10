@@ -88,6 +88,9 @@ class CorpusWriter(NoopCableHandler):
     def handle_content(self, s):
         self._buff.append(s)
 
+    def handle_tag(self, s):
+        self._buff.append(s)
+
 
 if __name__ == '__main__':
     import doctest

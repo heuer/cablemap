@@ -66,6 +66,7 @@ class CableCorpus(object):
             Indicats if unknown words should be added to the dictionary (default ``True``).
         """
         def tokenize(text):
+            #TODO: clean-up, remove stop words, remove SIPDIS, PAGE info, add a stemmer etc... 
             return utils.tokenize(text, lowercase=True)
         if not os.path.isdir(path):
             raise IOError('Expected a directory path')

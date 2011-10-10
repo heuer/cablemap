@@ -41,6 +41,48 @@ from .corpus import CableCorpus
 class CorpusWriter(NoopCableHandler):
     """\
     Creates a cable corpus.
+
+    The writer uses by default the information from
+    * summary
+    * comment
+    * header
+    * content
+    * TAGs
+
+    The information can be reduced if the events are filtered in advance, i.e.::
+
+        from cablemap.core.handler import DelegatingCableHandler, handle_source
+        from cablemap.core import constants as consts
+        from cablemap.core.utils import tag_kind
+        from cablemap.nlp.handler import CorpusWriter
+
+        class MyFilter(DelegatingCableHandler):
+            '''\
+            Filters the "header" event and swallows all TAGs which are not person TAGs
+            '''
+            def __init__(self, handler):
+                super(MyFilter, self).__init__(handler)
+
+            def handle_header(self, header):
+                pass # Not interessted in the header
+
+            def handle_tag(self, tag):
+                # Let only person TAGs pass
+                if tag_kind(tag) == consts.TAG_KIND_PERSON:
+                    self._handler.handle_tag(tag)
+
+
+        writer = CorpusWriter('/my/path')
+        handler = MyFilter(writer)
+
+        handle_source('cables.csv', handler)
+
+    As result, the corpus will not contain information from the cable headers and all TAGs
+    which are not person TAGs won't be part of the corpus, too.
+
+    Without filtering, the writer will add duplicate information to the corpus since it adds
+    the comment and the summary section to the corpus in addition to the cable's content. But "comment"
+    and "summary" are part of the cable's content.
     """
     def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True):
         """\

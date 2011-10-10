@@ -84,7 +84,7 @@ class CorpusWriter(NoopCableHandler):
     the comment and the summary section to the corpus in addition to the cable's content. But "comment"
     and "summary" are part of the cable's content.
     """
-    def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True):
+    def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True, before_close=None):
         """\
 
         `path`
@@ -100,12 +100,19 @@ class CorpusWriter(NoopCableHandler):
             texts.
         `allow_dict_updates`
             Indicats if unknown words should be added to the dictionary (default ``True``).
+        `before_close`
+            An optional function which is called before the underlying `CableCorpus` is closed.
+            May be useful to modify the corpus or the Dictionary before changes are written
+            to disk.
         """
         self._corpus = CableCorpus(path, prefix, dct, tokenizer, allow_dict_updates)
         self._reference_id = None
         self._buff = []
+        self.before_close = before_close
 
     def end(self):
+        if self.before_close:
+            self.before_close(self._corpus)
         self._corpus.close()
 
     def start_cable(self, reference_id, canonical_id):

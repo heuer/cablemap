@@ -45,7 +45,101 @@ except ImportError:
 from .utils import IncrementalMmWriter
 
 
-class CableCorpus(object):
+class BaseCorpus(object):
+    """\
+    Base class.
+    """
+    def __init__(self, tokenizer=None):
+        """\
+        Initializes the corpus.
+
+        `tokenizer`
+            A function to tokenize/normalize/clean-up/remove stop words from strings.
+            If it's ``None`` (default), a default function will be used to tokenize texts.
+        """
+        def tokenize(text):
+            #TODO: clean-up, remove stop words, remove SIPDIS, PAGE info, add a stemmer etc... 
+            return utils.tokenize(text, lowercase=True)
+        self._tokenize = tokenizer or tokenize
+
+    def add_texts(self, reference_id, texts):
+        """\
+        Adds the words from the provided iterable `texts` to the corpus.
+
+        The strings will be tokenized.
+
+        `reference_id`
+            The reference identifier of the cable.
+        `texts`
+            An iterable of strings.
+        """
+        self.add_words(reference_id, chain(*(self._tokenize(t) for t in texts)))
+
+    def add_text(self, reference_id, text):
+        """\
+        Adds the words from the provided text to the corpus.
+
+        The string will be tokenized.
+
+        `reference_id`
+            The reference identifier of the cable.
+        `text`
+            An string.
+        """
+        self.add_words(reference_id, self._tokenize(text))
+
+    def add_words(self, reference_id, words):
+        """\
+        Adds the words to the corpus. The words won't be tokenized/fitered.
+
+        `reference_id`
+            The reference identifier of the cable.
+        `words`
+            An iterable of words.
+        """
+        raise NotImplementedError()
+
+    def close(self):
+        """\
+        This method MUST be called after all texts/words have been added
+        to the corpus.
+        """
+        pass
+
+class WordDictionary(BaseCorpus):
+    """\
+    Wrapper around a `gensim.corpora.dictionary.Dictionary`.
+
+    This is a light-weight alternative to `CableCorpus` to create an initial
+    word dictionary::
+
+        wd = WordDictionary()
+        wd.add_text('ref-1', 'bla bla')
+        # add more texts
+        wd.dct.filter_extremes()
+
+        corpus = CableCorpus('/my/directory/', wd.dct)
+        corpus.add_text('ref-1', 'bla bla')
+        # add more texts
+        corpus.close()
+    """
+    def __init__(self, dct=None, tokenizer=None):
+        """\
+        Initializes the wrapper.
+
+        `dct`
+            An existing Dictionary or ``None`` if a new Dictionary should be
+            created (default)
+        `tokenizer`
+            A tokenizer function or ``None``, see `BaseCorpus`
+        """
+        super(WordDictionary, self).__init__(tokenizer)
+        self.dct = dct or Dictionary()
+
+    def add_words(self, reference_id, words):
+        self.dct.doc2bow(words, True)
+
+class CableCorpus(BaseCorpus):
     """\
     The cable corpus consists of several files which are written into a directory.
 
@@ -98,62 +192,21 @@ class CableCorpus(object):
         `allow_dict_updates`
             Indicats if unknown words should be added to the dictionary (default ``True``).
         """
-        def tokenize(text):
-            #TODO: clean-up, remove stop words, remove SIPDIS, PAGE info, add a stemmer etc... 
-            return utils.tokenize(text, lowercase=True)
+        super(CableCorpus, self).__init__(tokenizer)
         if not os.path.isdir(path):
             raise IOError('Expected a directory path')
         self.dct = dct or Dictionary()
         self._path = path
         self._prefix = prefix or 'cables_'
-        self._tokenize = tokenizer or tokenize
         self._mw = IncrementalMmWriter(os.path.join(path, self._prefix + 'bow.mm'))
         self.allow_dict_updates = allow_dict_updates
         self._cables = []
 
-    def add_texts(self, reference_id, texts):
-        """\
-        Adds the words from the provided iterable `texts` to the corpus.
-
-        The strings will be tokenized.
-
-        `reference_id`
-            The reference identifier of the cable.
-        `texts`
-            An iterable of strings.
-        """
-        self.add_words(reference_id, chain(*(self._tokenize(t) for t in texts)))
-
-    def add_text(self, reference_id, text):
-        """\
-        Adds the words from the provided text to the corpus.
-
-        The string will be tokenized.
-
-        `reference_id`
-            The reference identifier of the cable.
-        `text`
-            An string.
-        """
-        self.add_words(reference_id, self._tokenize(text))
-
     def add_words(self, reference_id, words):
-        """\
-        Adds the words to the corpus. The words won't be tokenized/fitered.
-
-        `reference_id`
-            The reference identifier of the cable.
-        `words`
-            An iterable of words.
-        """
         self._cables.append(reference_id)
         self._mw.add_vector(self.dct.doc2bow(words, self.allow_dict_updates))
 
     def close(self):
-        """\
-        This method MUST be called after all texts/words have been added
-        to the corpus.
-        """
         self._mw.close()
         self.dct.save_as_text(os.path.join(self._path, self._prefix + 'wordids.txt'))
         json_filename = os.path.join(self._path, self._prefix + 'id2docid.json')

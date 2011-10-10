@@ -36,13 +36,14 @@ Event handler to create a cable corpus.
 """
 from __future__ import absolute_import
 from cablemap.core.handler import NoopCableHandler
-from .corpus import CableCorpus
+from .corpus import WordDictionary, CableCorpus
 
-class CorpusWriter(NoopCableHandler):
+class NLPCableHandler(NoopCableHandler):
     """\
-    Creates a `cablemap.nlp.corpus.CableCorpus` instance.
+    `cablemap.core.interfaces.ICableHandler` implementation which collects
+    texts and adds 
 
-    The writer uses by default the information from
+    The handler uses by default the information from
     * summary
     * comment
     * header
@@ -84,29 +85,17 @@ class CorpusWriter(NoopCableHandler):
     the comment and the summary section (which are part of the cable's content) to the corpus
     in addition to the cable's content.
     """
-    def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True, before_close=None):
+    def __init__(self, corpus, before_close=None):
         """\
-        Initializes the corpus writer which creates a new `CableCorpus`.
 
-        `path`
-            Directory where the generated files are stored.
-        `prefix`
-            A prefix for the generated file names.
-        `dct`
-            An existing `gensim.corpora.dictionary.Dictionary`
-            If it's ``None`` (default) a dictionary will be created.
-        `tokenizer`
-            A function to tokenize/normalize/clean-up strings.
-            If it's ``None`` (default), a default function will be used to tokenize
-            texts.
-        `allow_dict_updates`
-            Indicats if unknown words should be added to the dictionary (default ``True``).
+        `corpus`
+            An object which has a `add_texts(reference_id, iterable_of_strings)`` and
+            a ``close`` method.
         `before_close`
             An optional function which is called with the underlying corpus before it is
-            closed. May be useful to modify the corpus or the Dictionary before changes are
-            written to disk.
+            closed.
         """
-        self._corpus = CableCorpus(path, prefix, dct, tokenizer, allow_dict_updates)
+        self._corpus = corpus
         self._reference_id = None
         self._buff = []
         self.before_close = before_close
@@ -141,3 +130,51 @@ class CorpusWriter(NoopCableHandler):
     def handle_tag(self, s):
         self._buff.append(s)
 
+class DictionaryHandler(NLPCableHandler):
+    """\
+    `NLPCableHandler` implementation which works on a `WordDictionary`.
+    """
+    def __init__(self, dct=None, tokenizer=None, before_close=None):
+        """\
+
+        `dct`
+            An existing `gensim.corpora.dictionary.Dictionary`
+            If it's ``None`` (default) a dictionary will be created.
+        `tokenizer`
+            A function to tokenize/normalize/clean-up strings.
+            If it's ``None`` (default), a default function will be used to tokenize
+            texts.
+        `before_close`
+            An optional function which is called with the underlying corpus before it is
+            closed.
+        """
+        super(DictionaryHandler, self).__init__(WordDictionary(dct, tokenizer), before_close)
+
+class CorpusHandler(NLPCableHandler):
+    """\
+    Creates a `cablemap.nlp.corpus.CableCorpus` instance.
+    """
+    def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True, before_close=None):
+        """\
+        Initializes the corpus writer which creates a new `CableCorpus`.
+
+        `path`
+            Directory where the generated files are stored.
+        `prefix`
+            A prefix for the generated file names.
+        `dct`
+            An existing `gensim.corpora.dictionary.Dictionary`
+            If it's ``None`` (default) a dictionary will be created.
+        `tokenizer`
+            A function to tokenize/normalize/clean-up strings.
+            If it's ``None`` (default), a default function will be used to tokenize
+            texts.
+        `allow_dict_updates`
+            Indicats if unknown words should be added to the dictionary (default ``True``).
+        `before_close`
+            An optional function which is called with the underlying corpus before it is
+            closed. May be useful to modify the corpus or the Dictionary before changes are
+            written to disk.
+        """
+        super(CorpusWriter, self).__init__(CableCorpus(path, prefix, dct, tokenizer, allow_dict_updates),
+                                           before_close)

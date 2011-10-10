@@ -133,6 +133,22 @@ class NLPCableHandler(NoopCableHandler):
 class DictionaryHandler(NLPCableHandler):
     """\
     `NLPCableHandler` implementation which works on a `WordDictionary`.
+
+    Note: This handler won't attempt to persist the Dictionary. The caller
+    should handle over an existing Dictionary or should save it in the `before_close`
+    callback::
+
+        from gensim.corpora.dictionary import Dictionary
+        from cablemap.core import handle_source
+
+        dct = Dictionary()
+        handler = DictionaryHandler(dct)
+
+        handle_source('cables.csv', handler)
+
+        # Now save the dict:
+        dct.save_as_text('/path/wordids.txt')
+        
     """
     def __init__(self, dct=None, tokenizer=None, before_close=None):
         """\

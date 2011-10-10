@@ -7,13 +7,21 @@ Cablemap was tested with Python 2.5 and upwards (it was not tested against
 Python 3.x) and has no further dependencies. Simply install ``cablemap.core`` 
 via::
 
-    easy_install -U cablemap.core
+    pip install cablemap.core
+
+or::
+
+    easy_install cablemap.core
 
 and you're done.
 
 To convert the cables into Topic Maps, install the ``cablemap.tm`` package via::
 
-    easy_install -U cablemap.tm
+    pip install cablemap.tm
+
+or::
+
+    easy_install cablemap.tm
 
 The ``cablemap.tm`` package has dependencies to other packages like 
 `tm <http://pypi.python.org/pypi/tm>`_ which are installed automatically.

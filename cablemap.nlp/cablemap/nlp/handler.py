@@ -40,7 +40,7 @@ from .corpus import CableCorpus
 
 class CorpusWriter(NoopCableHandler):
     """\
-    Creates a cable corpus.
+    Creates a `cablemap.nlp.corpus.CableCorpus` instance.
 
     The writer uses by default the information from
     * summary
@@ -81,11 +81,12 @@ class CorpusWriter(NoopCableHandler):
     which are not person TAGs won't be part of the corpus, too.
 
     Without filtering, the writer will add duplicate information to the corpus since it adds
-    the comment and the summary section to the corpus in addition to the cable's content. But "comment"
-    and "summary" are part of the cable's content.
+    the comment and the summary section (which are part of the cable's content) to the corpus
+    in addition to the cable's content.
     """
     def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True, before_close=None):
         """\
+        Initializes the corpus writer which creates a new `CableCorpus`.
 
         `path`
             Directory where the generated files are stored.
@@ -101,9 +102,9 @@ class CorpusWriter(NoopCableHandler):
         `allow_dict_updates`
             Indicats if unknown words should be added to the dictionary (default ``True``).
         `before_close`
-            An optional function which is called before the underlying `CableCorpus` is closed.
-            May be useful to modify the corpus or the Dictionary before changes are written
-            to disk.
+            An optional function which is called with the underlying corpus before it is
+            closed. May be useful to modify the corpus or the Dictionary before changes are
+            written to disk.
         """
         self._corpus = CableCorpus(path, prefix, dct, tokenizer, allow_dict_updates)
         self._reference_id = None
@@ -140,7 +141,3 @@ class CorpusWriter(NoopCableHandler):
     def handle_tag(self, s):
         self._buff.append(s)
 
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()

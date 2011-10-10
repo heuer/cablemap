@@ -49,17 +49,17 @@ class CableCorpus(object):
     """\
     The cable corpus consists of several files which are written into a directory.
 
-    * a dictionary with a ``<word id> <word> <frequency>`` mapping safed under "wordids.txt"
+    * a dictionary with a ``<word id> <word> <frequency>`` mapping saved under "wordids.txt"
     * a JSON file with a ``<cable reference id> <document number>`` mapping under "id2docid.json"
-    * a `Market Matrix format <http://math.nist.gov/MatrixMarket/formats.html>` vector space file "bow.mm"
+    * a `Market Matrix format <http://math.nist.gov/MatrixMarket/formats.html>` vector space model file "bow.mm"
 
     CAUTION: The corpus overrides any existing files with the same file name in the specified directory.
 
-    By default, the corpus creates the word dictionary and the document/word vector together which
-    may lead into an unuseful vector space. To filter certain words, the corpus may be initialized
-    with a pre-generated word dictionary. To make the dictionary immutable, the property ``allow_dict_updates``
-    should be set to ``False`` (updates are allowed by default). The resulting document word vector space
-    contains only words which are already in the word dictionary then.
+    By default, the corpus creates the word dictionary and the vector space model which
+    may lead into an unuseful vector space model. To filter certain words, the corpus may be
+    initialized with a pre-generated word dictionary. To make the dictionary immutable, the property
+    ``allow_dict_updates`` should be set to ``False`` (updates are allowed by default).
+    The resulting vector space model contains only words which are in the word dictionary then.
 
     Example to reduce the clutter::
 
@@ -83,7 +83,8 @@ class CableCorpus(object):
     """
     def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True):
         """\
-
+        Initializes the cable corpus.
+        
         `path`
             Directory where the generated files are stored.
         `prefix`
@@ -112,6 +113,9 @@ class CableCorpus(object):
 
     def add_texts(self, reference_id, texts):
         """\
+        Adds the words from the provided iterable `texts` to the corpus.
+
+        The strings will be tokenized.
 
         `reference_id`
             The reference identifier of the cable.
@@ -122,6 +126,9 @@ class CableCorpus(object):
 
     def add_text(self, reference_id, text):
         """\
+        Adds the words from the provided text to the corpus.
+
+        The string will be tokenized.
 
         `reference_id`
             The reference identifier of the cable.
@@ -132,6 +139,7 @@ class CableCorpus(object):
 
     def add_words(self, reference_id, words):
         """\
+        Adds the words to the corpus. The words won't be tokenized/fitered.
 
         `reference_id`
             The reference identifier of the cable.
@@ -142,12 +150,12 @@ class CableCorpus(object):
         self._mw.add_vector(self.dct.doc2bow(words, self.allow_dict_updates))
 
     def close(self):
+        """\
+        This method MUST be called after all texts/words have been added
+        to the corpus.
+        """
         self._mw.close()
         self.dct.save_as_text(os.path.join(self._path, self._prefix + 'wordids.txt'))
         json_filename = os.path.join(self._path, self._prefix + 'id2docid.json')
         json.dump(dict(zip(self._cables, count())), open(json_filename, 'wb'))
 
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()

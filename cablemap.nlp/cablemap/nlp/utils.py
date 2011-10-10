@@ -54,6 +54,18 @@ class IncrementalMmWriter(object):
         self._num_terms = 0
         self._num_nnz = 0 # number of non-zeroes in the sparse corpus matrix
 
+    def add_vector(self, vector):
+        """\
+        Writes the provided vector to the matrix.
+
+        `vector`
+            An iterable of ``(word-id, word-frequency)`` tuples
+        """
+        self._num_docs+=1
+        max_id, veclen = self._mmw.write_vector(self._num_docs, vector)
+        self._num_terms = max(self._num_terms, 1 + max_id)
+        self._num_nnz += veclen
+
     def close(self):
         """\
         Closes the writer.
@@ -62,20 +74,3 @@ class IncrementalMmWriter(object):
         """
         self._mmw.fake_headers(self._num_docs+1, self._num_terms, self._num_nnz)
         self._mmw.close()
-
-    def add_vector(self, vector):
-        """\
-        Writes the provided vector to the matrix.
-
-        `vector`
-            An iterable of ``(word-id, occurrences)`` tuples
-        """
-        self._num_docs+=1
-        max_id, veclen = self._mmw.write_vector(self._num_docs, vector)
-        self._num_terms = max(self._num_terms, 1 + max_id)
-        self._num_nnz += veclen
-
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()

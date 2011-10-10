@@ -176,5 +176,5 @@ class CorpusHandler(NLPCableHandler):
             closed. May be useful to modify the corpus or the Dictionary before changes are
             written to disk.
         """
-        super(CorpusWriter, self).__init__(CableCorpus(path, prefix, dct, tokenizer, allow_dict_updates),
+        super(CorpusHandler, self).__init__(CableCorpus(path, prefix, dct, tokenizer, allow_dict_updates),
                                            before_close)

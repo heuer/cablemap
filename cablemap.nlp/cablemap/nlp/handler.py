@@ -36,7 +36,7 @@ Event handler to create a cable corpus.
 """
 from __future__ import absolute_import
 from cablemap.core.handler import NoopCableHandler
-from .corpus import WordDictionary, CableCorpus
+from .corpus import WordCorpus, CableCorpus
 
 class NLPCableHandler(NoopCableHandler):
     """\
@@ -132,7 +132,7 @@ class NLPCableHandler(NoopCableHandler):
 
 class DictionaryHandler(NLPCableHandler):
     """\
-    `NLPCableHandler` implementation which works on a `WordDictionary`.
+    `NLPCableHandler` implementation which works on a `WordCorpus`.
 
     Note: This handler won't attempt to persist the Dictionary. The caller
     should handle over an existing Dictionary or should save it in the `before_close`
@@ -164,7 +164,7 @@ class DictionaryHandler(NLPCableHandler):
             An optional function which is called with the underlying corpus before it is
             closed.
         """
-        super(DictionaryHandler, self).__init__(WordDictionary(dct, tokenizer), before_close)
+        super(DictionaryHandler, self).__init__(WordCorpus(dct, tokenizer), before_close)
 
 class CorpusHandler(NLPCableHandler):
     """\

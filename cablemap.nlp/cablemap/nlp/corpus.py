@@ -106,7 +106,7 @@ class BaseCorpus(object):
         """
         pass
 
-class WordDictionary(BaseCorpus):
+class WordCorpus(BaseCorpus):
     """\
     Wrapper around a `gensim.corpora.dictionary.Dictionary`.
 
@@ -133,7 +133,7 @@ class WordDictionary(BaseCorpus):
         `tokenizer`
             A tokenizer function or ``None``, see `BaseCorpus`
         """
-        super(WordDictionary, self).__init__(tokenizer)
+        super(WordCorpus, self).__init__(tokenizer)
         self.dct = dct or Dictionary()
 
     def add_words(self, reference_id, words):

@@ -161,32 +161,7 @@ def lancaster_stem(word):
     """
     return _lanc_stem(word)
 
-def load_word2idmapping(filename):
-    """\
-    
-    """
-    return gensim.corpora.Dictionary.load_from_text(filename)
-
-def save_word2idmapping(filename, dct):
-    """\
-    
-    """
-    dct.save_as_text(filename)
-
-def save_docterm_matrix(filename, documents, dct):
-    """\
-    
-    """
-    doc2bow = dct.doc2bow
-    gensim.matutils.MmWriter.writeCorpus(filename, (doc2bow(doc) for doc in documents))
-
-def load_docterm_matrix(filename):
-    """\
-    Returns an iterable document-term matrix from the provided file.
-    """
-    return gensim.corpora.MmCorpus(filename)
-    
-
+   
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

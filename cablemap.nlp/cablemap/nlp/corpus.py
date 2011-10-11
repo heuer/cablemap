@@ -134,7 +134,7 @@ class WordCorpus(BaseCorpus):
             A tokenizer function or ``None``, see `BaseCorpus`
         """
         super(WordCorpus, self).__init__(tokenizer)
-        self.dct = dct or Dictionary()
+        self.dct = Dictionary() if dct is None else dct
 
     def add_words(self, reference_id, words):
         self.dct.doc2bow(words, True)
@@ -195,7 +195,7 @@ class CableCorpus(BaseCorpus):
         super(CableCorpus, self).__init__(tokenizer)
         if not os.path.isdir(path):
             raise IOError('Expected a directory path')
-        self.dct = dct or Dictionary()
+        self.dct = Dictionary() if dct is None else dct
         self._path = path
         self._prefix = prefix or 'cables_'
         self._mw = IncrementalMmWriter(os.path.join(path, self._prefix + 'bow.mm'))

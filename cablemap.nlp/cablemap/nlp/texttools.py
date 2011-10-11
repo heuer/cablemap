@@ -161,90 +161,17 @@ def lancaster_stem(word):
     """
     return _lanc_stem(word)
 
-def freq_dist(words):
-    """\
-    Returns a frequency distribution for the provided `words`.
-    
-    The returned dict provides a ``'word': no-of-occurrences`` mapping.
-    
-    `words`
-        An iterable of words.
-
-    >>> fd = freq_dist(['a', 'a', 'a', 'A', 'b', 'b', 'c'])
-    >>> fd['a']
-    3
-    >>> fd['A']
-    1
-    >>> fd['b']
-    2
-    >>> fd['c']
-    1
-    """
-    return nltk.FreqDist(words)
-
-def extract_cable_content(html):
-    """\
-    Returns the cable's content from the provided HTML string.
-    
-    `html`
-        The HTML string.
-    """
-    content = reader.get_content_as_text(html, reader.reference_id_from_html(html))
-    return reader.header_body_from_content(content)[1] or content
-
-def tokenize_cable_content(content):
-    """\
-    Returns a generator of (lowercased) words of the cable's content.
-    
-    `content`
-        A string.
-    """
-    return lowercased_words(clean_cable_content(content))
-
-def tokenize_from_file(filename):
-    """\
-    Returns a cable from the provided file.
-    
-    `filename`
-        An absolute path to the cable file.
-    """
-    return tokenize_from_html(codecs.open(filename, 'rb', 'utf-8').read())
-
-def tokenize_from_html(html):
-    """\
-    Convienence function for ``tokenize_cable_content(extract_cable_content(html))``.
-
-    `html`
-        The HTML string.
-    """
-    return tokenize_cable_content(extract_cable_content(html))
-
 def load_word2idmapping(filename):
     """\
     
     """
-    dct = gensim.corpora.Dictionary()
-    with codecs.open(filename, encoding='utf-8') as f:
-        for line in f:
-            word_id, word, doc_freq = line.rstrip().split()
-            word_id = int(word_id)
-            dct.token2id[word] = word_id
-            dct.docFreq[word_id] = int(doc_freq)
-    return dct
+    return gensim.corpora.Dictionary.load_from_text(filename)
 
 def save_word2idmapping(filename, dct):
     """\
     
     """
-    with codecs.open(filename, 'wb', encoding='utf-8') as f:
-        for word, word_id in sorted(dct.token2id.iteritems()):
-            f.write('%i %s %i\n' % (word_id, word, dct.docFreq[word_id]))
-
-def create_word2idmapping(documents):
-    """\
-    
-    """
-    return gensim.corpora.Dictionary.fromDocuments(documents)
+    dct.save_as_text(filename)
 
 def save_docterm_matrix(filename, documents, dct):
     """\

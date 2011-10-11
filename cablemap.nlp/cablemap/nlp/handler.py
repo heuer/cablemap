@@ -42,17 +42,26 @@ class NLPFilter(DelegatingCableHandler):
     """\
     A configurable filter to swallow unwanted events/texts.
 
-    By default, the texts of
-
-        * header
-        * TAGs
-        * cable content
-
-    are ignored.
+    By default, the "handle_content" event is passed to the underlying handler and
+    all other events are swallowed by this filter.
     """
-    def __init__(self, handler, want_tags=False, want_content=False, want_summary=True, want_comment=True, want_header=False):
+    def __init__(self, handler, want_tags=False, want_content=True, want_summary=False,
+                 want_comment=False, want_header=False):
         """\
+        Initializes the filter.
 
+        `handler`
+            The handler which should receive the (valid) events
+        `want_tags`
+            Indicates if `handle_tag` should be passed to the underlying handler (default: ``False``)
+        `want_content`
+            Indicates if `handle_content` should be passed to the underlying handler (default: ``True``)
+        `want_summary`
+            Indicates if `handle_summary` should be passed to the underlying handler (default: ``False``)
+        `want_comment`
+            Indicates if `handle_comment` should be passed to the underlying handler (default: ``False``)
+        `want_header`
+            Indicates if `handle_header` should be passed to the underlying handler (default: ``False``)
         """
         super(NLPFilter, self).__init__(handler)
         self.want_tags = want_tags

@@ -89,11 +89,6 @@ def test_sent_list():
     for i, c in enumerate(_DATA):
         yield check, c, _SENT_RESULTS[i]
 
-def test_freqdist():
-    def check(words, fq):
-        eq_(sorted(fq.iteritems()), sorted(tt.freq_dist(words).iteritems()))
-    for i, c in enumerate(_DATA):
-        yield check, tt.words(c), _FREQ_DIST_RESULTS[i]
 
 if __name__ == '__main__':
     import nose

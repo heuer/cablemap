@@ -143,7 +143,7 @@ class CableCorpus(BaseCorpus):
     """\
     The cable corpus consists of several files which are written into a directory.
 
-    * a dictionary with a ``<word id> <word> <frequency>`` mapping saved under "wordids.txt"
+    * a dictionary with a ``<word id> <word> <frequency>`` mapping saved under "wordids.pickle"
     * a JSON file with a ``<cable reference id> <document number>`` mapping under "id2docid.json"
     * a `Market Matrix format <http://math.nist.gov/MatrixMarket/formats.html>` vector space model file "bow.mm"
 
@@ -208,7 +208,7 @@ class CableCorpus(BaseCorpus):
 
     def close(self):
         self._mw.close()
-        self.dct.save_as_text(os.path.join(self._path, self._prefix + 'wordids.txt'))
+        self.dct.save(os.path.join(self._path, self._prefix + 'wordids.pickle'))
         json_filename = os.path.join(self._path, self._prefix + 'id2docid.json')
         json.dump(dict(zip(self._cables, count())), open(json_filename, 'wb'))
 

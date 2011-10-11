@@ -170,14 +170,12 @@ class CorpusHandler(NLPCableHandler):
     """\
     Creates a `cablemap.nlp.corpus.CableCorpus` instance.
     """
-    def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True, before_close=None):
+    def __init__(self, path, dct=None, tokenizer=None, allow_dict_updates=True, prefix=None, before_close=None):
         """\
         Initializes the corpus writer which creates a new `CableCorpus`.
 
         `path`
             Directory where the generated files are stored.
-        `prefix`
-            A prefix for the generated file names.
         `dct`
             An existing `gensim.corpora.dictionary.Dictionary`
             If it's ``None`` (default) a dictionary will be created.
@@ -187,10 +185,12 @@ class CorpusHandler(NLPCableHandler):
             texts.
         `allow_dict_updates`
             Indicats if unknown words should be added to the dictionary (default ``True``).
+        `prefix`
+            A prefix for the generated file names.
         `before_close`
             An optional function which is called with the underlying corpus before it is
             closed. May be useful to modify the corpus or the Dictionary before changes are
             written to disk.
         """
-        super(CorpusHandler, self).__init__(CableCorpus(path, prefix, dct, tokenizer, allow_dict_updates),
+        super(CorpusHandler, self).__init__(CableCorpus(path, dct, tokenizer, allow_dict_updates, prefix),
                                            before_close)

@@ -175,14 +175,12 @@ class CableCorpus(BaseCorpus):
         ....
         corpus.close()
     """
-    def __init__(self, path, prefix=None, dct=None, tokenizer=None, allow_dict_updates=True):
+    def __init__(self, path, dct=None, tokenizer=None, allow_dict_updates=True, prefix=None):
         """\
         Initializes the cable corpus.
         
         `path`
             Directory where the generated files are stored.
-        `prefix`
-            A prefix for the generated file names.
         `dct`
             An existing `gensim.corpora.dictionary.Dictionary`
             If it's ``None`` (default) a dictionary will be created.
@@ -191,6 +189,8 @@ class CableCorpus(BaseCorpus):
             If it's ``None`` (default), a default function will be used to tokenize texts.
         `allow_dict_updates`
             Indicats if unknown words should be added to the dictionary (default ``True``).
+        `prefix`
+            A prefix for the generated file names.
         """
         super(CableCorpus, self).__init__(tokenizer)
         if not os.path.isdir(path):

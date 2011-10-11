@@ -35,8 +35,51 @@
 Event handler to create a cable corpus.
 """
 from __future__ import absolute_import
-from cablemap.core.handler import NoopCableHandler
+from cablemap.core.handler import NoopCableHandler, DelegatingCableHandler
 from .corpus import WordCorpus, CableCorpus
+
+class NLPFilter(DelegatingCableHandler):
+    """\
+    A configurable filter to swallow unwanted events/texts.
+
+    By default, the texts of
+
+        * header
+        * TAGs
+        * cable content
+
+    are ignored.
+    """
+    def __init__(self, handler, want_tags=False, want_content=False, want_summary=True, want_comment=True, want_header=False):
+        """\
+
+        """
+        super(NLPFilter, self).__init__(handler)
+        self.want_tags = want_tags
+        self.want_content = want_content
+        self.want_summary = want_summary
+        self.want_commet = want_comment
+        self.want_header = want_header
+
+    def handle_header(self, s):
+        if self.want_header:
+            self._handler.handle_header(s)
+
+    def handle_tag(self, s):
+        if self.want_tags:
+            self._handler.handle_tag(s)
+
+    def handle_content(self, s):
+        if self.want_content:
+            self._handler.handle_content(s)
+
+    def handle_summary(self, s):
+        if self.want_summary:
+            self._handler.handle_summary(s)
+
+    def handle_comment(self, s):
+        if self.want_comment:
+            self._handler.handle_comment(s)
 
 class NLPCableHandler(NoopCableHandler):
     """\
@@ -55,25 +98,19 @@ class NLPCableHandler(NoopCableHandler):
         from cablemap.core.handler import DelegatingCableHandler, handle_source
         from cablemap.core import constants as consts
         from cablemap.core.utils import tag_kind
-        from cablemap.nlp.handler import CorpusWriter
+        from cablemap.nlp.handler import CorpusHandler, NLPFilter
 
-        class MyFilter(DelegatingCableHandler):
+        class MyFilter(NLPFilter):
             '''\
-            Filters the "header" event and swallows all TAGs which are not person TAGs
+            Filters all TAGs which are not person TAGs
             '''
-            def __init__(self, handler):
-                super(MyFilter, self).__init__(handler)
-
-            def handle_header(self, header):
-                pass # Not interessted in the header
-
             def handle_tag(self, tag):
                 # Let only person TAGs pass
-                if tag_kind(tag) == consts.TAG_KIND_PERSON:
+                if self.want_tags and tag_kind(tag) == consts.TAG_KIND_PERSON:
                     self._handler.handle_tag(tag)
 
 
-        writer = CorpusWriter('/my/path')
+        writer = CorpusHandler('/my/path')
         handler = MyFilter(writer)
 
         handle_source('cables.csv', handler)

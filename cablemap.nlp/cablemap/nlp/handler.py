@@ -46,7 +46,7 @@ class NLPFilter(DelegatingCableHandler):
     all other events are swallowed by this filter.
     """
     def __init__(self, handler, want_tags=False, want_content=True, want_summary=False,
-                 want_comment=False, want_header=False):
+                 want_comment=False, want_header=False, want_subject=False):
         """\
         Initializes the filter.
 
@@ -62,6 +62,8 @@ class NLPFilter(DelegatingCableHandler):
             Indicates if `handle_comment` should be passed to the underlying handler (default: ``False``)
         `want_header`
             Indicates if `handle_header` should be passed to the underlying handler (default: ``False``)
+        `want_subject`
+            Indicates if `handle_subject` should be passed to the underlying handler (default: ``False``)
         """
         super(NLPFilter, self).__init__(handler)
         self.want_tags = want_tags
@@ -69,6 +71,11 @@ class NLPFilter(DelegatingCableHandler):
         self.want_summary = want_summary
         self.want_commet = want_comment
         self.want_header = want_header
+        self.want_subject = want_subject
+
+    def handle_subject(self, s):
+        if self.want_subject:
+            self._handler.handle_subject(s)
 
     def handle_header(self, s):
         if self.want_header:

@@ -113,7 +113,7 @@ class WordCorpus(BaseCorpus):
     This is a light-weight alternative to `CableCorpus` to create an initial
     word dictionary::
 
-        wd = WordDictionary()
+        wd = WordCorpus()
         wd.add_text('ref-1', 'bla bla')
         # add more texts
         wd.dct.filter_extremes()

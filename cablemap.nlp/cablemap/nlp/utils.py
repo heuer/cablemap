@@ -38,14 +38,22 @@ from gensim.matutils import MmWriter
 
 class IncrementalMmWriter(object):
     """\
-    Wraps a `gensim.matutils.MmWriter` to write a corpus incrementally.
+    Writer for the `Matrix Market Exchange Format <http://math.nist.gov/MatrixMarket/formats.html>`_
+    
+    Wraps a `gensim.matutils.MmWriter` to write a file incrementally: The total number
+    of vectors could be unknown in advance.
 
-    It's purpose is somewhat similar to
+    Its purpose is somewhat similar to
     `gensim.matutils.MmWriter.write_corpus(fname, corpus, progress_cnt=1000, index=False)` but
     it doesn't expect that all vectors are available. The vectors are added incrementally via
     `add_vector`.
     """
     def __init__(self, filename):
+        """\
+
+        `filename`
+            The name of the target file.
+        """
         mmw = MmWriter(filename)
         # write empty headers to the file (with enough space to be overwritten later)
         mmw.write_headers(-1, -1, -1) # will print 50 spaces followed by newline on the stats line

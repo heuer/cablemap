@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2011 -- Lars Heuer <heuer[at]semagia.com>
+# Copyright (c) 2011 - 2012 -- Lars Heuer <heuer[at]semagia.com>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -238,7 +238,7 @@ class Cable(object):
     def transmission_id(self):
         if self.partial:
             return None
-        return reader.parse_transmission_id(self.header, self.reference_id)
+        return reader.parse_transmission_id(self.header)
 
     @cached_property
     def recipients(self):

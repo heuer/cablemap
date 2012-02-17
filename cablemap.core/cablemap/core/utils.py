@@ -59,7 +59,7 @@ except ImportError:
             # Google Appengine offers simplejson via django
             from django.utils import simplejson as json
         except ImportError:
-            pass #TODO: Exception?
+            raise ImportError('Cannot detect a JSON decoder')
 import sys
 csv.field_size_limit(sys.maxint)
 del sys

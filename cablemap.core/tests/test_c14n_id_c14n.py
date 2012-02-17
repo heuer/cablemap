@@ -107,16 +107,16 @@ def test_c14n():
         yield check, r, c
 
 def test_c14n_malformed_ids():
-    def check(reference_id, canonical_id):
-        eq_(canonical_id, canonicalize_id(reference_id))
-    for r, c in MALFORMED_CABLE_IDS.iteritems():
-        yield check, r, c
+    def check(incorrect_id, correct_id):
+        eq_(canonicalize_id(correct_id), canonicalize_id(incorrect_id))
+    for incorrect_id, correct_id in MALFORMED_CABLE_IDS.iteritems():
+        yield check, incorrect_id, correct_id
 
 def test_c14n_illegal_ids():
-    def check(reference_id, canonical_id):
-        eq_(canonical_id, canonicalize_id(reference_id))
-    for r, c in INVALID_CABLE_IDS.iteritems():
-        yield check, r, c
+    def check(incorrect_id, correct_id):
+        eq_(canonicalize_id(correct_id), canonicalize_id(incorrect_id))
+    for incorrect_id, correct_id in INVALID_CABLE_IDS.iteritems():
+        yield check, incorrect_id, correct_id
 
 
 if __name__ == '__main__':

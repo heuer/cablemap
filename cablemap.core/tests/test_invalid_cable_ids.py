@@ -39,29 +39,31 @@ Tests the handling of invalid WikiLeaks cable ids.
 :license:      BSD license
 """
 from nose.tools import ok_, eq_
-from cablemap.core import cable_by_id
+from cablemap.core import cable_by_id, c14n
 from cablemap.core.constants import INVALID_CABLE_IDS
 
 def _get_test_cases():
     return INVALID_CABLE_IDS.iteritems()
 
 def test_from_invalid_cable_id():
-    def check(wl_id, canonical_id):
-        cable = cable_by_id(wl_id)
+    def check(incorrect_id, correct_id):
+        cable = cable_by_id(incorrect_id)
         ok_(cable is not None)
-        eq_(wl_id, cable.reference_id)
-        eq_(canonical_id, cable.canonical_id)
-    for k, v in _get_test_cases():
-        yield check, k, v
+        eq_(incorrect_id, cable.reference_id)
+        eq_(c14n.canonicalize_id(incorrect_id), cable.canonical_id, 'Unexpected canonical identifier for the incorrect id')
+        eq_(c14n.canonicalize_id(correct_id), cable.canonical_id, 'Unexpected canonical identifier for the correct id')
+    for incorrect_id, correct_id in _get_test_cases():
+        yield check, incorrect_id, correct_id
 
 def test_to_invalid_cable_id():
-    def check(wl_id, canonical_id):
-        cable = cable_by_id(canonical_id)
+    def check(incorrect_id, correct_id):
+        cable = cable_by_id(correct_id)
         ok_(cable is not None)
-        eq_(wl_id, cable.reference_id)
-        eq_(canonical_id, cable.canonical_id)
-    for k, v in _get_test_cases():
-        yield check, k, v
+        eq_(incorrect_id, cable.reference_id)
+        eq_(c14n.canonicalize_id(incorrect_id), cable.canonical_id, 'Unexpected canonical identifier for the incorrect id')
+        eq_(c14n.canonicalize_id(correct_id), cable.canonical_id, 'Unexpected canonical identifier for the correct id')
+    for incorrect_id, correct_id in _get_test_cases():
+        yield check, incorrect_id, correct_id
 
 
 

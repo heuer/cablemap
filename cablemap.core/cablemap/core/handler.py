@@ -234,10 +234,11 @@ class DebitlyFilter(DelegatingCableHandler):
             The ICableHandler which should receive the (filtered) events.
         """
         super(DebitlyFilter, self).__init__(handler)
-        self._bitly2url = {}
-        # For some reason this returns 404, acc. to <http://knowurl.com/>
-        # the IRI is:
-        self._bitly2url[u'http://bit.ly/mDfYBE'] = u'http://www.haiti-liberte.com/archives/volume4-46/Les%20c%C3%A2bles%20de%20WikiLeaks%20sur%20Ha%C3%AFti%20publi%C3%A9s%20par%20Ha%C3%AFti%20Libert%C3%A9.asp'
+        self._bitly2url = {
+            # For some reason this returns 404, acc. to <http://knowurl.com/>
+            # the IRI is:
+            u'http://bit.ly/mDfYBE': u'http://www.haiti-liberte.com/archives/volume4-46/Les%20c%C3%A2bles%20de%20WikiLeaks%20sur%20Ha%C3%AFti%20publi%C3%A9s%20par%20Ha%C3%AFti%20Libert%C3%A9.asp'
+        }
 
     def handle_media_iri(self, iri):
         class HeadRequest(urllib2.Request):

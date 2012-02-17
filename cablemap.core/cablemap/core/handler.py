@@ -54,6 +54,7 @@ class NoopCableHandler(object):
         def noop(*args): pass
         return noop
 
+
 class DelegatingCableHandler(object):
     """\
     A `ICableHandler` which delegates all events to an underlying
@@ -70,6 +71,7 @@ class DelegatingCableHandler(object):
 
     def __getattr__(self, name):
         return getattr(self._handler, name)
+
 
 class LoggingCableHandler(object):
     """\
@@ -95,6 +97,7 @@ class LoggingCableHandler(object):
             getattr(self._handler, name)(*args)
         return logme
 
+
 class TeeCableHandler(object):
     """\
     A `ICableHandler` which delegates the events to two underlying `ICableHandler`
@@ -119,6 +122,7 @@ class TeeCableHandler(object):
             getattr(self._second, name)(*args)
         return delegate
 
+
 class MultipleCableHandler(object):
     """\
     A `ICableHandler` which delegates the events to multiple underlying `ICableHandler`
@@ -139,6 +143,7 @@ class MultipleCableHandler(object):
             for handler in self._handlers:
                 getattr(handler, name)(*args)
         return delegate
+
 
 class CableIdFilter(DelegatingCableHandler):
     """\
@@ -180,6 +185,7 @@ class CableIdFilter(DelegatingCableHandler):
             return super(CableIdFilter, self).__getattr__(name)
         return noop
 
+
 class DefaultMetadataOnlyFilter(DelegatingCableHandler):
     """\
     ICableHandler implementation that acts as filter to omit the
@@ -215,6 +221,7 @@ class DefaultMetadataOnlyFilter(DelegatingCableHandler):
 
     def handle_header(self, header):
         pass
+
 
 class DebitlyFilter(DelegatingCableHandler):
     """\
@@ -265,8 +272,8 @@ def handle_cable(cable, handler, standalone=True):
     def datetime(dt):
         date, time = dt.split(u' ')
         if len(time) == 5:
-            time = time + u':00'
-        time = time + u'Z'
+            time += u':00'
+        time += u'Z'
         return u'T'.join([date, time])
     if standalone:
         handler.start()
@@ -341,4 +348,3 @@ def handle_source(path, handler, predicate=None):
         would return cables where the reference identifier starts with ``09``.
     """
     handle_cables(cables_from_source(path, predicate), handler)
-

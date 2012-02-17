@@ -192,7 +192,6 @@ _STATION_C14N = {
     u'HK': u'HONGKONG',
     u'MUMB': u'MUMBAI',
     u'DEPTOFJUST': u'USDOJ',
-          
 }
 
 _C14N_PATTERN = re.compile(r'[0-9]{2}([0A-Z\-]+)[0-9]+')

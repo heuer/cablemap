@@ -140,6 +140,7 @@ class cached_property(object):
             obj.__dict__[self.__name__] = value
         return value
 
+
 class Reference(tuple):
     """\
     Represents a reference to another cable, or e-mail message
@@ -181,6 +182,7 @@ class Recipient(tuple):
     # activity. You assign an MCN to the Department activity on each telegram
     # sent to them, action or info
     mcn = property(itemgetter(4))
+
 
 class Cable(object):
     """\

@@ -223,7 +223,7 @@ def canonicalize_id(reference_id):
     """
     rid = MALFORMED_CABLE_IDS.get(reference_id, None) or INVALID_CABLE_IDS.get(reference_id, None)
     if rid:
-        return rid
+        reference_id = rid
     m = _C14N_PATTERN.match(reference_id)
     if m:
         origin = m.group(1)

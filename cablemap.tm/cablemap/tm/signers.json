@@ -642,8 +642,8 @@
     "UNROME": "Lee A. Brudvig"
   }, 
   "BRUSH": {
-    "ASHGABAT": "", 
-    "BELGRADE": "Jennifer Brush"
+    "ASHGABAT": "Jennifer Leigh Brush",
+    "BELGRADE": "Jennifer Leigh Brush"
   }, 
   "BRYAN": {
     "PARIS": "", 
@@ -1336,12 +1336,9 @@
     "GABORONE": ""
   }, 
   "DRUCKER": {
-    "BOGOTA": "", 
-    "BUENOSAIRES": ""
-  }, 
-  "DRUCKERDRUCKER": {
-    "BOGOTA": ""
-  }, 
+    "BOGOTA": "Milton K. Drucker",
+    "BUENOSAIRES": "Milton K. Drucker"
+  },
   "DRY": {
     "MUSCAT": ""
   }, 
@@ -2173,7 +2170,7 @@
     "DILI": ""
   }, 
   "HENIFIN": {
-    "SANJOSE": ""
+    "SANJOSE": "David E. Henifin"
   }, 
   "HENSHAW": {
     "BRASILIA": "", 
@@ -2324,7 +2321,7 @@
     "BRIDGETOWN": ""
   }, 
   "HOWE": {
-    "LAGOS": ""
+    "LAGOS": "William M. Howe"
   }, 
   "HOWELL": {
     "KUWAIT": "Wilson Nathaniel Howell"
@@ -5126,13 +5123,13 @@
     "MUNICH": "Conrad Tribble"
   }, 
   "TRIMBLE": {
-    "YEKATERINBURG": ""
+    "YEKATERINBURG": "Carol Trimble"
   }, 
   "TRIVELLI": {
     "MANAGUA": "Paul Arthur Trivelli"
   }, 
   "TROUTMAN": {
-    "ASHGABAT": ""
+    "ASHGABAT": "Heather Troutman"
   }, 
   "TRUHN": {
     "NAPLES": "J. Patrick Truhn"
@@ -5328,7 +5325,7 @@
     "PANAMA": "Linda Ellen Watt"
   }, 
   "WAYNE": {
-    "BUENOSAIRES": ""
+    "BUENOSAIRES": "Earl Anthony Wayne"
   }, 
   "WE": {
     "ABUDHABI": "", 
@@ -5369,8 +5366,8 @@
     "BRATISLAVA": "Ronald Weiser"
   }, 
   "WEITZENKORN": {
-    "SANJOSE": "", 
-    "SANTIAGO": ""
+    "SANJOSE": "Laurie Weitzenkorn",
+    "SANTIAGO": "Laurie Weitzenkorn"
   }, 
   "WELCH": {
     "CAIRO": "Charles David Welch", 
@@ -5428,13 +5425,10 @@
     "OSLO": "Benson Kelley Whitney"
   }, 
   "WHITSON": {
-    "SURABAYA": ""
-  }, 
-  "WHOWE": {
-    "LAGOS": ""
-  }, 
+    "SURABAYA": "Kevin Whitson"
+  },
   "WICKMAN": {
-    "SHENYANG": ""
+    "SHENYANG": "Stephen B. Wickman"
   }, 
   "WIENER": {
     "ISTANBUL": "", 

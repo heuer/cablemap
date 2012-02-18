@@ -191,7 +191,7 @@ def origin_west_africa(origin):
         * Benin
         * Burkin Faso
         * Cape Verde
-        * Cote d'Ivoire
+        * Côte d'Ivoire
         * Gambia
         * Ghana
         * Guinea
@@ -617,7 +617,7 @@ def origin_costa_rica(origin):
 
 def origin_cote_divoire(origin):
     """\
-    Returns if the origin is Cote d'Ivoire.
+    Returns if the origin is Côte d'Ivoire.
 
     `origin`
         The origin to check.

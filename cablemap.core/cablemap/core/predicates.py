@@ -594,7 +594,7 @@ def origin_costa_rica(origin):
 
 def origin_cote_divoire(origin):
     """\
-    Returns if the origin is Cote Divoire.
+    Returns if the origin is Cote d'Ivoire.
 
     `origin`
         The origin to check.

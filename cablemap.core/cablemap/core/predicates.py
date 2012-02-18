@@ -1329,7 +1329,7 @@ def origin_nigeria(origin):
 
 def origin_usnato(origin):
     """\
-    Returns if the origin is Usnato.
+    Returns if the origin is US NATO.
 
     `origin`
         The origin to check.

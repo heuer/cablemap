@@ -46,6 +46,21 @@ from .c14n import canonicalize_id
 _YEAR_ORIGIN_PATTERN = re.compile(r'([0-9]{2})([A-Z\-]+)[0-9]+')
 
 def year_origin_filter(year_predicate=None, origin_predicate=None):
+    """\
+    Returns a predicate for cable identifiers where `year_predicate` and
+    `origin_predicate` must hold true.
+
+    If `year_predicate` and `origin_predicate` is ``None`` the returned
+    predicate holds always true.
+
+
+    `year_predicate`
+        A predicate which returns ``True`` or ``False`` for a cable
+        year.
+    ``origin_predicate`
+        A predicate which returns ``True`` or ``False`` for a given
+        cable origin
+    """
     def accept(cable_id, predicate):
         year, origin = _YEAR_ORIGIN_PATTERN.match(canonicalize_id(cable_id)).groups()
         return predicate(year, origin)
@@ -59,13 +74,21 @@ def year_origin_filter(year_predicate=None, origin_predicate=None):
 
 def year_filter(predicate):
     """\
+    Returns a predicate for cable identifiers where the provided
+    `predicate` holds true for the cable's year.
 
+    `predicate`
+        A predicate which checks the cable creation year.
     """
     return year_origin_filter(year_predicate=predicate)
 
 def origin_filter(predicate):
     """\
+    Returns a predicate for cable identifiers where the provided
+    `predicate` holds true for the cable's origin.
 
+    `predicate`
+        A predicate which checks the origin of a cable.
     """
     return year_origin_filter(origin_predicate=predicate)
 

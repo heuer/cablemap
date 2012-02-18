@@ -54,10 +54,7 @@
   "ALLEN": {
     "MONTREAL": "Bernadette M. Allen", 
     "NIAMEY": "Bernadette M. Allen"
-  }, 
-  "ALLES": {
-    "JERUSALEM": ""
-  }, 
+  },
   "ALLGEIER": {
     "GENEVA": ""
   }, 
@@ -1053,7 +1050,7 @@
     "TIRANA": ""
   }, 
   "CROCKART": {
-    "MUNICH": ""
+    "MUNICH": "Kathryn Crockart"
   }, 
   "CROCKER": {
     "BAGHDAD": "Ryan Clark Crocker", 
@@ -1067,12 +1064,9 @@
     "ACCRA": ""
   }, 
   "CROUCH": {
-    "BARCELONA": "", 
+    "BARCELONA": "Greggory D. Crouch",
     "BUCHAREST": "Jack Dyer Crouch II"
-  }, 
-  "CROUCHG": {
-    "BARCELONA": ""
-  }, 
+  },
   "CROWE": {
     "LONDON": "William James Crowe, Jr. "
   }, 
@@ -1123,7 +1117,7 @@
     "DUBLIN": ""
   }, 
   "DANFORTH": {
-    "USUNNEWYORK": ""
+    "USUNNEWYORK": "John C. Danforth"
   }, 
   "DANIELS": {
     "OSLO": "Cherrie Daniels"
@@ -1132,7 +1126,7 @@
     "BRASILIA": "John J. Danilovich"
   }, 
   "DANILOWICZ": {
-    "PANAMA": ""
+    "PANAMA": "Jon Danilowicz"
   }, 
   "DARNELL": {
     "ADANA": ""
@@ -1219,7 +1213,7 @@
     "PRISTINA": "Christopher William Dell"
   }, 
   "DELLY": {
-    "DARESSALAAM": ""
+    "DARESSALAAM": "D. Purnell Delly"
   }, 
   "DEMING": {
     "TUNIS": "Rust McPherson Deming"
@@ -1231,30 +1225,30 @@
     "DURBAN": "Jill Derderian"
   }, 
   "DERHAM": {
-    "GUATEMALA": ""
+    "GUATEMALA": "James M. Derham"
   }, 
   "DERSE": {
     "BAKU": "Anne E. Derse", 
     "VILNIUS": "Anne E. Derse"
   }, 
   "DESJARDINS": {
-    "TUNIS": ""
+    "TUNIS": "Marc Desjardins"
   }, 
   "DESROCHER": {
-    "AUCKLAND": ""
+    "AUCKLAND": "John Desrocher"
   }, 
   "DETAR": {
-    "COLOMBO": ""
+    "COLOMBO": "Michael DeTar"
   }, 
   "DEUTSCH": {
-    "ANKARA": ""
+    "ANKARA": "Robert S. Deutsch"
   }, 
   "DEWITT": {
-    "SHENYANG": ""
+    "SHENYANG": "Robert Dewitt"
   }, 
   "DHANANI": {
-    "HARARE": "", 
-    "LIBREVILLE": ""
+    "HARARE": "Katherine Dhanani",
+    "LIBREVILLE": "Katherine Dhanani"
   }, 
   "DIAZ": {
     "VATICAN": "Miguel Humberto D\u00edaz"
@@ -1268,7 +1262,7 @@
   }, 
   "DICKEY": {
     "DILI": "", 
-    "HOCHIMINHCITY": ""
+    "HOCHIMINHCITY": "Angela Dickey"
   }, 
   "DICKSON": {
     "OTTAWA": ""
@@ -1288,13 +1282,13 @@
     "ULAANBAATAR": "John R. Dinger"
   }, 
   "DINKELMAN": {
-    "NOGALES": ""
+    "NOGALES": "John W. Dinkelman"
   }, 
   "DJEREJIAN": {
     "DAMASCUS": "Edward Peter Djerejian"
   }, 
   "DODMAN": {
-    "PRAGUE": ""
+    "PRAGUE": "Michael Dodman"
   }, 
   "DOGHERTY": {
     "KINSHASA": ""
@@ -1513,7 +1507,7 @@
     "ASTANA": ""
   }, 
   "FAIRFAX": {
-    "HOCHIMINHCITY": ""
+    "HOCHIMINHCITY": "Kenneth J. Fairfax"
   }, 
   "FAKAN": {
     "KARACHI": ""
@@ -2233,10 +2227,10 @@
     "WARSAW": "Kenneth MacLean Hillas, Jr."
   }, 
   "HILLON": {
-    "OSAKAKOBE": ""
+    "OSAKAKOBE": "David Hillon"
   }, 
   "HILTON": {
-    "STOCKHOLM": ""
+    "STOCKHOLM": "Robert Hilton"
   }, 
   "HINSON-JONES": {
     "LAGOS": "Robyn Hinson-Jones"
@@ -2258,22 +2252,22 @@
   }, 
   "HOFFMAN": {
     "LISBON": "Alfred Hoffman, Jr.", 
-    "PARIS": ""
+    "PARIS": "Karl Hofmann"
   }, 
   "HOFMANN": {
-    "PARIS": ""
+    "PARIS": "Karl Hofmann"
   }, 
   "HOGAN": {
-    "MINSK": ""
+    "MINSK": "Dereck Hogan"
   }, 
   "HOH": {
-    "VIENNA": ""
+    "VIENNA": "Chris Hoh"
   }, 
   "HOHE": {
-    "PRAGUE": ""
+    "PRAGUE": "Martin Hohe"
   }, 
   "HOLLOWAY": {
-    "ASUNCION": ""
+    "ASUNCION": "Perry Holloway"
   }, 
   "HOLM-OLSEN": {
     "RIODEJANEIRO": "Erik Holm-Olsen"
@@ -5293,8 +5287,8 @@
     "NDJAMENA": "Marc M. Wall"
   }, 
   "WALLES": {
-    "ATHENS": "", 
-    "JERUSALEM": ""
+    "ATHENS": "Jacob Walles",
+    "JERUSALEM": "Jacob Walles"
   }, 
   "WALSH": {
     "BUENOSAIRES": "", 

@@ -30,13 +30,13 @@
     "CALGARY": "Naim Ahmed"
   }, 
   "AKER": {
-    "FRANKFURT": ""
+    "FRANKFURT": "Richard Aker"
   }, 
   "AKUETTEH": {
     "ABIDJAN": "Cynthia Akuetteh"
   }, 
   "ALBRECHT": {
-    "MASERU": ""
+    "MASERU": "Karl P. Albrecht"
   }, 
   "ALBRIGHT": {
     "ABUDHABI": "Richard A. Albright", 
@@ -1126,7 +1126,7 @@
     "USUNNEWYORK": ""
   }, 
   "DANIELS": {
-    "OSLO": ""
+    "OSLO": "Cherrie Daniels"
   }, 
   "DANILOVICH": {
     "BRASILIA": "John J. Danilovich"
@@ -1313,7 +1313,7 @@
     "COLOMBO": "Shaun Edward Donnelly"
   }, 
   "DONOVAN": {
-    "HONGKONG": "Joseph R Donovan Jr.", 
+    "HONGKONG": "Joseph R Donovan, Jr.",
     "TOKYO": ""
   }, 
   "DOUGHERTY": {
@@ -3554,7 +3554,7 @@
     "MANAGUA": "Barbara Calandra Moore", 
     "MINSK": "Jonathan M. Moore", 
     "PODGORICA": "Roderick W. Moore", 
-    "PORTAUPRINCE": "Roderick W. Moore", 
+    "PORTAUPRINCE": "Donald L. Moore",
     "SARAJEVO": "Roderick W. Moore", 
     "SOFIA": ""
   }, 
@@ -3814,12 +3814,12 @@
     "UNESCOPARISFR": ""
   }, 
   "OLSIN-WINDECKER": {
-    "ABUDHABI": "", 
-    "OSLO": ""
+    "ABUDHABI": "Hilary Olsin-Windecker",
+    "OSLO": "Hilary Olsin-Windecker"
   }, 
   "OLSON": {
-    "ABUDHABI": "", 
-    "DUBAI": "Richard Olson", 
+    "ABUDHABI": "Richard G. Olson, Jr.",
+    "DUBAI": "Richard G. Olson, Jr.",
     "LISBON": "", 
     "USNATO": ""
   }, 
@@ -3859,7 +3859,7 @@
     "BERN": ""
   }, 
   "OUDKIRK": {
-    "ISTANBUL": ""
+    "ISTANBUL": "Sandra Oudkirk"
   }, 
   "OURISMAN": {
     "BRIDGETOWN": "Mary Martin Ourisman"
@@ -4527,7 +4527,7 @@
     "TOKYO": "John Thomas Schieffer"
   }, 
   "SCHILLING": {
-    "WARSAW": ""
+    "WARSAW": "Andrew Schilling"
   }, 
   "SCHIMMEL": {
     "SANTODOMINGO": "", 
@@ -4563,7 +4563,7 @@
     "KARACHI": ""
   }, 
   "SCHUCHAT": {
-    "SHANGHAI": ""
+    "SHANGHAI": "Simon Schuchat"
   }, 
   "SCHULMAN": {
     "DJIBOUTI": ""
@@ -4621,8 +4621,8 @@
     "ROME": "Melvin Floyd Sembler"
   }, 
   "SEMILOTA": {
-    "PORTLOUIS": "", 
-    "WELLINGTON": ""
+    "PORTLOUIS": "Judith H. Semilota",
+    "WELLINGTON": "Judith H. Semilota"
   }, 
   "SENKO": {
     "ULAANBAATAR": ""
@@ -4697,7 +4697,7 @@
     "NASSAU": "Ned Siegel"
   }, 
   "SIEKERT": {
-    "SANJOSE": ""
+    "SANJOSE": "Magda Siekert"
   }, 
   "SIEVERS": {
     "ALGIERS": "", 
@@ -4830,13 +4830,7 @@
   }, 
   "SPYKERMAN": {
     "CHIANGMAI": ""
-  }, 
-  "SSCHUCHAT": {
-    "SHANGHAI": ""
-  }, 
-  "SSOUDKIRK": {
-    "ISTANBUL": ""
-  }, 
+  },
   "STAFFORD": {
     "ALGIERS": "", 
     "BANJUL": "Joseph D. Stafford III"
@@ -5108,7 +5102,7 @@
   }, 
   "TIGHE": {
     "KINGSTON": "", 
-    "PORTAUPRINCE": ""
+    "PORTAUPRINCE": "Thomas C. Tighe"
   }, 
   "TIMBERMAN": {
     "MADRAS": ""
@@ -5157,10 +5151,7 @@
   }, 
   "TSMITH": {
     "DJIBOUTI": ""
-  }, 
-  "TTIGHE": {
-    "PORTAUPRINCE": ""
-  }, 
+  },
   "TUEBNER": {
     "TEGUCIGALPA": ""
   }, 

@@ -567,7 +567,7 @@
     "OTTAWA": ""
   }, 
   "BREIDENSTINE": {
-    "HERMOSILLO": ""
+    "HERMOSILLO": "John D. Breidenstine"
   }, 
   "BREITER": {
     "BUJUMBURA": "", 
@@ -832,8 +832,8 @@
     "TIRANA": ""
   }, 
   "CEKUTA": {
-    "TIRANA": "", 
-    "TOKYO": ""
+    "TIRANA": "Robert F. Cekuta",
+    "TOKYO": "Robert F. Cekuta"
   }, 
   "CELESTE": {
     "NEWDELHI": "Richard Frank Celeste"
@@ -1469,8 +1469,8 @@
     "MADRID": "Thomas Ostrom Enders"
   }, 
   "ENGELKEN": {
-    "PARIS": "", 
-    "UNESCOPARISFR": ""
+    "PARIS": "Stephen Engelken",
+    "UNESCOPARISFR": "Stephen Engelken"
   }, 
   "ENGLISH": {
     "SARAJEVO": "Charles L. English"
@@ -1890,8 +1890,8 @@
     "SANTODOMINGO": ""
   }, 
   "GOUGHNOUR": {
-    "BRASILIA": "", 
-    "SANTODOMINGO": ""
+    "BRASILIA": "Richard Goughnour",
+    "SANTODOMINGO": "Richard Goughnour"
   }, 
   "GRABER": {
     "PRAGUE": "Richard W. Graber"
@@ -2189,8 +2189,8 @@
     "TEGUCIGALPA": ""
   }, 
   "HENZEL": {
-    "AMMAN": "", 
-    "MANAMA": ""
+    "AMMAN": "Christopher Henzel",
+    "MANAMA": "Christopher Henzel"
   }, 
   "HERBERT": {
     "GUAYAQUIL": "", 
@@ -2718,8 +2718,8 @@
     "SANAA": ""
   }, 
   "KILLION": {
-    "UNESCOPARIS": "", 
-    "UNESCOPARISFR": ""
+    "UNESCOPARIS": "David T. Killion",
+    "UNESCOPARISFR": "David T. Killion"
   }, 
   "KILNER": {
     "ROME": "", 
@@ -3028,7 +3028,7 @@
     "COPENHAGEN": ""
   }, 
   "LIKINS": {
-    "SOFIA": ""
+    "SOFIA": "Rose M. Likins"
   }, 
   "LILLEY": {
     "BEIJING": "James Roderick Lilley", 
@@ -4087,11 +4087,11 @@
   }, 
   "POWELL": {
     "ACCRA": "Nancy Jo Powell", 
-    "BERLIN": "", 
-    "FRANKFURT": "", 
+    "BERLIN": "Jo Ellen Powell",
+    "FRANKFURT": "Jo Ellen Powell",
     "KATHMANDU": "Nancy Jo Powell", 
-    "PARTO": "", 
-    "STATE": "Colin Powell"
+    "PARTO": "Colin Luther Powel",
+    "STATE": "Colin Luther Powel"
   }, 
   "POWER": {
     "MASERU": ""
@@ -4188,7 +4188,7 @@
     "NAIROBI": "Michael E. Ranneberger"
   }, 
   "RANSOM": {
-    "DAMASCUS": ""
+    "DAMASCUS": "Marjorie Ransom"
   }, 
   "RAPHEL": {
     "TUNIS": "Robin Lynn Raphel"
@@ -4203,10 +4203,10 @@
     "BANDARSERIBEGAWAN": "Glen R. Rase"
   }, 
   "RASPOLIC": {
-    "ACCRA": "", 
-    "CONAKRY": "", 
-    "LILONGWE": "", 
-    "MAPUTO": ""
+    "ACCRA": "Elizabeth Raspolic",
+    "CONAKRY": "Elizabeth Raspolic",
+    "LILONGWE": "Elizabeth Raspolic",
+    "MAPUTO": "Elizabeth Raspolic"
   }, 
   "RATNEY": {
     "DOHA": ""
@@ -5424,10 +5424,10 @@
     "SAOPAULO": ""
   }, 
   "WHITEHEAD": {
-    "HARARE": "", 
+    "HARARE": "Robert E. Whitehead",
     "KHARTOUM": {
-      "04": "Robert Whitehead", 
-      "05": "Robert Whitehead", 
+      "04": "Robert E. Whitehead",
+      "05": "Robert E. Whitehead",
       "09": "Robert E. Whitehead", 
       "10": "Robert E. Whitehead"
     }, 
@@ -5477,20 +5477,14 @@
     "IZMIR": ""
   }, 
   "WILLIAMSON": {
-    "BRASILIA": "", 
-    "MANAMA": "", 
-    "MONTERREY": ""
+    "BRASILIA": "Bruce Williamson",
+    "MANAMA": "Molly Williamson",
+    "MONTERREY": "Bruce Williamson"
   }, 
   "WILLIARD": {
     "MEXICO": "", 
     "TEGUCIGALPA": ""
-  }, 
-  "WILLIASON": {
-    "BRASILIA": ""
-  }, 
-  "WILLILAMSON": {
-    "MONTERREY": ""
-  }, 
+  },
   "WILLS": {
     "COLOMBO": "E. Ashley Wills", 
     "PORTLOUIS": "Mary Jo Wills"

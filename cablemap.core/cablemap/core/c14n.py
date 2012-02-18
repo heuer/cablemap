@@ -395,6 +395,8 @@ _SIGNER_C14N = {
     u'MGRANDFIELD': u'GRANDFIELDM',
     u'ALLES': u'WALLES',
     u'CROUCHG': u'CROUCH',
+    u'DRUCKERDRUCKER': u'DRUCKER',
+    u'WHOWE': u'HOWE',
 }
 
 def canonicalize_signer(signer):

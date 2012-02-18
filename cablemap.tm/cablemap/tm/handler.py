@@ -40,12 +40,13 @@ import logging
 import htmlentitydefs
 import urllib2
 import gzip
+from StringIO import StringIO
+
 from mio.ctm.miohandler import CTMHandler
 from mio.xtm.miohandler import XTM21Handler
 from tm.mio.handler import simplify
 from tm import XSD, mio
 from cablemap.core import constants as consts
-from cablemap.core.interfaces import ICableHandler, implements
 from cablemap.core.handler import NoopCableHandler
 from . import psis
 
@@ -403,6 +404,11 @@ class MIOCableHandler(BaseMIOCableHandler):
 _find_title = re.compile(r'<title>(.+?)</title>', re.DOTALL).search
 _find_meta_encoding = re.compile(r'''<meta[^>]+charset=['"]?(.*?)['"]?\s*/?\s*>''', re.IGNORECASE).search
 
+class _Request(urllib2.Request):
+    def __init__(self, url):
+        urllib2.Request.__init__(self, url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.2) Gecko/20100101 Firefox/10.0.2',
+                                                     'Accept-Encoding': 'gzip, identity'})
+
 # Source: <http://effbot.org/zone/re-sub.htm#unescape-html>
 def _unescape(text):
     def fixup(m):
@@ -428,6 +434,7 @@ def _unescape(text):
 def _normalize_ws(text):
     return re.sub(r'[ ]{2,}', ' ', re.sub(r'[\r\n]+', ' ', text))
 
+
 class MediaTitleResolver(BaseMIOCableHandler):
     """\
     Creates topics with subject locators from media IRIs and assigns a name to them.
@@ -449,7 +456,7 @@ class MediaTitleResolver(BaseMIOCableHandler):
 
     def handle_media_iri(self, iri):
         def fetch_url(url):
-            resp = urllib2.urlopen(url)
+            resp = urllib2.urlopen(_Request(url))
             encoding = resp.headers.getparam('charset')
             res = None
             if resp.info().get('Content-Encoding') == 'gzip':

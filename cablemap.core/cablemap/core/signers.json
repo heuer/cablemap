@@ -216,7 +216,7 @@
     "PRETORIA": "Perry Ball"
   }, 
   "BALLARD": {
-    "LISBON": "", 
+    "LISBON": "David Ballard", 
     "TUNIS": "David Ballard"
   }, 
   "BALLEN": {
@@ -360,7 +360,7 @@
     "AMMAN": "", 
     "BEIRUT": "", 
     "CAPETOWN": "", 
-    "KATHMANDU": "", 
+    "KATHMANDU": "Randy Berry", 
     "PARIS": "", 
     "TRIPOLI": "Gregory L. Berry"
   }, 
@@ -613,7 +613,7 @@
     "OUAGADOUGOU": "Gayleatha Beatrice Brown", 
     "PRAIA": "Dana Brown", 
     "PRETORIA": "Gayleatha Beatrice Brown", 
-    "QUITO": "", 
+    "QUITO": "Jefferson Brown", 
     "TELAVIV": "William Andreas Brown", 
     "VIENNA": "Lyons Brown, Jr."
   }, 
@@ -1148,10 +1148,10 @@
     "UNVIEVIENNA": ""
   }, 
   "DAVIS": {
-    "BRUSSELS": "", 
+    "BRUSSELS": "Christopher Davis", 
     "DUBAI": "", 
     "FRANKFURT": "", 
-    "VALLETTA": ""
+    "VALLETTA": "Jason Davis"
   }, 
   "DAVISON": {
     "AITTAIPEI": "", 
@@ -1173,7 +1173,7 @@
   }, 
   "DEAN": {
     "AITTAIPEI": "David Dean", 
-    "DHAKA": "", 
+    "DHAKA": "Nicholas Dean", 
     "KATHMANDU": "", 
     "KIRKUK": ""
   }, 
@@ -1297,7 +1297,7 @@
     "ACCRA": ""
   }, 
   "DONG": {
-    "GUANGZHOU": "", 
+    "GUANGZHOU": "Edward Dong", 
     "OSAKAKOBE": ""
   }, 
   "DONNALLY": {
@@ -1680,7 +1680,7 @@
     "QUEBEC": ""
   }, 
   "FRISBIE": {
-    "SANJOSE": ""
+    "SANJOSE": "Ruessell Frisbie"
   }, 
   "FRY": {
     "CHENNAI": ""
@@ -1851,7 +1851,7 @@
     "ULAANBAATAR": "Brian L. Goldbeck"
   }, 
   "GOLDBERG": {
-    "BEIJING": "", 
+    "BEIJING": "Robert Goldberg", 
     "GUANGZHOU": "Robert Goldberg", 
     "LAPAZ": "Philip S. Goldberg", 
     "PRISTINA": "Philip S. Goldberg", 
@@ -2073,7 +2073,7 @@
     "MALABO": ""
   }, 
   "HARRINGTON": {
-    "WINDHOEK": ""
+    "WINDHOEK": "Matt Harrington"
   }, 
   "HARRIS": {
     "SHENYANG": ""
@@ -2110,7 +2110,7 @@
     "PRAGUE": ""
   }, 
   "HAWKINS": {
-    "BANDARSERIBEGAWAN": "", 
+    "BANDARSERIBEGAWAN": "Jeff Hawkins", 
     "LOME": "Patricia McMahon Hawkins", 
     "LUANDA": "Jeff Hawkins"
   }, 
@@ -2405,7 +2405,7 @@
     "MUSCAT": "Victor Hurtado"
   }, 
   "HUSHEK": {
-    "DUSHANBE": ""
+    "DUSHANBE": "Tom Hushek"
   }, 
   "HUSO": {
     "VIENTIANE": "Ravic R. Huso"
@@ -2456,7 +2456,7 @@
   }, 
   "JACOBSEN": {
     "ASHGABAT": "", 
-    "GUANGZHOU": ""
+    "GUANGZHOU": "Mike Jacobsen"
   }, 
   "JACOBSON": {
     "ASHGABAT": "Tracey Ann Jacobson", 
@@ -2537,7 +2537,7 @@
       "10": "Deborah K. Jones", 
       "11": "Deborah K. Jones"
     }, 
-    "MANILA": "", 
+    "MANILA": "Paul Jones", 
     "MAPUTO": "", 
     "TELAVIV": "Richard Henry Jones", 
     "TIRANA": ""
@@ -2843,7 +2843,7 @@
     "TELAVIV": "Daniel Charles Kurtzer"
   }, 
   "KUSNITZ": {
-    "PORTOFSPAIN": ""
+    "PORTOFSPAIN": "Len Kusnitz"
   }, 
   "KUSNTIZ": {
     "PORTOFSPAIN": ""
@@ -3196,7 +3196,7 @@
     "SANTODOMINGO": ""
   }, 
   "MARTIN": {
-    "GUANGZHOU": "", 
+    "GUANGZHOU": "William Martin", 
     "MERIDA": "", 
     "VATICAN": ""
   }, 
@@ -3449,14 +3449,14 @@
   }, 
   "MILLARD": {
     "CASABLANCA": "Elisabeth Millard", 
-    "KATHMANDU": "", 
+    "KATHMANDU": "Elisabeth Millard", 
     "RABAT": "Elisabeth Millard"
   }, 
   "MILLER": {
     "ATHENS": "", 
     "KOLKATA": "", 
     "MINSK": "", 
-    "NICOSIA": "", 
+    "NICOSIA": "Tom Miller", 
     "PORTOFSPAIN": "David Miller", 
     "USUNNEWYORK": "", 
     "VLADIVOSTOK": ""
@@ -3517,7 +3517,7 @@
     "SOFIA": "William Dale Montgomery"
   }, 
   "MOON": {
-    "KATHMANDU": "", 
+    "KATHMANDU": "Jeffrey Moon", 
     "ZAGREB": ""
   }, 
   "MOORE": {
@@ -3974,7 +3974,7 @@
     "YAOUNDE": ""
   }, 
   "PETTERSON": {
-    "HARARE": "", 
+    "HARARE": "Donald Petterson", 
     "KHARTOUM": "Donald K. Petterson"
   }, 
   "PETTIT": {
@@ -4011,7 +4011,7 @@
     "BEIJING": ""
   }, 
   "PIERCE": {
-    "DUBLIN": "", 
+    "DUBLIN": "Ted Pierce", 
     "PRAIA": "Roger Dwayne Pierce", 
     "TEGUCIGALPA": "Roger Dwayne Pierce"
   }, 
@@ -4390,7 +4390,7 @@
   }, 
   "ROTH": {
     "HARARE": "", 
-    "MAPUTO": ""
+    "MAPUTO": "Matthew Roth"
   }, 
   "ROWE": {
     "MAPUTO": "Leslie V. Rowe", 
@@ -4542,14 +4542,14 @@
     "DJIBOUTI": ""
   }, 
   "SCHULTE": {
-    "UNVIEVIENNA": ""
+    "UNVIEVIENNA": "Gregory Schulte"
   }, 
   "SCHULTZ": {
     "ASHGABAT": "", 
     "HARARE": "Eric Schultz"
   }, 
   "SCHWARTZ": {
-    "KATHMANDU": "", 
+    "KATHMANDU": "Larry Schwartz", 
     "PORTLOUIS": "", 
     "TELAVIV": ""
   }, 
@@ -4568,7 +4568,7 @@
     "HILLAH": "", 
     "KINSHASA": "", 
     "KIRKUK": "", 
-    "USOSCE": ""
+    "USOSCE": "Kyle Scott"
   }, 
   "SCURRAN": {
     "ASHGABAT": ""
@@ -4578,7 +4578,7 @@
     "SANAA": "Stephen A. Seche"
   }, 
   "SEDNEY": {
-    "BEIJING": ""
+    "BEIJING": "David Sedney"
   }, 
   "SEIBEL": {
     "HALIFAX": ""
@@ -4731,7 +4731,7 @@
     "DAKAR": "Dane Farnsworth Smith", 
     "DJIBOUTI": "", 
     "HALIFAX": "", 
-    "ISTANBUL": "", 
+    "ISTANBUL": "Stuart Smith", 
     "LAGOS": "Thomas W. M. Smith", 
     "MALABO": "", 
     "PORTAUPRINCE": "", 
@@ -4759,7 +4759,7 @@
     "THEHAGUE": "Clifford M. Sobel"
   }, 
   "SOLBERG": {
-    "THEHAGUE": ""
+    "THEHAGUE": "Sarah Solberg"
   }, 
   "SOLOMON": {
     "ADANA": ""
@@ -5143,7 +5143,7 @@
     "TORONTO": ""
   }, 
   "TURNER": {
-    "GUANGZHOU": "", 
+    "GUANGZHOU": "James Turner", 
     "KINGSTON": ""
   }, 
   "TUTTLE": {
@@ -5155,7 +5155,7 @@
   "TWINING": {
     "BUJUMBURA": "Charles H. Twining", 
     "LOME": "", 
-    "NOUAKCHOTT": "", 
+    "NOUAKCHOTT": "Charles Twining", 
     "PHNOMPENH": "Charles H. Twining"
   }, 
   "TWO": {
@@ -5503,7 +5503,7 @@
     "MILAN": ""
   }, 
   "WOHLERS": {
-    "BRUSSELS": "", 
+    "BRUSSELS": "E Wohlers", 
     "SKOPJE": ""
   }, 
   "WOJTASIEWICZ": {

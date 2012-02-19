@@ -402,6 +402,7 @@ _SIGNER_C14N = {
     u'PIASCK': u'PIASCIK',
     u'KAUFFMANN': u'KAUFFMAN',
     u'KAUFFMANEC': u'KAUFFMAN',
+    u'PICUTTA': u'PICCUTA',
 }
 
 def canonicalize_signer(signer):

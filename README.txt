@@ -18,8 +18,7 @@ modules like the ``reader.py`` module are independent of Topic Maps and
 provide a convenient interface to the cable information.
 
 To get started with Cablemap, look into the ``cablemap.core`` package which 
-provides utilities to convert cable HTML sources into cable objects and a 
-translation of cables into JSON.
+provides utilities to convert cable HTML sources into cable objects.
 
 
 Disclaimer

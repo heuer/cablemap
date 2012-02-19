@@ -238,15 +238,11 @@ class Cable(object):
     #
     @cached_property
     def transmission_id(self):
-        if self.partial:
-            return None
-        return reader.parse_transmission_id(self.header)
+        return reader.parse_transmission_id(self.header) if not self.partial else None
 
     @cached_property
     def recipients(self):
-        if self.partial:
-            return ()
-        return reader.parse_recipients(self.header, self.reference_id)
+        return reader.parse_recipients(self.header, self.reference_id) if not self.partial else ()
 
     @cached_property
     def info_recipients(self):

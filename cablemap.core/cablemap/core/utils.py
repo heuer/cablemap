@@ -232,6 +232,20 @@ def cablefiles_from_directory(directory, predicate=None):
         for name in (n for n in files if '.html' in n and pred(n[:-5])):
             yield os.path.join(os.path.abspath(root), name)
 
+def reference_id_parts(reference_id):
+    """\
+    Returns a tuple from the provided `reference_id`::
+
+        (YEAR, ORIGIN, S/N)
+
+    `reference_id`
+        Cable reference identifier or canonical identifier.
+    """
+    m = consts.REFERENCE_ID_PATTERN.match(reference_id)
+    if m:
+        return m.groups()
+    raise ValueError('Illegal reference identifier: "%s"' % reference_id)
+
 _TAGS_SUBJECT = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]
 _TAGS_ORG = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'organization-tags.txt'), 'rb', 'utf-8')]
 

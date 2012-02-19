@@ -242,7 +242,7 @@ class Cable(object):
 
     @cached_property
     def recipients(self):
-        return reader.parse_recipients(self.header, self.reference_id) if not self.partial else ()
+        return reader.parse_recipients(self.header, self.reference_id) if not self.partial else _EMPTY
 
     @cached_property
     def info_recipients(self):

@@ -72,7 +72,13 @@ def _fetch_url(url):
     """\
     Returns the content of the provided URL.
     """
-    resp = urllib2.urlopen(_Request(url))
+    try:
+        resp = urllib2.urlopen(_Request(url))
+    except urllib2.URLError:
+        if 'wikileaks.org' in url:
+            resp = urllib2.urlopen(_Request(url.replace('wikileaks.org', 'wikileaks.ch')))
+        else:
+            raise
     if resp.info().get('Content-Encoding') == 'gzip':
         return gzip.GzipFile(fileobj=StringIO(resp.read())).read().decode('utf-8')
     return resp.read().decode('utf-8')

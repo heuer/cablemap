@@ -458,7 +458,6 @@ class MediaTitleResolver(BaseMIOCableHandler):
         def fetch_url(url):
             resp = urllib2.urlopen(_Request(url))
             encoding = resp.headers.getparam('charset')
-            res = None
             if resp.info().get('Content-Encoding') == 'gzip':
                 res = gzip.GzipFile(fileobj=StringIO(resp.read())).read()
             else:

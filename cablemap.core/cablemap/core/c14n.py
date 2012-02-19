@@ -398,6 +398,7 @@ _SIGNER_C14N = {
     u'CROUCHG': u'CROUCH',
     u'DRUCKERDRUCKER': u'DRUCKER',
     u'WHOWE': u'HOWE',
+    u'LINEHA': u'LINEHAN',
 }
 
 def canonicalize_signer(signer):

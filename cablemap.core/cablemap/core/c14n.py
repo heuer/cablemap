@@ -400,6 +400,8 @@ _SIGNER_C14N = {
     u'WHOWE': u'HOWE',
     u'LINEHA': u'LINEHAN',
     u'PIASCK': u'PIASCIK',
+    u'KAUFFMANN': u'KAUFFMAN',
+    u'KAUFFMANEC': u'KAUFFMAN',
 }
 
 def canonicalize_signer(signer):

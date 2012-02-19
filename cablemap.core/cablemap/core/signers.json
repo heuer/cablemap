@@ -77,7 +77,7 @@
     "AMSTERDAM": ""
   }, 
   "AMSELEM": {
-    "COLOMBO": "", 
+    "COLOMBO": "Lewis Amselem", 
     "JAKARTA": ""
   }, 
   "ANANIA": {
@@ -326,7 +326,7 @@
     "NAIROBI": "William M. Bellamy"
   }, 
   "BELLARD": {
-    "HANOI": "", 
+    "HANOI": "Scott Bellard", 
     "MANILA": ""
   }, 
   "BENEDICT": {
@@ -463,7 +463,7 @@
     "NDJAMENA": "Richard Wayne Bogosian"
   }, 
   "BOGUE": {
-    "KATHMANDU": ""
+    "KATHMANDU": "Janet Bogue"
   }, 
   "BOHLEN": {
     "PARIS": "Avis Thayer Bohlen", 
@@ -603,7 +603,7 @@
     "CONAKRY": ""
   }, 
   "BROUILLETTE-RODRIGUEZ": {
-    "TEGUCIGALPA": ""
+    "TEGUCIGALPA": "Andrea Brouillette-Rodriguez"
   }, 
   "BROWN": {
     "ACCRA": "Kenneth Lee Brown", 
@@ -747,7 +747,7 @@
   }, 
   "CAMP": {
     "CHIANGMAI": "", 
-    "COLOMBO": "", 
+    "COLOMBO": "Donald Camp", 
     "KATHMANDU": "", 
     "SHANGHAI": ""
   }, 
@@ -1355,7 +1355,7 @@
   }, 
   "DUDLEY": {
     "MADRID": "James Dudley", 
-    "MAPUTO": ""
+    "MAPUTO": "James Dudley"
   }, 
   "DUFFY": {
     "JERUSALEM": ""
@@ -2050,7 +2050,7 @@
   }, 
   "HANSON": {
     "KABUL": "", 
-    "PESHAWAR": "", 
+    "PESHAWAR": "Brad Hanson", 
     "TASHKENT": "Brad Hanson"
   }, 
   "HANWAY": {
@@ -2062,7 +2062,7 @@
   "HARDT": {
     "BRIDGETOWN": "Brent Hardt", 
     "NASSAU": "", 
-    "VATICAN": ""
+    "VATICAN": "Brent Hardt"
   }, 
   "HARNISH": {
     "BAKU": "Reno L. Harnish III", 
@@ -2082,13 +2082,13 @@
     "KINSHASA": "William Caldwell Harrop"
   }, 
   "HARSHA": {
-    "DILI": ""
+    "DILI": "Stanley Harsha"
   }, 
   "HART": {
     "ADANA": ""
   }, 
   "HARTER": {
-    "HANOI": ""
+    "HANOI": "Dennis Harter"
   }, 
   "HARTLEY": {
     "PRETORIA": "Jeff Hartley"
@@ -2295,7 +2295,7 @@
   }, 
   "HOOKS": {
     "ABIDJAN": "Aubrey Hooks", 
-    "HARARE": "", 
+    "HARARE": "Aubrey Hooks", 
     "KINSHASA": "Aubrey Hooks"
   }, 
   "HOOVER": {
@@ -2357,7 +2357,7 @@
     "WELLINGTON": "David Huebner"
   }, 
   "HUFF": {
-    "THEHAGUE": ""
+    "THEHAGUE": "Richard Huff"
   }, 
   "HUGGINS": {
     "GABORONE": "Joseph Huggins", 
@@ -2652,13 +2652,13 @@
   }, 
   "KELLY": {
     "BEIRUT": "John Hubert Kelly", 
-    "BUENOSAIRES": "Tom Kelly", 
+    "BUENOSAIRES": "Thomas P. Kelly", 
     "KOLKATA": "", 
     "MEXICO": "", 
     "OTTAWA": "", 
     "SANTIAGO": "Craig A. Kelly", 
     "USNATO": "", 
-    "VILNIUS": ""
+    "VILNIUS": "Thomas P. Kelly"
   }, 
   "KENGOTT": {
     "SINGAPORE": "Raymond Kengott"
@@ -2704,7 +2704,7 @@
     "UNESCOPARISFR": "David T. Killion"
   }, 
   "KILNER": {
-    "ROME": "", 
+    "ROME": "Scott Kilner", 
     "VIENNA": ""
   }, 
   "KIMMITT": {
@@ -3138,7 +3138,7 @@
     "STOCKHOLM": ""
   }, 
   "MALINOWSKI": {
-    "KATHMANDU": ""
+    "KATHMANDU": "Michael Malinowski"
   }, 
   "MALOTT": {
     "KUALALUMPUR": "John R. Malott"
@@ -3150,7 +3150,7 @@
     "BRASILIA": ""
   }, 
   "MANN": {
-    "COLOMBO": "", 
+    "COLOMBO": "Andrew Mann", 
     "SUVA": "", 
     "THEHAGUE": "Andrew Mann"
   }, 
@@ -3521,7 +3521,7 @@
     "ZAGREB": ""
   }, 
   "MOORE": {
-    "ANKARA": "", 
+    "ANKARA": "James Moore", 
     "BANDARSERIBEGAWAN": "", 
     "BELGRADE": "Roderick W. Moore", 
     "BOGOTA": "Barbara Calandra Moore", 
@@ -3532,7 +3532,7 @@
     "PODGORICA": "Roderick W. Moore", 
     "PORTAUPRINCE": "Donald L. Moore", 
     "SARAJEVO": "Roderick W. Moore", 
-    "SOFIA": ""
+    "SOFIA": "Roderick W. Moore"
   }, 
   "MORALES": {
     "JEDDAH": ""
@@ -4053,7 +4053,7 @@
     "SAOPAULO": ""
   }, 
   "PORTER": {
-    "HANOI": ""
+    "HANOI": "Robert Porter"
   }, 
   "POST": {
     "TOKYO": ""
@@ -4677,7 +4677,7 @@
     "TELAVIV": "Marc Sievers"
   }, 
   "SILLIMAN": {
-    "AMMAN": "", 
+    "AMMAN": "Doug Silliman", 
     "ANKARA": "Doug Silliman"
   }, 
   "SILVER": {
@@ -5378,7 +5378,7 @@
   }, 
   "WHARTON": {
     "DILI": "", 
-    "GUATEMALA": "", 
+    "GUATEMALA": "Bruce Wharton", 
     "STATE": ""
   }, 
   "WHITAKER": {
@@ -5551,9 +5551,9 @@
     "DJIBOUTI": "Donald Y. Yamamoto"
   }, 
   "YAMAUCHI": {
-    "HANOI": "", 
-    "HOCHIMINHCITY": "", 
-    "SANTIAGO": ""
+    "HANOI": "Emi Lynn Yamauchi", 
+    "HOCHIMINHCITY": "Emi Lynn Yamauchi", 
+    "SANTIAGO": "Emi Lynn Yamauchi"
   }, 
   "YANAWAY": {
     "HILLAH": ""

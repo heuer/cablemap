@@ -15,13 +15,13 @@ Changes
     - utils.cable_to_yaml
   - models.Cable.recipients and info_recipients
     return models.Recipient objects
-  - models.Cable.references returns models.Reference
-    objects
+  - models.Cable.references returns models.Reference objects
 * models.Cable.summary/reader.parse_summary does not convert newlines into 
   one whitespace character anymore
 * Added classification category information to ``interfaces.ICable``.
 * Added (experimental) predicate module to filter cables by their identifier
 * Added (experimental) support to extract the signer(s) of a cable
+* Added (experimental) support to resolve the signer(s) real name of a cable
 * Added (experimental) support to extract the comment of the ambassador
 * (Re-)added cablemap.core.handler
 * Added functions to generate `models.Cable` objects from CSV files and

@@ -65,7 +65,7 @@
     "TEGUCIGALPA": "Frank Almaguer"
   }, 
   "ALOISI": {
-    "HANOI": ""
+    "HANOI": "Jon Aloisi"
   }, 
   "ALSUP": {
     "BANJUL": ""
@@ -108,7 +108,7 @@
     "USNATO": "Walter Andrusyszyn"
   }, 
   "ANSKE": {
-    "KARACHI": ""
+    "KARACHI": "Kay Anske"
   }, 
   "ANTWEILER": {
     "RIGA": "Philip Antweiler "
@@ -312,7 +312,7 @@
     "AMMAN": "Robert Stephen Beecroft"
   }, 
   "BEEDE": {
-    "SHANGHAI": ""
+    "SHANGHAI": "Christopher Beede"
   }, 
   "BEEMAN": {
     "WELLINGTON": "Josiah Horton Beeman"
@@ -619,7 +619,7 @@
   }, 
   "BROWNE": {
     "ABUJA": "", 
-    "LAGOS": ""
+    "LAGOS": "Brian Browne"
   }, 
   "BROWNFIELD": {
     "BOGOTA": "William R. Brownfield", 
@@ -702,7 +702,7 @@
   }, 
   "BUSH": {
     "BRUSSELS": "Wayne Bush", 
-    "RABAT": ""
+    "RABAT": "Wayne Bush"
   }, 
   "BUSHNELL": {
     "PANAMA": ""
@@ -722,7 +722,7 @@
     "SANSALVADOR": ""
   }, 
   "BYRNES": {
-    "USNATO": ""
+    "USNATO": "Kate Byrnes"
   }, 
   "BYSFIELD": {
     "TORONTO": ""
@@ -912,7 +912,7 @@
   }, 
   "CHRITTON": {
     "KAMPALA": "", 
-    "QUITO": ""
+    "QUITO": "Andrew Chritton"
   }, 
   "CIANCHETTE": {
     "SANJOSE": "Peter Cianchette"
@@ -966,7 +966,7 @@
   }, 
   "COHEN": {
     "NICOSIA": "", 
-    "VILNIUS": ""
+    "VILNIUS": "Nancy Cohen"
   }, 
   "COHN": {
     "COLOMBO": ""
@@ -995,7 +995,7 @@
     "PRETORIA": ""
   }, 
   "CONNUCK": {
-    "USOSCE": ""
+    "USOSCE": "Bruce Connuck"
   }, 
   "CONROY": {
     "LAHORE": "", 
@@ -1307,8 +1307,8 @@
     "COLOMBO": "Shaun Edward Donnelly"
   }, 
   "DONOVAN": {
-    "HONGKONG": "Joseph R Donovan, Jr.",
-    "TOKYO": ""
+    "HONGKONG": "Joseph R. Donovan, Jr.",
+    "TOKYO": "Joseph R. Donovan, Jr."
   }, 
   "DOUGHERTY": {
     "KINSHASA": "", 
@@ -1354,7 +1354,7 @@
     "SAOPAULO": ""
   }, 
   "DUDLEY": {
-    "MADRID": "", 
+    "MADRID": "James Dudley", 
     "MAPUTO": ""
   }, 
   "DUFFY": {
@@ -1367,7 +1367,7 @@
     "RIYADH": ""
   }, 
   "DUNHAM": {
-    "VILNIUS": ""
+    "VILNIUS": "Rebecca Dunham"
   }, 
   "DUNN": {
     "CURACAO": "Timothy J. Dunn", 
@@ -1501,13 +1501,13 @@
     "RPODUBAI": ""
   }, 
   "FAGIN": {
-    "ASTANA": ""
+    "ASTANA": "Steve Fagin"
   }, 
   "FAIRFAX": {
     "HOCHIMINHCITY": "Kenneth J. Fairfax"
   }, 
   "FAKAN": {
-    "KARACHI": ""
+    "KARACHI": "Stephen Fakan"
   }, 
   "FANNIN": {
     "SANTODOMINGO": "P. Robert Fannin"
@@ -1590,7 +1590,7 @@
   }, 
   "FITZPATRICK": {
     "ASUNCION": "Michael J. Fitzpatrick", 
-    "MADRID": ""
+    "MADRID": "Kathy Fitzpatrick"
   }, 
   "FLANIGAN": {
     "HAVANA": "Alan H. Flanigan"
@@ -1667,7 +1667,7 @@
   }, 
   "FREDEN": {
     "LJUBLJANA": "", 
-    "SOFIA": ""
+    "SOFIA": "Brad Freden"
   }, 
   "FREEMAN": {
     "RIYADH": "Charles W. Freeman, Jr."
@@ -1847,12 +1847,12 @@
     "BRIDGETOWN": ""
   }, 
   "GOLDBECK": {
-    "GUANGZHOU": "", 
+    "GUANGZHOU": "Brian Goldbeck", 
     "ULAANBAATAR": ""
   }, 
   "GOLDBERG": {
     "BEIJING": "", 
-    "GUANGZHOU": "", 
+    "GUANGZHOU": "Robert Goldberg", 
     "LAPAZ": "Philip S. Goldberg", 
     "PRISTINA": "Philip S. Goldberg", 
     "SANTIAGO": "Philip S. Goldberg"
@@ -1861,10 +1861,10 @@
     "TRIPOLI": ""
   }, 
   "GOLDSTEIN": {
-    "TALLINN": ""
+    "TALLINN": "Jeff Goldstein"
   }, 
   "GONZALES": {
-    "ADDISABABA": "", 
+    "ADDISABABA": "Michael Gonzales", 
     "GABORONE": "", 
     "MONTEVIDEO": ""
   }, 
@@ -1955,7 +1955,7 @@
     "BANGKOK": "", 
     "GENEVA": "", 
     "GUAYAQUIL": "", 
-    "PORTAUPRINCE": "", 
+    "PORTAUPRINCE": "Douglas Griffiths", 
     "QUITO": ""
   }, 
   "GROSS": {
@@ -2051,7 +2051,7 @@
   "HANSON": {
     "KABUL": "", 
     "PESHAWAR": "", 
-    "TASHKENT": ""
+    "TASHKENT": "Brad Hanson"
   }, 
   "HANWAY": {
     "RIODEJANEIRO": ""
@@ -2091,7 +2091,7 @@
     "HANOI": ""
   }, 
   "HARTLEY": {
-    "PRETORIA": ""
+    "PRETORIA": "Jeff Hartley"
   }, 
   "HARTMAN": {
     "MOSCOW": "Arthur Adair Hartman"
@@ -2112,7 +2112,7 @@
   "HAWKINS": {
     "BANDARSERIBEGAWAN": "", 
     "LOME": "Patricia McMahon Hawkins", 
-    "LUANDA": ""
+    "LUANDA": "Jeff Hawkins"
   }, 
   "HAYKIN": {
     "KINSHASA": ""
@@ -2134,7 +2134,7 @@
     "TEHRAN": ""
   }, 
   "HEFFERN": {
-    "JAKARTA": "", 
+    "JAKARTA": "John Heffern", 
     "USNATO": ""
   }, 
   "HEFLIN": {
@@ -2273,7 +2273,7 @@
     "KADUNA": ""
   }, 
   "HOLMSTROM": {
-    "DAMASCUS": ""
+    "DAMASCUS": "Todd Holmstrom"
   }, 
   "HOLT": {
     "CAPETOWN": "", 
@@ -2402,7 +2402,7 @@
     "BUDAPEST": ""
   }, 
   "HURTADO": {
-    "MUSCAT": ""
+    "MUSCAT": "Victor Hurtado"
   }, 
   "HUSHEK": {
     "DUSHANBE": ""
@@ -2523,7 +2523,7 @@
     "ALGIERS": "L. Craig Johnstone"
   }, 
   "JONES": {
-    "CAIRO": "", 
+    "CAIRO": "Stuart Jones", 
     "GEORGETOWN": "George Fleming Jones", 
     "ISLAMABAD": "", 
     "ISTANBUL": "", 
@@ -2590,7 +2590,7 @@
     "SANJOSE": ""
   }, 
   "KARAGIANNIS": {
-    "SOFIA": ""
+    "SOFIA": "Alex Karagiannis"
   }, 
   "KASHKETT": {
     "HALIFAX": "", 
@@ -2818,7 +2818,7 @@
   }, 
   "KRAMER": {
     "BRIDGETOWN": "Mary E. Kramer", 
-    "LAGOS": "", 
+    "LAGOS": "Ronald Kramer", 
     "MONTERREY": "", 
     "TIJUANA": ""
   }, 
@@ -2885,7 +2885,7 @@
     "SANTODOMINGO": "Christopher Lambert"
   }, 
   "LANCIA": {
-    "DUBAI": ""
+    "DUBAI": "John Lancia"
   }, 
   "LANDAU": {
     "TIRANA": ""
@@ -2894,7 +2894,7 @@
     "SEOUL": "James T. Laney"
   }, 
   "LANG": {
-    "GUANGZHOU": ""
+    "GUANGZHOU": "Stephan Lang"
   }, 
   "LANGDALE": {
     "SANJOSE": "Mark Langdale"
@@ -2950,7 +2950,7 @@
     "PARIS": "Howard H. Leach"
   }, 
   "LEADER": {
-    "VILNIUS": ""
+    "VILNIUS": "Damian Leader"
   }, 
   "LEAHY": {
     "SHENYANG": ""
@@ -2997,8 +2997,8 @@
     "THEHAGUE": ""
   }, 
   "LEVINE": {
-    "BUDAPEST": "", 
-    "SOFIA": ""
+    "BUDAPEST": "Jeff Levine", 
+    "SOFIA": "Jeff Levine"
   }, 
   "LEVY": {
     "BERLIN": ""
@@ -3046,18 +3046,18 @@
     "TIRANA": "Marisa R. Lino"
   }, 
   "LIST": {
-    "DJIBOUTI": "", 
+    "DJIBOUTI": "Kathleen List", 
     "RIODEJANEIRO": ""
   }, 
   "LITT": {
     "ABUDHABI": "", 
-    "BAGHDAD": ""
+    "BAGHDAD": "David Litt"
   }, 
   "LITTREL": {
     "TUNIS": ""
   }, 
   "LITZENBERGER": {
-    "BISHKEK": ""
+    "BISHKEK": "Lee Litzenberger"
   }, 
   "LLORENS": {
     "BUENOSAIRES": "Hugo Llorens", 
@@ -3074,7 +3074,7 @@
     "MASERU": "Robert Geers Loftis"
   }, 
   "LOGSDON": {
-    "TBILISI": ""
+    "TBILISI": "Kent Logsdon"
   }, 
   "LOPEZ": {
     "AUCKLAND": ""
@@ -3171,13 +3171,13 @@
     "ADANA": ""
   }, 
   "MANZANARES": {
-    "MADRID": ""
+    "MADRID": "Robert Manzanares"
   }, 
   "MARCHESE": {
     "JERUSALEM": ""
   }, 
   "MARCIEL": {
-    "ANKARA": ""
+    "ANKARA": "Scot Marciel"
   }, 
   "MARINE": {
     "BEIJING": "", 
@@ -3418,7 +3418,7 @@
     "PRISTINA": ""
   }, 
   "MERANTE": {
-    "VATICAN": ""
+    "VATICAN": "Joseph Merante"
   }, 
   "MERTEN": {
     "PORTAUPRINCE": "Kenneth H. Merten"
@@ -3430,7 +3430,7 @@
     "PANAMA": "Thomas Mesa"
   }, 
   "MESERVE": {
-    "TOKYO": ""
+    "TOKYO": "Michael Meserve"
   }, 
   "MEURS": {
     "HILLAH": ""
@@ -3457,16 +3457,16 @@
     "SOFIA": "Richard Monroe Miles"
   }, 
   "MILLARD": {
-    "CASABLANCA": "", 
+    "CASABLANCA": "Elisabeth Millard", 
     "KATHMANDU": "", 
-    "RABAT": ""
+    "RABAT": "Elisabeth Millard"
   }, 
   "MILLER": {
     "ATHENS": "", 
     "KOLKATA": "", 
     "MINSK": "", 
     "NICOSIA": "", 
-    "PORTOFSPAIN": "", 
+    "PORTOFSPAIN": "David Miller", 
     "USUNNEWYORK": "", 
     "VLADIVOSTOK": ""
   }, 
@@ -3547,14 +3547,14 @@
     "JEDDAH": ""
   }, 
   "MORAN": {
-    "KUWAIT": ""
+    "KUWAIT": "John Moran"
   }, 
   "MORELLA": {
     "PARIS": ""
   }, 
   "MORENO": {
     "MONTERREY": "", 
-    "TELAVIV": ""
+    "TELAVIV": "Luis Moreno"
   }, 
   "MORIARTY": {
     "DHAKA": "James F. Moriarty", 
@@ -3806,7 +3806,7 @@
     "ABUDHABI": "Richard G. Olson, Jr.",
     "DUBAI": "Richard G. Olson, Jr.",
     "LISBON": "", 
-    "USNATO": ""
+    "USNATO": "Richard G. Olson, Jr."
   }, 
   "OLTYAN": {
     "SANTODOMINGO": ""
@@ -3838,7 +3838,7 @@
     "KIRKUK": ""
   }, 
   "OSIUS": {
-    "JAKARTA": ""
+    "JAKARTA": "Ted Osius"
   }, 
   "OTTO": {
     "BERN": ""
@@ -4049,7 +4049,7 @@
     "TRIPOLI": "Joan Polaschik"
   }, 
   "POLLARD": {
-    "BERLIN": ""
+    "BERLIN": "Robert Pollard"
   }, 
   "POLT": {
     "BELGRADE": "Michael C. Polt", 
@@ -4138,7 +4138,7 @@
     "DUSHANBE": ""
   }, 
   "QUINN": {
-    "ABUDHABI": "", 
+    "ABUDHABI": "Martin Quinn", 
     "DOHA": "", 
     "ISTANBUL": "", 
     "JEDDAH": "", 
@@ -4237,7 +4237,7 @@
   "REID": {
     "ADANA": "", 
     "PARIS": "", 
-    "USNATO": ""
+    "USNATO": "Walter Reid"
   }, 
   "REINTSMA": {
     "LILONGWE": ""
@@ -4310,7 +4310,7 @@
     "GEORGETOWN": "David M. Robinson", 
     "GUATEMALA": "", 
     "HERMOSILLO": "", 
-    "KINGSTON": "", 
+    "KINGSTON": "Ronald Robinson", 
     "LAPAZ": "", 
     "MONROVIA": "", 
     "OTTAWA": "Paul Heron Robinson, Jr."
@@ -4331,7 +4331,7 @@
     "PHNOMPENH": "Carol A. Rodley"
   }, 
   "RODRIGUEZ": {
-    "KARACHI": ""
+    "KARACHI": "Catherine Rodriguez"
   }, 
   "ROEBUCK": {
     "DAMASCUS": ""
@@ -4385,7 +4385,7 @@
     "FRANKFURT": ""
   }, 
   "ROSENBLATT": {
-    "PARIS": ""
+    "PARIS": "Josiah Rosenblatt"
   }, 
   "ROSHOLT": {
     "HAMILTON": "Jacquelyn B. Rosholt"
@@ -4433,7 +4433,7 @@
     "RIYADH": ""
   }, 
   "RUNDELL": {
-    "RIYADH": ""
+    "RIYADH": "David Rundell"
   }, 
   "RUSSEL": {
     "OSAKAKOBE": "", 
@@ -4558,7 +4558,7 @@
   }, 
   "SCHULTZ": {
     "ASHGABAT": "", 
-    "HARARE": ""
+    "HARARE": "Eric Schultz"
   }, 
   "SCHWARTZ": {
     "KATHMANDU": "", 
@@ -4686,11 +4686,11 @@
   }, 
   "SIEVERS": {
     "ALGIERS": "", 
-    "TELAVIV": ""
+    "TELAVIV": "Marc Sievers"
   }, 
   "SILLIMAN": {
     "AMMAN": "", 
-    "ANKARA": ""
+    "ANKARA": "Doug Silliman"
   }, 
   "SILVER": {
     "JAKARTA": ""
@@ -4799,7 +4799,7 @@
   }, 
   "SPECKHARD": {
     "ATHENS": "Daniel V. Speckhard", 
-    "BAGHDAD": ""
+    "BAGHDAD": "Daniel V. Speckhard"
   }, 
   "SPECKHARDBT": {
     "ATHENS": ""
@@ -4999,14 +4999,14 @@
     "MAPUTO": ""
   }, 
   "TAMLYN": {
-    "NDJAMENA": "", 
+    "NDJAMENA": "Lucy Tamlyn", 
     "ROME": ""
   }, 
   "TANNENBAUM": {
     "HOCHIMINHCITY": ""
   }, 
   "TAPLIN": {
-    "BUCHAREST": ""
+    "BUCHAREST": "Mark Taplin"
   }, 
   "TARNOFF": {
     "STATE": ""
@@ -5360,7 +5360,7 @@
     "HELSINKI": ""
   }, 
   "WEISENFELD": {
-    "HARARE": ""
+    "HARARE": "Paul Weisenfeld"
   }, 
   "WEISER": {
     "BRATISLAVA": "Ronald Weiser"
@@ -5394,7 +5394,7 @@
     "STATE": ""
   }, 
   "WHITAKER": {
-    "CARACAS": "", 
+    "CARACAS": "Kevin Whitaker", 
     "KHARTOUM": "", 
     "NIAMEY": ""
   }, 
@@ -5432,7 +5432,7 @@
   }, 
   "WIENER": {
     "ISTANBUL": "", 
-    "PARIS": ""
+    "PARIS": "Sharon Wiener"
   }, 
   "WILCOX": {
     "JERUSALEM": ""
@@ -5450,7 +5450,7 @@
     "BERN": "Pamela P. Willeford"
   }, 
   "WILLIAMS": {
-    "ABUDHABI": "", 
+    "ABUDHABI": "Thomas Williams", 
     "ASUNCION": "", 
     "DUBAI": "", 
     "GEORGETOWN": "", 
@@ -5465,7 +5465,7 @@
   }, 
   "WILLIARD": {
     "MEXICO": "", 
-    "TEGUCIGALPA": ""
+    "TEGUCIGALPA": "James Williard"
   },
   "WILLS": {
     "COLOMBO": "E. Ashley Wills", 

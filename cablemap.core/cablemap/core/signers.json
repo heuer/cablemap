@@ -339,7 +339,7 @@
     "VLADIVOSTOK": ""
   }, 
   "BENNETT": {
-    "HOCHIMINHCITY": ""
+    "HOCHIMINHCITY": "Charles E. Bennett"
   }, 
   "BENTON": {
     "DUBLIN": ""
@@ -2038,9 +2038,9 @@
     "MATAMOROS": ""
   }, 
   "HANKINS": {
-    "MAPUTO": "", 
+    "MAPUTO": "Dennis Hankins", 
     "NOUAKCHOTT": "Dennis Hankins", 
-    "OUAGADOUGOU": ""
+    "OUAGADOUGOU": "Dennis Hankins"
   }, 
   "HANNAN": {
     "DARESSALAAM": ""
@@ -2561,7 +2561,7 @@
     "CHENGDU": ""
   }, 
   "KAESTNER": {
-    "NEWDELHI": ""
+    "NEWDELHI": "Peter G. Kaestner"
   }, 
   "KAEUPER": {
     "CONAKRY": "David H. Kaeuper"
@@ -2593,8 +2593,8 @@
     "SOFIA": "Alex Karagiannis"
   }, 
   "KASHKETT": {
-    "HALIFAX": "", 
-    "TIJUANA": ""
+    "HALIFAX": "Steven Kashkett", 
+    "TIJUANA": "Steven Kashkett"
   }, 
   "KASKA": {
     "KYIV": "Edward Kaska"
@@ -2608,13 +2608,7 @@
     "ASMARA": ""
   }, 
   "KAUFFMAN": {
-    "MUMBAI": ""
-  }, 
-  "KAUFFMANEC": {
-    "MUMBAI": ""
-  }, 
-  "KAUFFMANN": {
-    "MUMBAI": ""
+    "MUMBAI": "Elizabeth C. Kauffman"
   }, 
   "KAUPER": {
     "CONAKRY": ""

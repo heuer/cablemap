@@ -345,6 +345,9 @@ class MIOCableHandler(BaseMIOCableHandler):
                         psis.CABLE_TYPE, self._cable_psi,
                         psis.CLASSIFICATION_TYPE, cls)
 
+    def handle_classificationist(self, classificationist):
+        pass #TODO
+
     def handle_classification_category(self, category):
         pass #TODO
 

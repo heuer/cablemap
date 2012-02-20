@@ -651,6 +651,32 @@ REGARDS
  
 CARSON 
 '''),
+    # 07BRUSSELS3382
+    (u'GRAY', u'''said, it may be useful to reach out to non-Quint member 
+states who share our views on Kosovo independence to help 
+focus their counterparts in the EU on a timeline for further 
+deliberations -- one that does not go beyond mid-January.  We 
+should also use the presence of EU FMs at the Annapolis 
+meeting and at the NATO ministerial to underscore privately 
+that any further delays will only increase instability on the 
+ground and will not provide softer landings. 
+ 
+BRUSSELS 00003382  003 OF 003 
+ 
+ 
+GRAY 
+.'''),
+    # 07PANAMA1797
+    (u'ARREAGA', u'''Awaiting the gentle support of the United States with respect 
+to the Panamanian aspirations, the Ministry of Foreign 
+Relations takes this opportunity to reiterate to the 
+Honorable Embassy of the United States the assurances of its 
+high and distinguished consideration. 
+ 
+November 16, 2007 
+To the Honorable Embassy of the United States of America 
+City 
+ARREAGA''')
 
 )
 

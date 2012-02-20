@@ -3756,7 +3756,8 @@
   "OBSITNIK": {
     "BRATISLAVA": "Vincent Obsitnik"
   }, 
-  "ODONOHUE": {
+  "O'DONOHUE": {
+    "BANKOK": "Daniel Anthony O'Donohue",
     "KUWAIT": "Daniel Anthony O'Donohue"
   }, 
   "OFRIEL": {
@@ -5008,14 +5009,6 @@
   }, 
   "THAYER": {
     "BRATISLAVA": ""
-  }, 
-  "THE": {
-    "BEIJING": "", 
-    "BOGOTA": "", 
-    "KINSHASA": "", 
-    "PARIS": "", 
-    "STATE": "", 
-    "USUNNEWYORK": ""
   }, 
   "THEROS": {
     "AMMAN": ""

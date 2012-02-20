@@ -678,6 +678,10 @@ _TEST_CABLES = (
     ((), u'05BOGOTA9232', False),
     (u"ODONOHUE", u'09KUWAIT266', False),
     (u"O'DONOHUE", u'09KUWAIT266', True),
+    # See issue #32
+    #(u'RAY', u'01HOCHIMINHCITY197', False),
+    # See issue #31
+    #(u'IRVING', u'01HARARE1632', False),
 )
 
 

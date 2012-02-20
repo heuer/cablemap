@@ -526,6 +526,43 @@ TEXT.
 PETERSON
 
                        UNCLASSIFIED'''),
+    # 07LAGOS97
+    (u'BROWNE', u'''¶20.  (U)  The new fiscal regime is intended to be
+automatically responsive to varying project costs and price
+
+LAGOS 00000097  005.2 OF 005
+
+
+conditions; progressive so that the government take increases
+proportionately with project profitability; and simple, so as
+to avoid multiple taxes and complex allowances that either
+create loopholes or provide too much incentive.  The regime
+is focused on profit, not revenue or costs.
+
+¶21.  (U)  Kupolokun also said that a gas development
+agreement for Production Sharing Contracts will be drafted.
+Because the PSCs are for oil exploration and development, gas
+discoveries are incidental to oil operations.  A separate
+agreement is being developed to establish terms for the
+commercial development of the gas, taking into account that
+exploration costs are recovered from oil revenue, and
+unsuccessful oil exploration is considered a sunk cost.  The
+NNPC retains ownership of PSC gas.
+BROWNE'''),
+    # 08KINSHASA329
+    ((), u'''
+KINSHASA 00000329  008 OF 008
+
+
+¶56. (U) At a meeting in Matadi, the GDRC decided that at the end of
+the month they will auction containers that are piling up at
+ONATRA's port.  This should ease congestion and allow normal
+operations to resume.
+
+Monthly Inflation and Exchange Rates
+------------------------------------
+
+¶57. (U) The monthly inflation rate for March was 5.6 percent. The''')
 
 )
 
@@ -548,6 +585,7 @@ _TEST_CABLES = (
     (u'PAAL', u'06TAIPEI189', False),
     (u'HELMS', u'73TEHRAN7005', False),
     (u'HELMS', u'75TEHRAN2069', False),
+    ((), u'08KINSHASA332', False),
 )
 
 

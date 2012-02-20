@@ -287,6 +287,10 @@ class Cable(object):
     def signers(self):
         return reader.parse_signers(self.content)
 
+    @cached_property
+    def classificationist(self):
+        return reader.parse_classificationist(self.content)
+
 
 if __name__ == '__main__':
     import doctest

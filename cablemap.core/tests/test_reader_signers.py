@@ -659,6 +659,8 @@ _TEST_CABLES = (
     ((), u'08KINSHASA332', False),
     ((), u'08KINSHASA329', False),
     ((), u'05BOGOTA9232', False),
+    (u"ODONOHUE", u'09KUWAIT266', False),
+    (u"O'DONOHUE", u'09KUWAIT266', True),
 )
 
 

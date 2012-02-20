@@ -294,6 +294,8 @@ def handle_cable(cable, handler, standalone=True):
         handler.handle_summary(cable.summary)
     if cable.comment:
         handler.handle_comment(cable.comment)
+    if cable.classificationist:
+        handler.handle_classificationist(cable.classificationist)
     handler.handle_header(cable.header)
     handler.handle_content(cable.content)
     handler.handle_origin(cable.origin)

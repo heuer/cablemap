@@ -184,6 +184,14 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
+    classificationist = Attribute("""\
+    Returns the classificationist of the cable or ``None`` if
+    the cable does not provide the information.
+
+    The classificationist is returned as string, i.e. ``'Donald Duck'``
+
+    This attribute is read-only.
+    """)
 
 class IReference(Interface):
     """\
@@ -371,6 +379,14 @@ class ICableHandler(Interface):
 
         `signer`
             A string, like ``'CLINTON'``
+        """
+
+    def handle_classificationist(classificationist):
+        """\
+        Assigns a classificationist to the cable.
+
+        `classificationist`
+            A string like ``'Donald Duck'``
         """
 
     def handle_transmission_id(tid):

@@ -56,7 +56,38 @@ Classified By: Acting Deputy Chief of Mission Marc Wall for Reasons 1.4
     (u'10WARSAW117', u'F. Daniel Sainz', u'''Classified By: Political Counselor F. Daniel Sainz for Reasons 1.4 (b) and (d) '''),
     (u'10STATE16019', u'Karin L. Look', u'''Classified By: Karin L. Look, Acting ASSISTANT SECRETARY, VCI. Reason: 1.4 (b) and (d).'''),
     (u'10LILONGWE59', u'Bodde Peter', u'''CLASSIFIED BY: Bodde Peter, Ambassador; REASON: 1.4(B) '''),
+    (u'95ZAGREB4339', u'ROBERT P. FINN', u'''
+1.  (U)  CLASSIFIED BY ROBERT P. FINN, DEPUTY CHIEF OF
+MISSION.  REASON: 1.5 (D)
+ '''),
+    (u'95DAMASCUS5748', u'CHRISTOPHER W.S. ROSS', u'''SUBJECT:  HAFIZ AL-ASAD: LAST DEFENDER OF ARABS
 
+1. CONFIDENTIAL - ENTIRE TEXT.  CLASSIFIED BY:
+CHRISTOPHER W.S. ROSS, AMBASSADOR.  REASON: 1.5 (D) .
+
+2. SUMMAR'''),
+    (u'95TELAVIV17504', None, u'''
+1.  CONFIDENTIAL - ENTIRE TEXT.  CLASSIFIED BY SECTION 1.5 (B)
+AND (D).  NIACT PRECEDENCE BECAUSE OF GOVERNMENT CRISIS IN
+ISRAEL.
+
+2.  SU'''),
+    (u'95RIYADH5221', u'THEODORE KATTOUF', u'''
+1.  CONFIDENTIAL - ENTIRE TEXT.  CLASSIFIED BY DCM
+THEODORE KATTOUF - 1.5 B,D.
+
+2.  (C)'''),
+    (u'96ADDISABABA1545', u'JEFFREY JACOBS', u'''
+1.  (U)  CLASSIFIED BY POLOFF JEFFREY JACOBS, 1.5 (D).
+
+2.  (C)'''),
+    (u'96AMMAN2094', u'ROBERT BEECROFT', u'''
+1. (U)  CLASSIFIED BY CHARGE ROBERT BEECROFT; REASON 1.5 (D).
+
+2. (C) '''),
+    (u'96STATE86789', u'MARY BETH LEONARD', u'''
+1.  CLASSIFIED BY AF/C - MARY BETH LEONARD, REASON 1.5
+(D). '''),
 )
 
 

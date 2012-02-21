@@ -105,14 +105,23 @@ KATTOUF: 1.5 B, D.
 1.  (U) CLASSIFIED BY THOMAS W. SIMONS, JR., AMBASSADOR.
 REASON:  1.5 (B), (C) AND (D).
  '''),
+    (u'96ISLAMABAD5972', u'Thomas W. Simons, Jr.', u'''
+1.  (U) CLASSIFIED BY THOMAS W. SIMONS, JR., AMBASSADOR.
+REASON:  1.5 (B), (C) AND (D).
+ ''', True),
 )
 
 
 def test_parse_classificationist():
-    def check(cable_id, expected, content):
-        eq_(expected, parse_classificationist(content))
-    for cable_id, expected, content in _TEST_DATA:
-        yield check, cable_id, expected, content
+    def check(cable_id, expected, content, normalize):
+        eq_(expected, parse_classificationist(content, normalize))
+    for testcase in _TEST_DATA:
+        if len(testcase) == 3:
+            cable_id, expected, content = testcase
+            normalize = False
+        else:
+            cable_id, expected, content, normalize = testcase
+        yield check, cable_id, expected, content, normalize
 
 
 if __name__ == '__main__':

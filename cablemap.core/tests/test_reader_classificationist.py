@@ -297,6 +297,25 @@ ons 1.4(b/d).
 Classified By: PRT Kirkuk Governance Section Head Rachna Korhonen for r 
 easons 1.4 (b) and (d). 
  '''),
+    (u'04ANKARA5897', u'Thomas Goldberger', u''' 
+Classified By: (U) Classified by Economic Counselor Thomas Goldberger f 
+or reasons 1.4 b,d. 
+ '''),
+    (u'00HARARE3759', u'TOM MCDONALD', u''' 
+CLASSIFIED BY AMBASSADOR TOM MCDONALD. 
+                       CONFIDENTIAL 
+ 
+PAGE 02        HARARE  03759  01 OF 03  111533Z 
+REASONS: 1.5 (B) AND (D). 
+ 
+1.  (C)  SUMMARY:  ALTHOUGH WIDESPREAD FEARS OF A 
+SPIKE'''),
+    (u'07STATE156455', u'Glyn T. Davies', u''' 
+Classified By: Glyn T. Davies 
+ 
+SUMMARY 
+------- 
+ ''')
 )
 
 

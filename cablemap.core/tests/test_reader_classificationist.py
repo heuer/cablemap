@@ -236,6 +236,14 @@ reasons 1.4 (b) and (d)
 Classified By: Kirkuk PRT Team Leader Howard Keegan for reason 1.4 (b) 
 and(d). 
  '''),
+    (u'09HARARE864', u'Donald Petterson', u''' 
+Classified By: Charge d\'affaires, a.i. Donald Petterson for reason 1.4 
+(b). 
+ '''),
+    (u'04MANAMA525', u'Robert S. Ford', u''' 
+Classified By: Charge de Affaires Robert S. Ford for reasons 
+1.4 (b) and (d). 
+ '''),
 )
 
 

@@ -162,6 +162,22 @@ Classified By: AIT Director Douglas Paal, Reason(s): 1.4 (B/D).
     (u'05DHAKA3073', u'D.C. McCullough', u''' 
 Classified By: A/DCM D.C. McCullough, reason para 1.4 (b) 
  '''),
+    (u'09NAIROBI1132', u'Jessica Davis Ba', u''' 
+Classified By: Pol/Econ Officer Jessica Davis Ba for reasons 1.4(b) and 
+ (d) 
+ '''),
+    (u'08ROME1541', u'Liz Dibble', u''' 
+Classified By: Classified by DCM Liz Dibble for reasons 1.4 (b) and 
+(d). 
+ '''),
+    (u'06BAGHDAD2082', u'DANIEL SPECKHARD', ur''' 
+Classified By: CHARGE D\'AFFAIRES DANIEL SPECKHARD FOR REASONS 1.4 (A), 
+(B) AND (D) 
+ '''),
+    (u'05ANKARA4653', u'Nancy McEldowney', u''' 
+Classified By: (U) CDA Nancy McEldowney; E.O. 12958, reasons 1.4 (b,d) 
+ ''')
+    
 )
 
 

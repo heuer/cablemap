@@ -397,6 +397,16 @@ REASONS: 1.4 (B) AND (D)
 Classified By: Charge de'Affairs ai. Mary Grace McGeehan for reasons 1. 
 4 (b) and (d) 
  '''),
+    (u'07ROME1948', u'William Meara', u''' 
+Classified By: Acting Ecmin William Meara for reasons 1.4 (b) and (d) 
+ '''),
+    (u'07USUNNEWYORK545', u'Jackie Sanders', u''' 
+Classified By: Amb. Jackie Sanders. E.O 12958. Reasons 1.4 (B&D). 
+ '''),
+    (u'06USOSCE113', u'Bruce Connuck', u''' 
+Classified By: Classified by Political Counselor Bruce Connuck for Reas 
+(b) and (d). 
+ '''),
 )
 
 

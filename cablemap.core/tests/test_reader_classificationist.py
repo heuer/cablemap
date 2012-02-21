@@ -393,6 +393,10 @@ Robert Pollard for reasons 1.4 (b) and (d)
 Classified By: 1. CLASSIFIED BY NEA ASSISTANT SECRETARY DAVID WELCH 
 REASONS: 1.4 (B) AND (D) 
  '''),
+    (u'07VIENTIANE454', u'Mary Grace McGeehan', u''' 
+Classified By: Charge de'Affairs ai. Mary Grace McGeehan for reasons 1. 
+4 (b) and (d) 
+ '''),
 )
 
 

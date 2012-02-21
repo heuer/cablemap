@@ -176,7 +176,10 @@ Classified By: CHARGE D\'AFFAIRES DANIEL SPECKHARD FOR REASONS 1.4 (A),
  '''),
     (u'05ANKARA4653', u'Nancy McEldowney', u''' 
 Classified By: (U) CDA Nancy McEldowney; E.O. 12958, reasons 1.4 (b,d) 
- ''')
+ '''),
+    (u'05QUITO2057', u'LARRY L. MEMMOTT', u''' 
+Classified By: ECON LARRY L. MEMMOTT, REASONS 1.4 (B,D) 
+ '''),
     
 )
 

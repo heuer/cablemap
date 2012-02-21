@@ -447,7 +447,10 @@ nd (d).
  '''),
     (u'08CONAKRY348', u'T. SCOTT BROWN', u''' 
 Classified By: ECONOFF T. SCOTT BROWN FOR REASONS 1.4 (B) and (D) 
- ''')
+ '''),
+    (u'07STATE125576', u'Margaret McKelvey', u''' 
+Classified By: PRM/AFR Dir. Margaret McKelvey-reasons 1.4(b/d) 
+ '''),
 )
 
 

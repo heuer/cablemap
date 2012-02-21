@@ -56,6 +56,11 @@ def test_name():
     for canonical_id, sign, expected in _TEST_DATA:
         yield check, sign, canonical_id, expected
 
+def test_default():
+    eq_('bar', signer_name(u'FOO', u'98BERLIN1234', 'bar'))
+    eq_(None, signer_name(u'FOO', u'98BERLIN1234'))
+    eq_(u'FOO', signer_name(u'FOO', u'98BERLIN1234', u'FOO'))
+
 
 if __name__ == '__main__':
     import nose

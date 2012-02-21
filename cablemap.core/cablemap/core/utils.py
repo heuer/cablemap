@@ -255,24 +255,27 @@ def reference_id_parts(reference_id):
 
 _SIGNERS = json.load(codecs.open(os.path.join(os.path.dirname(__file__), 'signers.json'), 'rb', 'utf-8'))
 
-def signer_name(sign, canonical_id):
+def signer_name(sign, canonical_id, default=None):
     """\
     Returns the real name for the provided `sign`.
 
-    Returns ``None`` if the name cannot be found.
+    Returns `default` if the name cannot be found.
 
     `sign`
         The sign, i.e. ``CLINTON``.
     `canonical_id`
         Canonical cable identifier.
+    `default` 
+        The value which shoule be returned iff the sign cannot be found.
     """
     year, origin, _ = reference_id_parts(canonical_id)
     origins = _SIGNERS.get(sign)
-    res = None
+    res = default
     if origins:
-        res = origins.get(origin)
-        if isinstance(res, dict):
-            res = res.get(year)
+        tmp = origins.get(origin)
+        if isinstance(tmp, dict):
+            tmp = tmp.get(year, default)
+        res = tmp
     return res
 
 _TAGS_SUBJECT = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]

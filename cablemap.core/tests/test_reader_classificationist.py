@@ -260,6 +260,23 @@ ee for reasons 1.4 (b) and (d)
 Classified By: PRT and Sub-National Governance Acting Director Patricia 
  A McNerney for reasons 1.4 (b) and (d) 
  '''),
+    (u'09BRUSSELS1288', u'CHRISTOPHER DAVIS', u''' 
+Classified By: CLASSIFIED BY USEU MCOUNSELOR CHRISTOPHER DAVIS, FOR REA 
+ 
+SONS 1.4 (B) AND (D) 
+ '''),
+    (u'06TAIPEI3165', u'Stephen M. Young', u''' 
+Classified By: Classified by AIT DIR Stephen M. Young. 
+Reasons:  1.4 b, d. 
+ '''),
+    (u'07BRUSSELS1208', u'Courtney Nemroff', u''' 
+Classified By: Institutional Affairs Unit Chief Courtney Nemroff for re 
+asons 1.4 (b) & (d) 
+ '''),
+    (u'05CAIRO8602', u'Michael Corbin', u''' 
+Classified by ECPO Minister-Counselour Michael Corbin for 
+reasons 1.4 (b) and (d). 
+ '''),
 )
 
 

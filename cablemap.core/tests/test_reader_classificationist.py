@@ -140,6 +140,28 @@ REASON 1.5(D)
     (u'96BOGOTA10967', u'S.K. ABEYTA', u''' 
 1.  (U)  CLASSIFIED BY POL/ECONOFF S.K. ABEYTA.  REASON 1.5(D). 
  '''),
+    (u'04MUSCAT2112', u'Richard L. Baltimore, III', u''' 
+Classified By: Ambassador Richard L. Baltimore, III. 
+Reasons: 1.4 (b) and (d). 
+ '''),
+    (u'04MUSCAT2112', u'Richard L. Baltimore, III', u''' 
+Classified By: Ambassador Richard L. Baltimore, III. 
+Reasons: 1.4 (b) and (d). 
+ ''', True),
+    (u'05OTTAWA1975', u'Patricia Kim-Scott', u''' 
+Classified By: Pol/Mil Officer Patricia Kim-Scott.  Reason E.O. 12958, 
+1.4 (b) and (d). 
+ '''),
+    (u'05BOGOTA6208', u'William B. Wood', u''' 
+Classified By: Ambassador William B. Wood; reasons 1.4 
+(b) and (d) 
+ '''),
+    (u'05TAIPEI2839', u'Douglas Paal', u''' 
+Classified By: AIT Director Douglas Paal, Reason(s): 1.4 (B/D). 
+ '''),
+    (u'05DHAKA3073', u'D.C. McCullough', u''' 
+Classified By: A/DCM D.C. McCullough, reason para 1.4 (b) 
+ '''),
 )
 
 

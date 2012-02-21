@@ -417,6 +417,24 @@ Classified By: Charge d'Afairs (AI) Thomas Vajda for Reasons 1.4 (b) &
     (u'03ROME3107', u'TOM COUNTRYMAN', u''' 
 Classified By: POL MIN COUN TOM COUNTRYMAN, REASON 1.5(B)&(D). 
  '''),
+    (u'06USUNNEWYORK732', u'Molly Phee', u''' 
+Classified By: Deputy Political Counselor Molly Phee, 
+for Reasons 1.4 (B and D) 
+ '''),
+    (u'06BAGHDAD1552', u'David M. Satterfield', u''' 
+Classified By: Charge d'Affaires David M. Satterfield for reasons 1.4 ( 
+b) and (d) 
+ '''),
+    (u'06ABUJA232', u'Erin Y. Tariot', u''' 
+Classified By: USDEL Member Erin Y. Tariot, reasons 1.4 (b,d) 
+ '''),
+    (u'09ASTANA184', u'RICAHRD E. HOAGLAND', u''' 
+Classified By: AMBASSADOR RICAHRD E. HOAGLAND: 1.2 (B), (D) 
+ '''),
+    (u'09CANBERRA428', u'John W. Crowley', u''' 
+Classified By: Deputy Political Counselor: John W. Crowley, for reasons 
+ 1.4 (b) and (d) 
+ '''),
 )
 
 

@@ -180,6 +180,14 @@ Classified By: (U) CDA Nancy McEldowney; E.O. 12958, reasons 1.4 (b,d)
     (u'05QUITO2057', u'LARRY L. MEMMOTT', u''' 
 Classified By: ECON LARRY L. MEMMOTT, REASONS 1.4 (B,D) 
  '''),
+    (u'06HONGKONG3559', u'LAURENT CHARBONNET', u''' 
+CLASSIFIED BY: ACTING DEPUTY PRINCIPAL OFFICER LAURENT CHARBONNET.  REA 
+SONS: 1.4 (B,D) 
+ '''),
+    (u'09BAGHDAD791', u'Patricia Butenis', u''' 
+Classified By: Charge d\' Affairs Patricia Butenis for reasons 1.4 (b) a 
+nd (d) 
+ ''')
     
 )
 

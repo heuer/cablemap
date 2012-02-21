@@ -192,6 +192,18 @@ nd (d)
 Classified By: Charge d\'Affaires a.i. Christopher W. Webster, 
 reason 1.4 (b) and (d) 
  '''),
+    (u'08BEIJING3386', u'Aubrey Carlson', u''' 
+Classified By: Political Section Minister Counselor Aubrey Carlson.  Re 
+asons 1.4 (b/d). 
+ '''),
+    (u'09MOSCOW2393', u'Susan M. Elliott', u''' 
+Classified By: Political Minister Counselor Susan M. Elliott for reason 
+s:  1.4 (b), (d). 
+ '''),
+    (u'10BRUSSELS66', u'Christopher R. Davis', u''' 
+Classified By: Political Minister-Counselor Christopher R. Davis for re 
+ason 1.4 (b/d) 
+ '''),
     
 )
 

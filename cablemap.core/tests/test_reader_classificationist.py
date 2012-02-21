@@ -293,6 +293,10 @@ Classified By: Acting E/P Counselor Dan Jassem for reasons 1.4 (b) and
 Classified By: Acting Deputy Chief of Mission Thatcher Scharpf for reas 
 ons 1.4(b/d). 
  '''),
+    (u'09BAGHDAD3319', u'Rachna Korhonen', u''' 
+Classified By: PRT Kirkuk Governance Section Head Rachna Korhonen for r 
+easons 1.4 (b) and (d). 
+ '''),
 )
 
 

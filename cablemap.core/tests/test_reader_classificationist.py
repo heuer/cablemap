@@ -277,6 +277,11 @@ asons 1.4 (b) & (d)
 Classified by ECPO Minister-Counselour Michael Corbin for 
 reasons 1.4 (b) and (d). 
  '''),
+    (u'09MADRID1210', u'Arnold A. Chacon', u''' 
+Classified By: Charge d'Affaires, a.i., Arnold A. Chacon 
+ 
+1.(C) Summary:  In his meetings with Spanish officials, 
+Special Envoy for Eurasian Energy'''),
 )
 
 

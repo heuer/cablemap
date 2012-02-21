@@ -204,7 +204,26 @@ s:  1.4 (b), (d).
 Classified By: Political Minister-Counselor Christopher R. Davis for re 
 ason 1.4 (b/d) 
  '''),
-    
+    (u'06BEIJING22125', u'ROBERT LUKE', u''' 
+Classified By: (C) CLASSIFIED BY MINISTER COUNSELOR FOR ECONOMIC AFFAIR 
+S ROBERT LUKE; REASON 1.4 (B) AND (D). 
+ '''),
+    (u'07CAIRO622', u'William R. Stewart', u''' 
+Classified by:  Minister Counselor for Economic and 
+Political Affairs William R. Stewart for reasons 1.4(b) and 
+(d). 
+ '''),
+    (u'07BAGHDAD1188', u'Daniel Speckhard', u''' 
+Classified By: Charge Affaires Daniel Speckhard.  Reasons: 1.4 (b) and 
+(d). 
+ '''),
+    (u'08PARIS1131', u'STUART DWYER', u''' 
+Classified By: ECONCOUNS STUART DWYER FOR REASONS 1.4 B AND D 
+ '''),
+    (u'08ATHENS985', u'Jeff Hovenier', u''' 
+Classified By: A/Political Counselor Jeff Hovenier for 
+1.4 (b) and (d) 
+ '''),
 )
 
 

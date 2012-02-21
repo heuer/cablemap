@@ -373,6 +373,10 @@ Classified by Consul Greta C. Holtz for reasons 1.5 (b) & (d).
 Classified By: U.S. PERMANENT REPRESENATIVE AMBASSADOR SUSAN RICE 
 FOR REASONS 1.4 B/D 
  '''),
+    (u'09DHAKA339', u'Geeta Pasi', u''' 
+Classified By: Charge d'Affaires, a.i. Geeta Pasi.  Reasons 1.4 (b) and 
+ (d) 
+ '''),
 )
 
 

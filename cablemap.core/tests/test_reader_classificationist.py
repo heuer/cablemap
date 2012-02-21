@@ -224,6 +224,18 @@ Classified By: ECONCOUNS STUART DWYER FOR REASONS 1.4 B AND D
 Classified By: A/Political Counselor Jeff Hovenier for 
 1.4 (b) and (d) 
  '''),
+    (u'09BEIJING2690', u'William Weinstein', u''' 
+Classified By: This message classified by Econ Minister Counselor 
+William Weinstein for reasons 1.4 (b), (d) and (e). 
+ '''),
+    (u'06VILNIUS945', u'Rebecca Dunham', u''' 
+Classified By: Political and Economic Section Chief Rebecca Dunham for 
+reasons 1.4 (b) and (d) 
+ '''),
+    (u'07BAGHDAD2781', u'Howard Keegan', u''' 
+Classified By: Kirkuk PRT Team Leader Howard Keegan for reason 1.4 (b) 
+and(d). 
+ '''),
 )
 
 

@@ -407,6 +407,16 @@ Classified By: Amb. Jackie Sanders. E.O 12958. Reasons 1.4 (B&D).
 Classified By: Classified by Political Counselor Bruce Connuck for Reas 
 (b) and (d). 
  '''),
+    (u'09DOHA404', u'Joseph LeBaron', u''' 
+Classified By: Ambassaor Joseph LeBaron for reasons 1.4 (b and d). 
+ '''),
+    (u'09RANGOON575', u'Thomas Vajda', u''' 
+Classified By: Charge d'Afairs (AI) Thomas Vajda for Reasons 1.4 (b) & 
+ (d 
+ '''),
+    (u'03ROME3107', u'TOM COUNTRYMAN', u''' 
+Classified By: POL MIN COUN TOM COUNTRYMAN, REASON 1.5(B)&(D). 
+ '''),
 )
 
 

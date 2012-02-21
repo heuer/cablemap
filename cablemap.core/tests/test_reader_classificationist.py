@@ -282,6 +282,17 @@ Classified By: Charge d'Affaires, a.i., Arnold A. Chacon
  
 1.(C) Summary:  In his meetings with Spanish officials, 
 Special Envoy for Eurasian Energy'''),
+    (u'05SINGAPORE887', u'Laurent Charbonnet', u''' 
+Classified By: E/P Counselor Laurent Charbonnet, Reasons 1.4(b)(d) 
+ '''),
+    (u'09SINGAPORE677', u'Dan Jassem', u''' 
+Classified By: Acting E/P Counselor Dan Jassem for reasons 1.4 (b) and 
+(d) 
+ '''),
+    (u'08BELGRADE1189', u'Thatcher Scharpf', u''' 
+Classified By: Acting Deputy Chief of Mission Thatcher Scharpf for reas 
+ons 1.4(b/d). 
+ '''),
 )
 
 

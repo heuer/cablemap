@@ -244,6 +244,22 @@ Classified By: Charge d\'affaires, a.i. Donald Petterson for reason 1.4
 Classified By: Charge de Affaires Robert S. Ford for reasons 
 1.4 (b) and (d). 
  '''),
+    (u'08STATE56778', u'Patricia A. McNerney', u''' 
+Classified By: ISN Acting Assistant Secretary 
+Patricia A. McNerney, Reasons 1.4 b, c, and d 
+ '''),
+    (u'07BRUSSELS1462', u'Larry Wohlers', u''' 
+Classified By: USEU Political Minister Counselor Larry Wohlers 
+for reasons 1.4 (b) and (d). 
+ '''),
+    (u'09KABUL2261', u'Hoyt Yee', u''' 
+Classified By: Interagency Provincial Affairs Deputy Coordinator Hoyt Y 
+ee for reasons 1.4 (b) and (d) 
+ '''),
+    (u'09KABUL1233', u'Patricia A McNerney', u''' 
+Classified By: PRT and Sub-National Governance Acting Director Patricia 
+ A McNerney for reasons 1.4 (b) and (d) 
+ '''),
 )
 
 

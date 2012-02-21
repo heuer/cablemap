@@ -187,7 +187,11 @@ SONS: 1.4 (B,D)
     (u'09BAGHDAD791', u'Patricia Butenis', u''' 
 Classified By: Charge d\' Affairs Patricia Butenis for reasons 1.4 (b) a 
 nd (d) 
- ''')
+ '''),
+    (u'06OSLO19', u'Christopher W. Webster', u''' 
+Classified By: Charge d\'Affaires a.i. Christopher W. Webster, 
+reason 1.4 (b) and (d) 
+ '''),
     
 )
 

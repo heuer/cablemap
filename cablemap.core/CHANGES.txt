@@ -22,7 +22,8 @@ Changes
 * Added (experimental) predicate module to filter cables by their identifier
 * Added (experimental) support to extract the signer(s) of a cable
 * Added (experimental) support to resolve the signer(s) real name of a cable
-* Added (experimental) support to extract the comment of the ambassador
+* Added (experimental) support to extract the comment of the cable's author
+* Added (experimental) support to extract the classificationist of a cable
 * (Re-)added cablemap.core.handler
 * Added functions to generate `models.Cable` objects from CSV files and
   to generate events from CSV files.
@@ -57,7 +58,7 @@ Changes
 * Cables which have a header but no content were interpreted wrong: The header
   was set to the ``models.Cable.content`` property and the ``models.Cable.header``
   property was an empty string. Fixed.
-* Added/updated test cases (now: 1.000+ test cases)
+* Added/updated test cases (now: 1.200+ test cases)
 * Removed deprecated functions/modules
 
 

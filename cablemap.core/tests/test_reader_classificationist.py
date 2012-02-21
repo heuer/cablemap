@@ -343,6 +343,36 @@ Reasons: 1.4(b) and (d)
 Classified By: Acting Counselor for Political-Military Affiars Margaret 
  H. Nardi for reasons 1.4 (b) and (d). 
  '''),
+    (u'08MOSCOW3655', u'David Kostelancik', u''' 
+Classified By: Deputy Political M/C David Kostelancik.  Reasons 1.4 (b) 
+ and (d). 
+ '''),
+    (u'09STATE75025', u'Richard C. Holbrooke', u''' 
+Classified By: Special Representative for Afghanistan and Pakistan 
+Richard C. Holbrooke 
+ 
+1.  (U)  This is an action request; see paragraph 4. 
+ '''),
+    (u'10KABUL688', u'Joseph Mussomeli', u''' 
+Classified By: Assistant Chief of Mission Joseph Mussomeli for Reasons 
+1.4 (b) and (d) 
+ '''),
+    (u'98USUNNEWYORK1638', u'HOWARD STOFFER', u''' 
+CLASSIFIED BY DEPUTY POLITICAL COUNSEL0R HOWARD STOFFER 
+PER 1.5 (B) AND (D).  ACTION REQUEST IN PARA 10 BELOW. 
+ '''),
+    (u'02ROME3119', u'PIERRE-RICHARD PROSPER', u''' 
+CLASSIFIED BY: AMBASSADOR-AT-LARGE PIERRE-RICHARD PROSPER 
+FOR REASONS 1.5 (B) AND (D) 
+ '''),
+    (u'02ANKARA8447', u'Greta C. Holtz', u''' 
+ 
+Classified by Consul Greta C. Holtz for reasons 1.5 (b) & (d). 
+ '''),
+    (u'09USUNNEWYORK282', u'SUSAN RICE', u''' 
+Classified By: U.S. PERMANENT REPRESENATIVE AMBASSADOR SUSAN RICE 
+FOR REASONS 1.4 B/D 
+ '''),
 )
 
 

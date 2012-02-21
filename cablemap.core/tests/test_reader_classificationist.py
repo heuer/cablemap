@@ -451,6 +451,10 @@ Classified By: ECONOFF T. SCOTT BROWN FOR REASONS 1.4 (B) and (D)
     (u'07STATE125576', u'Margaret McKelvey', u''' 
 Classified By: PRM/AFR Dir. Margaret McKelvey-reasons 1.4(b/d) 
  '''),
+    (u'09BUDAPEST372', u'Steve Weston', u''' 
+Classified By: Acting Pol/Econ Counselor:Steve Weston, 
+reasons 1.4 (b and d) 
+ '''),
 )
 
 

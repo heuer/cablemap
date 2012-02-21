@@ -381,6 +381,18 @@ Classified By: Charge d'Affaires, a.i. Geeta Pasi.  Reasons 1.4 (b) and
 Classified By: Acting Permanent Representative Alejandro D. Wolff 
  per reasons 1.4 (b) and (d) 
  '''),
+    (u'08ISLAMABAD1494', u'Anne W. Patterson', u''' 
+Classified By: Ambassador Anne W. Patterson for reaons 1.4 (b) and (d). 
+ 
+1. (C) Summary: During'''),
+    (u'08BERLIN1150', u'Robert Pollard', u''' 
+Classified By: Classified by Economic Minister-Counsellor 
+Robert Pollard for reasons 1.4 (b) and (d) 
+ '''),
+    (u'08STATE104902', u'DAVID WELCH', u''' 
+Classified By: 1. CLASSIFIED BY NEA ASSISTANT SECRETARY DAVID WELCH 
+REASONS: 1.4 (B) AND (D) 
+ '''),
 )
 
 

@@ -315,7 +315,34 @@ Classified By: Glyn T. Davies
  
 SUMMARY 
 ------- 
- ''')
+ '''),
+    (u'03GUATEMALA1727', u'Erik Hall', u''' 
+Classified By: Labor Attache Erik Hall.  Reason 1.5 (d). 
+ '''),
+    (u'05VILNIUS503', u'LARRY BEISEL', u''' 
+Classified By: DEFENSE ATTACHE LTC LARRY BEISEL FOR REASONS 1.4 (B) AND 
+ (D). 
+ '''),
+    (u'08USUNNEWYORK729', u'Carolyn L. Willson', u''' 
+Classified By: USUN Legal Adviser Carolyn L. Willson, for reasons 
+1.4(b) and (d) 
+ '''),
+    (u'04BRUSSELS4688', u'Jeremy Brenner', u''' 
+Classified By: USEU polmil officer Jeremy Brenner for reasons 1.4 (b) a 
+nd (d) 
+ '''),
+    (u'08GUATEMALA1416', u'Drew G. Blakeney', u''' 
+Classified By: Pol/Econ Couns Drew G. Blakeney for reasons 1.4 (b&d). 
+ '''),
+    (u'08STATE77798', u'Brian H. Hook', u''' 
+Classified By: IO Acting A/S Brian H. Hook, E.O. 12958, 
+Reasons: 1.4(b) and (d) 
+ 
+ '''),
+    (u'05ANKARA1071', u'Margaret H. Nardi', u''' 
+Classified By: Acting Counselor for Political-Military Affiars Margaret 
+ H. Nardi for reasons 1.4 (b) and (d). 
+ '''),
 )
 
 

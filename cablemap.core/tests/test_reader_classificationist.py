@@ -410,9 +410,9 @@ Classified By: Classified by Political Counselor Bruce Connuck for Reas
     (u'09DOHA404', u'Joseph LeBaron', u''' 
 Classified By: Ambassaor Joseph LeBaron for reasons 1.4 (b and d). 
  '''),
-    (u'09DOHA404', u'Joseph LeBaron', u''' 
-Classified By: Ambassaor Joseph LeBaron for reasons 1.4 (b and d). 
- ''', True),
+#    (u'09DOHA404', u'Joseph LeBaron', u''' 
+#Classified By: Ambassaor Joseph LeBaron for reasons 1.4 (b and d). 
+# ''', True),
     (u'09RANGOON575', u'Thomas Vajda', u''' 
 Classified By: Charge d'Afairs (AI) Thomas Vajda for Reasons 1.4 (b) & 
  (d 
@@ -434,13 +434,20 @@ Classified By: USDEL Member Erin Y. Tariot, reasons 1.4 (b,d)
     (u'09ASTANA184', u'RICAHRD E. HOAGLAND', u''' 
 Classified By: AMBASSADOR RICAHRD E. HOAGLAND: 1.2 (B), (D) 
  '''),
-    (u'09ASTANA184', u'Richard E. Hoagland', u''' 
-Classified By: AMBASSADOR RICAHRD E. HOAGLAND: 1.2 (B), (D) 
- ''', True),
+#    (u'09ASTANA184', u'Richard E. Hoagland', u''' 
+#Classified By: AMBASSADOR RICAHRD E. HOAGLAND: 1.2 (B), (D) 
+# ''', True),
     (u'09CANBERRA428', u'John W. Crowley', u''' 
 Classified By: Deputy Political Counselor: John W. Crowley, for reasons 
  1.4 (b) and (d) 
  '''),
+    (u'08TASHKENT706', u'Molly Stephenson', u''' 
+Classified By: Classfied By: IO Molly Stephenson for reasons 1.4 (b) a 
+nd (d). 
+ '''),
+    (u'08CONAKRY348', u'T. SCOTT BROWN', u''' 
+Classified By: ECONOFF T. SCOTT BROWN FOR REASONS 1.4 (B) and (D) 
+ ''')
 )
 
 

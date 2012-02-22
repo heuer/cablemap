@@ -521,6 +521,14 @@ Classified By: AMBASSADOR JOHN L. WITHERS II FR REASONS 1.4 (b) AND (d
 Classified By: Charge d'Affaires a.i. Eric T. Schultz under Section 1.4 
  b/d 
  '''),
+    (u'07LISBON2591', u'Jenifer Neidhart', u''' 
+Classified By: Pol/Econ Off Jenifer Neidhart for reasons 1.4 (b) and (d 
+) 
+ '''),
+    (u'07STATE171234', u'Lawrence E. Butler', u''' 
+Classified By:  NEA Lawrence E. Butler for reasons EO 12958 
+1.4(b),(d), and (e). 
+ '''),
 )
 
 

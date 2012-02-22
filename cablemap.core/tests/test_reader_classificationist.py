@@ -481,6 +481,29 @@ of conventional banks'''),
     (u'05DJIBOUTI802', u'JEFFREY PURSELL', u''' 
  (U) CLASSIFIED BY TDY RSO JEFFREY PURSELL FOR REASON 1.5 C. 
  '''),
+    (u'09STATE82567', u'Eliot Kang', u''' 
+Classified By: Acting DAS for ISN Eliot Kang. Reasons 1.4 (b) and (d) 
+ 
+ '''),
+    (u'04ANKARA5764', u'Charles O. Blah a', u''' 
+Classified By: Classified by Deputy Political Counselor Charles O. Blah 
+a, E.O. 12958, reasons 1.4 (b) and (d). 
+ '''),
+#    (u'04ANKARA5764', u'Charles O. Blaha', u''' 
+#Classified By: Classified by Deputy Political Counselor Charles O. Blah 
+#a, E.O. 12958, reasons 1.4 (b) and (d). 
+# ''', True),
+    (u'04ANKARA5764', u'Charles O. Blah a', u''' 
+Classified By: Classified by Deputy Political Counselor Charles O. Blah 
+a, E.O. 12958, reasons 1.4 (b) and (d). 
+ '''),
+    (u'10VIENNA195', u'J. Dean Yap', u''' 
+Classified by: DCM J. Dean Yap (acting) for reasons 1.4 (b) 
+and (d). 
+ '''),
+    (u'03HARARE175', u'JOHN S. DICARLO', u''' 
+Classified By: RSO - JOHN S. DICARLO. REASON 1.5(D) 
+ '''),
 )
 
 

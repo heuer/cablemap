@@ -559,6 +559,9 @@ maintaining higher'''),
 Security Gregory B. Starr for E.O. 12958 reasons 1.4 (c) and 
 (d). 
  '''),
+    (u'09ISTANBUL137', u'Sandra Oudkirk', u''' 
+Classified By: ConGen Istanbul DPO Sandra Oudkirk; Reason 1.5 (d) 
+ '''),
 )
 
 

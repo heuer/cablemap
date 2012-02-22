@@ -529,6 +529,9 @@ Classified By: Pol/Econ Off Jenifer Neidhart for reasons 1.4 (b) and (d
 Classified By:  NEA Lawrence E. Butler for reasons EO 12958 
 1.4(b),(d), and (e). 
  '''),
+    (u'04AMMAN8544', u'David Hale', u''' 
+Classified By: Charge d'Affaries David Hale for Reasons 1.4 (b), (d) 
+ '''),
 )
 
 

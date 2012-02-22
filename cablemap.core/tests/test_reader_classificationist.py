@@ -504,6 +504,23 @@ and (d).
     (u'03HARARE175', u'JOHN S. DICARLO', u''' 
 Classified By: RSO - JOHN S. DICARLO. REASON 1.5(D) 
  '''),
+    (u'08LONDON2968', u'Greg Berry', u''' 
+Classified By: PolMinCons Greg Berry, reasons 1.4 (b/d). 
+ '''),
+    (u'08HAVANA956', u'Jonathan Farrar', u''' 
+Classified By: COM Jonathan Farrar for reasons 1.5 (b) and (d) 
+ '''),
+    (u'09BAGHDAD253', u'Robert Ford', u''' 
+Classified By: Acting Deputy Robert Ford.  Reasons 1.4 (b) and (d) 
+ '''),
+    (u'09TIRANA81', u'JOHN L. WITHERS II', u''' 
+Classified By: AMBASSADOR JOHN L. WITHERS II FR REASONS 1.4 (b) AND (d 
+). 
+ '''),
+    (u'05HARARE383', u'Eric T. Schultz', u''' 
+Classified By: Charge d'Affaires a.i. Eric T. Schultz under Section 1.4 
+ b/d 
+ '''),
 )
 
 

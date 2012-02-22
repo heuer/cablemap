@@ -538,6 +538,27 @@ Classified By: Acting DCM/Ted Osius for reasons 1.4 (b and d)
     (u'04JAKARTA5072', u'ANTHONY C. WOODS', u''' 
 Classified By: EST&H OFFICER ANTHONY C. WOODS FOR REASON 1.5 (b, d) 
  '''),
+    (u'03AMMAN2822', u'Edward W. Gnehm', u''' 
+Classified By: Ambassador Edward W. Gnehm.  Resons 1.5 (B) and (D) 
+ '''),
+    (u'08CANBERRA1335', u'Daniel A. Clune', u''' 
+Classified By: Deputy Chief of Mission: Daniel A. Clune: Reason: 1.4 (c 
+) and (d) 
+ '''),
+    (u'09HAVANA665', u'Charles Barclay', u''' 
+Classified By: CDA: Charles Barclay for reQ#8$UQ8ML#C may choke oQhQGTzovisional\" controls, such as 
+price caps and limits on the amount any one person could buy. 
+ 
+ 
+3.  (SBU) Furthering speculation that the private markets 
+were under the gun, official reports have resurfaced in 
+recent months accusing private markets of artificially 
+maintaining higher'''),
+    (u'08STATE8993', u'Gregory B. Starr', u''' 
+1. (U) Classified by Acting Assistant Secretary for Diplomatic 
+Security Gregory B. Starr for E.O. 12958 reasons 1.4 (c) and 
+(d). 
+ '''),
 )
 
 

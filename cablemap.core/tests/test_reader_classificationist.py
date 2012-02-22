@@ -532,6 +532,12 @@ Classified By:  NEA Lawrence E. Butler for reasons EO 12958
     (u'04AMMAN8544', u'David Hale', u''' 
 Classified By: Charge d'Affaries David Hale for Reasons 1.4 (b), (d) 
  '''),
+    (u'07NEWDELHI5334', u'Ted Osius', u''' 
+Classified By: Acting DCM/Ted Osius for reasons 1.4 (b and d) 
+ '''),
+    (u'04JAKARTA5072', u'ANTHONY C. WOODS', u''' 
+Classified By: EST&H OFFICER ANTHONY C. WOODS FOR REASON 1.5 (b, d) 
+ '''),
 )
 
 

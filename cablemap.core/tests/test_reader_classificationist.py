@@ -455,6 +455,32 @@ Classified By: PRM/AFR Dir. Margaret McKelvey-reasons 1.4(b/d)
 Classified By: Acting Pol/Econ Counselor:Steve Weston, 
 reasons 1.4 (b and d) 
  '''),
+    (u'04TAIPEI3162', u'David J. Keegan', u'''' 
+Classified By: AIT Deputy Director David J. Keegan, Reason: 1.4 (B/D) 
+ '''),
+    (u'04TAIPEI3521', u'David J. Keegan', u''' 
+Classified By: AIT Acting Director David J. Keegan, Reason: 1.4 (B/D) 
+ '''),
+    (u'04TAIPEI3919', u'David J. Keegan', u''' 
+Classified By: AIT Director David J. Keegan, Reason 1.4 (B/D) 
+ '''),
+    (u'08JAKARTA1142', u'Stanley A. Harsha', u''' 
+Classified By: Acting Pol/C Stanley A. Harsha for reasons 1.4 (b+d). 
+ '''),
+    (u'06ISLAMABAD16739', u'MARY TOWNSWICK', u''' 
+Classified By: DOS CLASSIFICATION GUIDE BY MARY TOWNSWICK 
+ 
+1.  (C)  Summary.  With limited government support, Islamic 
+banking has gained momentum in Pakistan in the past three 
+years.  The State Bank of Pakistan (SBP) reports that the 
+capital base of the Islamic banking system has more than 
+doubled since 2003 as the number of Islamic banks operating 
+in Pakistan rose from one to four.  A media analysis of 
+Islamic banking in Pakistan cites an increase in the number 
+of conventional banks'''),
+    (u'05DJIBOUTI802', u'JEFFREY PURSELL', u''' 
+ (U) CLASSIFIED BY TDY RSO JEFFREY PURSELL FOR REASON 1.5 C. 
+ '''),
 )
 
 

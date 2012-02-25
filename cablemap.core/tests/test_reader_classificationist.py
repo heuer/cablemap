@@ -628,6 +628,10 @@ Classified By: Ambassodor Robert O. Blake, Jr. for reasons 1.4 (b, d).
 Classified By: AMBASSSADOR MARGUERITA D. RAGSDALE. 
 REASONS 1.4 (B) AND (D). 
  '''),
+    (u'08MOSCOW3202', u'David Kostelancik', u''' 
+Classified By: Acting Political MC David Kostelancik for reasons 1.4(b) 
+ and (d). 
+ '''),
 )
 
 

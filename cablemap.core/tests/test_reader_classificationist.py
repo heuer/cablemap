@@ -621,6 +621,13 @@ Classified By: T U/S Ellen O. Tauscher for Reasons 1.4 a,b,and d.
 Classified By: SPECIAL ENVOY JOHN M. YATES 
  
 1.  (C) '''),
+    (u'07COLOMBO769', u'Robert O. Blake, Jr.', u''' 
+Classified By: Ambassodor Robert O. Blake, Jr. for reasons 1.4 (b, d). 
+ '''),
+    (u'04DJIBOUTI1541', u'MARGUERITA D. RAGSDALE', u''' 
+Classified By: AMBASSSADOR MARGUERITA D. RAGSDALE. 
+REASONS 1.4 (B) AND (D). 
+ '''),
 )
 
 

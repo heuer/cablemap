@@ -610,6 +610,13 @@ Classified By: AF Acting DAS Mark Boulware,  Reasons 1.4 (b) and (d).
     (u'06AITTAIPEI1142', u'Michael R. Wheeler', u''' 
 Classified By: IPO Michael R. Wheeler for reason 1.4(G)(E) 
  '''),
+    (u'08TAIPEI1038', u'Stephen M. Young', u''' 
+Classified By: AIT Chairman Stephen M. Young, 
+Reasons: 1.4 (b/d) 
+ '''),
+    (u'09STATE96519', u'Ellen O. Tauscher', u''' 
+Classified By: T U/S Ellen O. Tauscher for Reasons 1.4 a,b,and d. 
+ '''),
 )
 
 

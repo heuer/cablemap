@@ -562,6 +562,15 @@ Security Gregory B. Starr for E.O. 12958 reasons 1.4 (c) and
     (u'09ISTANBUL137', u'Sandra Oudkirk', u''' 
 Classified By: ConGen Istanbul DPO Sandra Oudkirk; Reason 1.5 (d) 
  '''),
+ (u'08BANGKOK1778', u'James F. Entwistle', u''' 
+Classified By: Charge, d,Affaires a. i. James F. Entwistle, reason 1.4 
+(b) and (d). 
+ '''),
+ (u'08MANAMA301', u'Christopher Henzel', u''' 
+Classified By: Charge d,Affaires a.i. Christopher Henzel, reasons 1.4(b 
+) and (d). 
+ 
+ '''),
 )
 
 

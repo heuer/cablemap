@@ -632,6 +632,10 @@ REASONS 1.4 (B) AND (D).
 Classified By: Acting Political MC David Kostelancik for reasons 1.4(b) 
  and (d). 
  '''),
+    (u'09BEIJING939', u'Ben Moeling', u''' 
+Classified By: Acting Political Minister-Couselor 
+Ben Moeling, reasons 1.4 (b/d). 
+ '''),
 )
 
 

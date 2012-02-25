@@ -288,8 +288,8 @@ class Cable(object):
         return reader.parse_signers(self.content)
 
     @cached_property
-    def classificationist(self):
-        return reader.parse_classificationist(self.content)
+    def classificationists(self):
+        return reader.parse_classificationists(self.content)
 
 
 if __name__ == '__main__':

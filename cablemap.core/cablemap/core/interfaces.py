@@ -184,11 +184,10 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
-    classificationist = Attribute("""\
-    Returns the classificationist of the cable or ``None`` if
-    the cable does not provide the information.
+    classificationists = Attribute("""\
+    Returns a maybe empty iterable of classificationists of the cable.
 
-    The classificationist is returned as string, i.e. ``'Donald Duck'``
+    The classificationists are returned as string, i.e. ``'Donald Duck'``
 
     This attribute is read-only.
     """)

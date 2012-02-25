@@ -601,6 +601,15 @@ Classified By: Classified by Ambassadior William T.Monroe.  Reasons: 1.
 Classified By: Ambasasdor Charles Glazer, Reasons 
 1.4 (b) and (d) 
  '''),
+    (u'05BRUSSELS1549', u'Michael Ranneberger', u''' 
+Classified By: AF PDAS Michael Ranneberger.  Reasons 1.5 (b) and (d). 
+ '''),
+    (u'09STATE14163', u'Mark Boulware', u''' 
+Classified By: AF Acting DAS Mark Boulware,  Reasons 1.4 (b) and (d). 
+ '''),
+    (u'06AITTAIPEI1142', u'Michael R. Wheeler', u''' 
+Classified By: IPO Michael R. Wheeler for reason 1.4(G)(E) 
+ '''),
 )
 
 

@@ -597,6 +597,10 @@ Classified By: AMB:RCROCKER, Reasons 1.4 (b) and (c)
 Classified By: Classified by Ambassadior William T.Monroe.  Reasons: 1. 
 4 (b)(d) 
  '''),
+    (u'07SANSALVADOR263', u'Charles Glazer', u''' 
+Classified By: Ambasasdor Charles Glazer, Reasons 
+1.4 (b) and (d) 
+ '''),
 )
 
 

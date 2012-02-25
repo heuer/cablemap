@@ -39,7 +39,7 @@ Tests classificationist parsing.
 :license:      BSD license
 """
 from nose.tools import eq_
-from cablemap.core.reader import parse_classificationist
+from cablemap.core.reader import parse_classificationists
 
 _TEST_DATA = (
     (u'10TOKYO397', u'Marc Wall', u'''FIELD
@@ -66,7 +66,7 @@ MISSION.  REASON: 1.5 (D)
 CHRISTOPHER W.S. ROSS, AMBASSADOR.  REASON: 1.5 (D) .
 
 2. SUMMAR'''),
-    (u'95TELAVIV17504', None, u'''
+    (u'95TELAVIV17504', (), u'''
 1.  CONFIDENTIAL - ENTIRE TEXT.  CLASSIFIED BY SECTION 1.5 (B)
 AND (D).  NIACT PRECEDENCE BECAUSE OF GOVERNMENT CRISIS IN
 ISRAEL.
@@ -591,7 +591,9 @@ VILLAROSA ; E.O. 12958 REASON: 1.4 (B) AND (D)
 
 def test_parse_classificationist():
     def check(cable_id, expected, content, normalize):
-        eq_(expected, parse_classificationist(content, normalize))
+        if not isinstance(expected, tuple):
+            expected = (expected,)
+        eq_(expected, tuple(parse_classificationists(content, normalize)))
     for testcase in _TEST_DATA:
         if len(testcase) == 3:
             cable_id, expected, content = testcase

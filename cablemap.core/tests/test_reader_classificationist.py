@@ -585,7 +585,18 @@ Classified By: AMB Heather M. Hodges for reason 1.4 (D)
     (u'09STATE38028', u'KARL WYCOFF', u''' 
 CLASSIFIED BY AF KARL WYCOFF, ACTING AND S/CT DAS SHARI 
 VILLAROSA ; E.O. 12958 REASON: 1.4 (B) AND (D) 
- ''')
+ '''),
+    (u'04ABUJA2060', u'BRUCE EHRNMAN', u''' 
+Classified By: AF SPECIAL ADVISOR BRUCE EHRNMAN FOR REASONS 1.5 (B) AND 
+ (D) 
+ '''),
+    (u'06ISLAMABAD3684', u'RCROCKER', u''' 
+Classified By: AMB:RCROCKER, Reasons 1.4 (b) and (c) 
+ '''),
+    (u'06MANAMA184', u'William T.Monroe', u''' 
+Classified By: Classified by Ambassadior William T.Monroe.  Reasons: 1. 
+4 (b)(d) 
+ '''),
 )
 
 

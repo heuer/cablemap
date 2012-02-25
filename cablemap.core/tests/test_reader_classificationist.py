@@ -581,6 +581,10 @@ Classified By: Amabassador Marie Yovanovitch.  Reason 1.4 (B/D)
     (u'09QUITO329', u'Heather M. Hodges', u''' 
 Classified By: AMB Heather M. Hodges for reason 1.4 (D) 
  '''),
+    (u'09STATE38028', u'KARL WYCOFF', u''' 
+CLASSIFIED BY AF KARL WYCOFF, ACTING AND S/CT DAS SHARI 
+VILLAROSA ; E.O. 12958 REASON: 1.4 (B) AND (D) 
+ ''')
 )
 
 

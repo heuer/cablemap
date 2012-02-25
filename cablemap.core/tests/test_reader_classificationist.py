@@ -571,6 +571,16 @@ Classified By: Charge d,Affaires a.i. Christopher Henzel, reasons 1.4(b
 ) and (d). 
  
  '''),
+    (u'06COLOMBO123', u'Robert O. Blake, Jr.', u''' 
+Classified By: Abassador Robert O. Blake, Jr. for reasons 
+1.4 (b and (d). 
+ '''),
+    (u'08YEREVAN907', u'Marie Yovanovitch', u''' 
+Classified By: Amabassador Marie Yovanovitch.  Reason 1.4 (B/D) 
+ '''),
+    (u'09QUITO329', u'Heather M. Hodges', u''' 
+Classified By: AMB Heather M. Hodges for reason 1.4 (D) 
+ '''),
 )
 
 

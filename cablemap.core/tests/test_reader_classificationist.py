@@ -617,6 +617,10 @@ Reasons: 1.4 (b/d)
     (u'09STATE96519', u'Ellen O. Tauscher', u''' 
 Classified By: T U/S Ellen O. Tauscher for Reasons 1.4 a,b,and d. 
  '''),
+    (u'08NAIROBI232', u'JOHN M. YATES', u''' 
+Classified By: SPECIAL ENVOY JOHN M. YATES 
+ 
+1.  (C) '''),
 )
 
 

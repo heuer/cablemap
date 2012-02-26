@@ -639,6 +639,17 @@ Ben Moeling, reasons 1.4 (b/d).
 Classified By: Principal Office Jonathan Farrar for reasons 1.4 (b) and 
  (d) 
  '''),
+    (u'07VIENNA2687', u'J. Dean Yap', u''' 
+Classified By: Political Economic Counselr J. Dean Yap for reasons 1.4 
+ (b) and (d) 
+ '''),
+    (u'08LONDON1485', u'Maura Connelly', u''' 
+Classified By: Political Minister Counsel Maura Connelly for reasons 1. 
+4 (b/d). 
+ '''),
+    (u'07LONDON3228', u'JOHN MCNAMARA', u''' 
+Classified By: A E/MIN COUNS. JOHN MCNAMARA, REASONS 1.4(B) AND (D) 
+ '''),
 )
 
 

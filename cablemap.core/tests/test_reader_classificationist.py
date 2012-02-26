@@ -650,6 +650,9 @@ Classified By: Political Minister Counsel Maura Connelly for reasons 1.
     (u'07LONDON3228', u'JOHN MCNAMARA', u''' 
 Classified By: A E/MIN COUNS. JOHN MCNAMARA, REASONS 1.4(B) AND (D) 
  '''),
+    (u'05ABUJA2031', u'Rich Verrier', u''' 
+Classified By: ARSO Rich Verrier for reason 1.4 (d) 
+ '''),
 )
 
 

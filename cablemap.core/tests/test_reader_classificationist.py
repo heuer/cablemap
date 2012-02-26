@@ -674,6 +674,18 @@ CLASSIFIED BY: ACTING E/P CIEF JEFF ZAISER.  REASONS: 1.4(B,D).
 Classified By: Acting Ecopol Councilor Brian Quigley for reasons 1.4 (d 
 ) and (e). 
  '''),
+    (u'08BAGHDAD3818', u'Michael Dodman', u''' 
+Classified By: A/EMIN Michael Dodman, Reasons 1.4 (b,d). 
+ '''),
+    (u'09BAGHDAD565', u'Michael Dodman', u''' 
+Classified By: Acting EMIN Michael Dodman, reasons 1.4 (b,d). 
+ '''),
+    (u'09BUDAPEST198', u'Jon Martinson', u''' 
+Classified By: Acting P/E Counseor Jon Martinson, reasons 1.4 (b,d) 
+ '''),
+    (u'09BUDAPEST276', u'Jon Martinson', u''' 
+Classified By: Acting P/E Counsleor Jon Martinson, reasons 1.4 (b,d) 
+ ''')
 )
 
 

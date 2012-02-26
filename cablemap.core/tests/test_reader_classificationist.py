@@ -653,6 +653,17 @@ Classified By: A E/MIN COUNS. JOHN MCNAMARA, REASONS 1.4(B) AND (D)
     (u'05ABUJA2031', u'Rich Verrier', u''' 
 Classified By: ARSO Rich Verrier for reason 1.4 (d) 
  '''),
+    (u'09USOSCE235', u'Chris Ellis', u''' 
+Classified By: Acting Chief Arms Control Delegate Chris Ellis, 
+for reasons 1.4(b) and (d). 
+ '''),
+    (u'06RANGOON1542', u'Walter Parrs III', u''' 
+Classified By: Conoff Walter Parrs III for Reasons 1.4 (b) and (d) 
+ '''),
+    (u'08STATE109148', u'Pam Durham', u''' 
+Classified By: ISN/MTR Direcotr Pam Durham. 
+Reason:  1.4 (B), (D). 
+ '''),
 )
 
 

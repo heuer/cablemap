@@ -664,6 +664,16 @@ Classified By: Conoff Walter Parrs III for Reasons 1.4 (b) and (d)
 Classified By: ISN/MTR Direcotr Pam Durham. 
 Reason:  1.4 (B), (D). 
  '''),
+    (u'08STATE3581', u'AFriedt', u''' 
+Classified By: EUR/PRA, Dir. AFriedt, Reason 1.4 (b/d) 
+ '''),
+    (u'06HONGKONG3109', u'JEFF ZAISER', u''' 
+CLASSIFIED BY: ACTING E/P CIEF JEFF ZAISER.  REASONS: 1.4(B,D). 
+ '''),
+    (u'07LAPAZ123', u'Brian Quigley', u''' 
+Classified By: Acting Ecopol Councilor Brian Quigley for reasons 1.4 (d 
+) and (e). 
+ '''),
 )
 
 

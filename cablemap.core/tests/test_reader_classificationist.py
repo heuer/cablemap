@@ -693,6 +693,10 @@ Classified By: SCA/DAS for Central Asia George Krol
     (u'09STATE24316', u'GEORGE KROL', u''' 
 Classified By: DEPUTY ASSISTANT SECRETARY OF STATE FOR 
 CENTRAL ASIA GEORGE KROL FOR REASONS 1.4 (B) AND (D) 
+ '''),
+    (u'08STATE82744', u'BRIAN HOOK', u''' 
+Classified By: CLASSIFIED BY IO A/S ACTING BRIAN HOOK 
+FOR REASONS 1.4(B) AND (D). 
  ''')
 )
 

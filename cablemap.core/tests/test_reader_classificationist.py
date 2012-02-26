@@ -685,6 +685,14 @@ Classified By: Acting P/E Counseor Jon Martinson, reasons 1.4 (b,d)
  '''),
     (u'09BUDAPEST276', u'Jon Martinson', u''' 
 Classified By: Acting P/E Counsleor Jon Martinson, reasons 1.4 (b,d) 
+ '''),
+    (u'08STATE67468', u'George Krol', u''' 
+Classified By: SCA/DAS for Central Asia George Krol 
+ 
+ 1.  (C) '''),
+    (u'09STATE24316', u'GEORGE KROL', u''' 
+Classified By: DEPUTY ASSISTANT SECRETARY OF STATE FOR 
+CENTRAL ASIA GEORGE KROL FOR REASONS 1.4 (B) AND (D) 
  ''')
 )
 

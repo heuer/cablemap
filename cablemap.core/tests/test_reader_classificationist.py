@@ -581,8 +581,7 @@ Classified By: Amabassador Marie Yovanovitch.  Reason 1.4 (B/D)
     (u'09QUITO329', u'Heather M. Hodges', u''' 
 Classified By: AMB Heather M. Hodges for reason 1.4 (D) 
  '''),
-    #TODO: Should be: [Karl Wycoff, Shari Villarosa]
-    (u'09STATE38028', u'KARL WYCOFF', u''' 
+    (u'09STATE38028', (u'KARL WYCOFF', u'SHARI VILLAROSA'), u''' 
 CLASSIFIED BY AF KARL WYCOFF, ACTING AND S/CT DAS SHARI 
 VILLAROSA ; E.O. 12958 REASON: 1.4 (B) AND (D) 
  '''),
@@ -635,6 +634,10 @@ Classified By: Acting Political MC David Kostelancik for reasons 1.4(b)
     (u'09BEIJING939', u'Ben Moeling', u''' 
 Classified By: Acting Political Minister-Couselor 
 Ben Moeling, reasons 1.4 (b/d). 
+ '''),
+    (u'09HAVANA689', u'Jonathan Farrar', u''' 
+Classified By: Principal Office Jonathan Farrar for reasons 1.4 (b) and 
+ (d) 
  '''),
 )
 

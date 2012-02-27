@@ -723,6 +723,9 @@ ASSISTANT SECRETARY, REASON 1.4 (B) AND (D)
     (u'03OTTAWA2182', u'Mary Witt', u''' 
 Classified By: A/ Pol Min Mary Witt for reasons 1.5(b) and (d) 
  '''),
+    (u'03KUWAIT3762', u'FRANK URBANCIC', u''' 
+Classified By: CDA FRANK URBANCIC BASED UPON REASONS 1.5 (B) AND (D) 
+ '''),
 )
 
 

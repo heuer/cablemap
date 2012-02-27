@@ -42,7 +42,7 @@ from nose.tools import eq_
 from cablemap.core import cable_by_id
 
 
-def test_issue5():
+def test_issue():
     cable = cable_by_id('06LIMA1452')
     assert cable
     eq_(u"RUN-OFF, SEEKS EMBASSY'S ASSISTANCE IN CEMENTING DEMOCRATIC COALITION AGAINST HUMALA", cable.subject)

@@ -38,14 +38,15 @@ Test against 09TRIPOLI63.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
-from nose.tools import eq_
+from nose.tools import ok_
 from cablemap.core import cable_by_id
 
 
-def test_issue5():
+def test_issue():
     cable = cable_by_id('09TRIPOLI63')
     assert cable
-    assert u'RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GOL' in cable.subject
+    print cable.subject
+    ok_(u'RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GOL' in cable.subject)
 
 
 if __name__ == '__main__':

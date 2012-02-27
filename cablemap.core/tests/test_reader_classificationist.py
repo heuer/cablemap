@@ -773,6 +773,17 @@ Classified By: AMBASSADR ROSS WILSON FOR REASONS 1.4 (B) AND (D)
     (u'09UNVIEVIENNA531', u'Glyn T. Davies', u''' 
 Classified By: Ambassadro Glyn T. Davies, reasons 1.4 (b) and (d) 
  '''),
+    (u'09TBILISI463', u'JOHN F. TEFFT', u''' 
+Classified By: AMBSSADOR JOHN F. TEFFT.  REASONS:  1.4 (B) AND (D). 
+ '''),
+    (u'09LUSAKA523', u'Donald E. Booth', u''' 
+Classified By: Classified By: Ambbassador Donald E. Booth for 
+Reasons 1.4 (b) and (d) 
+ 
+ '''),
+    (u'07BAKU486', u'Anne E. Derse', u''' 
+Classified By: Ambssador Anne E. Derse, Reasons 1.4 (b,d) 
+ '''),
 )
 
 

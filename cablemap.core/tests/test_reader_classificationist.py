@@ -705,7 +705,10 @@ b/b)
     (u'07ASHGABAT350', u'Richard Hoagland', u''' 
 Classified By: Classified by Acting Charge d\'Affaires, Ambassador Richa 
 rd Hoagland, for reasons 1.4(B) and (D). 
- ''')
+ '''),
+    (u'05NEWDELHI8162', u'Bob Blake', u''' 
+Classified By: Charge' Bob Blake for Reasons 1.4 (B, D) 
+ '''),
 )
 
 

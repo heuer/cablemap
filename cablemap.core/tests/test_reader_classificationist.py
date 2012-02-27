@@ -697,6 +697,14 @@ CENTRAL ASIA GEORGE KROL FOR REASONS 1.4 (B) AND (D)
     (u'08STATE82744', u'BRIAN HOOK', u''' 
 Classified By: CLASSIFIED BY IO A/S ACTING BRIAN HOOK 
 FOR REASONS 1.4(B) AND (D). 
+ '''),
+    (u'09SINGAPORE773', u'Daniel Shields', u''' 
+Classified By: Charge d'Affaires (CDA) Daniel Shields for Reasons 1.4 ( 
+b/b) 
+ '''),
+    (u'07ASHGABAT350', u'Richard Hoagland', u''' 
+Classified By: Classified by Acting Charge d\'Affaires, Ambassador Richa 
+rd Hoagland, for reasons 1.4(B) and (D). 
  ''')
 )
 

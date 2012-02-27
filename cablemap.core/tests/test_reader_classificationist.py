@@ -746,7 +746,14 @@ ction 1.5 b/d
 Classified By: CONSUL GENERAL SEAN MURPHY 
  
 1. In a December 19 m'''),
+    (u'04HELSINKI1420', u'Earle I. Mack', u''' 
+Classified By: Ambassador Earle I. Mack for reasons 1.5(B) and (D) 
+ 
+Summary 
+------- 
+ ''')
 )
+
 
 
 def test_parse_classificationist():

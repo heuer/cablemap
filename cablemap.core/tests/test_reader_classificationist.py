@@ -751,6 +751,24 @@ Classified By: Ambassador Earle I. Mack for reasons 1.5(B) and (D)
  
 Summary 
 ------- 
+ '''),
+    (u'08PORTAUPRINCE520', u'Janet A. Sanderson', u''' 
+Classified By: Ambassado Janet A. Sanderson for reasons 1.4 (b) and (d 
+) 
+ '''),
+    (u'97SOFIA3097', u'B0HLEN', u''' 
+1.(U)  CLASSIFIED BY AMBASSAD0R B0HLEN.  REAS0N: 
+1.5(B,D). 
+ '''),
+    (u'99TUNIS2120', u'R0BIN L. RAPHEL', u''' 
+(U)  CLASSIFIED BY AMBASSAD0R R0BIN L. RAPHEL BASED 0N 1.5 (B) 
+AND (D). 
+ '''),
+    (u'08TBILISI1121', u'John F. Tefft', u''' 
+Classified By: Ambassadot John F. Tefft for reason 1.4 (b) and (d). 
+ '''),
+    (u'07ANKARA2522', u'ROSS WILSON', u''' 
+Classified By: AMBASSADR ROSS WILSON FOR REASONS 1.4 (B) AND (D) 
  ''')
 )
 

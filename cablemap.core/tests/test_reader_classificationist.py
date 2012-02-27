@@ -709,6 +709,10 @@ rd Hoagland, for reasons 1.4(B) and (D).
     (u'05NEWDELHI8162', u'Bob Blake', u''' 
 Classified By: Charge' Bob Blake for Reasons 1.4 (B, D) 
  '''),
+    (u'07RIYADH1028', u'BOB SILVERMAN', u''' 
+Classified By: ECONOMIC COUNSELOR BOB SILVERMAN 
+ FOR 12958 1.4 B, D, AND E 
+ ''')
 )
 
 

@@ -712,7 +712,10 @@ Classified By: Charge' Bob Blake for Reasons 1.4 (B, D)
     (u'07RIYADH1028', u'BOB SILVERMAN', u''' 
 Classified By: ECONOMIC COUNSELOR BOB SILVERMAN 
  FOR 12958 1.4 B, D, AND E 
- ''')
+ '''),
+    (u'05ROME3781', u'ANNA BORG', u''' 
+Classified By: DCM ANNA BORG BASED ON E.O.12958 REASONS 1.4 (b) and (d) 
+ '''),
 )
 
 

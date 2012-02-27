@@ -769,7 +769,10 @@ Classified By: Ambassadot John F. Tefft for reason 1.4 (b) and (d).
  '''),
     (u'07ANKARA2522', u'ROSS WILSON', u''' 
 Classified By: AMBASSADR ROSS WILSON FOR REASONS 1.4 (B) AND (D) 
- ''')
+ '''),
+    (u'09UNVIEVIENNA531', u'Glyn T. Davies', u''' 
+Classified By: Ambassadro Glyn T. Davies, reasons 1.4 (b) and (d) 
+ '''),
 )
 
 

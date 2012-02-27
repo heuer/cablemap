@@ -742,6 +742,10 @@ Classified By: CDA Kelly A. Keiderling under 1.4 (b) and (d)
 Classified By: Classified by Charge d'Affaires Paul Weisenfeld under Se 
 ction 1.5 b/d 
  '''),
+    (u'05SANTIAGO2540', u'SEAN MURPHY', u''' 
+Classified By: CONSUL GENERAL SEAN MURPHY 
+ 
+1. In a December 19 m'''),
 )
 
 

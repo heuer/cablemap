@@ -735,6 +735,13 @@ Classified By: Pol/Econ Chief Glenn Warren under 1.4 b/d
     (u'09DHAKA775', u'James Moriarty', u''' 
 Classified By: Ambassador James Moriarty for for reasons 1.4 b and d. 
  '''),
+    (u'', u'Kelly A. Keiderling', u'''
+Classified By: CDA Kelly A. Keiderling under 1.4 (b) and (d)
+'''),
+    (u'04HARARE1722', u'Paul Weisenfeld', u''' 
+Classified By: Classified by Charge d'Affaires Paul Weisenfeld under Se 
+ction 1.5 b/d 
+ '''),
 )
 
 

@@ -732,6 +732,9 @@ Classified By: A/LEGATT GARY SCHAAF FOR RASONS 1.4 (B) AND (D).
     (u'07HARARE680', u'Glenn Warren', u''' 
 Classified By: Pol/Econ Chief Glenn Warren under 1.4 b/d 
  '''),
+    (u'09DHAKA775', u'James Moriarty', u''' 
+Classified By: Ambassador James Moriarty for for reasons 1.4 b and d. 
+ '''),
 )
 
 

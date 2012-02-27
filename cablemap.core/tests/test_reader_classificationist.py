@@ -720,6 +720,9 @@ Classified By: DCM ANNA BORG BASED ON E.O.12958 REASONS 1.4 (b) and (d)
 CLASSIFIED BY: ISN ? PATRICIA A. MCNERNEA, ACTING 
 ASSISTANT SECRETARY, REASON 1.4 (B) AND (D) 
  '''),
+    (u'03OTTAWA2182', u'Mary Witt', u''' 
+Classified By: A/ Pol Min Mary Witt for reasons 1.5(b) and (d) 
+ '''),
 )
 
 

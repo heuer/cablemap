@@ -893,6 +893,8 @@ _TEST_CABLES = (
     (u'08CARACAS420', u'Robert Richard Downes'),
     (u'08DHAKA812', u'Geeta Pasi'),
     (u'09ULAANBAATAR87', ()),
+    (u'96JEDDAH948', u'Douglas Neumann'),
+    (u'09KABUL3161', u'Hoyt Yee'),
 )
 
 

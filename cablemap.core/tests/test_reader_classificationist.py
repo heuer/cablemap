@@ -895,6 +895,7 @@ _TEST_CABLES = (
     (u'09ULAANBAATAR87', ()),
     (u'96JEDDAH948', u'Douglas Neumann'),
     (u'09KABUL3161', u'Hoyt Yee'),
+    (u'03OTTAWA202', u'Brian Flora')
 )
 
 

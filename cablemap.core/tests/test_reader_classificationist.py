@@ -792,6 +792,9 @@ Will Not Break Silence...
 ------------------------- 
  
 1. (C) I'''),
+    (u'03SANAA1319', u'ALAN MISENHEIMER', u''' 
+Classified By: CHARGE ALAN MISENHEIMER F0R REASONS 1.5 (B) AND (D) 
+ ''')
 )
 
 

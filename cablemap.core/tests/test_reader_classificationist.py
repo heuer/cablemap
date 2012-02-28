@@ -824,6 +824,9 @@ ANKARA 6772
  
 Classified by DCM Nancy McEldowney; reasons 1.4 b and d. 
  '''),
+    (u'04HARARE766', u'ROBERT E. WHITEHEAD', u''' 
+Classified By: DCM ROBERT E. WHITEHEAD DUE TO 1,4 (C) AND (D). 
+ ''')
 )
 
 

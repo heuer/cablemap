@@ -411,9 +411,9 @@ Classified By: Classified by Political Counselor Bruce Connuck for Reas
     (u'09DOHA404', u'Joseph LeBaron', u''' 
 Classified By: Ambassaor Joseph LeBaron for reasons 1.4 (b and d). 
  '''),
-#    (u'09DOHA404', u'Joseph LeBaron', u''' 
-#Classified By: Ambassaor Joseph LeBaron for reasons 1.4 (b and d). 
-# ''', True),
+    (u'09DOHA404', u'Joseph LeBaron', u''' 
+Classified By: Ambassaor Joseph LeBaron for reasons 1.4 (b and d). 
+ ''', True),
     (u'09RANGOON575', u'Thomas Vajda', u''' 
 Classified By: Charge d'Afairs (AI) Thomas Vajda for Reasons 1.4 (b) & 
  (d 
@@ -435,9 +435,9 @@ Classified By: USDEL Member Erin Y. Tariot, reasons 1.4 (b,d)
     (u'09ASTANA184', u'RICAHRD E. HOAGLAND', u''' 
 Classified By: AMBASSADOR RICAHRD E. HOAGLAND: 1.2 (B), (D) 
  '''),
-#    (u'09ASTANA184', u'Richard E. Hoagland', u''' 
-#Classified By: AMBASSADOR RICAHRD E. HOAGLAND: 1.2 (B), (D) 
-# ''', True),
+    (u'09ASTANA184', u'Richard E. Hoagland', u''' 
+Classified By: AMBASSADOR RICAHRD E. HOAGLAND: 1.2 (B), (D) 
+ ''', True),
     (u'09CANBERRA428', u'John W. Crowley', u''' 
 Classified By: Deputy Political Counselor: John W. Crowley, for reasons 
  1.4 (b) and (d) 
@@ -486,18 +486,14 @@ of conventional banks'''),
 Classified By: Acting DAS for ISN Eliot Kang. Reasons 1.4 (b) and (d) 
  
  '''),
-    (u'04ANKARA5764', u'Charles O. Blah a', u''' 
+    (u'04ANKARA5764', u'Charles O. Blaha', u''' 
 Classified By: Classified by Deputy Political Counselor Charles O. Blah 
 a, E.O. 12958, reasons 1.4 (b) and (d). 
  '''),
-#    (u'04ANKARA5764', u'Charles O. Blaha', u''' 
-#Classified By: Classified by Deputy Political Counselor Charles O. Blah 
-#a, E.O. 12958, reasons 1.4 (b) and (d). 
-# ''', True),
-    (u'04ANKARA5764', u'Charles O. Blah a', u''' 
+    (u'04ANKARA5764', u'Charles O. Blaha', u''' 
 Classified By: Classified by Deputy Political Counselor Charles O. Blah 
 a, E.O. 12958, reasons 1.4 (b) and (d). 
- '''),
+ ''', True),
     (u'10VIENNA195', u'J. Dean Yap', u''' 
 Classified by: DCM J. Dean Yap (acting) for reasons 1.4 (b) 
 and (d). 
@@ -869,7 +865,12 @@ _TEST_CABLES = (
     (u'10BAGHDAD488', u'John Underriner'),
     (u'08STATE2004', u'Gordon Gray'),
     (u'10BAGHDAD370', ()),
-    (u'09BEIJING951', u'Ben Moeling')
+    (u'09BEIJING951', u'Ben Moeling'),
+    (u'09TOKYO1878', u'Ray Hotz'),
+    (u'07OTTAWA100', u'Brian Mohler'),
+    (u'07BAMAKO1322', ()),
+    (u'09PRISTINA336', u'Michael J. Murphy'),
+    (u'09PRISTINA345', u'Michael J. Murphy'),
 )
 
 

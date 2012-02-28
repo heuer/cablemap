@@ -935,6 +935,7 @@ _TEST_CABLES = (
     (u'09STATE29700', u'Karen Stewart'),
     (u'07NAIROBI4569', u'Jeffrey M. Roberts'),
     (u'02HARARE2628', u'REWhitehead'),
+    (u'04HARARE766', u'Robert E. Whitehead'),
 )
 
 

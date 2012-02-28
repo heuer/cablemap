@@ -914,6 +914,9 @@ _TEST_CABLES = (
     (u'09STATE57323', u'James Townsend'),
     (u'09STATE59436', u'James Townsend'),
     (u'07TASHKENT2064', (u'Jeff Hartman', u'Steven Prohaska')),
+    (u'07DUSHANBE337', u'David Froman'),
+    (u'07DUSHANBE1589', u'David Froman'),
+    (u'08SANJOSE762', u'David E. Henifin'),
     
 )
 

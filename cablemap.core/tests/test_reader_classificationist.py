@@ -846,6 +846,9 @@ _TEST_CABLES = (
     (u'05AMMAN646', ()),
     (u'08BAGHDAD1451', u'Jess Baily'),
     (u'08BAGHDAD1650', u'Jess Baily'),
+    (u'98STATE145892', u'Jeff Millington'),
+    (u'07TOKYO1414', ()),
+    (u'06COPENHAGEN1020', u'Bill Mozdzierz'),
 )
 
 

@@ -911,6 +911,9 @@ _TEST_CABLES = (
     (u'07BAGHDAD1513', u'Daniel V. Speckhard'),
     (u'08TASHKENT1089', u'Jeff Hartman'),
     (u'07HELSINKI636', u'Joy Shasteen'),
+    (u'09STATE57323', u'James Townsend'),
+    (u'09STATE59436', u'James Townsend'),
+    (u'07TASHKENT2064', (u'Jeff Hartman', u'Steven Prohaska')),
     
 )
 

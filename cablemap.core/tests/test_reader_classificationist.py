@@ -867,6 +867,9 @@ _TEST_CABLES = (
     (u'05ANKARA581', u'John Kunstadter'),
     (u'08RANGOON951', u'Drake Weisert'),
     (u'10BAGHDAD488', u'John Underriner'),
+    (u'08STATE2004', u'Gordon Gray'),
+    (u'10BAGHDAD370', ()),
+    (u'09BEIJING951', u'Ben Moeling')
 )
 
 

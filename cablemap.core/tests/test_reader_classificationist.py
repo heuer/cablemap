@@ -803,6 +803,23 @@ Classified By: Acting Pol/Econ Chief Alan Eyre
 Classified By: Economical and Political Chief Ike Reed; 
 reasons 1.4 (b) and (d) 
  '''),
+    (u'07KHARTOUM832', u'Roberto Powers', r''' 
+Classified By: CDA Roberto Powers a.y., Sea3on: Sectaons 9.Q (b+`ald$hd 
+)Q 
+Q,----/-Qswmmfrq 
+=,=--=HQ(@(RBF!&}ioSQB3wktf0r,vu qDWTel$1` \ulQlQO~jcvq>&Mw~ifw(U= ;QGM?QQx7Ab8QQ@@)\Minawi suggested that 
+intelligence chief Salah Ghosh was the sole interlocutor with 
+the "statesmanship" and influence within the regime to defuse 
+tensions with the international community.  Embassy officials 
+told Minawi that the NCP would need to demonstrate its 
+genuine desire for better relations by agreeing to an 
+effective UN peace-keeping operation, which could then lay 
+the basis for future discussions.  Minawi also commented on 
+Chad's obstruction of the Darfur peace process and an 
+upcoming visit of Darfurian officials to Arab capitals.  End 
+summary. 
+ 
+-------------'''),
 )
 
 
@@ -827,6 +844,8 @@ _TEST_CABLES = (
     (u'09HONGKONG2249', ()),
     (u'07BELGRADE533', u'Ian Campbell'),
     (u'05AMMAN646', ()),
+    (u'08BAGHDAD1451', u'Jess Baily'),
+    (u'08BAGHDAD1650', u'Jess Baily'),
 )
 
 

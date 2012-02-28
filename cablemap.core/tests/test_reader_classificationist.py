@@ -927,6 +927,7 @@ _TEST_CABLES = (
     (u'06LAGOS12', u'Sam Gaye'),
     (u'07USNATO548', u'Clarence Juhl'),
     (u'07TOKYO436', u'Carol T. Reynolds'),
+    (u'08STATE116100', u'Theresa L. Rusch'),
 )
 
 

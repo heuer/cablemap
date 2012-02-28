@@ -812,6 +812,12 @@ _TEST_CABLES = (
     (u'03COLOMBO1348', u'Alex Moore'),
     (u'03COLOMBO1810', u'Alex Moore'),
     (u'66BUENOSAIRES2481', ()),
+    (u'05TAIPEI153', ()),
+    (u'09TELAVIV2643', ()),
+    (u'09BOGOTA2917',()),
+    (u'07TOKYO5202', ()),
+    (u'07USUNNEWYORK319', ()),
+    (u'07VIENNA1239', ()),
 )
 
 

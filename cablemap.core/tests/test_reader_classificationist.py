@@ -887,7 +887,7 @@ _TEST_CABLES = (
     (u'09MEXICO2339', u'Charles Barclay'),
     (u'05ATHENS1903', u'Charles Ries'),
     (u'02VATICAN25', u'Joseph Merante'),
-    (u'07ATHENS2029', u'Robin Omoter'),
+    (u'07ATHENS2029', u'Robin'),
     (u'09HONGKONG934', ()),
     (u'03KATHMANDU1044', u'Robert Boggs'),
     (u'08CARACAS420', u'Robert Richard Downes'),
@@ -895,7 +895,23 @@ _TEST_CABLES = (
     (u'09ULAANBAATAR87', ()),
     (u'96JEDDAH948', u'Douglas Neumann'),
     (u'09KABUL3161', u'Hoyt Yee'),
-    (u'03OTTAWA202', u'Brian Flora')
+    (u'03OTTAWA202', u'Brian Flora'),
+    (u'10GUATEMALA25', u'Drew G. Blakeney'),
+    (u'07CARACAS2254', u'Robert Downes'),
+    (u'09BUCHAREST115', u'Jeri Guthrie-Corn'),
+    (u'09BUCHAREST166', u'Jeri Guthrie-Corn'),
+    (u'06PANAMA2357', u'Luis Arreaga'),
+    (u'09JAKARTA1580', u'Ted Osius'),
+    (u'09JAKARTA1581', u'Ted Osius'),
+    (u'07ATHENS2219', u'Thomas Countryman'),
+    (u'09ANKARA1084', u"Daniel O'Grady"),
+    (u'10ANKARA173', u"Daniel O'Grady"),
+    (u'10ANKARA215', u"Daniel O'Grady"),
+    (u'10ANKARA224', u"Daniel O'Grady"),
+    (u'07BAGHDAD1513', u'Daniel V. Speckhard'),
+    (u'08TASHKENT1089', u'Jeff Hartman'),
+    (u'07HELSINKI636', u'Joy Shasteen'),
+    
 )
 
 

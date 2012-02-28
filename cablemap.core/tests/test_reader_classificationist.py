@@ -873,6 +873,13 @@ _TEST_CABLES = (
     (u'09PRISTINA345', u'Michael J. Murphy'),
     (u'06BAGHDAD4604', u'L. Hatton'),
     (u'05ROME178', (u'Castellano', u'Anna della Croce', u'Giovanni Brauzzi')),
+    (u'08USNATO348', u'W.S. Reid III'),
+    (u'09KHARTOUM107', u'Alberto M. Fernandez'),
+    (u'09ABUDHABI901', u'Douglas Greene'),
+    (u'03KUWAIT2352', u'Frank C. Urbancic'),
+    (u'09BUENOSAIRES849', u'Tom Kelly'),
+    (u'08BAGHDAD358', u'Todd Schwartz'),
+    (u'09BAGHDAD419', u'Michael Dodman'),
 )
 
 

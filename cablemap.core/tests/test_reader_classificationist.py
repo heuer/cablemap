@@ -785,12 +785,22 @@ Reasons 1.4 (b) and (d)
     (u'07BAKU486', u'Anne E. Derse', u''' 
 Classified By: Ambssador Anne E. Derse, Reasons 1.4 (b,d) 
  '''),
+    (u'09ANKARA63', u'A.F. Godfrey', u''' 
+Classified By: Pol-Mil Counselor A.F. Godfrey 
+ 
+Will Not Break Silence... 
+------------------------- 
+ 
+1. (C) I'''),
 )
 
 
 _TEST_CABLES = (
     (u'10BANGKOK468', ()),
     (u'08STATE110079', ()),
+    (u'05VILNIUS1093', u'Derrick Hogan'),
+    (u'08STATE20184', ()),
+    (u'08STATE20332', ()),
 )
 
 

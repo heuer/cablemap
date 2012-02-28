@@ -53,10 +53,10 @@ Classified By: Acting Deputy Chief of Mission Marc Wall for Reasons 1.4
 ¶1. (C) SUM'''),
     (u'10GENEVA249', u'Rose E. Gottemoeller', u'''REF: 10 GENEVA 231 (SFO-GVA-VIII-088) CLASSIFIED BY: Rose E. Gottemoeller, Assistant Secretary, Department of State, VCI; REASON: 1.4(B), (D) '''),
     (u'10GENEVA247', u'Rose E. Gottemoeller', u'''REF: 10 GENEVA 245 (SFO-GVA-VIII-086) CLASSIFIED BY: Rose E. Gottemoeller, Assistant Secretary, Department of State, VCI; REASON: 1.4(B), (D) ¶1. (U) This '''),
-    (u'10UNVIEVIENNA77', u'Glyn T. Davies', u'''Classified By: Ambassador Glyn T. Davies for reasons 1.4 b and d '''),
-    (u'10WARSAW117', u'F. Daniel Sainz', u'''Classified By: Political Counselor F. Daniel Sainz for Reasons 1.4 (b) and (d) '''),
-    (u'10STATE16019', u'Karin L. Look', u'''Classified By: Karin L. Look, Acting ASSISTANT SECRETARY, VCI. Reason: 1.4 (b) and (d).'''),
-    (u'10LILONGWE59', u'Bodde Peter', u'''CLASSIFIED BY: Bodde Peter, Ambassador; REASON: 1.4(B) '''),
+    (u'10UNVIEVIENNA77', u'Glyn T. Davies', u'''\nClassified By: Ambassador Glyn T. Davies for reasons 1.4 b and d '''),
+    (u'10WARSAW117', u'F. Daniel Sainz', u'''\nClassified By: Political Counselor F. Daniel Sainz for Reasons 1.4 (b) and (d) '''),
+    (u'10STATE16019', u'Karin L. Look', u'''\nClassified By: Karin L. Look, Acting ASSISTANT SECRETARY, VCI. Reason: 1.4 (b) and (d).'''),
+    (u'10LILONGWE59', u'Bodde Peter', u'''\nCLASSIFIED BY: Bodde Peter, Ambassador; REASON: 1.4(B) '''),
     (u'95ZAGREB4339', u'ROBERT P. FINN', u'''
 1.  (U)  CLASSIFIED BY ROBERT P. FINN, DEPUTY CHIEF OF
 MISSION.  REASON: 1.5 (D)
@@ -811,6 +811,7 @@ _TEST_CABLES = (
     (u'09ANKARA63', u'A.F. Godfrey'),
     (u'03COLOMBO1348', u'Alex Moore'),
     (u'03COLOMBO1810', u'Alex Moore'),
+    (u'66BUENOSAIRES2481', ()),
 )
 
 

@@ -820,6 +820,14 @@ upcoming visit of Darfurian officials to Arab capitals.  End
 summary. 
  
 -------------'''),
+    (u'05ANKARA7671', u'Nancy McEldowney', u''' 
+Classified By: ADANA 222 
+ADANA 216 
+ADANA 207 
+ANKARA 6772 
+ 
+Classified by DCM Nancy McEldowney; reasons 1.4 b and d. 
+ '''),
 )
 
 
@@ -849,6 +857,10 @@ _TEST_CABLES = (
     (u'98STATE145892', u'Jeff Millington'),
     (u'07TOKYO1414', ()),
     (u'06COPENHAGEN1020', u'Bill Mozdzierz'),
+    (u'07ANKARA1581', u'Eric Green'),
+    (u'08ANKARA266', u'Eric Green'),
+    (u'08CHISINAU933', u'Daria Fane'),
+    (u'10RIGA27', u'Brian Phipps'),
 )
 
 
@@ -871,7 +883,7 @@ def test_cable_classificationist():
         if not isinstance(expected, tuple):
             expected = (expected,)
         cable = cable_by_id(cable_id)
-        ok_(cable)
+        ok_(cable, 'Cable "%s" not found' % cable_id)
         eq_(expected, tuple(cable.classificationists))
     for testcase in _TEST_CABLES:
         if len(testcase) == 2:

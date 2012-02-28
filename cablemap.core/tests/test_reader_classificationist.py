@@ -886,6 +886,13 @@ _TEST_CABLES = (
     (u'09MEXICO2309', u'Charles Barclay'),
     (u'09MEXICO2339', u'Charles Barclay'),
     (u'05ATHENS1903', u'Charles Ries'),
+    (u'02VATICAN25', u'Joseph Merante'),
+    (u'07ATHENS2029', u'Robin Omoter'),
+    (u'09HONGKONG934', ()),
+    (u'03KATHMANDU1044', u'Robert Boggs'),
+    (u'08CARACAS420', u'Robert Richard Downes'),
+    (u'08DHAKA812', u'Geeta Pasi'),
+    (u'09ULAANBAATAR87', ()),
 )
 
 

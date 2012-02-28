@@ -822,6 +822,7 @@ _TEST_CABLES = (
     (u'07TOKYO3205', ()),
     (u'09HONGKONG2249', ()),
     (u'07BELGRADE533', u'Ian Campbell'),
+    (u'05AMMAN646', ()),
 )
 
 

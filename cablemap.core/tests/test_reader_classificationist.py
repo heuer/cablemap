@@ -799,6 +799,10 @@ Classified By: CHARGE ALAN MISENHEIMER F0R REASONS 1.5 (B) AND (D)
 Classified By: Acting Pol/Econ Chief Alan Eyre 
  
 (S) In '''),
+    (u'07SINGAPORE285', u'Ike Reed', u''' 
+Classified By: Economical and Political Chief Ike Reed; 
+reasons 1.4 (b) and (d) 
+ '''),
 )
 
 
@@ -854,6 +858,7 @@ def test_cable_classificationist():
         else:
             cable_id, expected, normalize = testcase
         yield check, cable_id, expected, normalize
+
 
 if __name__ == '__main__':
     import nose

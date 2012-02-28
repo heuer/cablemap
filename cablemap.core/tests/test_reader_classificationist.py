@@ -937,8 +937,11 @@ _TEST_CABLES = (
     (u'08STATE66299', u'David J. Kramer'),
     (u'09STATE29700', u'Karen Stewart'),
     (u'07NAIROBI4569', u'Jeffrey M. Roberts'),
-    (u'02HARARE2628', u'REWhitehead'),
+    (u'02HARARE2628', u'Rewhitehead'),
     (u'04HARARE766', u'Robert E. Whitehead'),
+    (u'04ANKARA7050', u'John Kunstadter'),
+    (u'04ANKARA6368', u'Charles O. Blaha'),
+    (u'09BAGHDAD280', ()),
 )
 
 

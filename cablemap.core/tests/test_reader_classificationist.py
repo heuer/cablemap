@@ -801,6 +801,7 @@ _TEST_CABLES = (
     (u'05VILNIUS1093', u'Derrick Hogan'),
     (u'08STATE20184', ()),
     (u'08STATE20332', ()),
+    (u'09ANKARA63', u'A.F. Godfrey'),
 )
 
 

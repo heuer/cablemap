@@ -38,7 +38,8 @@ Tests classificationist parsing.
 :organization: Semagia - <http://www.semagia.com/>
 :license:      BSD license
 """
-from nose.tools import eq_
+from nose.tools import eq_, ok_
+from cablemap.core import cable_by_id
 from cablemap.core.reader import parse_classificationists
 
 _TEST_DATA = (
@@ -787,6 +788,11 @@ Classified By: Ambssador Anne E. Derse, Reasons 1.4 (b,d)
 )
 
 
+_TEST_CABLES = (
+    (u'10BANGKOK468', ()),
+    (u'08STATE110079', ()),
+)
+
 
 def test_parse_classificationist():
     def check(cable_id, expected, content, normalize):
@@ -801,6 +807,21 @@ def test_parse_classificationist():
             cable_id, expected, content, normalize = testcase
         yield check, cable_id, expected, content, normalize
 
+
+def test_cable_classificationist():
+    def check(cable_id, expected, normalize):
+        if not isinstance(expected, tuple):
+            expected = (expected,)
+        cable = cable_by_id(cable_id)
+        ok_(cable)
+        eq_(expected, tuple(cable.classificationists))
+    for testcase in _TEST_CABLES:
+        if len(testcase) == 2:
+            cable_id, expected = testcase
+            normalize = False
+        else:
+            cable_id, expected, normalize = testcase
+        yield check, cable_id, expected, normalize
 
 if __name__ == '__main__':
     import nose

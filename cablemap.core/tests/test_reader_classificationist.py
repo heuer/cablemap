@@ -872,6 +872,7 @@ _TEST_CABLES = (
     (u'09PRISTINA336', u'Michael J. Murphy'),
     (u'09PRISTINA345', u'Michael J. Murphy'),
     (u'06BAGHDAD4604', u'L. Hatton'),
+    (u'05ROME178', (u'Castellano', u'Anna della Croce', u'Giovanni Brauzzi')),
 )
 
 

@@ -58,7 +58,7 @@ Changes
 * Cables which have a header but no content were interpreted wrong: The header
   was set to the ``models.Cable.content`` property and the ``models.Cable.header``
   property was an empty string. Fixed.
-* Added/updated test cases (now: 1.300+ test cases)
+* Added/updated test cases (now: 1.400+ test cases)
 * Removed deprecated functions/modules
 
 

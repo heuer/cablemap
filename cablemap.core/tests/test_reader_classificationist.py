@@ -880,6 +880,12 @@ _TEST_CABLES = (
     (u'09BUENOSAIRES849', u'Tom Kelly'),
     (u'08BAGHDAD358', u'Todd Schwartz'),
     (u'09BAGHDAD419', u'Michael Dodman'),
+    (u'10ADDISABABA186', ()),
+    (u'10ADDISABABA195', ()),
+    (u'10ASHGABAT178', u'Sylvia Reed Curran'),
+    (u'09MEXICO2309', u'Charles Barclay'),
+    (u'09MEXICO2339', u'Charles Barclay'),
+    (u'05ATHENS1903', u'Charles Ries'),
 )
 
 

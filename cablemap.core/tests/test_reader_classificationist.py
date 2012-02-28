@@ -931,6 +931,9 @@ _TEST_CABLES = (
     (u'07NEWDELHI5334', u'Ted Osius'),
     (u'06BAGHDAD4350', u'Zalmay Khalilzad'),
     (u'07STATE141771', u'Scott Marciel'),
+    (u'08STATE66299', u'David J. Kramer'),
+    (u'09STATE29700', u'Karen Stewart'),
+    (u'07NAIROBI4569', u'Jeffrey M. Roberts'),
 )
 
 

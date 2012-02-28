@@ -861,6 +861,8 @@ _TEST_CABLES = (
     (u'08ANKARA266', u'Eric Green'),
     (u'08CHISINAU933', u'Daria Fane'),
     (u'10RIGA27', u'Brian Phipps'),
+    (u'09WARSAW433', u'Jackson McDonald'),
+    (u'09BAGHDAD2784', u'Anbar'),
 )
 
 

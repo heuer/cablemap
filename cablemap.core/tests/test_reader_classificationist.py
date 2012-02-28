@@ -924,6 +924,7 @@ _TEST_CABLES = (
     (u'07BAKU1017', u'Donald Lu'),
     (u'07USNATO92', u'Clarence Juhl'),
     (u'09KAMPALA272', u'Dcronin'),
+    (u'06LAGOS12', u'Sam Gaye'),
 )
 
 

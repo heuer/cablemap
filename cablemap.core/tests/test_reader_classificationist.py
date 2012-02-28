@@ -928,6 +928,9 @@ _TEST_CABLES = (
     (u'07USNATO548', u'Clarence Juhl'),
     (u'07TOKYO436', u'Carol T. Reynolds'),
     (u'08STATE116100', u'Theresa L. Rusch'),
+    (u'07NEWDELHI5334', u'Ted Osius'),
+    (u'06BAGHDAD4350', u'Zalmay Khalilzad'),
+    (u'07STATE141771', u'Scott Marciel'),
 )
 
 

@@ -863,6 +863,10 @@ _TEST_CABLES = (
     (u'10RIGA27', u'Brian Phipps'),
     (u'09WARSAW433', u'Jackson McDonald'),
     (u'09BAGHDAD2784', u'Anbar'),
+    (u'05PARIS8353', u'Andrew, C. Koss'),
+    (u'05ANKARA581', u'John Kunstadter'),
+    (u'08RANGOON951', u'Drake Weisert'),
+    (u'10BAGHDAD488', u'John Underriner'),
 )
 
 

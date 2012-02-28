@@ -805,6 +805,8 @@ _TEST_CABLES = (
     (u'08STATE20184', ()),
     (u'08STATE20332', ()),
     (u'09ANKARA63', u'A.F. Godfrey'),
+    (u'03COLOMBO1348', u'Alex Moore'),
+    (u'03COLOMBO1810', u'Alex Moore'),
 )
 
 

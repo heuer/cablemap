@@ -871,6 +871,7 @@ _TEST_CABLES = (
     (u'07BAMAKO1322', ()),
     (u'09PRISTINA336', u'Michael J. Murphy'),
     (u'09PRISTINA345', u'Michael J. Murphy'),
+    (u'06BAGHDAD4604', u'L. Hatton'),
 )
 
 

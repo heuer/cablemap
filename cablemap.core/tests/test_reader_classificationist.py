@@ -917,7 +917,7 @@ _TEST_CABLES = (
     (u'07DUSHANBE337', u'David Froman'),
     (u'07DUSHANBE1589', u'David Froman'),
     (u'08SANJOSE762', u'David E. Henifin'),
-    
+    (u'05BAGHDAD3037', u'David M. Satterfield'),
 )
 
 

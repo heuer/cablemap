@@ -918,6 +918,12 @@ _TEST_CABLES = (
     (u'07DUSHANBE1589', u'David Froman'),
     (u'08SANJOSE762', u'David E. Henifin'),
     (u'05BAGHDAD3037', u'David M. Satterfield'),
+    (u'04AMMAN4133', u'D.Hale'),
+    (u'06YEREVAN237', u'A.F. Godfrey'),
+    (u'07DHAKA909', u'Dcmccullough'),
+    (u'07BAKU1017', u'Donald Lu'),
+    (u'07USNATO92', u'Clarence Juhl'),
+    (u'09KAMPALA272', u'Dcronin'),
 )
 
 

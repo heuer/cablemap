@@ -962,6 +962,8 @@ _TEST_CABLES = (
     (u'08AMMAN1821', ()),
     (u'09KABUL1290', u'Patricia A. McNerney'),
     (u'06JEDDAH765', u'Tatiana C. Gfoeller'),
+    (u'07BAGHDAD2045', u'Stephen Buckler'),
+    (u'07BAGHDAD2499', u'Steven Buckler'),
 )
 
 

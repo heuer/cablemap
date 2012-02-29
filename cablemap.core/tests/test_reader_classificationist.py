@@ -942,6 +942,7 @@ _TEST_CABLES = (
     (u'04ANKARA7050', u'John Kunstadter'),
     (u'04ANKARA6368', u'Charles O. Blaha'),
     (u'09BAGHDAD280', ()),
+    (u'05ABUJA1323', ()),
 )
 
 

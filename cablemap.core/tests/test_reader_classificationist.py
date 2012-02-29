@@ -958,6 +958,8 @@ _TEST_CABLES = (
     (u'04AMMAN9411', u'Christopher Henzel'),
     (u'06CAIRO4258', u'Catherine Hill-Herndon'),
     (u'08NAIROBI233', u'John M. Yates'),
+    (u'06MADRID2993', ()),
+    (u'08AMMAN1821', ()),
 )
 
 

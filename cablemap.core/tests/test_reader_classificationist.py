@@ -946,7 +946,10 @@ _TEST_CABLES = (
     (u'07MONROVIA1375', u'Donald E. Booth'),
     (u'03SANAA2434', u'Austin G. Gilreath'),
     (u'07BRUSSELS3482', u'Maria Metcalf'),
-    (u'02KATHMANDU1201', u'Pete Fowler')
+    (u'02KATHMANDU1201', u'Pete Fowler'),
+    (u'09STATE2522', u'Donald A. Camp'),
+    (u'09STATE100197', u'As Roblake'),
+    (u'08COLOMBO213', u'Robert O. Blake, Jr.')
 )
 
 

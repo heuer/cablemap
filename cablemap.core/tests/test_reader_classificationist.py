@@ -961,6 +961,7 @@ _TEST_CABLES = (
     (u'06MADRID2993', ()),
     (u'08AMMAN1821', ()),
     (u'09KABUL1290', u'Patricia A. McNerney'),
+    (u'06JEDDAH765', u'Tatiana C. Gfoeller'),
 )
 
 

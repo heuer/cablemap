@@ -951,6 +951,12 @@ _TEST_CABLES = (
     (u'09STATE100197', u'Roblake'),
     (u'08COLOMBO213', u'Robert O. Blake, Jr.'),
     (u'07MEXICO2653', u'Charles V. Barclay'),
+    (u'09SOFIA89', u'Mceldowney'),
+    (u'09ADDISABABA2168', u'Kirk McBride'),
+    (u'06MINSK338', u'George Krol'),
+    (u'10ADDISABABA195', u'Michael A. Battle'),
+    (u'04AMMAN9411', u'Christopher Henzel'),
+    (u'06CAIRO4258', u'Catherine Hill-Herndon'),
 )
 
 

@@ -960,6 +960,7 @@ _TEST_CABLES = (
     (u'08NAIROBI233', u'John M. Yates'),
     (u'06MADRID2993', ()),
     (u'08AMMAN1821', ()),
+    (u'09KABUL1290', u'Patricia A. McNerney'),
 )
 
 

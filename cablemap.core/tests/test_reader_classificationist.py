@@ -986,6 +986,9 @@ _TEST_CABLES = (
     (u'09ATHENS1515', u'Deborah McCarthy'),
     (u'09LONDON2347', u'Robin Quinville'),
     (u'08LONDON821', u'Richard Mills, Jr.'),
+    (u'06BUENOSAIRES497', u'Line Gutierrez'),
+    (u'06BUENOSAIRES596', u'Line Gutierrez'),
+    (u'06BUENOSAIRES1243', u'Line Gutierrez'),
     
 )
 

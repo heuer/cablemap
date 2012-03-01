@@ -1002,7 +1002,8 @@ _TEST_CABLES = (
     (u'06BUENOSAIRES1243', u'Line Gutierrez'),
     (u'05BAGHDAD3919', u'Robert Heine'),
     (u'06RIYADH8836', u'Mgfoeller'),
-    
+    (u'06BAGHDAD4422', u'Margaret Scobey'),
+    (u'08STATE129873', u'David Welch')
     
 )
 

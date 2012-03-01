@@ -1003,7 +1003,10 @@ _TEST_CABLES = (
     (u'05BAGHDAD3919', u'Robert Heine'),
     (u'06RIYADH8836', u'Mgfoeller'),
     (u'06BAGHDAD4422', u'Margaret Scobey'),
-    (u'08STATE129873', u'David Welch')
+    (u'08STATE129873', u'David Welch'),
+    (u'09BAGHDAD2299', u'Patricia Haslach'),
+    (u'09BAGHDAD2256', u'Phaslach'),
+    (u'09BAGHDAD2632', u'Phaslach'),
     
 )
 

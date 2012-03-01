@@ -1010,6 +1010,7 @@ _TEST_CABLES = (
     (u'04BAGHDAD697', u'Matthew Goshko'),
     (u'05CAIRO8812', u'John Desrocher'),
     (u'06HONGKONG4299', ()),
+    (u'06QUITO646', u'Vanessa Schulz'),
     
 )
 

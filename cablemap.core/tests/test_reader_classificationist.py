@@ -1007,6 +1007,9 @@ _TEST_CABLES = (
     (u'09BAGHDAD2299', u'Patricia Haslach'),
     (u'09BAGHDAD2256', u'Phaslach'),
     (u'09BAGHDAD2632', u'Phaslach'),
+    (u'04BAGHDAD697', u'Matthew Goshko'),
+    (u'05CAIRO8812', u'John Desrocher'),
+    (u'06HONGKONG4299', ()),
     
 )
 

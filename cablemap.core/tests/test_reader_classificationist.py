@@ -826,7 +826,19 @@ Classified by DCM Nancy McEldowney; reasons 1.4 b and d.
  '''),
     (u'04HARARE766', u'ROBERT E. WHITEHEAD', u''' 
 Classified By: DCM ROBERT E. WHITEHEAD DUE TO 1,4 (C) AND (D). 
- ''')
+ '''),
+    (u'00TELAVIV4462', u'PSIMONS', u'''C O N F I D E N T I A L TEL AVIV 004462 
+ 
+- - C O R R E C T E D  C O P Y - - CLASSIFIED BY LINE ADDED 
+ 
+E.O. 12958: DECL: 08/24/05 
+TAGS: KWBG, PTER, PGOV, PREL, IS 
+SUBJECT: BIN LADIN CONNECTION IN GAZA FOUND PUZZLING; 
+CONNECTION TO HAMAS QUESTIONED 
+ 
+CLASSIFIED BY DCM PSIMONS PER 1.5 (B) AND (D) 
+ 
+ '''),
 )
 
 
@@ -974,7 +986,6 @@ _TEST_CABLES = (
     (u'08BRUSSELS1245', u'Chris Davis'),
     (u'08BRUSSELS1458', u'Chris Davis'),
     (u'07ISLAMABAD2316', u'Peter Bodde'),
-    (u'00TELAVIV4462', u'Psimons'),
     (u'04MADRID764', u'Kathleen Fitzpatrick'),
     (u'06BELGRADE1092', u'Ian Campbell'),
     (u'07JERUSALEM1523', u'Jake Walles'),

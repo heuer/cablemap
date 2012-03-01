@@ -1000,6 +1000,9 @@ _TEST_CABLES = (
     (u'06BUENOSAIRES497', u'Line Gutierrez'),
     (u'06BUENOSAIRES596', u'Line Gutierrez'),
     (u'06BUENOSAIRES1243', u'Line Gutierrez'),
+    (u'05BAGHDAD3919', u'Robert Heine'),
+    (u'06RIYADH8836', u'Mgfoeller'),
+    
     
 )
 

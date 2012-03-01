@@ -973,6 +973,13 @@ _TEST_CABLES = (
     (u'04BRUSSELS862', u'Frank Kerber'),
     (u'08BRUSSELS1245', u'Chris Davis'),
     (u'08BRUSSELS1458', u'Chris Davis'),
+    (u'07ISLAMABAD2316', u'Peter Bodde'),
+    (u'00TELAVIV4462', u'Psimons'),
+    (u'04MADRID764', u'Kathleen Fitzpatrick'),
+    (u'06BELGRADE1092', u'Ian Campbell'),
+    (u'07JERUSALEM1523', u'Jake Walles'),
+    (u'09PANAMA518', u'Barbar J. Stephenson'),
+    (u'06ABUDHABI409', u'Michelle J Sison'),
     
 )
 

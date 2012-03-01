@@ -980,6 +980,12 @@ _TEST_CABLES = (
     (u'07JERUSALEM1523', u'Jake Walles'),
     (u'09PANAMA518', u'Barbar J. Stephenson'),
     (u'06ABUDHABI409', u'Michelle J Sison'),
+    (u'07DOHA594', ()),
+    (u'07LAPAZ3136', u'Mike Hammer'),
+    (u'08BOGOTA4462', u'John S. Creamer'),
+    (u'09ATHENS1515', u'Deborah McCarthy'),
+    (u'09LONDON2347', u'Robin Quinville'),
+    (u'08LONDON821', u'Richard Mills, Jr.'),
     
 )
 

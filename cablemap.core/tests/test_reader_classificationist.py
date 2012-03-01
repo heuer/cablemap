@@ -964,6 +964,16 @@ _TEST_CABLES = (
     (u'06JEDDAH765', u'Tatiana C. Gfoeller'),
     (u'07BAGHDAD2045', u'Stephen Buckler'),
     (u'07BAGHDAD2499', u'Steven Buckler'),
+    (u'04THEHAGUE1778', 'Liseli Mundie'),
+    (u'04THEHAGUE2020', u'John Hucke'),
+    (u'03HARARE1511', u'R.E. Whitehead'),
+    (u'03BRUSSELS4518', u'Van Reidhead'),
+    (u'02ROME4724', u'Douglas Feith'),
+    (u'08BRUSSELS1149', u'Chris Davis'),
+    (u'04BRUSSELS862', u'Frank Kerber'),
+    (u'08BRUSSELS1245', u'Chris Davis'),
+    (u'08BRUSSELS1458', u'Chris Davis'),
+    
 )
 
 

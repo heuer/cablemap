@@ -1025,6 +1025,13 @@ _TEST_CABLES = (
     (u'09BAKU80', u'Rob Garverick'),
     (u'06PHNOMPENH1757', u'Jennifer Spande'),
     (u'06QUITO1401', u'Ned Kelly'),
+    (u'05ZAGREB724', u'Justin Friedman'),
+    (u'05TOKYO1351', u'David B. Shear'),
+    (u'07KIGALI73', u'G Learned'),
+    (u'08ZAGREB554', u"Peter D'Amico"),
+    (u'07TASHKENT1950', (u'R. Fitzmaurice', u'T. Buckley')),
+    (u'07TASHKENT1679', (u'Richard Fitzmaurice', u'Steven Prohaska')),
+    (u'07TASHKENT1894', (u'Steven Prohaska', u'Richard Fitzmaurice')),
 )
 
 

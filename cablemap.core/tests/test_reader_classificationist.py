@@ -1040,6 +1040,8 @@ _TEST_CABLES = (
     (u'07ADDISABABA2523', u'Kent Healy'),
     (u'09USUNNEWYORK746', u'Bruce C. Rashkow'),
     (u'09STATE108370', u'Daniel Fried'),
+    (u'09BAGHDAD3120', u'Mark Storella'),
+    (u'09STATE64621', u'Richard C Holbrooke'),
 )
 
 

@@ -1032,6 +1032,10 @@ _TEST_CABLES = (
     (u'07TASHKENT1950', (u'R. Fitzmaurice', u'T. Buckley')),
     (u'07TASHKENT1679', (u'Richard Fitzmaurice', u'Steven Prohaska')),
     (u'07TASHKENT1894', (u'Steven Prohaska', u'Richard Fitzmaurice')),
+    (u'08STATE68478', u'Margaret McKelvey'),
+    (u'04BRUSSELS416', u'Marc J. Meznar'),
+    (u'07BAGHDAD777', u'Jim Soriano'),
+    
 )
 
 

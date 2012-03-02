@@ -1011,6 +1011,13 @@ _TEST_CABLES = (
     (u'05CAIRO8812', u'John Desrocher'),
     (u'06HONGKONG4299', ()),
     (u'06QUITO646', u'Vanessa Schulz'),
+    (u'08RIYADH1616', u'Scott McGehee'),
+    (u'08RIYADH1659', u'Scott McGehee'),
+    (u'10BAGHDAD481', u'W.S. Reid'),
+    (u'02KATHMANDU485', u'Pmahoney'),
+    (u'09BAGHDAD990', u'Robert Ford'),
+    (u'08BAGHDAD3023', u'Robert Ford'),
+    
     
 )
 

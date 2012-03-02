@@ -1035,7 +1035,10 @@ _TEST_CABLES = (
     (u'08STATE68478', u'Margaret McKelvey'),
     (u'04BRUSSELS416', u'Marc J. Meznar'),
     (u'07BAGHDAD777', u'Jim Soriano'),
-    (u'05ALMATY3450', u'John Ordway'),   
+    (u'05ALMATY3450', u'John Ordway'),
+    (u'05ACCRA2548', u'Nate Bluhm'),
+    (u'07ADDISABABA2523', u'Kent Healy'),
+    (u'09USUNNEWYORK746', u'Bruce C. Rashkow'),
 )
 
 

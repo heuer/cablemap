@@ -1024,6 +1024,7 @@ _TEST_CABLES = (
     (u'07TALLINN173', u'Jessica Adkins'),
     (u'09BAKU80', u'Rob Garverick'),
     (u'06PHNOMPENH1757', u'Jennifer Spande'),
+    (u'06QUITO1401', u'Ned Kelly'),
 )
 
 

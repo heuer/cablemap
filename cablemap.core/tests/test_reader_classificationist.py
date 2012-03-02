@@ -1017,8 +1017,7 @@ _TEST_CABLES = (
     (u'02KATHMANDU485', u'Pmahoney'),
     (u'09BAGHDAD990', u'Robert Ford'),
     (u'08BAGHDAD3023', u'Robert Ford'),
-    
-    
+    (u'09USNATO530', u'Kelly Degnan'),
 )
 
 

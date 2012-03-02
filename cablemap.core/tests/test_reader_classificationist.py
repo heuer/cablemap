@@ -1039,6 +1039,7 @@ _TEST_CABLES = (
     (u'05ACCRA2548', u'Nate Bluhm'),
     (u'07ADDISABABA2523', u'Kent Healy'),
     (u'09USUNNEWYORK746', u'Bruce C. Rashkow'),
+    (u'09STATE108370', u'Daniel Fried'),
 )
 
 

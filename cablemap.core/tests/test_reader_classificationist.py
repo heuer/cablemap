@@ -1018,6 +1018,12 @@ _TEST_CABLES = (
     (u'09BAGHDAD990', u'Robert Ford'),
     (u'08BAGHDAD3023', u'Robert Ford'),
     (u'09USNATO530', u'Kelly Degnan'),
+    (u'07LISBON2305', u'Lclifton'),
+    (u'08BAGHDAD4004', u'John Fox'),
+    (u'04THEHAGUE2346', u'A. Schofer'),
+    (u'07TALLINN173', u'Jessica Adkins'),
+    (u'09BAKU80', u'Rob Garverick'),
+    (u'06PHNOMPENH1757', u'Jennifer Spande'),
 )
 
 

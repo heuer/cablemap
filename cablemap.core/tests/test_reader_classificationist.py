@@ -1042,6 +1042,8 @@ _TEST_CABLES = (
     (u'09STATE108370', u'Daniel Fried'),
     (u'09BAGHDAD3120', u'Mark Storella'),
     (u'09STATE64621', u'Richard C Holbrooke'),
+    (u'05NAIROBI4757', u'Chris Padilla'),
+    (u'05CAIRO5945', u'Stuart E. Jones')
 )
 
 

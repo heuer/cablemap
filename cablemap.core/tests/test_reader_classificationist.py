@@ -1045,7 +1045,8 @@ _TEST_CABLES = (
     (u'05NAIROBI4757', u'Chris Padilla'),
     (u'05CAIRO5945', u'Stuart E. Jones'),
     (u'07BAGHDAD1544', u'Steven R. Buckler'),
-    (u'07BAGHDAD1632', u'Steven R. Buckler')
+    (u'07BAGHDAD1632', u'Steven R. Buckler'),
+    (u'02HARARE555', u'Aaron Tarver'),
 )
 
 

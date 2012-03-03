@@ -1043,7 +1043,9 @@ _TEST_CABLES = (
     (u'09BAGHDAD3120', u'Mark Storella'),
     (u'09STATE64621', u'Richard C Holbrooke'),
     (u'05NAIROBI4757', u'Chris Padilla'),
-    (u'05CAIRO5945', u'Stuart E. Jones')
+    (u'05CAIRO5945', u'Stuart E. Jones'),
+    (u'07BAGHDAD1544', u'Steven R. Buckler'),
+    (u'07BAGHDAD1632', u'Steven R. Buckler')
 )
 
 

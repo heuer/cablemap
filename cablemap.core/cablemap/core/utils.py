@@ -1,35 +1,9 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2011 - 2012 -- Lars Heuer <heuer[at]semagia.com>
+# Copyright (c) 2011 - 2015 -- Lars Heuer <heuer[at]semagia.com>
 # All rights reserved.
 #
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#
-#     * Neither the project name nor the names of the contributors may be 
-#       used to endorse or promote products derived from this software 
-#       without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# License: BSD, see LICENSE.txt for more details.
 #
 """\
 Utility functions for cables.
@@ -64,9 +38,13 @@ import sys
 csv.field_size_limit(sys.maxint)
 del sys
 
+
 class _Request(urllib2.Request):
     def __init__(self, url):
-        urllib2.Request.__init__(self, url, headers={'User-Agent': 'Cablemap/1.2', 'Accept-Encoding': 'gzip, identity'})
+        urllib2.Request.__init__(self, url,
+                                 headers={'User-Agent': 'Cablemap/1.2',
+                                          'Accept-Encoding': 'gzip, identity'})
+
 
 def _fetch_url(url):
     """\
@@ -84,7 +62,8 @@ def _fetch_url(url):
     return resp.read().decode('utf-8')
     
 
-_CGSN_BASE = u'http://www.cablegatesearch.net/cablegate-do.php?command=get_cable_wl_url_from_canonical_id&canonical_id='
+_CGSN_BASE = u'https://cablegatesearch.wikileaks.org/cable.php?id='
+_CGSN_WL_SOURCE_SEARCH = re.compile(ur'''<td.*?>Source.+?<a.*?href=["']([^"']+)''').search
 
 def cable_page_by_id(reference_id):
     """\
@@ -107,9 +86,10 @@ def cable_page_by_id(reference_id):
                 if v == reference_id:
                     return k
         return reference_id
-    res = json.loads(_fetch_url(_CGSN_BASE + wikileaks_id(reference_id)))
-    wl_url = res['wikileaks_url']
-    return _fetch_url(wl_url) if wl_url else None
+    html = _fetch_url(_CGSN_BASE + wikileaks_id(reference_id))
+    m = _CGSN_WL_SOURCE_SEARCH(html)
+    return _fetch_url(m.group(1)) if m else None
+
 
 def cable_by_id(reference_id):
     """\
@@ -122,6 +102,7 @@ def cable_by_id(reference_id):
     page = cable_page_by_id(reference_id)
     return cable_from_html(page) if page else None
 
+
 def cable_by_url(url):
     """\
     Returns a cable read from the provided IRI.
@@ -131,6 +112,7 @@ def cable_by_url(url):
     """
     page = _fetch_url(url)
     return cable_from_html(page) if page else None
+
 
 def cables_from_source(path, predicate=None):
     """\
@@ -146,6 +128,7 @@ def cables_from_source(path, predicate=None):
         would return cables where the reference identifier starts with ``09``.
     """
     return cables_from_directory(path, predicate) if os.path.isdir(path) else cables_from_csv(path, predicate)
+
 
 def cables_from_csv(filename, predicate=None, encoding='utf-8'):
     """\
@@ -172,6 +155,7 @@ def cables_from_csv(filename, predicate=None, encoding='utf-8'):
         for row in _UnicodeReader(f, encoding=encoding, delimiter=',', quotechar='"', escapechar='\\'):
             if row and pred(row[2]):
                 yield cable_from_row(row)
+
 
 class _UTF8Recoder:
     """\

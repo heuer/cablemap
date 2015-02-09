@@ -73,8 +73,6 @@ _CABLES_WITH_MALFORMED_SUMMARY = (
 
 _CABLE_ID_SUBJECT_PATTERN = re.compile('^([0-9]+[^:]+):\s(.+)$')
 
-_CABLE_SUBJECT_FIXES = dict([_CABLE_ID_SUBJECT_PATTERN.match(l).groups() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subjects.txt'), 'rb', 'utf-8') if l and not l.startswith(u'#')])
-
 _CABLE_FIXES = {
     '08MANAMA492': # (08ECTION01OF02MANAMA492)
         (r'TORUEHC/SECSTATE', u'TO RUEHC/SECSTATE'),
@@ -496,15 +494,58 @@ def parse_info_recipients(header, reference_id=None):
     to_header = m.group(1)
     return _route_recipient_from_header(to_header, reference_id)
 
+_CLIST_CONTENT_PATTERN = re.compile(r'''Classified\s+By:?\s*[0-9\.\s]*
+        (?:(?:\s*\([A-Z]\))?\s*Classified\s+by:?\s*)?
+        (?:\s*\([A-Z]\)\s*)?
+        (?:[A-Z]+/[A-Z]+(?:\s*\-\s*)?)?
+        (?:
+         [A-Z\-/\s\\'\.]+(?:,?\s*A\.?\s*I\.,?|Leader|AT\-LARGE|Pakistan|A/S|M[\-/]?C|\??Aff(?:ai|ia)re?\s*s|Charge?|Secretary(?:\s+of\s+State)?|Mission|General|Couns(?:ell?(?:o|0)u?r)?|Coordinator|Col(?:onel)?|Poloff|Amb\.?(?:assa?dor)?|Advisor|Dir(?:ector)?|Representative|Chief|Head|Consul|Section|Major|Pdas|Ltc|Adviser|Attache|Officer|Ipao|DCM|CDA|Das)\s+
+         |Econ(?:omic|couns)?
+         |POL(?:ITICAL|couns|OFF)?\s*(?:[/-](?:ECON|MIL))?\s*
+         |Section|Charge?|Cons(?:ul)?|Min(?:ister)?
+         |Amb\.?(?:assador)?(?:\s+to\s+[A-Z]+)?
+         |(?:A/?)?DCM|CDA|INR|ISN
+         )?
+         \.?\s*
+         (.+?)
+        (?=(?:F\s*O\s*R\s+|per\s+)?(?:R\s*E\s*A\s*S?\s*ON?|E\.O\.|1\.[45]|1\.\s*\(|CONFIDENTIAL|Summary))''',
+    re.IGNORECASE|re.UNICODE|re.DOTALL|re.VERBOSE)
+_CLSIST_PATTERN = re.compile(r"[\s\.,]*([A-Z][^,;]+(?:\s*,\s*(?:JR\.?|II+))?)\s*", re.IGNORECASE|re.UNICODE)
+
+def parse_classificationists(content, normalize=True):
+    """\
+    Returns the classificationist or ``None`` if the classificationist
+    cannot be extracted.
+
+    `content`
+        The cable's content.
+    """
+    m = _CLIST_CONTENT_PATTERN.search(content)
+    if not m:
+        return None
+    m = _CLSIST_PATTERN.search(m.group(1))
+    if not m:
+        return None
+    name = m.group(1).replace(u'\n', ' ')
+    name = re.sub('[ ]+', ' ', name).rstrip(' -:').strip().replace(u'Y ee', u'Yee')
+    if not name.upper().endswith(u'JR.'):
+        name = name.rstrip(u'.')
+    if normalize:
+        name = name.replace(u'0', u'O').title()
+        # Convert something like "Donald Duck, Iii" into "Donald Duck, III"
+        name = re.sub(r'(Ii+)', lambda m: m.group(1).upper(), name)
+    return [name]
+
 
 _SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\([^\)]+\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is a?n Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
 _SUBJECT_MAX_PATTERN = re.compile(r'1\.?[ ]*\([^\)]+\)')
-_NL_PATTERN = re.compile(ur'[\r\n]+', re.UNICODE|re.MULTILINE)
+_NL_PATTERN = re.compile(ur'[\r\n]+')
+_SLASH_ESCAPE_PATTERN = re.compile(ur'[\\]+')
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
 _BRACES_PATTERN = re.compile(r'^\([^\)]+\)[ ]+| \([A-Z]+\)$')
 _HTML_ENTITIES_PATTERN = re.compile(r'&#([0-9]+);')
 
-def parse_subject(content, reference_id=None, clean=True, fix_subject=True):
+def parse_subject(content, reference_id=None, clean=True):
     """\
     Parses and returns the subject of a cable. If the cable has no subject, an
     empty string is returned.
@@ -526,13 +567,6 @@ def parse_subject(content, reference_id=None, clean=True, fix_subject=True):
         U.S. Department of State Foreign Affairs Handbook Volume 5 Handbook 1 — Correspondence Handbook
         5 FAH-1 H-210 -- HOW TO USE TELEGRAMS; page 2
         <http://www.state.gov/documents/organization/89319.pdf>
-    `fix_subject`
-        If the subject cannot be found in the WikiLeaks cable source, the
-        subject can be set to another value if the reader has knowledge
-        about the subject from 3rd party cable releases like the Aftenposten
-        cable releases.
-        If `fix_subject` is set to ``True`` (default) the reader tries to
-        find set the subject, otherwise the subject will be an emtpy string.
     """
     def to_unicodechar(match):
         return unichr(int(match.group(1)))
@@ -540,20 +574,14 @@ def parse_subject(content, reference_id=None, clean=True, fix_subject=True):
     max_idx = m and m.start() or _MAX_HEADER_IDX
     m = _SUBJECT_PATTERN.search(content, 0, max_idx)
     if not m:
-        if not fix_subject:
-            return u''
-        # No subject found, try to find it in the fixed subjects dict, otherwise return u''
-        subject = _CABLE_SUBJECT_FIXES.get(reference_id, u'')
-        if subject and clean:
-            subject = _BRACES_PATTERN.sub(u'', subject)
-        return subject
+        return u''
     res = m.group(1).strip()
     res = _NL_PATTERN.sub(u' ', res)
     res = _WS_PATTERN.sub(u' ', res)
     res = res.replace(u'US- ', u'US-')
     res = _HTML_ENTITIES_PATTERN.sub(to_unicodechar, res)
     if clean:
-        res = _BRACES_PATTERN.sub(u'', res)
+        res = _WS_PATTERN.sub(u' ', _SLASH_ESCAPE_PATTERN.sub(u'', _BRACES_PATTERN.sub(u'', res))).strip()
     return res
 
 
@@ -817,7 +845,7 @@ _START_SUMMARY_PATTERN = re.compile(ur'(SUMMAR?Y( AND COMMENT)?( AND ACTION REQU
 # Some cables like 07BAGHDAD3895, 07TRIPOLI1066 contain "End Summary" but no "Summary:" start
 # Since End Summary occurs in the first paragraph, we interpret the first paragraph as summary
 _ALTERNATIVE_START_SUMMARY_PATTERN = re.compile(r'\n1\.[ ]*(\([^\)]+\))? ')
-_SUMMARY_PATTERN = re.compile(r'(?:SUMMARY[ \-\n]*)(?::|\.|\s)(.+?)(?=(\n[ ]*\n)|(END[ ]+SUMMARY)|(----+))', re.DOTALL|re.IGNORECASE|re.UNICODE)
+_PARSE_SUMMARY_PATTERN = re.compile(r'(?:SUMMARY[ \-\n]*)(?::|\.|\s)(.+?)(?=(\n[ ]*\n)|(END[ ]+SUMMARY)|(----+))', re.DOTALL|re.IGNORECASE|re.UNICODE)
 _CLEAN_SUMMARY_CLS_PATTERN = re.compile(r'^[ ]*\([SBU/NTSC]+\)[ ]*')
 _CLEAN_SUMMARY_WS_PATTERN = re.compile('[ \n]+')
 _CLEAN_SUMMARY_PATTERN = re.compile(r'(===+)|(---+)|(((^[1-9])|(\n[1-9]))\.[ ]+\([^\)]+\)[ ]+)|(^[1-2]. Summary:)|(^[1-2]\.[ ]+)|(^and action request. )|(^and comment. )|(2. (C) Summary, continued:)', re.UNICODE|re.IGNORECASE)
@@ -843,7 +871,7 @@ def parse_summary(content, reference_id=None):
         elif reference_id not in _CABLES_WITH_MALFORMED_SUMMARY:
             logger.debug('Found "end of summary" but no start in "%s", content: "%s"' % (reference_id, content[:end_of_summary]))
     else:
-        m = _SUMMARY_PATTERN.search(content)
+        m = _PARSE_SUMMARY_PATTERN.search(content)
         if m:
             summary = content[m.start(1):m.end(1)]
     if summary:

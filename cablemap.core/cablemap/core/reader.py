@@ -419,7 +419,7 @@ def parse_meta(file_content, cable):
 
 _TID_PATTERN = re.compile(r'(VZCZ[A-Z]+[0-9]+)', re.UNICODE)
 
-def parse_transmission_id(header, reference_id):
+def parse_transmission_id(header, reference_id=None):
     """\
     Returns the transmission ID of the cable. If no transmission identifier was
     found, ``None`` is returned.

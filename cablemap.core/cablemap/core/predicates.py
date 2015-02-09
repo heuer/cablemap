@@ -133,8 +133,8 @@ def origin_europe(origin):
     return origin_albania(origin) or origin_armenia(origin) \
            or origin_austria(origin) or origin_azerbaijan(origin) \
            or origin_belarus(origin) or origin_belgium(origin) \
-           or origin_bulgaria(origin) or \
-           origin_bosnia_and_herzegovina(origin) or origin_bulgaria(origin) \
+           or origin_bulgaria(origin) or origin_bosnia_and_herzegovina(origin) \
+           or origin_bulgaria(origin) \
            or origin_croatia(origin) or origin_cyprus(origin) \
            or origin_czech(origin) or origin_denmark(origin) \
            or origin_estonia(origin) or origin_finland(origin) \

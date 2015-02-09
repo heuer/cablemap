@@ -382,25 +382,24 @@ def header_body_from_content(content):
     return None, None
 
 
-_META_PATTERN = re.compile(r'''<table\s+class\s*=\s*(?:"|')cable(?:"|')\s*>.+?<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>''', re.MULTILINE|re.DOTALL)
+_META_PATTERN = re.compile(r'''<table.*?class.+?["']cable["']\s*>.+?<a[^>]+>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>.+<td>\s*<a.+?>(.+?)</a>''', re.MULTILINE|re.DOTALL)
 _MEDIA_URLS_PATTERN = re.compile(r'''<a href=(?:"|')(https?://[^\.]+\.[^"']+)''')
 
 def parse_meta(file_content, cable):
     """\
-    Extracts the reference id, date/time of creation, date/time of release,
-    the classification, and the origin of the cable and assigns the values
-    to the provided `cable`.
+    Extracts the reference id, date/time of creation, the classification,
+    and the origin of the cable and assigns the value to the provided `cable`.
     """
     end_idx = file_content.rindex("</table>")
     start_idx = file_content.rindex("<table class='cable'>", 0, end_idx)
     m = _META_PATTERN.search(file_content, start_idx, end_idx)
     if not m:
         raise ValueError('Cable table not found')
-    if len(m.groups()) != 5:
+    if len(m.groups()) != 4:
         raise ValueError('Unexpected metadata result: "%r"' % m.groups())
     # Table content: 
-    # Reference ID | Created | Released | Classification | Origin
-    ref, created, released, classification, origin = m.groups()
+    # Reference ID | Created | Classification | Origin
+    ref, created, classification, origin = m.groups()
     if cable.reference_id != ref:
         reference_id = MALFORMED_CABLE_IDS.get(ref)
         if reference_id != cable.reference_id:
@@ -408,7 +407,6 @@ def parse_meta(file_content, cable):
             if reference_id != cable.reference_id:
                 raise ValueError('cable.reference_id != ref. reference_id="%s", ref="%s"' % (cable.reference_id, ref))
     cable.created = created
-    cable.released = released
     cable.origin = origin
     # classifications are usually written in upper case, but you never know.. 
     cable.classification = classification.upper()

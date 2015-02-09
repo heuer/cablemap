@@ -93,7 +93,7 @@
     "DARESSALAAM": "Larry Andre"
   }, 
   "ANDRESEN": {
-    "KADUNA": ""
+    "KADUNA": "David Andresen"
   }, 
   "ANDREW": {
     "SANJOSE": "Anne S. Andrew"
@@ -118,7 +118,7 @@
     "NAIROBI": "Richard Appleton"
   }, 
   "ARCHARD": {
-    "KARACHI": ""
+    "KARACHI": "Douglas B. Archard"
   }, 
   "ARCHIBALD": {
     "ISLAMABAD": "Frank Archibald"
@@ -130,7 +130,7 @@
     "MADRID": "George Leon Argyros"
   }, 
   "ARIAS": {
-    "CARACAS": ""
+    "CARACAS": "Abelardo A. Arias"
   }, 
   "ARIETTI": {
     "KIGALI": "Michael R. Arietti"
@@ -233,7 +233,7 @@
     "JOHANNESBURG": "Doron Bard"
   }, 
   "BARKELL": {
-    "KOROR": ""
+    "KOROR": "William H. Barkell"
   }, 
   "BARKIN": {
     "MATAMOROS": "Michael Barkin"
@@ -246,8 +246,8 @@
   }, 
   "BARNES": {
     "PARAMARIBO": "Marsha E. Barnes", 
-    "PODGORICA": "", 
-    "SANJOSE": ""
+    "PODGORICA": "Marsha E. Barnes",
+    "SANJOSE": "Douglas Barnes"
   }, 
   "BARR": {
     "WINDHOEK": "Joyce Anne Barr"
@@ -267,13 +267,13 @@
     "ROME": "Reginald Bartholomew"
   }, 
   "BARTOLETTI": {
-    "VALLETTA": ""
+    "VALLETTA": "Marsha E. Barnes"
   }, 
   "BARZUN": {
     "STOCKHOLM": "Matthew Winthrop Barzun"
   }, 
   "BASHOR": {
-    "PORTLOUIS": ""
+    "PORTLOUIS": "Timothy Bashor"
   }, 
   "BASORA": {
     "PRAGUE": "Adrian A. Basora"
@@ -653,7 +653,7 @@
     "JEDDAH": ""
   }, 
   "BUELOW": {
-    "BUJUMBURA": ""
+    "BUJUMBURA": "Judy Buelow"
   }, 
   "BULLEN": {
     "GEORGETOWN": "Roland W. Bullen", 
@@ -1570,14 +1570,14 @@
     "ALEXANDRIA": ""
   }, 
   "FISHER": {
-    "BRIDGETOWN": ""
+    "BRIDGETOWN": "Anthony Fisher"
   }, 
   "FITTS": {
     "MANILA": "", 
     "PORTMORESBY": "Robert W. Fitts"
   }, 
   "FITZGIBBON": {
-    "LIBREVILLE": ""
+    "LIBREVILLE": "Kathleen FitzGibbon"
   }, 
   "FITZPATRICK": {
     "ASUNCION": "Michael J. Fitzpatrick", 
@@ -1831,7 +1831,7 @@
     "TUNIS": "Robert F. Godec"
   }, 
   "GODFREY": {
-    "TRIPOLI": "", 
+    "TRIPOLI": "John T. Godfrey",
     "YEREVAN": ""
   }, 
   "GOGGIN": {
@@ -2207,7 +2207,7 @@
     "CHENGDU": "", 
     "HALIFAX": "", 
     "ULAANBAATAR": "", 
-    "VANCOUVER": ""
+    "VANCOUVER": "G. Kathleen Hill"
   }, 
   "HILLAS": {
     "HILLAH": "", 
@@ -2268,17 +2268,17 @@
   }, 
   "HOLT": {
     "CAPETOWN": "", 
-    "LIBREVILLE": ""
+    "LIBREVILLE": "Nathan Holt"
   }, 
   "HOLTZ": {
-    "ADANA": "", 
+    "ADANA": "Greta C. Holtz",
     "ANKARA": ""
   }, 
   "HOLTZAPPLE": {
     "COTONOU": "Richard Holtzapple"
   }, 
   "HOLZER": {
-    "ASMARA": ""
+    "ASMARA": "Holly Holzer"
   }, 
   "HOLZMAN": {
     "DHAKA": "John C. Holzman", 
@@ -2290,8 +2290,8 @@
     "KINSHASA": "Aubrey Hooks"
   }, 
   "HOOVER": {
-    "KAMPALA": "", 
-    "NAIROBI": ""
+    "KAMPALA": "John F. Hoover",
+    "NAIROBI": "John F. Hoover"
   }, 
   "HOPPER": {
     "CHENNAI": "", 
@@ -3081,7 +3081,7 @@
     "VANCOUVER": ""
   }, 
   "LUNSTEAD": {
-    "COLOMBO": "Jeffrey Lunstead"
+    "COLOMBO": "Jeffrey J. Lunstead"
   }, 
   "LUOMA-OVERSTREET": {
     "JOHANNESBURG": "Charles Luoma-Overstreet"
@@ -3821,7 +3821,7 @@
     "JAKARTA": "Ted Osius"
   }, 
   "OTTO": {
-    "BERN": ""
+    "BERN": "Stanley A. Otto"
   }, 
   "OUDKIRK": {
     "ISTANBUL": "Sandra Oudkirk"
@@ -3845,7 +3845,7 @@
   }, 
   "PAIGE": {
     "DHAKA": "", 
-    "RIYADH": ""
+    "RIYADH": "Jim Paige"
   }, 
   "PALMER": {
     "HANOI": "Virginia E. Palmer", 
@@ -3900,9 +3900,6 @@
   "PAZDRAL": {
     "WELLINGTON": "Ronna S. Pazdral"
   }, 
-  "PCCUTA": {
-    "BEIJING": ""
-  }, 
   "PEARCE": {
     "ALGIERS": "David D. Pearce", 
     "DAMASCUS": "", 
@@ -3913,7 +3910,7 @@
     "ANKARA": "W. Robert Pearson"
   }, 
   "PEAY": {
-    "PARIS": ""
+    "PARIS": "T. Michael Peay"
   }, 
   "PEDERSON": {
     "BELGRADE": "Troy Pederson"
@@ -3922,7 +3919,7 @@
     "PARIS": ""
   }, 
   "PEKELA": {
-    "PARIS": ""
+    "PARIS": "Mark Pekala"
   }, 
   "PELLETREAU": {
     "TUNIS": "Robert Halsey Pelletreau"
@@ -3942,9 +3939,6 @@
   "PERINA": {
     "CHISINAU": "Rudolf V. Perina", 
     "YEREVAN": "Rudolf V. Perina"
-  }, 
-  "PERKALA": {
-    "PARIS": ""
   }, 
   "PERKINS": {
     "PRETORIA": "Edward Joseph Perkins", 
@@ -4346,7 +4340,7 @@
     "ANKARA": ""
   }, 
   "RORVIG": {
-    "BERN": ""
+    "BERN": "Richard Rorvig"
   }, 
   "ROSE": {
     "ZAGREB": ""
@@ -4845,11 +4839,11 @@
     "PANAMA": "Barbara J. Stephenson"
   }, 
   "STETTENBAUER": {
-    "CANBERRA": ""
+    "CANBERRA": "Grace C. Stettenbauer"
   }, 
   "STEVENS": {
-    "JERUSALEM": "", 
-    "TRIPOLI": ""
+    "JERUSALEM": "J. Christopher Stevens",
+    "TRIPOLI": "J. Christopher Stevens"
   }, 
   "STEWART": {
     "FREETOWN": "", 
@@ -4858,7 +4852,7 @@
     "PRAIA": ""
   }, 
   "STILLMAN": {
-    "DARESSALAAM": ""
+    "DARESSALAAM": "C. Stillman"
   }, 
   "STINEHART": {
     "DHAHRAN": ""
@@ -5510,7 +5504,7 @@
     "BANDARSERIBEGAWAN": ""
   }, 
   "WROBLEWSKI": {
-    "ASMARA": ""
+    "ASMARA": "K. Andrew Wroblewski"
   }, 
   "WUNDER": {
     "LIMA": ""

@@ -71,22 +71,22 @@
     "BANJUL": "C. Patricia Alsup"
   }, 
   "AMANI": {
-    "MAPUTO": ""
+    "MAPUTO": "Todd Amani"
   }, 
   "AMES": {
-    "AMSTERDAM": ""
+    "AMSTERDAM": "Marjorie A. Ames"
   }, 
   "AMSELEM": {
-    "COLOMBO": "Lewis Amselem", 
-    "JAKARTA": ""
+    "COLOMBO": "W. Lewis Amselem",
+    "JAKARTA": "W. Lewis Amselem"
   }, 
   "ANANIA": {
     "BERLIN": "Jay Anania"
   }, 
   "ANDERSON": {
-    "CHIANGMAI": "", 
+    "CHIANGMAI": "Damon Anderson",
     "HILLAH": "", 
-    "JAKARTA": "", 
+    "JAKARTA": "Damon Anderson",
     "MASERU": ""
   }, 
   "ANDRE": {
@@ -226,7 +226,7 @@
     "CAPETOWN": ""
   }, 
   "BARCLAY": {
-    "HAVANA": "", 
+    "HAVANA": "Charles Barclay",
     "SANSALVADOR": "Hugh Douglas Barclay"
   }, 
   "BARD": {
@@ -236,7 +236,7 @@
     "KOROR": ""
   }, 
   "BARKIN": {
-    "MATAMOROS": ""
+    "MATAMOROS": "Michael Barkin"
   }, 
   "BARKLEY": {
     "ANKARA": "Richard Clark Barkley"
@@ -416,8 +416,8 @@
     "PORTLOUIS": "Virginia Blaser"
   }, 
   "BLAU": {
-    "HAVANA": "", 
-    "SANSALVADOR": "Robert I. Blau"
+    "HAVANA": "Robert Blau",
+    "SANSALVADOR": "Robert Blau"
   }, 
   "BLEICH": {
     "CANBERRA": ""
@@ -429,8 +429,8 @@
     "HAMBURG": ""
   }, 
   "BOARDMAN": {
-    "COLOMBO": "", 
-    "HANOI": ""
+    "COLOMBO": "John S. Boardman",
+    "HANOI": "John S. Boardman"
   }, 
   "BOCCHETTI": {
     "BASRAH": ""
@@ -585,7 +585,7 @@
     "SANTODOMINGO": ""
   }, 
   "BRIZZEE": {
-    "SHENYANG": ""
+    "SHENYANG": "David N. Brizzee"
   }, 
   "BROCK": {
     "KINSHASA": "Samuel Brock"
@@ -2064,7 +2064,7 @@
     "MALABO": ""
   }, 
   "HARRINGTON": {
-    "WINDHOEK": "Matt Harrington"
+    "WINDHOEK": "Matthew Tracy Harrington"
   }, 
   "HARRIS": {
     "SHENYANG": ""
@@ -2376,7 +2376,7 @@
     "DUSSELDORF": ""
   }, 
   "HUNT": {
-    "LAHORE": ""
+    "LAHORE": "Bryan D. Hunt"
   }, 
   "HUNTER": {
     "DAMASCUS": "", 
@@ -2461,7 +2461,7 @@
     "RANGOON": ""
   }, 
   "JAO": {
-    "LAHORE": ""
+    "LAHORE": "Richard Jao"
   }, 
   "JARDINE": {
     "CALCUTTA": "", 
@@ -2535,7 +2535,7 @@
   }, 
   "JORDAN": {
     "ALGIERS": "W. William Jordan", 
-    "LAHORE": "", 
+    "LAHORE": "Michael T. Jordan",
     "LIMA": "David C. Jordan", 
     "RIYADH": "Robert W. Jordan"
   }, 
@@ -2543,13 +2543,13 @@
     "PRETORIA": "James A. Joseph"
   }, 
   "JOYCE": {
-    "HAVANA": ""
+    "HAVANA": "Michael Joyce"
   }, 
   "JUNGE": {
     "KOLKATA": ""
   }, 
   "JURICIC": {
-    "CHENGDU": ""
+    "CHENGDU": "Jeannette M. Juricic"
   }, 
   "KAESTNER": {
     "NEWDELHI": "Peter G. Kaestner"
@@ -2566,7 +2566,7 @@
     "COPENHAGEN": "Sandra Kaiser"
   }, 
   "KALIN": {
-    "JEDDAH": ""
+    "JEDDAH": "Carol Kalin"
   }, 
   "KAMMAN": {
     "BOGOTA": "Curtis Warren Kamman"
@@ -5255,7 +5255,7 @@
     "LAGOS": "", 
     "NOUAKCHOTT": "Cornelius Walsh", 
     "PARAMARIBO": "", 
-    "WELLINGTON": ""
+    "WELLINGTON": "Thomas Walsh"
   }, 
   "WANG": {
     "AITTAIPEI": "Robert S. Wang"

@@ -30,11 +30,7 @@ Changes
 * Improved summary extraction
 * Cable references like "09 FOO 12 AND 13" are detected correctly. 
   "09 FOO 12 AND 13" becomes: ['09FOO12', '09FOO13']
-* Reimplemented cable_by_id and cable_page_by_id using an API provided by 
-  <http://www.cablegatesearch.net/>.
-  The new implementations are *much* faster than the old functions.
-  Thanks to Raymond Hill for providing the web service.
-* Cable reference SECDEF, SECSTATE, and STATE were interpreted as 
+* Cable reference SECDEF, SECSTATE, and STATE were interpreted as
   STATE. SECDEF shouldn't be treated as reference to SECSTATE. Fixed.
 * Improved parsing of (malformed) TAGs
 * Improved detection of composite TAGs like "HUMAN RIGHTS", "BUSH GEORGE"

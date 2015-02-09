@@ -15,7 +15,7 @@ Predicates to filter cables.
 from __future__ import absolute_import
 import re
 from functools import partial
-from .c14n import canonicalize_id
+from cablemap.core.c14n import canonicalize_id
 
 _YEAR_ORIGIN_PATTERN = re.compile(r'([0-9]{2})([A-Z\-]+)[0-9]+')
 
@@ -43,8 +43,8 @@ def year_origin_filter(year_predicate=None, origin_predicate=None):
         return predicate(year, origin)
 
     if year_predicate and origin_predicate:
-        return partial(accept, predicate=lambda y, o: year_predicate(
-            y) and origin_predicate(o))
+        return partial(accept, predicate=lambda y, o: year_predicate(y) \
+                                                      and origin_predicate(o))
     elif year_predicate:
         return partial(accept, predicate=lambda y, o: year_predicate(y))
     elif origin_predicate:
@@ -920,9 +920,8 @@ def origin_germany(origin):
     `origin`
         The origin to check.
     """
-    return origin in (
-    u'BONN', u'BERLIN', u'DUSSELDORF', u'FRANKFURT', u'HAMBURG', u'LEIPZIG',
-    u'MUNICH')
+    return origin in (u'BONN', u'BERLIN', u'DUSSELDORF', u'FRANKFURT',
+                      u'HAMBURG', u'LEIPZIG', u'MUNICH')
 
 
 def origin_ghana(origin):
@@ -1116,8 +1115,8 @@ def origin_japan(origin):
     `origin`
         The origin to check.
     """
-    return origin in (
-    u'FUKUOKA', u'NAGOYA', u'NAHA', u'OSAKAKOBE', u'SAPPORO', u'TOKYO')
+    return origin in (u'FUKUOKA', u'NAGOYA', u'NAHA', u'OSAKAKOBE',
+                      u'SAPPORO', u'TOKYO')
 
 
 def origin_jordan(origin):

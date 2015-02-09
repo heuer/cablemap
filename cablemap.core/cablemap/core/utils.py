@@ -22,7 +22,7 @@ from itertools import imap
 from StringIO import StringIO
 import gzip
 import urllib2
-from . import cable_from_file, cable_from_html, cable_from_row, constants as consts
+from cablemap.core import cable_from_file, cable_from_html, cable_from_row, constants as consts
 try:
     import simplejson as json
 except ImportError:

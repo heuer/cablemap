@@ -55,6 +55,7 @@ def cable_from_html(html, reference_id=None):
     cable.content = reader.get_content_as_text(html, reference_id)
     return cable
 
+
 def cable_from_row(row):
     """\
     Returns a cable from the provided row (a tuple/list).
@@ -88,6 +89,7 @@ def cable_from_row(row):
 # * BASE/<year>/<month>/<reference-id>
 # * BASE/<year>/<month>/<reference-id>.html
 _WL_CABLE_BASE_URIS = (
+                u'https://wikileaks.org/cable/',
                 u'http://wikileaks.org/cable/',
                 u'http://wikileaks.ch/cable/',
                 u'http://cablegate.wikileaks.org/cable/', # Does not work anymore

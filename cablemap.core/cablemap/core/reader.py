@@ -16,8 +16,8 @@ from __future__ import absolute_import
 import os
 import re
 import logging
-from cablemap.core import constants as consts, c14n
-from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
+from cablemap.core import consts as consts, c14n
+from cablemap.core.consts import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 logger = logging.getLogger('cablemap.core.reader')
 
@@ -276,6 +276,7 @@ def get_content_as_text(file_content, reference_id):
         The reference identifier of the cable.
     """
     return fix_content(_clean_html(_CONTENT_PATTERN.findall(file_content)[-1]), reference_id)
+
 
 def get_header_as_text(file_content, reference_id):
     """\

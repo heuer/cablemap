@@ -14,7 +14,7 @@ Canonicalization utility functions.
 """
 from __future__ import absolute_import
 import re
-from . constants import MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
+from cablemap.core.consts import MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 _STATION_C14N = {
     u'AUBJA': u'ABUJA',

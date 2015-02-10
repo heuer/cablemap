@@ -16,8 +16,8 @@ from __future__ import absolute_import
 import codecs
 from itertools import chain
 from operator import itemgetter
-from . import reader, c14n, constants as consts
-from . interfaces import ICable, IReference, IRecipient, implements
+from cablemap.core import reader, c14n, consts
+from cablemap.core.interfaces import ICable, IReference, IRecipient, implements
 
 __all__ = ['cable_from_file', 'cable_from_html', 'cable_from_row']
 

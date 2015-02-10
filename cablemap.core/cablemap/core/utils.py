@@ -16,24 +16,14 @@ from __future__ import absolute_import, with_statement
 import os
 import re
 import csv
+import json
 import codecs
 import string
 from itertools import imap
 from StringIO import StringIO
 import gzip
 import urllib2
-from cablemap.core import cable_from_file, cable_from_html, cable_from_row, constants as consts
-try:
-    import simplejson as json
-except ImportError:
-    try:
-        import json
-    except ImportError:
-        try:
-            # Google Appengine offers simplejson via django
-            from django.utils import simplejson as json
-        except ImportError:
-            raise ImportError('Cannot detect a JSON decoder')
+from cablemap.core import cable_from_file, cable_from_html, cable_from_row, consts
 import sys
 csv.field_size_limit(sys.maxint)
 del sys

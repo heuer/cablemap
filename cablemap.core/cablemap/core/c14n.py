@@ -389,6 +389,7 @@ _SURNAME_C14N = {
     u'SPECKHARDBT': u'SPECKHARD',
 }
 
+
 def canonicalize_surname(surname):
     """\
     Returns the canonicalized form of the provided surname.

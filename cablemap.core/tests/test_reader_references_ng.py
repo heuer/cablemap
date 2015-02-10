@@ -15,22 +15,22 @@ Tests references parsing.
 from nose.tools import eq_
 from cablemap.core.reader import parse_references
 from cablemap.core.models import Reference
-from cablemap.core import constants
+from cablemap.core import consts
 
 def cable(value, enum=None):
-    return Reference(value, constants.REF_KIND_CABLE, enum)
+    return Reference(value, consts.REF_KIND_CABLE, enum)
 
 def mail(value, enum=None):
-    return Reference(value, constants.REF_KIND_EMAIL, enum)
+    return Reference(value, consts.REF_KIND_EMAIL, enum)
 
 def book(value, enum=None):
-    return Reference(value, constants.REF_KIND_BOOK, enum)
+    return Reference(value, consts.REF_KIND_BOOK, enum)
 
 def tel(value, enum=None):
-    return Reference(value, constants.REF_KIND_TEL, enum)
+    return Reference(value, consts.REF_KIND_TEL, enum)
 
 def report(value, enum=None):
-    return Reference(value, constants.REF_KIND_REPORT, enum)
+    return Reference(value, consts.REF_KIND_REPORT, enum)
 
 _TEST_DATA = (
     # input string, year, expected

@@ -13,7 +13,7 @@ Tests identifier c14n parsing.
 :license:      BSD license
 """
 from nose.tools import eq_
-from cablemap.core.constants import INVALID_CABLE_IDS, MALFORMED_CABLE_IDS
+from cablemap.core.consts import INVALID_CABLE_IDS, MALFORMED_CABLE_IDS
 from cablemap.core.c14n import canonicalize_id
 
 _TEST_DATA = (

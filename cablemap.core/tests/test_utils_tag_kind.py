@@ -14,7 +14,7 @@ Tests cablemap.core.utils.tag_kind
 """
 from nose.tools import eq_
 from cablemap.core.utils import tag_kind
-from cablemap.core import constants as consts
+from cablemap.core import consts
 
 _TEST_DATA = (
     (u'KIPR', consts.TAG_KIND_PROGRAM),

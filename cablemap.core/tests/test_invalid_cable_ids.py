@@ -14,7 +14,7 @@ Tests the handling of invalid WikiLeaks cable ids.
 """
 from nose.tools import ok_, eq_
 from cablemap.core import cable_by_id, c14n
-from cablemap.core.constants import INVALID_CABLE_IDS
+from cablemap.core.consts import INVALID_CABLE_IDS
 
 def _get_test_cases():
     return INVALID_CABLE_IDS.iteritems()

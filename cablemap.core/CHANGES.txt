@@ -2,7 +2,7 @@
 Changes
 =======
 
-2012-mm-dd -- 0.3.0
+20yyy-mm-dd -- 0.3.0
 -------------------
 * API breaking changes:
   - Removed functions/methods:
@@ -37,7 +37,7 @@ Changes
 * Improved parsing of subjects
 * Cleaned-up valid station identifier constants (removed illegal station
   identifiers and added them to the constant INVALID_CABLE_IDS)
-* Cable reference UNVIE an EMBASSY VIENNA were treated the same way (both
+* Cable reference UNVIE and EMBASSY VIENNA were treated the same way (both
   were considered to represent the US Mission Vienna). Fixed.
 * Updated reference parsing. Added option to return canonical identifiers
   (enabled by default)

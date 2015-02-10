@@ -46,7 +46,7 @@ from mio.ctm.miohandler import CTMHandler
 from mio.xtm.miohandler import XTM21Handler
 from tm.mio.handler import simplify
 from tm import XSD, mio
-from cablemap.core import constants as consts
+from cablemap.core import consts as consts
 from cablemap.core.handler import NoopCableHandler
 from . import psis
 

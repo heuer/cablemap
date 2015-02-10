@@ -4,7 +4,7 @@ This module reports malformed cable ids.
 """
 import os
 import re
-from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
+from cablemap.core.consts import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 def find_malformed_ids(in_dir):
     dct = {}

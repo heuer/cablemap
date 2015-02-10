@@ -14,10 +14,9 @@ This module extracts information from cables.
 """
 from __future__ import absolute_import
 import os
-import codecs
 import re
 import logging
-from cablemap.core import constants as consts
+from cablemap.core import constants as consts, c14n
 from cablemap.core.constants import REFERENCE_ID_PATTERN, MALFORMED_CABLE_IDS, INVALID_CABLE_IDS
 
 logger = logging.getLogger('cablemap.core.reader')
@@ -509,6 +508,43 @@ def parse_classificationists(content, normalize=True):
         # Convert something like "Donald Duck, Iii" into "Donald Duck, III"
         name = re.sub(r'(Ii+)', lambda m: m.group(1).upper(), name)
     return [name]
+
+
+_SIGNER_PATTERN = re.compile(r'(?:[\-\?\"/]|\)(?!\s+END)|\.(?!\s+The\b)|[\sA-Z]*QUOTE)(?:\s+[GP\-3EXEMPT]+|[\sA-Z]+QUOTE)?\s+([A-Z]+[ \-\']?[A-Z]+)\b\.?#*[ ]*\s*(?:LIMITED |NN+|Declassified/Released|NOTE(?:[ ]+BY|:[ ]+)|SECRET|UNCLASSIFIED|CONFIDENTIAL|\Z)', re.IGNORECASE|re.UNICODE)
+_SIGNER_PATTERN2 = re.compile(r'[A-Z0-9][ ]*(?:\n[ ]*)+([A-Z]+\-?[A-Z]+)[\s\.]*\Z', re.IGNORECASE|re.UNICODE)
+
+def parse_signers(content, canonicalize=True):
+    """\
+    Returns a maybe empty iterable of signers of the cable.
+
+    `content`
+        The cable's content.
+    `canonicalize`
+        Indicates if the signers should be canonicalized (upper-case the
+        string and remove typos) (enabled by default).
+    """
+    s = content[-220:]
+    m = _SIGNER_PATTERN.search(s) or _SIGNER_PATTERN2.search(s)
+    if not m:
+        return []
+    signers = m.group(1)
+    tmp_signers = signers.upper()
+    if tmp_signers in (u'CONFIDENTIAL', u'UNCLASSIFIED'):
+        return []
+    if canonicalize:
+        if tmp_signers == u'KEEGANPAAL': # 04TAIPEI3991
+            signers = [u'KEEGAN', u'PAAL']
+        elif tmp_signers == u'JOHNSONKEANE': # 05ASUNCION807
+            signers = [u'JOHNSON', u'KEANE']
+        elif tmp_signers == u'STEWARTBALTIMORE': # 06MUSCAT396
+            signers = [u'STEWART', u'BALTIMORE']
+        elif tmp_signers == u'BIGUSBELL': # 06KIRKUK112
+            signers = [u'BIGUS', u'BELL']
+        else:
+            signers = [signers]
+    else:
+        signers = [signers]
+    return [c14n.canonicalize_surname(s) for s in signers] if canonicalize else signers
 
 
 _SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\([^\)]+\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is a?n Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)

@@ -18,6 +18,7 @@ import urllib2
 from .utils import cables_from_source, titlefy
 from .interfaces import ICableHandler, implements
 
+
 class NoopCableHandler(object):
     """\
     `ICableHandler` implementation which does nothing.
@@ -307,6 +308,7 @@ def handle_cables(cables, handler):
     for cable in cables:
         handle_cable(cable, handler, False)
     handler.end()
+
 
 def handle_source(path, handler, predicate=None):
     """\

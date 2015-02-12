@@ -21,6 +21,7 @@ except ImportError:
         def __init__(self, descr): pass
     def implements(i): pass
 
+
 class ICable(Interface):
     """\
     Represents a diplomatic cable.

@@ -387,6 +387,7 @@ _SURNAME_C14N = {
     u'PERKALA': u'PEKALA',
     u'PCCUTA': u'PICCUTA',
     u'SPECKHARDBT': u'SPECKHARD',
+    u'DOGHERTY': u'DOUGHERTY',
 }
 
 

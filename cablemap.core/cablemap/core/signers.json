@@ -597,7 +597,13 @@
     "TEGUCIGALPA": "Andrea Brouillette-Rodriguez"
   }, 
   "BROWN": {
-    "ACCRA": "Kenneth Lee Brown", 
+    "ACCRA": {
+      "93": "Kenneth Lee Brown",
+      "06": "Sue Katherine Brown",
+      "07": "Sue Katherine Brown",
+      "08": "Sue Katherine Brown",
+      "09": "Sue Katherine Brown"
+    },
     "AMMAN": "", 
     "CHENGDU": "", 
     "COTONOU": "Gayleatha Beatrice Brown", 
@@ -1256,7 +1262,7 @@
     "HOCHIMINHCITY": "Angela Dickey"
   }, 
   "DICKSON": {
-    "OTTAWA": ""
+    "OTTAWA": "John D. Dickson"
   }, 
   "DIETER": {
     "BELIZE": "Robert Johann Dieter", 
@@ -1264,7 +1270,7 @@
   }, 
   "DIFFILY": {
     "BELMOPAN": "J.A. Diffily", 
-    "COTONOU": "", 
+    "COTONOU": "J.A. Diffily",
     "LOME": "J.A. Diffily"
   }, 
   "DINGER": {
@@ -1280,9 +1286,6 @@
   }, 
   "DODMAN": {
     "PRAGUE": "Michael Dodman"
-  }, 
-  "DOGHERTY": {
-    "KINSHASA": ""
   }, 
   "DOLAN": {
     "ACCRA": ""
@@ -1302,8 +1305,8 @@
     "TOKYO": "Joseph R. Donovan, Jr."
   }, 
   "DOUGHERTY": {
-    "KINSHASA": "", 
-    "LILONGWE": ""
+    "KINSHASA": "Thomas Dougherty",
+    "LILONGWE": "Thomas Dougherty"
   }, 
   "DOUGLASS": {
     "KOLONIA": ""

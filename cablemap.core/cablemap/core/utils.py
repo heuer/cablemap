@@ -81,12 +81,12 @@ def cable_page_by_id(reference_id):
         return reference_id
 
     def wikileaks_url(wl_id):
-        mm = _CABLEID2MONTH.get(wl_id)
-        if mm is None:
+        m = _CABLEID2MONTH.get(wl_id)
+        if m is None:
             return None
         y = wl_id[:2]
         y = u'19' + y if int(y) > 10 else u'20' + y
-        return u'https://wikileaks.org/cable/%s/%s/%s' % (y, mm, wl_id)
+        return u'https://wikileaks.org/cable/%s/%s/%s' % (y, m.zfill(2), wl_id)
 
     if _CABLEID2MONTH is None:
         with gzip.open(os.path.join(os.path.dirname(__file__), 'cable2month.csv.gz'), 'r') as f:

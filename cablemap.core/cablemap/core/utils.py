@@ -95,6 +95,7 @@ def cable_page_by_id(reference_id):
     wl_id = wikileaks_id(reference_id)
     wl_url = wikileaks_url(wl_id)
     if wl_url is None:
+        # The cable reference is not known, try to consult Cablegatesearch.
         html = _fetch_url(_CGSN_BASE + wl_id)
         m = _CGSN_WL_SOURCE_SEARCH(html)
         wl_url = m.group(1) if m else None

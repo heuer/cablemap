@@ -206,7 +206,7 @@
   }, 
   "BALL": {
     "BRATISLAVA": "Susan Ball",
-    "DJIBOUTI": "", 
+    "DJIBOUTI": "David W. Ball",
     "PRETORIA": "Perry Ball"
   }, 
   "BALLARD": {
@@ -220,10 +220,10 @@
     "MUSCAT": "Richard Lewis Baltimore, III"
   }, 
   "BANKS": {
-    "YEREVAN": ""
+    "YEREVAN": "Stephen Banks"
   }, 
   "BAQUET": {
-    "CAPETOWN": ""
+    "CAPETOWN": "Charles R. Baquet III"
   }, 
   "BARCLAY": {
     "HAVANA": "Charles Barclay",
@@ -300,7 +300,7 @@
     "MONTEVIDEO": "Frank E. Baxter"
   }, 
   "BECKER": {
-    "COLOMBO": ""
+    "COLOMBO": "Carol Becker"
   }, 
   "BEECROFT": {
     "AMMAN": "Robert Stephen Beecroft"
@@ -324,10 +324,10 @@
     "MANILA": "Scott Bellard"
   }, 
   "BENEDICT": {
-    "KHARTOUM": ""
+    "KHARTOUM": "Lawrence Benedict"
   }, 
   "BENESCH": {
-    "RIODEJANEIRO": ""
+    "RIODEJANEIRO": "Anthony Benesch"
   }, 
   "BENJAMIN": {
     "VLADIVOSTOK": ""
@@ -336,7 +336,7 @@
     "HOCHIMINHCITY": "Charles E. Bennett"
   }, 
   "BENTON": {
-    "DUBLIN": ""
+    "DUBLIN": "Jonathan Benton"
   }, 
   "BERG": {
     "PORTMORESBY": ""
@@ -524,10 +524,10 @@
     "DUBLIN": ""
   }, 
   "BOYSE": {
-    "DUSSELDORF": ""
+    "DUSSELDORF": "Matthew G. Boyse"
   }, 
   "BRADFORD": {
-    "KIRKUK": ""
+    "KIRKUK": "John Bradford"
   }, 
   "BRADTKE": {
     "BERLIN": "", 
@@ -538,7 +538,7 @@
     "SANSALVADOR": ""
   }, 
   "BRAKEL": {
-    "ROME": ""
+    "ROME": "Willem H. Brakel"
   }, 
   "BRAYSHAW": {
     "LIMA": "Charles H. Brayshaw", 
@@ -549,20 +549,20 @@
     "ADDISABABA": "Aurelia E. Brazeal"
   }, 
   "BREEDEN": {
-    "MARSEILLE": ""
+    "MARSEILLE": "Philip Breeden"
   }, 
   "BREER": {
-    "TOKYO": ""
+    "TOKYO": "William T. Breer"
   }, 
   "BREESE": {
-    "OTTAWA": ""
+    "OTTAWA": "Terry A. Breese"
   }, 
   "BREIDENSTINE": {
     "HERMOSILLO": "John D. Breidenstine"
   }, 
   "BREITER": {
-    "BUJUMBURA": "", 
-    "DJIBOUTI": ""
+    "BUJUMBURA": "Ann Breiter",
+    "DJIBOUTI": "Ann Breiter"
   }, 
   "BREMER": {
     "THEHAGUE": "Lewis Paul Bremer III"
@@ -571,8 +571,8 @@
     "NDJAMENA": "Sue Bremner"
   }, 
   "BRENNAN": {
-    "ADDISABABA": "", 
-    "MANAGUA": "", 
+    "ADDISABABA": "Martin G. Brennan",
+    "MANAGUA": "Peter M. Brennan",
     "SANJOSE": "Peter M. Brennan"
   }, 
   "BRIDGES": {
@@ -582,7 +582,7 @@
     "ACCRA": "Pamela E. Bridgewater"
   }, 
   "BRINEMAN": {
-    "SANTODOMINGO": ""
+    "SANTODOMINGO": "Elena Brineman"
   }, 
   "BRIZZEE": {
     "SHENYANG": "David N. Brizzee"
@@ -591,7 +591,7 @@
     "KINSHASA": "Samuel Brock"
   }, 
   "BROKENSHIRE": {
-    "CONAKRY": ""
+    "CONAKRY": "Kent C. Brokenshire"
   }, 
   "BROUILLETTE-RODRIGUEZ": {
     "TEGUCIGALPA": "Andrea Brouillette-Rodriguez"
@@ -623,17 +623,14 @@
     "CARACAS": "William R. Brownfield"
   }, 
   "BROWNING": {
-    "KAMPALA": "Steven A. Browning", 
-    "LILONGWE": ""
+    "KAMPALA": "Steven A. Browning",
+    "LILONGWE": "Steven A. Browning"
   }, 
   "BROWNLEE": {
-    "TEGUCIGALPA": ""
+    "TEGUCIGALPA": "Ian Brownlee"
   }, 
   "BRUCKER": {
-    "LEIPZIG": ""
-  }, 
-  "BRUCKERK": {
-    "LEIPZIG": ""
+    "LEIPZIG": "Katherine Brucker"
   }, 
   "BRUDVIG": {
     "UNROME": "Lee A. Brudvig"
@@ -643,7 +640,7 @@
     "BELGRADE": "Jennifer Leigh Brush"
   }, 
   "BRYAN": {
-    "PARIS": "", 
+    "PARIS": "Angie Bryan",
     "SANAA": "Angie Bryan"
   }, 
   "BRYNN": {
@@ -5355,7 +5352,7 @@
     "MONROVIA": "", 
     "NEWDELHI": "", 
     "OSLO": "Barry B. White", 
-    "PARIS": "Thomas White", 
+    "PARIS": "Thomas J. White",
     "PORTLOUIS": "", 
     "SAOPAULO": ""
   }, 

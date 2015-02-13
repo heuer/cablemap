@@ -62,7 +62,7 @@ _STATION_C14N = {
     u'PARISFR': u'UNESCOPARISFR',
     u'UNVIE': u'UNVIEVIENNA',
     u'UNVIEVIEN': u'UNVIEVIENNA',
-    u'UNVIENNA': 'UNVIEVIENNA',
+    u'UNVIENNA': u'UNVIEVIENNA',
     u'STAT': u'STATE',
     u'STAE': u'STATE',
     u'TATE': u'STATE',
@@ -179,6 +179,7 @@ def canonicalize_origin(origin):
                      .replace(u'AMEMBASSY', u'') \
                      .replace(u'EMBASSY', u'').strip()
     return _STATION_C14N.get(origin, origin)
+
 
 def canonicalize_id(reference_id):
     """\
@@ -389,6 +390,11 @@ _SURNAME_C14N = {
     u'SPECKHARDBT': u'SPECKHARD',
     u'DOGHERTY': u'DOUGHERTY',
     u'BRUCKERK': u'BRUCKER',
+    u'BERNSTIEN': u'BERNSTEIN',
+    u'KRAJEKI': u'KRAJESKI',
+    u'RICHARSON': u'RICHARDSON',
+    u'EYREA': u'EYRE',
+    u'EYREAE': u'EYRE',
 }
 
 

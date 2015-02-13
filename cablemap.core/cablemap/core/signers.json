@@ -345,21 +345,18 @@
     "DAKAR": "Marcia S. B. Bernicat"
   }, 
   "BERNSTEIN": {
-    "KHARTOUM": ""
-  }, 
-  "BERNSTIEN": {
-    "KHARTOUM": ""
+    "KHARTOUM": "Steven Bernstein"
   }, 
   "BERRY": {
-    "AMMAN": "", 
+    "AMMAN": "Gregory L. Berry",
     "BEIRUT": "", 
     "CAPETOWN": "", 
     "KATHMANDU": "Randy Berry", 
-    "PARIS": "", 
+    "PARIS": "Elizabeth B. Berry",
     "TRIPOLI": "Gregory L. Berry"
   }, 
   "BERTON": {
-    "ROME": ""
+    "ROME": "Bruce G. Berton"
   }, 
   "BEYER": {
     "BERN": "Donald Sternoff Beyer, Jr."
@@ -369,19 +366,19 @@
     "SOFIA": "John R. Beyrle"
   }, 
   "BEZNER": {
-    "KOROR": ""
+    "KOROR": "Mark J. Bezner"
   }, 
   "BIEDLINGMAIER": {
     "LUXEMBOURG": "Mark J. Biedlingmaier"
   }, 
   "BIGELOW": {
-    "GENEVA": ""
+    "GENEVA": "Stanton R. Bigelow"
   }, 
   "BIGUS": {
     "KIRKUK": "James Bigus"
   }, 
   "BIRDSALL": {
-    "SANJOSE": ""
+    "SANJOSE": "Paul Birdsall"
   }, 
   "BISHARAT": {
     "BELFAST": "Henry Bisharat"
@@ -401,13 +398,13 @@
     "NEWDELHI": "Robert Orris Blake, Jr."
   }, 
   "BLAKEMAN": {
-    "THEHAGUE": ""
+    "THEHAGUE": "Chat Blakeman"
   }, 
   "BLANE": {
     "NDJAMENA": "John Blane"
   }, 
   "BLANEY": {
-    "PRETORIA": ""
+    "PRETORIA": "John Blaney"
   }, 
   "BLANKENSHIP": {
     "NASSAU": "J. Richard Blankenship"
@@ -420,7 +417,7 @@
     "SANSALVADOR": "Robert Blau"
   }, 
   "BLEICH": {
-    "CANBERRA": ""
+    "CANBERRA": "Jeffrey L. Bleich"
   }, 
   "BLOHOF": {
     "COLOMBO": ""
@@ -433,7 +430,7 @@
     "HANOI": "John S. Boardman"
   }, 
   "BOCCHETTI": {
-    "BASRAH": ""
+    "BASRAH": "Mark Bocchetti"
   }, 
   "BODDE": {
     "FRANKFURT": "Peter W. Bodde", 
@@ -441,10 +438,7 @@
     "LILONGWE": "Peter W. Bodde"
   }, 
   "BODINE": {
-    "SANAA": ""
-  }, 
-  "BODMAN": {
-    "ROME": ""
+    "SANAA": "Barbara K. Bodine"
   }, 
   "BOEKER": {
     "AMMAN": "Paul H. Boeker"
@@ -464,7 +458,7 @@
     "SOFIA": "Avis Thayer Bohlen"
   }, 
   "BOLTON": {
-    "USUNNEWYORK": ""
+    "USUNNEWYORK": "John Bolton"
   }, 
   "BOND": {
     "AMSTERDAM": ""
@@ -679,9 +673,9 @@
     "AMMAN": "William Joseph Burns", 
     "ATHENS": "R. Nicholas Burns", 
     "DUBAI": "", 
-    "IRANRPODUBAI": "", 
+    "IRANRPODUBAI": "Jillian Burns",
     "MOSCOW": "William Joseph Burns", 
-    "RPODUBAI": "", 
+    "RPODUBAI": "Jillian Burns",
     "STATE": "William Joseph Burns", 
     "USNATO": "R. Nicholas Burns"
   }, 
@@ -1483,14 +1477,8 @@
     "ACCRA": "Raymond Charles Ewing"
   }, 
   "EYRE": {
-    "RPODUBAI": ""
-  }, 
-  "EYREA": {
-    "RPODUBAI": ""
-  }, 
-  "EYREAE": {
-    "RPODUBAI": ""
-  }, 
+    "RPODUBAI": "Alan Eyre"
+  },
   "FAGIN": {
     "ASTANA": "Steve Fagin"
   }, 
@@ -2795,11 +2783,8 @@
     "DUSSELDORF": "", 
     "LUXEMBOURG": ""
   }, 
-  "KRAJEKI": {
-    "SANAA": ""
-  }, 
   "KRAJESKI": {
-    "SANAA": "Thomas Krajeski"
+    "SANAA": "Thomas Charles Krajeski"
   }, 
   "KRAMER": {
     "BRIDGETOWN": "Mary E. Kramer", 
@@ -3108,7 +3093,7 @@
     "AITTAIPEI": "Eric H. Madison"
   }, 
   "MADSEN": {
-    "RPODUBAI": ""
+    "RPODUBAI": "Amy Madsen"
   }, 
   "MAGLEBY": {
     "DUBAI": ""
@@ -3449,7 +3434,7 @@
     "MINSK": "", 
     "NICOSIA": "Tom Miller", 
     "PORTOFSPAIN": "David Miller", 
-    "USUNNEWYORK": "", 
+    "USUNNEWYORK": "Richard T. Miller",
     "VLADIVOSTOK": ""
   }, 
   "MILLETTE": {
@@ -4222,11 +4207,8 @@
     "USUNNEWYORK": "Susan E. Rice"
   }, 
   "RICHARDSON": {
-    "RPODUBAI": "", 
-    "USUNNEWYORK": ""
-  }, 
-  "RICHARSON": {
-    "USUNNEWYORK": ""
+    "RPODUBAI": "Timothy Richardson",
+    "USUNNEWYORK": "William Blaine \"Bill\" Richardson III"
   }, 
   "RICHE": {
     "CANBERRA": "", 
@@ -5470,7 +5452,7 @@
     "BANDARSERIBEGAWAN": "James Wojtasiewicz"
   }, 
   "WOLCOTT": {
-    "USUNNEWYORK": ""
+    "USUNNEWYORK": "Jackie Wolcott"
   }, 
   "WOLFE": {
     "SAOPAULO": ""

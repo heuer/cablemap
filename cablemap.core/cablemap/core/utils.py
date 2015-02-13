@@ -28,6 +28,8 @@ import sys
 csv.field_size_limit(sys.maxint)
 del sys
 
+_CABLEID2MONTH = None
+
 
 class _Request(urllib2.Request):
     def __init__(self, url):
@@ -70,15 +72,35 @@ def cable_page_by_id(reference_id):
     >>> cable_page_by_id('10MUSCAT103') is not None
     True
     """
+    global _CABLEID2MONTH
     def wikileaks_id(reference_id):
         if reference_id in consts.INVALID_CABLE_IDS.values():
             for k, v in consts.INVALID_CABLE_IDS.iteritems():
                 if v == reference_id:
                     return k
         return reference_id
-    html = _fetch_url(_CGSN_BASE + wikileaks_id(reference_id))
-    m = _CGSN_WL_SOURCE_SEARCH(html)
-    return _fetch_url(m.group(1)) if m else None
+
+    def wikileaks_url(wl_id):
+        mm = _CABLEID2MONTH.get(wl_id)
+        if mm is None:
+            return None
+        y = wl_id[:2]
+        y = u'19' + y if int(y) > 10 else u'20' + y
+        return u'https://wikileaks.org/cable/%s/%s/%s' % (y, mm, wl_id)
+
+    if _CABLEID2MONTH is None:
+        with gzip.open(os.path.join(os.path.dirname(__file__), 'cable2month.csv.gz'), 'r') as f:
+            reader = csv.reader(f)
+            _CABLEID2MONTH = dict(reader)
+    wl_id = wikileaks_id(reference_id)
+    wl_url = wikileaks_url(wl_id)
+    if wl_url is None:
+        html = _fetch_url(_CGSN_BASE + wl_id)
+        m = _CGSN_WL_SOURCE_SEARCH(html)
+        wl_url = m.group(1) if m else None
+    if wl_url is None:
+        return None
+    return _fetch_url(wl_url)
 
 
 def cable_by_id(reference_id):
@@ -160,6 +182,7 @@ class _UTF8Recoder:
     def next(self):
         return self.reader.next().encode("utf-8")
 
+
 class _UnicodeReader:
     """\
     A CSV reader which will iterate over lines in the CSV file "f",
@@ -175,6 +198,7 @@ class _UnicodeReader:
 
     def __iter__(self):
         return self
+
 
 def cables_from_directory(directory, predicate=None):
     """\
@@ -212,6 +236,7 @@ def cablefiles_from_directory(directory, predicate=None):
         for name in (n for n in files if '.html' in n and pred(n[:-5])):
             yield os.path.join(os.path.abspath(root), name)
 
+
 def reference_id_parts(reference_id):
     """\
     Returns a tuple from the provided `reference_id`::
@@ -228,7 +253,6 @@ def reference_id_parts(reference_id):
 
 
 _SIGNERS = json.load(codecs.open(os.path.join(os.path.dirname(__file__), 'signers.json'), 'rb', 'utf-8'))
-
 def signer_name(sign, canonical_id, default=None):
     """\
     Returns the real name for the provided `sign`.

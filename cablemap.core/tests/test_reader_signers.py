@@ -694,6 +694,9 @@ _TEST_CABLES = (
     ((), u'05BOGOTA9232', False),
     (u"ODONOHUE", u'09KUWAIT266', False),
     (u"O'DONOHUE", u'09KUWAIT266', True),
+    ((u'BURNS', u'BRYS'), u'06DUBAI5421', False),
+    ((u'GREEN', u'REID'), u'06ADANA165', False),
+    ((u'GREEN', u'REID'), u'06ADANA167', False),
     # See issue #32
     #(u'RAY', u'01HOCHIMINHCITY197', False),
     # See issue #31

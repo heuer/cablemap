@@ -672,10 +672,10 @@
   "BURNS": {
     "AMMAN": "William Joseph Burns", 
     "ATHENS": "R. Nicholas Burns", 
-    "DUBAI": "", 
-    "IRANRPODUBAI": "Jillian Burns",
-    "MOSCOW": "William Joseph Burns", 
-    "RPODUBAI": "Jillian Burns",
+    "DUBAI": "Jillian L. Burns",
+    "IRANRPODUBAI": "Jillian L. Burns",
+    "MOSCOW": "William Joseph Burns",
+    "RPODUBAI": "Jillian L. Burns",
     "STATE": "William Joseph Burns", 
     "USNATO": "R. Nicholas Burns"
   }, 
@@ -1813,7 +1813,7 @@
     "KUWAIT": "Edward William Gnehm, Jr."
   }, 
   "GODARD": {
-    "BUENOSAIRES": ""
+    "BUENOSAIRES": "Ronald D. Godard"
   }, 
   "GODEC": {
     "TUNIS": "Robert F. Godec"
@@ -1890,7 +1890,7 @@
     "MILAN": "Deborah E. Graze"
   }, 
   "GREEN": {
-    "ADANA": "", 
+    "ADANA": "Eric Green",
     "DARESSALAAM": "Mark Andrew Green"
   }, 
   "GREENBERG": {
@@ -4889,7 +4889,7 @@
     "LONDON": "Louis B. Susman"
   }, 
   "SUTPHIN": {
-    "DUBAI": ""
+    "DUBAI": "Paul R. Sutphin"
   }, 
   "SUTTON": {
     "SOFIA": "Susan M. Sutton"
@@ -4903,9 +4903,6 @@
   }, 
   "SWEENEY": {
     "PORTOFSPAIN": ""
-  }, 
-  "SWICKMAN": {
-    "SHENYANG": ""
   }, 
   "SWIHART": {
     "VIENNA": ""
@@ -5205,9 +5202,9 @@
     "ZAGREB": ""
   }, 
   "WALKLEY": {
-    "KINSHASA": "", 
+    "KINSHASA": "R. Barrie Walkley",
     "LIBREVILLE": "R. Barrie Walkley", 
-    "PORTLOUIS": ""
+    "PORTLOUIS": "R. Barrie Walkley"
   }, 
   "WALL": {
     "DUBAI": "", 
@@ -5277,13 +5274,13 @@
     "KADUNA": ""
   }, 
   "WEINROD": {
-    "USNATO": ""
+    "USNATO": "W. Bruce Weinrod"
   }, 
   "WEINSTEIN": {
     "BEIJING": "William Weinstein"
   }, 
   "WEINZ": {
-    "PORTMORESBY": ""
+    "PORTMORESBY": "Thomas Weinz"
   }, 
   "WEISBERG": {
     "BRAZZAVILLE": "Robert Weisberg", 
@@ -5458,8 +5455,8 @@
     "SAOPAULO": ""
   }, 
   "WOLFF": {
-    "PARIS": "", 
-    "USUNNEWYORK": "Alejandro Wolff"
+    "PARIS": "Alejandro Daniel Wolff",
+    "USUNNEWYORK": "Alejandro Daniel Wolff"
   }, 
   "WONG": {
     "DJIBOUTI": "", 

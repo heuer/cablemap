@@ -395,6 +395,7 @@ _SURNAME_C14N = {
     u'RICHARSON': u'RICHARDSON',
     u'EYREA': u'EYRE',
     u'EYREAE': u'EYRE',
+    u'SWICKMAN': u'WICKMAN',
 }
 
 

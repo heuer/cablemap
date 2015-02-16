@@ -40,22 +40,23 @@ List of cable oddities
 Websites of U.S. Embassies, Consulates, and Diplomatic Missions
 <http://www.usembassy.gov/>
 
-ACP 117 CAN-US SUPP-1(P)
+ACP 117 CAN-US SUPP-1(P) (Allied Communication Publications)
 <http://jcs.dtic.mil/j6/cceb/acps/canus-supp/>
 
 Other sources:
-* <http://www.dazzlepod.com/cable/>
-* <http://cablegate.onebigarchives.net/>
-* <http://statelogs.owni.fr/>
-* <http://cablesearch.org/>
-* <http://cablegatesearch.net>
-* <http://www.leakfeed.com/>
+* <http://www.dazzlepod.com/cable/> (down 2015-02-16)
+* <http://cablegate.onebigarchives.net/> (down 2015-02-16)
+* <http://statelogs.owni.fr/> (down 2015-02-16)
+* <http://cablesearch.org/> (down 2015-02-16)
+* <http://cablegatesearch.net/> (became <https://cablegatesearch.wikileaks.org/search.php>)
+* <https://cablegatesearch.wikileaks.org/search.php>
+* <http://www.leakfeed.com/> (down 2015-02-16)
 * <https://cabletags.wordpress.com/>
-* <http://cablewiki.net>
-* <http://crowdleak.net/>
-* <http://cablegate.heroku.com/>
-* <http://cablegategame.com/>
-* <http://www.ceinquiry.us/2010-11-28-wikileaks-glossary.php>
+* <http://cablewiki.net/> (down 2015-02-16)
+* <http://crowdleak.net/> (down 2015-02-16)
+* <http://cablegate.heroku.com/> (down 2015-02-16)
+* <http://cablegategame.com/> (down 2015-02-16)
+* <http://www.ceinquiry.us/2010-11-28-wikileaks-glossary.php> (down 2015-02-16)
 * <http://aebr.home.xs4all.nl/wl/aftenposten/>
 * <http://www.spiegel.de/thema/botschaftsberichte_2010/>
 * <http://www.spiegel.de/thema/wikileaks/>
@@ -63,12 +64,13 @@ Other sources:
 * <http://www.guardian.co.uk/world/the-us-embassy-cables>
 * <http://www.lemonde.fr/international/article/2010/11/28/wikileaks-dans-les-coulisses-de-la-diplomatie-americaine_1446078_3210.html>
 * <http://www.elpais.com/documentossecretos/>
+* <http://www.cabledrum.net/>
 
 Software for Cablegate:
 * <https://github.com/hamstar/CableBot>
 * <https://github.com/csquared/cablegator>
 * <https://github.com/anarchivist/cablegate-social-graph>
-* <https://github.com/davesag/cablegate>
+* <https://github.com/davesag/cablegate> (down 2015-02-16)
 * <https://github.com/alx/cablegate>
 * <https://github.com/typecode/wikileaks>
 * <https://github.com/elishowk/cablegate_semnet>

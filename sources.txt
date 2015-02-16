@@ -40,6 +40,9 @@ List of cable oddities
 Websites of U.S. Embassies, Consulates, and Diplomatic Missions
 <http://www.usembassy.gov/>
 
+ACP 117 CAN-US SUPP-1(P)
+<http://jcs.dtic.mil/j6/cceb/acps/canus-supp/>
+
 Other sources:
 * <http://www.dazzlepod.com/cable/>
 * <http://cablegate.onebigarchives.net/>

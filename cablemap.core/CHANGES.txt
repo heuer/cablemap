@@ -2,7 +2,7 @@
 Changes
 =======
 
-20yyy-mm-dd -- 0.3.0
+20yy-mm-dd -- 0.3.0
 -------------------
 * API breaking changes:
   - Removed functions/methods:
@@ -16,6 +16,7 @@ Changes
   - models.Cable.recipients and info_recipients
     return models.Recipient objects
   - models.Cable.references returns models.Reference objects
+  - Cable.partial was renamed to Cable.is_partial
 * models.Cable.summary/reader.parse_summary does not convert newlines into 
   one whitespace character anymore
 * Added classification category information to ``interfaces.ICable``.

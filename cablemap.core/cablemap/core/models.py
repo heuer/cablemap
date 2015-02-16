@@ -182,6 +182,7 @@ class Cable(object):
         self.content = None
         self.created = None
         self.released = None
+        self.classification = None
         self.media_uris = []
 
     @cached_property
@@ -227,7 +228,7 @@ class Cable(object):
         return reader.parse_info_recipients(self.header, self.reference_id)
 
     @cached_property
-    def partial(self):
+    def is_partial(self):
         return 'This record is a partial extract of the original cable' in self.header
 
     #

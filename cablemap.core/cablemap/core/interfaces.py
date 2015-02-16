@@ -46,7 +46,7 @@ class ICable(Interface):
 
     This attribute is writable.
     """)
-    content  = Attribute("""\
+    content = Attribute("""\
     Sets/returns the content of the cable (a string).
 
     This attribute is writable.
@@ -92,7 +92,7 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
-    partial = Attribute("""\
+    is_partial = Attribute("""\
     Indicates if this cable is only partially available (a boolean).
 
     This attribute is read-only.

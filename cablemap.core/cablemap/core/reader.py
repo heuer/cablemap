@@ -234,6 +234,7 @@ def reference_id_from_html(html):
         return m.group(1)
     raise ValueError("Cannot extract the cable's reference id")
 
+
 def fix_content(content, reference_id):
     """\
     Fixes some oddities of cables.
@@ -494,12 +495,13 @@ def parse_classificationists(content, normalize=True):
     `content`
         The cable's content.
     """
+    names = []
     m = _CLIST_CONTENT_PATTERN.search(content)
     if not m:
-        return None
+        return ()
     m = _CLSIST_PATTERN.search(m.group(1))
     if not m:
-        return None
+        return ()
     name = m.group(1).replace(u'\n', ' ')
     name = re.sub('[ ]+', ' ', name).rstrip(' -:').strip().replace(u'Y ee', u'Yee')
     if not name.upper().endswith(u'JR.'):
@@ -507,12 +509,15 @@ def parse_classificationists(content, normalize=True):
     if normalize:
         name = name.replace(u'0', u'O').title()
         # Convert something like "Donald Duck, Iii" into "Donald Duck, III"
-        name = re.sub(r'(Ii+)', lambda m: m.group(1).upper(), name)
-    return [name]
+        names.append(re.sub(r'(Ii+)', lambda m: m.group(1).upper(), name))
+    return names
 
 
-_SIGNER_PATTERN = re.compile(r'(?:[\-\?\"/]|\)(?!\s+END)|\.(?!\s+The\b)|[\sA-Z]*QUOTE)(?:\s+[GP\-3EXEMPT]+|[\sA-Z]+QUOTE)?\s+([A-Z]+[ \-\']?[A-Z]+)\b\.?#*[ ]*\s*(?:LIMITED |NN+|Declassified/Released|NOTE(?:[ ]+BY|:[ ]+)|SECRET|UNCLASSIFIED|CONFIDENTIAL|\Z)', re.IGNORECASE|re.UNICODE)
-_SIGNER_PATTERN2 = re.compile(r'[A-Z0-9][ ]*(?:\n[ ]*)+([A-Z]+\-?[A-Z]+)[\s\.]*\Z', re.IGNORECASE|re.UNICODE)
+_SIGNER_PATTERN = re.compile(r'(?:[\-\?\"/]|\)(?!\s+END)'
+                             r'|\.(?!\s+The\b)'
+                             r'|[\sA-Z]*QUOTE)(?:\s+[GP\-3EXEMPT]+'
+                             r'|[\sA-Z]+QUOTE)?\s+([A-Z]+[ \-\']?[A-Z]+)\b\.?#*[ ]*\s*(?:LIMITED |NN+|Declassified/Released|NOTE(?:[ ]+BY|:[ ]+)|SECRET|UNCLASSIFIED|CONFIDENTIAL|\Z)', re.IGNORECASE|re.UNICODE)
+_SIGNER_PATTERN2 = re.compile(r'[A-Za-z0-9\.][ ]*(?:\n[ ]*)+([A-Z]+\-?[A-Z]+(?:[ ]*[\r\n][A-Z]+\-?[A-Z]+)?)[\s\.]*\Z', re.UNICODE)
 
 def parse_signers(content, canonicalize=True):
     """\
@@ -524,7 +529,7 @@ def parse_signers(content, canonicalize=True):
         Indicates if the signers should be canonicalized (upper-case the
         string and remove typos) (enabled by default).
     """
-    s = content[-220:]
+    s = content[-300:]
     m = _SIGNER_PATTERN.search(s) or _SIGNER_PATTERN2.search(s)
     if not m:
         return []
@@ -533,23 +538,24 @@ def parse_signers(content, canonicalize=True):
     if tmp_signers in (u'CONFIDENTIAL', u'UNCLASSIFIED'):
         return []
     if canonicalize:
-        if tmp_signers == u'KEEGANPAAL': # 04TAIPEI3991
+        tmp_signers = tuple(re.split(ur'\s+', tmp_signers.strip()))
+        if tmp_signers == (u'KEEGANPAAL',): # 04TAIPEI3991
             signers = [u'KEEGAN', u'PAAL']
-        elif tmp_signers == u'JOHNSONKEANE': # 05ASUNCION807
+        elif tmp_signers == (u'JOHNSONKEANE',): # 05ASUNCION807
             signers = [u'JOHNSON', u'KEANE']
-        elif tmp_signers == u'STEWARTBALTIMORE': # 06MUSCAT396
+        elif tmp_signers == (u'STEWARTBALTIMORE',): # 06MUSCAT396
             signers = [u'STEWART', u'BALTIMORE']
-        elif tmp_signers == u'BIGUSBELL': # 06KIRKUK112
+        elif tmp_signers == (u'BIGUSBELL',): # 06KIRKUK112
             signers = [u'BIGUS', u'BELL']
         else:
-            signers = [signers]
+            signers = tmp_signers
     else:
         signers = [signers]
     return [c14n.canonicalize_surname(s) for s in signers] if canonicalize else signers
 
 
-_SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\([^\)]+\))|(1\.?[ ]Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is a?n Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
-_SUBJECT_MAX_PATTERN = re.compile(r'1\.?[ ]*\([^\)]+\)')
+_SUBJECT_PATTERN = re.compile(ur'(?<!\()(?:S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*))(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\([^\)]+\))|((?:1\.?[ ]|\r?\n)Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is a?n Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE)
+_SUBJECT_MAX_PATTERN = re.compile(r'^[ ]*1\.?[ ]*\([^\)]+\)', re.IGNORECASE|re.MULTILINE)
 _NL_PATTERN = re.compile(ur'[\r\n]+')
 _SLASH_ESCAPE_PATTERN = re.compile(ur'[\\]+')
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)
@@ -582,7 +588,7 @@ def parse_subject(content, reference_id=None, clean=True):
     def to_unicodechar(match):
         return unichr(int(match.group(1)))
     m = _SUBJECT_MAX_PATTERN.search(content)
-    max_idx = m and m.start() or _MAX_HEADER_IDX
+    max_idx = m.start() if m else _MAX_HEADER_IDX
     m = _SUBJECT_PATTERN.search(content, 0, max_idx)
     if not m:
         return u''

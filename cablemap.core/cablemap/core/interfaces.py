@@ -152,14 +152,14 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
-    signers = Attribute("""\
+    signed_by = Attribute("""\
     A maybe empty iterable of signers of the cable.
 
     The signers are represented as string, i.e. ``'CLINTON'``
 
     This attribute is read-only.
     """)
-    classificationists = Attribute("""\
+    classified_by = Attribute("""\
     Returns a maybe empty iterable of classificationists of the cable.
 
     The classificationists are returned as string, i.e. ``'Donald Duck'``

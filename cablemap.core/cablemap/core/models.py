@@ -13,6 +13,7 @@ This module provides models to keep data about cables.
 :license:      BSD license
 """
 from __future__ import absolute_import
+import re
 import codecs
 from itertools import chain
 from operator import itemgetter
@@ -56,6 +57,7 @@ def cable_from_html(html, reference_id=None):
     return cable
 
 
+_cable_date_split = re.compile(ur'[/\-]').split
 def cable_from_row(row):
     """\
     Returns a cable from the provided row (a tuple/list).
@@ -72,15 +74,15 @@ def cable_from_row(row):
     """
     def format_creation_date(created):
         date, time = created.split()
-        month, day, year, hour, minute = [x.zfill(2) for x in chain(date.split(u'/'), time.split(u':'))]
+        month, day, year, hour, minute = [x.zfill(2) for x in chain(_cable_date_split(date), time.split(u':'))]
         return u'%s-%s-%s %s:%s' % (year, month, day, hour, minute)
     _, created, reference_id, origin, classification, _, header, body = row
     cable = Cable(reference_id)
     cable.created = format_creation_date(created)
     cable.origin = origin
     cable.classification = classification.upper()
-    cable.header = reader.fix_content(header, reference_id)
-    cable.content = reader.fix_content(body, reference_id)
+    cable.header = header
+    cable.content = body
     return cable
 
 
@@ -263,11 +265,11 @@ class Cable(object):
         return reader.parse_comment(self.content)
 
     @cached_property
-    def signers(self):
+    def signed_by(self):
         return reader.parse_signers(self.content)
 
     @cached_property
-    def classificationists(self):
+    def classified_by(self):
         return reader.parse_classificationists(self.content)
 
 

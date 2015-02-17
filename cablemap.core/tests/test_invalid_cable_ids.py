@@ -16,8 +16,10 @@ from nose.tools import ok_, eq_
 from cablemap.core import cable_by_id, c14n
 from cablemap.core.consts import INVALID_CABLE_IDS
 
+
 def _get_test_cases():
     return INVALID_CABLE_IDS.iteritems()
+
 
 def test_from_invalid_cable_id():
     def check(incorrect_id, correct_id):
@@ -28,6 +30,7 @@ def test_from_invalid_cable_id():
         eq_(c14n.canonicalize_id(correct_id), cable.canonical_id, 'Unexpected canonical identifier for the correct id')
     for incorrect_id, correct_id in _get_test_cases():
         yield check, incorrect_id, correct_id
+
 
 def test_to_invalid_cable_id():
     def check(incorrect_id, correct_id):

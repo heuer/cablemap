@@ -19,7 +19,6 @@ from cablemap.core import cable_by_id
 def test_issue():
     cable = cable_by_id('09TRIPOLI63')
     assert cable
-    print cable.subject
     ok_(u'RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GOL' in cable.subject)
 
 

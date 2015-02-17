@@ -75,17 +75,20 @@ _TEST_DATA = (
     (u'09USEUBRUSEELS1292', u'09USEUBRUSSELS1292'),
 )
 
+
 def test_c14n():
     def check(reference_id, canonical_id):
         eq_(canonical_id, canonicalize_id(reference_id))
     for r, c in _TEST_DATA:
         yield check, r, c
 
+
 def test_c14n_malformed_ids():
     def check(incorrect_id, correct_id):
         eq_(canonicalize_id(correct_id), canonicalize_id(incorrect_id))
     for incorrect_id, correct_id in MALFORMED_CABLE_IDS.iteritems():
         yield check, incorrect_id, correct_id
+
 
 def test_c14n_illegal_ids():
     def check(incorrect_id, correct_id):

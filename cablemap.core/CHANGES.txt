@@ -13,6 +13,7 @@ Changes
     - utils.cable_to_json
     - utils.cable_from_json
     - utils.cable_to_yaml
+    - reader.fix_content
   - models.Cable.recipients and info_recipients
     return models.Recipient objects
   - models.Cable.references returns models.Reference objects

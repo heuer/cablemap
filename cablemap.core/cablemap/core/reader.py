@@ -555,7 +555,7 @@ def parse_signers(content, canonicalize=True):
 
 
 _SUBJECT_PATTERN = re.compile(ur'(?:^|[ ]+)S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*)(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\([^\)]+\))|((?:1\.?[ ]|\r?\n)Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is a?n Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE|re.MULTILINE)
-_SUBJECT_MAX_PATTERN = re.compile(r'^[ ]*1\.?[ ]*\([^\)]+\)', re.IGNORECASE|re.MULTILINE)
+_SUBJECT_MAX_PATTERN = re.compile(r'^1\.?[ ]*(?:\([^\)]+\)|SUMMARY)|SUMMARY|"CANCEL THIS', re.IGNORECASE|re.MULTILINE)
 _NL_PATTERN = re.compile(ur'[\r\n]+')
 _SLASH_ESCAPE_PATTERN = re.compile(ur'[\\]+')
 _WS_PATTERN = re.compile(ur'[ ]{2,}', re.UNICODE)

@@ -700,9 +700,17 @@ _TEST_CABLES = (
     (u'COFFMAN', u'06JOHANNESBURG468', False),
     (u'MCDONALD', u'00HARARE2297', False),
     (u'TIMKEN JR', u'07BERLIN1291', False),
-    (u'', u'07FREETOWN71', False),
+    ((), u'07FREETOWN71', False),
     (u'RAY', u'01HOCHIMINHCITY197', False),  # Issue #32
     (u'IRVING', u'01HARARE1632', False),  # Issue #31
+    (u'BROWN', u'89TELAVIV14032', False),
+    (u'MONDLE', u'95TOKYO3257', False),
+    ((), u'95ZAGREB1681', False),
+    (u'KATTOUF', u'95RIYADH4074', False),
+    (u'COVEY', u'95BERLIN2558', False),
+    (u'TULL', u'95BANDARSERIBEGAWAN430', False),
+    (u'TULL', u'96BANDARSERIBEGAWAN290', False),
+    (u'BRADTKE', u'06ZAGREB1330', False),
 )
 
 

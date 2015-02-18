@@ -697,10 +697,10 @@ _TEST_CABLES = (
     ((u'BURNS', u'BRYS'), u'06DUBAI5421', False),
     ((u'GREEN', u'REID'), u'06ADANA165', False),
     ((u'GREEN', u'REID'), u'06ADANA167', False),
-    # See issue #32
-    #(u'RAY', u'01HOCHIMINHCITY197', False),
-    # See issue #31
-    #(u'IRVING', u'01HARARE1632', False),
+    (u'TIMKEN JR', u'07BERLIN1291', False),
+    (u'', u'07FREETOWN71', False),
+    (u'RAY', u'01HOCHIMINHCITY197', False),  # Issue #32
+    (u'IRVING', u'01HARARE1632', False),  # Issue #31
 )
 
 

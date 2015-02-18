@@ -14,7 +14,7 @@ Tests classificationist parsing.
 """
 from nose.tools import eq_, ok_
 from cablemap.core import cable_by_id
-from cablemap.core.reader import parse_classificationists
+from cablemap.core.reader import parse_classified_by
 
 _TEST_DATA = (
     (u'10TOKYO397', u'Marc Wall', u'''FIELD
@@ -1028,7 +1028,7 @@ def test_parse_classificationist():
     def check(cable_id, expected, content, normalize):
         if not isinstance(expected, tuple):
             expected = (expected,)
-        eq_(expected, tuple(parse_classificationists(content, normalize)))
+        eq_(expected, tuple(parse_classified_by(content, normalize)))
     for testcase in _TEST_DATA:
         if len(testcase) == 3:
             cable_id, expected, content = testcase

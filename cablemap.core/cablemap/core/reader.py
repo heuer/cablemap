@@ -487,7 +487,7 @@ _CLIST_CONTENT_PATTERN = re.compile(r'''Classified\s+By:?\s*[0-9\.\s]*
     re.IGNORECASE|re.UNICODE|re.DOTALL|re.VERBOSE)
 _CLSIST_PATTERN = re.compile(r"[\s\.,]*([A-Z][^,;]+(?:\s*,\s*(?:JR\.?|II+))?)\s*", re.IGNORECASE|re.UNICODE)
 
-def parse_classificationists(content, normalize=True):
+def parse_classified_by(content, normalize=True):
     """\
     Returns the classificationist or ``None`` if the classificationist
     cannot be extracted.
@@ -519,7 +519,7 @@ _SIGNER_PATTERN = re.compile(r'(?:[\-\?\"/]|\)(?!\s+END)'
                              r'|[\sA-Z]+QUOTE)?\s+([A-Z]+[ \-\']?[A-Z]+)\b\.?#*[ ]*\s*(?:LIMITED |NN+|Declassified/Released|NOTE(?:[ ]+BY|:[ ]+)|SECRET|UNCLASSIFIED|CONFIDENTIAL|\Z)', re.IGNORECASE|re.UNICODE)
 _SIGNER_PATTERN2 = re.compile(r'[A-Za-z0-9\.][ ]*(?:\n[ ]*)+([A-Z]+\-?[A-Z]+(?:[ ]*[\r\n][A-Z]+\-?[A-Z]+)?)[\s\.]*\Z', re.UNICODE)
 
-def parse_signers(content, canonicalize=True):
+def parse_signed_by(content, canonicalize=True):
     """\
     Returns a maybe empty iterable of signers of the cable.
 

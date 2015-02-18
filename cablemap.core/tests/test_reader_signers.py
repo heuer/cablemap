@@ -14,7 +14,7 @@ Tests cablemap.core.reader.parse_signers.
 """
 from nose.tools import eq_
 from cablemap.core import cable_by_id
-from cablemap.core.reader import parse_signers
+from cablemap.core.reader import parse_signed_by
 
 _TEST_DATA = (
     # 7575LIBREVILLE1895
@@ -708,7 +708,7 @@ def test_data():
     def check(expected, content, c14n):
         if not isinstance(expected, tuple):
             expected = (expected,)
-        eq_(expected, tuple(parse_signers(content, c14n)))
+        eq_(expected, tuple(parse_signed_by(content, c14n)))
     for testcase in _TEST_DATA:
         if len(testcase) == 2:
             expected, data = testcase
@@ -717,12 +717,13 @@ def test_data():
             expected, data, c14n = testcase
         yield check, expected, data, c14n
 
+
 def test_cables():
     def check(expected, cable_id, c14n):
         cable = cable_by_id(cable_id)
         if not isinstance(expected, tuple):
             expected = (expected,)
-        eq_(expected, tuple(parse_signers(cable.content, c14n)))
+        eq_(expected, tuple(parse_signed_by(cable.content, c14n)))
     for expected, cable_id, c14n in _TEST_CABLES:
         yield check, expected, cable_id, c14n
 

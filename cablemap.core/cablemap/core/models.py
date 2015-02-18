@@ -266,11 +266,11 @@ class Cable(object):
 
     @cached_property
     def signed_by(self):
-        return reader.parse_signers(self.content)
+        return reader.parse_signed_by(self.content)
 
     @cached_property
     def classified_by(self):
-        return reader.parse_classificationists(self.content)
+        return reader.parse_classified_by(self.content)
 
 
 if __name__ == '__main__':

@@ -9,7 +9,7 @@ The core package provides utilities which can be used to extract information
 from diplomatic cables::
 
     >>> from cablemap.core import cable_by_id
-    >>> from cablemap.core.utils import cable_to_json, titlefy
+    >>> from cablemap.core.utils import titlefy
     >>> 
     >>> # Fetches the cable with the reference id '09BERLIN1167' from the Internet
     >>> # and converts it into a Cable object
@@ -21,8 +21,7 @@ from diplomatic cables::
     >>> # Generate a more readable subject
     >>> titlefy(cable.subject)
     u'Data Privacy Trumps Security: Implications of a FDP Victory on Counterterrorism Cooperation'
-    >>> json = cable_to_json(cable)
-    >>> 
+    >>>
 
 The core package has no Topic Maps related code and can be used independently 
 of the other packages.

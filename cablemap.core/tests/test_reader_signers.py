@@ -697,6 +697,8 @@ _TEST_CABLES = (
     ((u'BURNS', u'BRYS'), u'06DUBAI5421', False),
     ((u'GREEN', u'REID'), u'06ADANA165', False),
     ((u'GREEN', u'REID'), u'06ADANA167', False),
+    (u'COFFMAN', u'06JOHANNESBURG468', False),
+    (u'MCDONALD', u'00HARARE2297', False),
     (u'TIMKEN JR', u'07BERLIN1291', False),
     (u'', u'07FREETOWN71', False),
     (u'RAY', u'01HOCHIMINHCITY197', False),  # Issue #32

@@ -71,6 +71,20 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
+    plusd_canonical_id = Attribute("""\
+    Returns the canonical PlusD identifier.
+
+    See <http://www.wikileaks.org/plusd/>
+
+    This attribute is read-only.
+    """)
+    plusd_uri = Attribute("""\
+    Returns the PlusD URI.
+
+    See <http://www.wikileaks.org/plusd/>
+
+    This attribute is read-only.
+    """)
     transmission_id = Attribute("""\
     The transmission identifier (a string) of the cable or ``None``.
 

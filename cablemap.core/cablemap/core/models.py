@@ -187,9 +187,18 @@ class Cable(object):
         self.classification = None
         self.media_uris = []
 
+
     @cached_property
     def canonical_id(self):
         return c14n.canonicalize_id(self.reference_id)
+
+    @property
+    def plusd_canonical_id(self):
+        return self.reference_id + u'_a'
+
+    @property
+    def plusd_uri(self):
+        return u'http://www.wikileaks.org/plusd/cables/%s.html' % self.plusd_canonical_id
 
     @cached_property
     def wl_uris(self):

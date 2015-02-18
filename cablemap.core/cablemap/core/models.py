@@ -99,7 +99,7 @@ _WL_CABLE_BASE_URIS = (
                 )
 
 # Source: <https://github.com/mitsuhiko/werkzeug/blob/master/werkzeug/utils.py#L30>
-class cached_property(object):
+class cached_property(property):
     """\
     A decorator that converts a function into a lazy property.
     """

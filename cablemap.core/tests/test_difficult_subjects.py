@@ -31,11 +31,30 @@ _TEST_DATA = (
 )
 
 
+_CABLES_WO_SUBJECT = (
+    u'03TEGUCIGALPA1725',
+    u'04QUITO2502',
+    u'04QUITO2879',
+    u'06ABUJA1587',
+    u'06BANGKOK5133',
+    u'07CAIRO3070',
+    u'08ANKARA588',
+    u'08FREETOWN122',
+)
+
+
 def test_parse_subject():
     def check(expected, cable):
         eq_(expected, cable.subject)
     for ref_id, subject in _TEST_DATA:
         yield check, subject, cable_by_id(ref_id)
+
+
+def test_nosubject():
+    def check(cable):
+        eq_(u'', cable.subject)
+    for ref_id in _CABLES_WO_SUBJECT:
+        yield check, cable_by_id(ref_id)
 
 
 if __name__ == '__main__':

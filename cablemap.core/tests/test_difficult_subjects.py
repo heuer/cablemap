@@ -26,6 +26,8 @@ _TEST_DATA = (
     (u'05DHAKA4483', u'Media Reaction: Iraq Constitution Bangladesh-U.S. Bilateral 9/11 anniversary; Dhaka'),
     (u'05DHAKA4410', u'Media Reaction: Aftermath of Katrina; Dhaka'),
     (u'05DHAKA4392', u'Media Reaction: Aftermath of Katrina; Dhaka'),
+    (u'05VANCOUVER1524', u'MARIJUANA FLOURISHES IN B.C. AS METHAMPHETAMINE CRISIS HEIGHTENS'),
+    (u'07DAKAR258', u'SENEGAL: SCENESETTER FOR GENERAL WARD'),
 )
 
 

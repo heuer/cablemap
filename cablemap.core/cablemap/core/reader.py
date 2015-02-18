@@ -179,10 +179,8 @@ _CONTENT_PATTERN = re.compile(ur'(?:<code><pre>)(.+?)(?:</pre></code>)', re.DOTA
 
 def get_content_as_text(file_content, reference_id):
     """\
-    Returns the cable content as text.
-
-    This function removes HTML links etc. (c.f. `_clean_html`) and repairs
-    the content of the cable if necessary (c.f. `fix_content`).
+    Returns the cable content as text (HTML links etc. will be removed, c.f.
+    `_clean_html`).
     
     `file_content`
         The HTML file content, c.f. `get_file_content`.

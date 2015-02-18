@@ -46,66 +46,6 @@ _CABLES_WITH_MALFORMED_SUMMARY = (
 
 _CABLE_ID_SUBJECT_PATTERN = re.compile('^([0-9]+[^:]+):\s(.+)$')
 
-_CABLE_FIXES = {
-    '08MANAMA492': # (08ECTION01OF02MANAMA492)
-        (r'TORUEHC/SECSTATE', u'TO RUEHC/SECSTATE'),
-    '08ECTION01OF02MANAMA492':
-        (r'TORUEHC/SECSTATE', u'TO RUEHC/SECSTATE'),
-    '08TRIPOLI402':
-        (ur'JAMAHIRIYA-STYLE\s+Q: A\) TRIPOLI', u'JAMAHIRIYA-STYLE \nREF: A) TRIPOLI'),
-    '07HAVANA252':
-        (ur'XXXNEED A MILLION', u'XXX NEED A MILLION'),
-    '09BEIJING1176':
-        (ur'XXXDISCUSSES', u'XXX DISCUSSES'),
-    '09BEIJING2438':
-        (ur'NEGOTIATE SE\s+CRETLY', u'NEGOTIATE SECRETLY'),
-    '09STATE30049':
-        (ur'Secretary Clinton’s March 24, 2009 \n\n', u'Secretary Clinton’s March 24, 2009 \n'),
-    '09CAIRO544': # This cable contains a proper SUBJECT: line in some releases and in some not.
-        (ur'\nBLOGGERS MOVING', u'\nSUBJECT: BLOGGERS MOVING'),
-    '09CAIRO211':
-        (r'''EG\nEGYPT'S 54''', u'''EG\nSUBJECT: EGYPT'S 54'''),
-    '09CAIRO1468':
-        (r'EG\nXXXXXXXXXXXX:', u'EG\nSUBJECT: XXXXXXXXXXXX:'),
-    '09BAKU687':
-        (ur'IR\nClassified By:', u'''IR
-SUBJECT: IRAN: NINJA BLACK BELT MASTER DETAILS USE OF
-MARTIAL ARTS CLUBS FOR REPRESSION; xxxxxxxxxxxx
-
-REF: a) BAKU 575
-
-Classified By:'''),
-    '08KYIV2414':
-        (ur'UP[ ]*\n1.', u'''UP
-SUBJECT: UKRAINE: FIRTASH MAKES HIS CASE TO THE USG
-REF: A. KYIV 2383 B. KYIV 2294
-
-1.
-'''),
-    '09CAIRO79':
-        (ur'EG\n\nClassified', u"""
-SUBJECT: GOE STRUGGLING TO ADDRESS POLICE BRUTALITY
-
-REF: A. 08 CAIRO 2431
-B. 08 CAIRO 2430
-C. 08 CAIRO 2260
-D. 08 CAIRO 783
-E. 07 CAIRO 3214
-F. 07 CAIRO 2845
-"""),
-    '09TRIPOLI63':
-        ('''LY
-
-CLASSIFIED BY:''', u'''LY
-
-SUBJECT: RISKY BUSINESS? AMERICAN CONSTRUCTION FIRM ENTERS JOINT VENTURE WITH GOL [8466936]
-
-CLASSIFIED BY:'''),
-    '06LIMA1452': ('''PE
-RUN-OFF''', '''PE
-SUBJECT: RUN-OFF'''),
-}
-
 def reference_id_from_filename(filename):
     """\
     Extracts the reference identifier from the provided filename.
@@ -235,33 +175,6 @@ def reference_id_from_html(html):
     raise ValueError("Cannot extract the cable's reference id")
 
 
-def fix_content(content, reference_id):
-    """\
-    Fixes some oddities of cables.
-
-    Some cables contain malformed content which is normalized here.
-
-    This function assumes that &#x000A; has been replaced by ``\n``,
-    and pilcrows, HTML links etc. have been removed (see `_clean_html`)
-
-    The (un)changed content is returned.
-
-    `content`
-        The text content of the cable
-    `reference_id`
-        The reference identifier of the cable.
-
-
-    >>> fix_content('\\nBLOGGERS MOVING', '09CAIRO544')
-    u'\\nSUBJECT: BLOGGERS MOVING'
-    >>> fix_content('\\nBLOGGERS MOVING', '09UNKNOWNID3122')
-    '\\nBLOGGERS MOVING'
-    """
-    if reference_id in _CABLE_FIXES:
-        pattern, repl = _CABLE_FIXES.get(reference_id)
-        content = re.sub(pattern, repl, content)
-    return content
-
 _CONTENT_PATTERN = re.compile(ur'(?:<code><pre>)(.+?)(?:</pre></code>)', re.DOTALL|re.UNICODE)
 
 def get_content_as_text(file_content, reference_id):
@@ -276,7 +189,7 @@ def get_content_as_text(file_content, reference_id):
     `reference_id`
         The reference identifier of the cable.
     """
-    return fix_content(_clean_html(_CONTENT_PATTERN.findall(file_content)[-1]), reference_id)
+    return _clean_html(_CONTENT_PATTERN.findall(file_content)[-1])
 
 
 def get_header_as_text(file_content, reference_id):
@@ -293,7 +206,7 @@ def get_header_as_text(file_content, reference_id):
         return ''
     else:
         raise ValueError('Unexpected <code><pre> sections: "%r"' % res)
-    return fix_content(_clean_html(content), reference_id)
+    return _clean_html(content)
 
 
 _LINK_PATTERN = re.compile(ur'<a[^>]*>', re.UNICODE)

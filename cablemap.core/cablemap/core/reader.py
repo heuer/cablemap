@@ -618,15 +618,13 @@ def parse_nondisclosure_deadline(content):
         return None
     p1, p2 = m.groups()
     if p1:
-        month, day, year = p1.split('/')
+        month, day, year = p1.split(u'/')
         if len(year) != 4:
             year = 2000 + int(year)
-        if len(month) != 2:
-            month = '0%s' % month
-        if len(day) != 2:
-            day = '0%s' % day
+        month = month.zfill(2)
+        day = day.zfill(2)
     else:
-        year, month, day = p2.split('/')
+        year, month, day = p2.split(u'/')
     return u'%s-%s-%s' % (year, month, day)
 
 

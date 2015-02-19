@@ -16,7 +16,6 @@ from __future__ import absolute_import, with_statement
 import os
 import re
 import csv
-import json
 import codecs
 import string
 from itertools import imap, chain
@@ -280,30 +279,6 @@ def reference_id_parts(reference_id):
         return m.groups()
     raise ValueError('Illegal reference identifier: "%s"' % reference_id)
 
-
-_SIGNERS = json.load(codecs.open(os.path.join(os.path.dirname(__file__), 'signers.json'), 'rb', 'utf-8'))
-def signer_name(sign, canonical_id, default=None):
-    """\
-    Returns the real name for the provided `sign`.
-
-    Returns `default` if the name cannot be found.
-
-    `sign`
-        The sign, i.e. ``CLINTON``.
-    `canonical_id`
-        Canonical cable identifier.
-    `default` 
-        The value which shoule be returned iff the sign cannot be found.
-    """
-    year, origin, _ = reference_id_parts(canonical_id)
-    origins = _SIGNERS.get(sign)
-    res = default
-    if origins:
-        tmp = origins.get(origin)
-        if isinstance(tmp, dict):
-            tmp = tmp.get(year, default)
-        res = tmp
-    return res
 
 _TAGS_SUBJECT = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'subject-tags.txt'), 'rb', 'utf-8')]
 _TAGS_ORG = [l.upper().rstrip() for l in codecs.open(os.path.join(os.path.dirname(__file__), 'organization-tags.txt'), 'rb', 'utf-8')]

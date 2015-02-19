@@ -85,6 +85,11 @@ class ICable(Interface):
 
     This attribute is read-only.
     """)
+    cabledrum_uri = Attribute("""\
+    Returns the cabledrum.net URI.
+
+    This attribute is read-only.
+    """)
     transmission_id = Attribute("""\
     The transmission identifier (a string) of the cable or ``None``.
 

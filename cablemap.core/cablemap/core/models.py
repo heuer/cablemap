@@ -200,6 +200,10 @@ class Cable(object):
     def plusd_uri(self):
         return u'http://www.wikileaks.org/plusd/cables/%s.html' % self.plusd_canonical_id
 
+    @property
+    def cabledrum_uri(self):
+        return u'http://www.cabledrum.net/cables/' + self.reference_id
+
     @cached_property
     def wl_uris(self):
         """\

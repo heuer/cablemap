@@ -1038,13 +1038,13 @@ def test_parse_classificationist():
         yield check, cable_id, expected, content, normalize
 
 
-def test_cable_classificationist():
+def test_cable_classified_by():
     def check(cable_id, expected, normalize):
         if not isinstance(expected, tuple):
             expected = (expected,)
         cable = cable_by_id(cable_id)
         ok_(cable, 'Cable "%s" not found' % cable_id)
-        eq_(expected, tuple(cable.classificationists))
+        eq_(expected, tuple(cable.classified_by))
     for testcase in _TEST_CABLES:
         if len(testcase) == 2:
             cable_id, expected = testcase

@@ -773,7 +773,7 @@ Classified By: Acting Pol/Econ Chief Alan Eyre
 Classified By: Economical and Political Chief Ike Reed; 
 reasons 1.4 (b) and (d) 
  '''),
-    (u'07KHARTOUM832', u'Roberto Powers', r''' 
+    (u'07KHARTOUM832', u'Roberto Powers', ur'''
 Classified By: CDA Roberto Powers a.y., Sea3on: Sectaons 9.Q (b+`ald$hd 
 )Q 
 Q,----/-Qswmmfrq 
@@ -1022,6 +1022,9 @@ _TEST_CABLES = (
     (u'07BAGHDAD1544', u'Steven R. Buckler'),
     (u'07BAGHDAD1632', u'Steven R. Buckler'),
     (u'02HARARE555', u'Aaron Tarver'),
+    (u'06BAGHDAD1021', u'Robert S. Ford'),
+    (u'06PRISTINA280', u'Philip S. Goldberg'),
+    (u'06SANSALVADOR849', u'Michael A. Butler'),
 )
 
 

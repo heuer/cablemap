@@ -773,7 +773,7 @@ Classified By: Acting Pol/Econ Chief Alan Eyre
 Classified By: Economical and Political Chief Ike Reed; 
 reasons 1.4 (b) and (d) 
  '''),
-    (u'07KHARTOUM832', u'Roberto Powers', ur'''
+    (u'07KHARTOUM832', u'Roberto Powers', r'''
 Classified By: CDA Roberto Powers a.y., Sea3on: Sectaons 9.Q (b+`ald$hd 
 )Q 
 Q,----/-Qswmmfrq 
@@ -1025,6 +1025,11 @@ _TEST_CABLES = (
     (u'06BAGHDAD1021', u'Robert S. Ford'),
     (u'06PRISTINA280', u'Philip S. Goldberg'),
     (u'06SANSALVADOR849', u'Michael A. Butler'),
+    (u'06SUVA123', u'Larry M. Dinger'),
+    (u'06AITTAIPEI1142', u'Michael R. Wheeler'),
+    (u'08BEIRUT471', u'Michele J. Sison'),
+    (u'08MOSCOW937', u'Eric T. Schultz'),
+    (u'02HANOI2951', u'Emi Yamauchi'),
 )
 
 
@@ -1043,19 +1048,16 @@ def test_parse_classified_by():
 
 
 def test_cable_classified_by():
-    def check(cable_id, expected, normalize):
+    def check(cable_id, expected):
         if not isinstance(expected, tuple):
             expected = (expected,)
         cable = cable_by_id(cable_id)
         ok_(cable, 'Cable "%s" not found' % cable_id)
         eq_(expected, tuple(cable.classified_by))
-    for testcase in _TEST_CABLES:
-        if len(testcase) == 2:
-            cable_id, expected = testcase
-            normalize = False
-        else:
-            cable_id, expected, normalize = testcase
-        yield check, cable_id, expected, normalize
+    for cable_id, expected in _TEST_CABLES:
+        if isinstance(expected, basestring):
+            expected = tuple(expected)
+        yield check, cable_id, expected
 
 
 if __name__ == '__main__':

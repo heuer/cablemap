@@ -1025,7 +1025,7 @@ _TEST_CABLES = (
 )
 
 
-def test_parse_classificationist():
+def test_parse_classified_by():
     def check(cable_id, expected, content, normalize):
         if not isinstance(expected, tuple):
             expected = (expected,)

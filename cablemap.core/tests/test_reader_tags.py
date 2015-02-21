@@ -13,6 +13,7 @@ Tests TAGs parsing.
 :license:      BSD license
 """
 from nose.tools import eq_
+from cablemap.core import cable_by_id
 from cablemap.core.reader import parse_tags
 
 _TEST_DATA = (
@@ -208,7 +209,7 @@ SUBJECT:''',
      [u'PREL', u'PGOV', u'CVIS', u'IT', u'ITALY NATIONAL ELECTIONS', u'ITALIAN POLITICS', u'IRAQI FREEDOM']),
     # No cable, just a collection of TAGs
     ('''TAGS: DOMESTIC POLITICS MASSMNUC KNNPMNUC MEETINGS WITH AMBASSADOR NEW ZEALAND ROOD JOHN CROS GERARD ZANU-PF COUNTRY CLEARANCE''',
-     [u'DOMESTIC POLITICS', u'MASS', 'MNUC', u'KNNP', u'MEETINGS WITH AMBASSADOR', u'NZ', u'ROOD, JOHN', u'CROS, GERARD', u'ZANU-PF', u'COUNTRY CLEARANCE']),
+     [u'DOMESTIC POLITICS', u'MASS', 'MNUC', u'KNNP', u'MEETINGS WITH AMBASSADOR', u'NEW ZEALAND', u'ROOD, JOHN', u'CROS, GERARD', u'ZANU-PF', u'COUNTRY CLEARANCE']),
     # 09LONDON2499
     ('''E.O. 12958: DECL: 09/22/2019 
 TAGS: PREL PGOV KPAL ETRD KNNP PARM SENV MARR MNUC
@@ -336,6 +337,7 @@ REF: (A) 2002 MILAN 14''',
    
 )
 
+
 def test_tags():
     def check(content, expected):
         eq_(expected, parse_tags(content))
@@ -352,7 +354,24 @@ def test_c14n_disabled():
     def check(content, expected):
         eq_(expected, parse_tags(content, canonicalize=False))
     for content, expected in _TEST_DATA_NO_C14N:
-        yield check, content, expected    
+        yield check, content, expected
+
+
+
+
+_TEST_DATA_BY_ID = (
+    (u'08BEIJING3662', [u'EFIN', u'ECON', u'EINV', u'PGOV', u'CH']),
+    (u'08BRASILIA703', [u'EAID', u'ECON', u'EFIN', u'EINV', u'PGOV', u'PREL', u'BR', u'IZ']),
+)
+
+
+def test_by_id():
+    def check(cable, expected):
+        eq_(expected, cable.tags)
+    for ref_id, expected in _TEST_DATA_BY_ID:
+        yield check, cable_by_id(ref_id), expected
+
+
 
 if __name__ == '__main__':
     import nose

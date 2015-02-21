@@ -712,6 +712,7 @@ _TEST_CABLES = (
     (u'TULL', u'96BANDARSERIBEGAWAN290', False),
     (u'BRADTKE', u'06ZAGREB1330', False),
     (u'RICCIARDONE', u'06CAIRO1885', False),
+    (u'FRANK', u'04ZAGREB1718', False),
 )
 
 

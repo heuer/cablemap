@@ -1034,17 +1034,17 @@ _TEST_CABLES = (
 
 
 def test_parse_classified_by():
-    def check(cable_id, expected, content, normalize):
+    def check(expected, content, normalize):
         if not isinstance(expected, tuple):
             expected = (expected,)
         eq_(expected, tuple(parse_classified_by(content, normalize)))
     for testcase in _TEST_DATA:
         if len(testcase) == 3:
-            cable_id, expected, content = testcase
+            expected, content = testcase
             normalize = False
         else:
-            cable_id, expected, content, normalize = testcase
-        yield check, cable_id, expected, content, normalize
+            expected, content, normalize = testcase
+        yield check, expected, content, normalize
 
 
 def test_cable_classified_by():

@@ -61,11 +61,6 @@ class ICable(Interface):
 
     This attribute is writable.
     """)
-    media_uris = Attribute("""\
-    Sets/returns an iterable of media IRIs which cover this cable.
-
-    This attribute is writable.
-    """)
     wl_uris = Attribute("""\
     Returns cable IRIs to WikiLeaks (mirrors) (a list).
 

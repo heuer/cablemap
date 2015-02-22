@@ -18,6 +18,7 @@ Changes
     return models.Recipient objects
   - models.Cable.references returns models.Reference objects
   - Cable.partial was renamed to Cable.is_partial
+  - Removed unnecessary hacks to parse redacted (HTML) cables
 * models.Cable.summary/reader.parse_summary does not convert newlines into 
   one whitespace character anymore
 * Added classification category information to ``interfaces.ICable``.
@@ -50,9 +51,6 @@ Changes
   identifier of the cable (which may be different from the cable's 
   reference_id property and which may not be a valid referenceable 
   WikiLeaks identifier anymore)
-* Added support to parse media IRIs to the reader module
-* Added media_uris property to models.Cable which gives information about
-  the media coverage
 * Cables which have a header but no content were interpreted wrong: The header
   was set to the ``models.Cable.content`` property and the ``models.Cable.header``
   property was an empty string. Fixed.

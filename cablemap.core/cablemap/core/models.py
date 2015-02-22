@@ -161,8 +161,6 @@ class Cable(object):
         self.created = None
         self.released = None
         self.classification = None
-        self.media_uris = []
-
 
     @property
     def canonical_id(self):

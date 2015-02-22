@@ -18,7 +18,7 @@ import re
 import csv
 import codecs
 import string
-from itertools import imap, chain
+from itertools import imap
 from StringIO import StringIO
 import gzip
 import urllib2
@@ -183,17 +183,12 @@ def rows_from_csv(filename, predicate=None, encoding='utf-8'):
     `encoding`
         The file encoding (``UTF-8`` by default).
     """
-    def format_creation_date(created):
-        date, time = created.split()
-        month, day, year, hour, minute = [x.zfill(2) for x in chain(date.split(u'/'), time.split(u':'))]
-        return u'%s-%s-%s %s:%s' % (year, month, day, hour, minute)
-
     pred = predicate or bool
     with open(filename, 'rb') as f:
         for row in _UnicodeReader(f, encoding=encoding, delimiter=',', quotechar='"', escapechar='\\'):
             ident, created, reference_id, origin, classification, references, header, body = row
             if row and pred(reference_id):
-                yield ident, format_creation_date(created), reference_id, origin, classification, references, header, body
+                yield ident, created, reference_id, origin, classification, references, header, body
 
 
 class _UTF8Recoder:

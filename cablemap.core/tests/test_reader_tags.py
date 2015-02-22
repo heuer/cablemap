@@ -310,7 +310,7 @@ SUBJECT: PARTNERS FOR PROGRESS - WORKING WITH VATICAN
 DEVELOPMENT AGENCIES 
  
 REF: 02 VATICAN 4217 ''',
-     [u'PREL', u'PHUM', u'PREF', u'PGOV', u'EAGR', u'EAID', u'ECON', u'SMIG', u'TBIO', u'VT']),
+     [u'PREL', u'PHUM', u'PREF', u'PGOV', u'EAGR', u'EAID', u'ECON', u'SMIG', u'TBIO']),
     # 02ROME3067
     (u'''E.O. 12958: DECL: X1, X5 
 TAGS: PREL, ETRD, ETTC, PARM, IT                          SECRET       PAGE 02        ROME  03067  211833Z 
@@ -333,7 +333,14 @@ REF: (A) 2002 MILAN 14''',
      [u'ECON', u'EFIN', u'IT']),
     # 05MANAMA429
     (u'TAGS: EAID, ECON, EINV, PREL, BA, TAGS: EFIN ',
-     [u'EAID', u'ECON', u'EINV', u'PREL', u'BA', u'EFIN']),
+     [u'EAID', u'ECON', u'EINV', u'PREL', u'BA', u'TAGS', u'EFIN']),
+    # 08USUNNEWYORK1092
+    (u'''E.O. 12958: N/A
+TAGS: PREL, UNGA/C-6
+SUBJECT: UNGA/C-6: UNGA,S SIXTH (LEGAL) COMMITTEE DISCUSSES
+THE NATIONALITY OF PERSONS
+ ''',
+    [u'PREL', u'UNGA/C-6']),
    
 )
 
@@ -350,6 +357,7 @@ SUBJECT: XXXX''',
      [u'AMEDCASCKFLO', u'TBIO', u'KSAF', u'KPAO', u'PREL', u'PINR', u'AMGT', u'TF', u'BR']),
 )
 
+
 def test_c14n_disabled():
     def check(content, expected):
         eq_(expected, parse_tags(content, canonicalize=False))
@@ -358,10 +366,15 @@ def test_c14n_disabled():
 
 
 
-
 _TEST_DATA_BY_ID = (
     (u'08BEIJING3662', [u'EFIN', u'ECON', u'EINV', u'PGOV', u'CH']),
     (u'08BRASILIA703', [u'EAID', u'ECON', u'EFIN', u'EINV', u'PGOV', u'PREL', u'BR', u'IZ']),
+    (u'07MOSCOW5208', [u'PREL', u'PGOV', u'MARR']),
+    (u'08TELAVIV1693', [u'OVIP', u'ROOD, JOHN', u'PREL', u'PTER', u'KNNP', u'MNUC', u'MCAP', u'KN', u'EG', u'UN', u'IS']),
+    (u'07KABUL173', [u'PGOV', u'PREL', u'KJUS', u'PTER', u'KCRM', u'AF']),
+    (u'06BRASILIA1193', [u'ETRD', u'ECON', u'KIPR', u'EINV', u'EPET', u'KTFN', u'BEXP', u'BR']),
+    (u'09ANKARA1783', [u'PTER', u'PREL', u'KCIP', u'OSCE', u'TU']),
+    (u'10PARIS159', [u'PREF', u'EAID', u'PHUM', u'CVIS', u'UN', u'FR', u'HA']),
 )
 
 

@@ -13,7 +13,6 @@ This module provides models to keep data about cables.
 :license:      BSD license
 """
 from __future__ import absolute_import
-import re
 import codecs
 from itertools import chain
 from operator import itemgetter
@@ -57,7 +56,6 @@ def cable_from_html(html, reference_id=None):
     return cable
 
 
-_cable_date_split = re.compile(ur'[/\-]').split
 def cable_from_row(row):
     """\
     Returns a cable from the provided row (a tuple/list).
@@ -74,7 +72,7 @@ def cable_from_row(row):
     """
     def format_creation_date(created):
         date, time = created.split()
-        month, day, year, hour, minute = [x.zfill(2) for x in chain(_cable_date_split(date), time.split(u':'))]
+        month, day, year, hour, minute = [x.zfill(2) for x in chain(date.split(u'/'), time.split(u':'))]
         return u'%s-%s-%s %s:%s' % (year, month, day, hour, minute)
     _, created, reference_id, origin, classification, _, header, body = row
     cable = Cable(reference_id)
@@ -97,28 +95,6 @@ _WL_CABLE_BASE_URIS = (
                 u'http://cablegate.wikileaks.org/cable/', # Does not work anymore
                 u'http://213.251.145.96/cable/' # Seems to work neither
                 )
-
-# Source: <https://github.com/mitsuhiko/werkzeug/blob/master/werkzeug/utils.py#L30>
-class cached_property(property):
-    """\
-    A decorator that converts a function into a lazy property.
-    """
-    _missing = object()
-
-    def __init__(self, func, name=None, doc=None):
-        self.__name__ = name or func.__name__
-        self.__module__ = func.__module__
-        self.__doc__ = doc or func.__doc__
-        self.func = func
-
-    def __get__(self, obj, type=None):
-        if obj is None:
-            return self
-        value = obj.__dict__.get(self.__name__, cached_property._missing)
-        if value is cached_property._missing:
-            value = self.func(obj)
-            obj.__dict__[self.__name__] = value
-        return value
 
 
 class Reference(tuple):
@@ -178,7 +154,7 @@ class Cable(object):
         """
         if not reference_id:
             raise ValueError('The reference id must be provided')
-        self.reference_id = unicode(reference_id) # Ensure Unicode
+        self.reference_id = unicode(reference_id)
         self.origin = None
         self.header = None
         self.content = None
@@ -188,7 +164,7 @@ class Cable(object):
         self.media_uris = []
 
 
-    @cached_property
+    @property
     def canonical_id(self):
         return c14n.canonicalize_id(self.reference_id)
 
@@ -204,7 +180,7 @@ class Cable(object):
     def cabledrum_uri(self):
         return u'http://www.cabledrum.net/cables/' + self.reference_id
 
-    @cached_property
+    @property
     def wl_uris(self):
         """\
         Returns cable IRIs to WikiLeaks (mirrors).
@@ -230,58 +206,58 @@ class Cable(object):
     #
     # Header properties
     #
-    @cached_property
+    @property
     def transmission_id(self):
         return reader.parse_transmission_id(self.header) if not self.is_partial else None
 
-    @cached_property
+    @property
     def recipients(self):
         return reader.parse_recipients(self.header, self.reference_id) if not self.is_partial else _EMPTY
 
-    @cached_property
+    @property
     def info_recipients(self):
         return reader.parse_info_recipients(self.header, self.reference_id)
 
-    @cached_property
+    @property
     def is_partial(self):
         return 'This record is a partial extract of the original cable' in self.header
 
     #
     # Content properties
     #
-    @cached_property
+    @property
     def subject(self):
         return reader.parse_subject(self.content, self.reference_id)
 
-    @cached_property
+    @property
     def classification_categories(self):
         return reader.parse_classification_categories(self.content)
 
-    @cached_property
+    @property
     def nondisclosure_deadline(self):
         return reader.parse_nondisclosure_deadline(self.content)
 
-    @cached_property
+    @property
     def references(self):
         return reader.parse_references(self.content, self.created[:4], self.reference_id)
 
-    @cached_property
+    @property
     def tags(self):
         return reader.parse_tags(self.content, self.reference_id)
 
-    @cached_property
+    @property
     def summary(self):
         return reader.parse_summary(self.content, self.reference_id)
 
-    @cached_property
+    @property
     def comment(self):
         return reader.parse_comment(self.content)
 
-    @cached_property
+    @property
     def signed_by(self):
         return reader.parse_signed_by(self.content)
 
-    @cached_property
+    @property
     def classified_by(self):
         return reader.parse_classified_by(self.content)
 

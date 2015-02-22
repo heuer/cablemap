@@ -27,11 +27,7 @@ _MAX_HEADER_IDX = 1200
 #
 # Cables w/o tags
 #
-_CABLES_WITHOUT_TAGS = (
-    '06KABUL3934', '08BEIJING3662', '09ROME878', '09ROME1048', '08ROME451',
-    '08ROME525', '04QUITO2502', '04QUITO2879', '05PANAMA1589', '06KABUL5653',
-    '07PANAMA400', '07PANAMA946', '01CAIRO5770', '08BRASILIA703', '10ASTANA267',
-    )
+_CABLES_WITHOUT_TAGS = ('04QUITO2502', '04QUITO2879',)
 
 _CABLES_WITHOUT_TO = (
     '08MONTERREY468', '09TIJUANA1116', '08STATE125686', '06WELLINGTON633',
@@ -465,6 +461,7 @@ def parse_signed_by(content, canonicalize=True):
     return [c14n.canonicalize_surname(s) for s in signers] if canonicalize else signers
 
 
+# Caution: _SUBJECT_PATTERN/_SUBJECT_MAX_PATTERN is reused by "parse_tags"
 _SUBJECT_PATTERN = re.compile(ur'(?:^|[ ]+)S?UBJ(?:ECT)?(?:(?::\s*)|(?::?\s+))(?!LINE[/]*)(.+?)(?:\Z|(C O N)|(SENSI?TIVE BUT)|([ ]+REFS?:[ ]+)|(\n[ ]*\n|[\s]*[\n][\s]*[\s]*REFS?:?\s)|(REF:\s)|(REF\(S\):?)|(\s*Classified\s)|([1-9]\.?[ ]+Classified By)|([1-9]\.?[ ]*\([^\)]+\))|((?:1\.?[ ]|\r?\n)Summary)|([A-Z]+\s+[0-9]+\s+[0-9]+\.?[0-9]*\s+OF)|(\-\-\-\-\-*\s+)|(Friday)|(PAGE [0-9]+)|(This is a?n Action Req))', re.DOTALL|re.IGNORECASE|re.UNICODE|re.MULTILINE)
 _SUBJECT_MAX_PATTERN = re.compile(r'^1\.?[ ]*(?:\([^\)]+\)|SUMMARY)|"CANCEL THIS', re.IGNORECASE|re.MULTILINE)
 _NL_PATTERN = re.compile(ur'[\r\n]+')
@@ -632,12 +629,34 @@ def parse_references(content, year, reference_id=None, canonicalize=True):
     return res
 
 
-# "Kaz" found in "10ASTANA267" "NOFORN" found in "08MADRID308"
-_TAGS_PATTERN = re.compile(r'(?<!Kaz)(?:TAGS|TAG|AGS:)(?!\n\nNOFORN)(?::\s*|\s+)(.+)', re.IGNORECASE|re.UNICODE)
-_TAGS_SUBJECT_PATTERN = re.compile(r'(SUBJECT:)', re.IGNORECASE|re.UNICODE)
+# "NOFORN" found in "08MADRID308", ^EFIN found in 08BEIJING3662 ("TAGS:" missing)
+_TAGS_PATTERN = re.compile(ur'(?<!\()(?:TAGE?S+|TAG|TAS:|TABS|TGS|AGS:|^(?=EFIN,))(?!\n\nNOFORN)(?:[:,;\s]*)(.+)', re.IGNORECASE|re.UNICODE|re.MULTILINE)
 _TAGS_CONT_PATTERN = re.compile(r'(?:\n)([a-zA-Z_-]+.+)', re.MULTILINE|re.UNICODE)
-_TAGS_CONT_NEXT_LINE_PATTERN = re.compile(r'\n[ ]*[A-Za-z_-]+[ ]*,', re.UNICODE)
-_TAG_PATTERN = re.compile(r'(GOI[ ]+EXTERNAL)|(GOI[ ]+INTERNAL)|(POLITICAL[ ]+PARTIES)|(MEDIA[ ]+REACTION)|(USEU[ ]+BRUSSELS)|(POLITICS[ ]+FOREIGN[ ]+POLICY)|(MILITARY[ ]+RELATIONS)|(ISRAEL[ ]+RELATIONS)|(COUNTRY[ ]+CLEARANCE)|(CROS[ ]+GERARD)|(ROOD[ ]+JOHN)|(NEW[ ]+ZEALAND)|(MEETINGS[ ]+WITH[ ]+AMBASSADOR)|(DOMESTIC[ ]+POLITICS)|(ITALIAN[ ]+POLITICS)|(ITALY[ ]+NATIONAL[ ]+ELECTIONS)|(IRAQI[ ]+FREEDOM)|(ECONOMY[ ]+AND[ ]+FINANCE)|(GLOBAL[ ]+DEFENSE)|(NOVO[ ]+GUILLERMO)|(REMON[ ]+PEDRO)|(JIMENEZ[ ]+GASPAR)|(CONSULAR[ ]+AFFAIRS)|(ECONOMIC[ ]+AFFAIRS)|(HUMAN[ ]+RIGHTS)|(BUSH[ ]+GEORGE)|(CARSON[ ]+JOHNNIE)|(ZOELLICK[ ]+ROBERT)|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)|([A-Za-z_-]+)|(\([^\)]+\))|(?:,[ ]+)([A-Za-z_-]+[ ][A-Za-z_-]+)', re.UNICODE|re.MULTILINE)
+_TAGS_CLEANUP_PATTERN = re.compile(ur'\s{5,}[^\n]+|(?:[,\s]+(?:(?:UN)CLASSIFIED|SECRET|PAGE|SUBJECT|E\.\s+O\.)[^\n]+)')
+_TAGS_CONT_NEXT_LINE_PATTERN = re.compile(ur'[ ]*\n[ ]*[A-Za-z_-]+[ ]*,')
+_TAG_PATTERN = re.compile(ur'(GOI[ ]+(?:EX|IN)TERNAL)'
+                          ur'|(POLITICAL[ ]+PARTIES)'
+                          ur'|(USEU[ ]+BRUSSELS)|(POLITICS[ ]+FOREIGN[ ]+POLICY)'
+                          ur'|(MILITARY[ ]+RELATIONS)|(ISRAEL[ ]+RELATIONS)'
+                          ur'|(COUNTRY\s+CLEARANCE)|(CROS[ ]+GERARD)'
+                          ur'|(FOREIGN\s+\w+)|(MEDIA\s+REACTION\s+REPORT)'
+                          ur'|(ROOD[ ]+JOHN)|(NEW[ ]+ZEALAND)'
+                          ur'|(TIP\s+IN\s+\w+)'
+                          ur'|(MEETINGS[ ]+WITH[ ]+\w+)'
+                          ur'|(DOMESTIC[ ]+POLITICS)|(ITALIAN[ ]+POLITICS)'
+                          ur'|(ITALY[ ]+NATIONAL[ ]+ELECTIONS)|(IRAQI[ ]+FREEDOM)'
+                          ur'|(GLOBAL[ ]+DEFENSE)'
+                          ur'|(NOVO[ ]+GUILLERMO)|(REMON[ ]+PEDRO)'
+                          ur'|(JIMENEZ[ ]+GASPAR)|(CONSULAR[ ]+AFFAIRS)'
+                          ur'|(ECONOMIC[ ]+AFFAIRS)|(HUMAN[ ]+RIGHTS)'
+                          ur'|(BUSH[ ]+GEORGE)|(CARSON[ ]+JOHNNIE)|(ZOELLICK[ ]+ROBERT)'
+                          ur'|(GAZA[ ]+DISENGAGEMENT)|(ISRAELI[ ]+PALESTINIAN[ ]+AFFAIRS)'
+                          ur'|(COUNTER[ ]+TERRORISM)|(CLINTON[ ]+HILLARY)'
+                          ur'|(STEINBERG[ ]+JAMES)|(BIDEN[ ]+JOSEPH)|(RICE[ ]+CONDOLEEZZA)'
+                          ur'|(\w+\s+AND\s+\w+)'
+                          ur'|([A-Z_]+(?:[\-\w/]+)*)'
+                          ur'|(\([^\)]+\))'
+                          ur'|(?:,[ ]+)([A-Z_-]+[\-\s]{1,3}[A-Z_-]+(?:\s{1,2}[A-Z]+)?)', re.UNICODE|re.IGNORECASE)
 
 # Used to normalize the TAG (corrects typos etc.)
 _TAG_FIXES = {
@@ -647,7 +666,7 @@ _TAG_FIXES = {
     u'ZOELLICK ROBERT': (u'ZOELLICK, ROBERT',),
     u'RICE CONDOLEEZZA': (u'RICE, CONDOLEEZZA',),
     u'CARSON JOHNNIE': (u'CARSON, JOHNNIE',),
-    u'BUSH GEORGE': (u'BUSH, GEORGE',),
+    u'BUSH GEORGE': (u'BUSH, GEORGE W.',),
     u'ROOD JOHN': (u'ROOD, JOHN',),
     u'CROS GERARD': (u'CROS, GERARD',),
     u'NOVO GUILLERMO': (u'NOVO, GUILLERMO',),
@@ -730,34 +749,33 @@ def parse_tags(content, reference_id=None, canonicalize=True):
         ``False`` indicates that the TAGs should be returned as found in
         cable.
     """
-    m = _TAGS_PATTERN.search(content)
+    max_idx = _MAX_HEADER_IDX
+    m = _SUBJECT_MAX_PATTERN.search(content)
+    if m:
+        max_idx = m.start()
+    m = _SUBJECT_PATTERN.search(content, 0, max_idx)
+    if m:
+        max_idx = min(max_idx, m.start())
+    m = _TAGS_PATTERN.search(content, 0, max_idx)
     if not m:
         if reference_id not in _CABLES_WITHOUT_TAGS:
             logger.debug('No TAGS found in cable ID "%r", content: "%s"' % (reference_id, content))
         return []
-    tags = m.group(1)
+    tags = _TAGS_CLEANUP_PATTERN.sub(u' ', m.group(1))
     min_idx = m.end()
-    max_idx = _MAX_HEADER_IDX
-    msubj = _TAGS_SUBJECT_PATTERN.search(content)
-    if msubj:
-        max_idx = min(max_idx, msubj.start())
-        m = _TAGS_PATTERN.search(content, 0, max_idx)
-        if m:
-            tags = m.group(1)
-    m2 = None
     if tags.endswith(',') or tags.endswith(', ') or _TAGS_CONT_NEXT_LINE_PATTERN.match(content, min_idx, max_idx):
         m2 = _TAGS_CONT_PATTERN.match(content, m.end(), max_idx)
-    if m2:
-        tags = u' '.join([tags, m2.group(1)])
+        if m2:
+            tags = re.sub(ur'\s+', u' ', u' '.join([tags, _TAGS_CLEANUP_PATTERN.sub(u' ', m2.group(1))]))
     res = []
     if not canonicalize:
         return [u''.join(tag).upper() for tag in _TAG_PATTERN.findall(tags) if tag]
     for t in _TAG_PATTERN.findall(tags):
         tag = u''.join(t).upper().replace(u')', u'').replace(u'(', u'')
-        if tag == u'SIPDIS': # Found in 05OTTAWA3726 and 05OTTAWA3709. I think it's an error
+        if tag == u'SIPDIS':  # Found in 05OTTAWA3726 and 05OTTAWA3709. I think it's an error
             continue
         for tag in _TAG_FIXES.get(tag, (tag,)):
-            if tag == u'ECONSOCIXR': # 08BRASILIA1504
+            if tag == u'ECONSOCIXR':  # 08BRASILIA1504
                 for tag in _TAG_FIXES[tag]:
                     if not tag in res:
                         res.append(tag)

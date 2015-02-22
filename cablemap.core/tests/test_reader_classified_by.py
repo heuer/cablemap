@@ -1030,6 +1030,9 @@ _TEST_CABLES = (
     (u'08BEIRUT471', u'Michele J. Sison'),
     (u'08MOSCOW937', u'Eric T. Schultz'),
     (u'02HANOI2951', u'Emi Yamauchi'),
+    (u'08ROME525', u'TOM DELARE'),
+    (u'01HARARE1632', u'EARL M. IRVING'),
+    (u'06DUBAI5421', u'Timothy M. Brys'),
 )
 
 
@@ -1040,10 +1043,10 @@ def test_parse_classified_by():
         eq_(expected, tuple(parse_classified_by(content, normalize)))
     for testcase in _TEST_DATA:
         if len(testcase) == 3:
-            expected, content = testcase
+            ref_id, expected, content = testcase
             normalize = False
         else:
-            expected, content, normalize = testcase
+            ref_id, expected, content, normalize = testcase
         yield check, expected, content, normalize
 
 

@@ -1030,8 +1030,8 @@ _TEST_CABLES = (
     (u'08BEIRUT471', u'Michele J. Sison'),
     (u'08MOSCOW937', u'Eric T. Schultz'),
     (u'02HANOI2951', u'Emi Yamauchi'),
-    (u'08ROME525', u'TOM DELARE'),
-    (u'01HARARE1632', u'EARL M. IRVING'),
+    (u'08ROME525', u'Tom Delare',),
+    (u'01HARARE1632', u'Earl M. Irving'),
     (u'06DUBAI5421', u'Timothy M. Brys'),
 )
 
@@ -1058,8 +1058,6 @@ def test_cable_classified_by():
         ok_(cable, 'Cable "%s" not found' % cable_id)
         eq_(expected, tuple(cable.classified_by))
     for cable_id, expected in _TEST_CABLES:
-        if isinstance(expected, basestring):
-            expected = tuple(expected)
         yield check, cable_id, expected
 
 

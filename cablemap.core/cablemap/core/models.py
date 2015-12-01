@@ -129,15 +129,15 @@ class Recipient(tuple):
 
     route = property(itemgetter(0))
     name = property(itemgetter(1))
-    excluded = property(itemgetter(2))
+    excluded = property(itemgetter(4))
     # 5 FAH-1 H-221: FLASH, NIACT IMMEDIATE, IMMEDIATE, PRIORITY, ROUTINE
-    precedence = property(itemgetter(3))
+    precedence = property(itemgetter(2))
     # 5 FAH-2 H-321.7, 5 FAH-2 H-321.8
     # Message continuity number (MCN). An MCN is a
     # consecutive number from a series dedicated to each Department of State
     # activity. You assign an MCN to the Department activity on each telegram
     # sent to them, action or info
-    mcn = property(itemgetter(4))
+    mcn = property(itemgetter(3))
 
 
 class Cable(object):
